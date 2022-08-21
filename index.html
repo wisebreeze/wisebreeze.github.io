@@ -13,14 +13,42 @@
       }
       /* 顶栏 */
       .top_header ul{
-        height: auto;
+        width: auto;
         list-style-type: none;
         white-space:nowrap;
         overflow: hidden;
-        top: 0;
         margin-left: 5%;
         padding: 0;
       }
+      .top_header li {
+        float:left;
+        margin-right:2%;
+        position: relative;
+        overflow: hidden;
+      }
+      .top_header li a{
+        display: block;
+        color:#d3d3d3;
+        text-align: center;
+        padding: 3px;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .top_header li a:hover{
+        background-color: #98c8ff;
+      }
+      body{
+        background:#ffffff;
+      }
     </style>
+    <body>
+      <div class="top_header">
+        <center>
+          <ul>
+            <li><a href="#">我的世界基岩版 Json-UI教程</a></li>
+          </ul>
+        </center>
+      </div>
+    </body>
   </head>
 </html>
