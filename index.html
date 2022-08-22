@@ -50,14 +50,21 @@
         background:#ffffff;
       }
     </style>
+    <script>
+      function to_top(){
+        window.scrollBy(0,-10);
+        scroll_delay=setTimeout('pageScroll()',100);
+        if(document.documentElement.scrollTop==0)clearTimeout(scroll_delay);
+      }
+    </script>
     <body>
       <div class="top_header">
         <ul>
           <li><a href="MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
         </ul>
       </div>
-      <div style="position: fixed;bottom: 5px;right: 5px;">
-        <button>返回顶部</button>
+      <div style="position: fixed;bottom: 3%;right: 3%;">
+        <a href="to_top();">返回顶部</a>
       </div>
     </body>
   </head>
