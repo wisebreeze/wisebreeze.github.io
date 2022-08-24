@@ -1,79 +1,116 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+
+<head>
+    <meta charset="UTF-8">
     <title>我的世界基岩版 Json-UI教程</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="apple-mobile-web-app-title", content="Json-UI教程">
-    <meta name="apple-mobile-web-app-capable", content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style", content="black">
-    <meta name="apple-touch-fullscreen", content="yes">
-    <style type="text/css">
-      /* 顶栏 */
-      .top_header{
-        height: auto;
-        width:105%;
-        margin-left: -5%;
-        background:rgb(227,227,227);
-        position: fixed;
-        top: 0;
-        margin-bottom: 5px;
-      }
-      /* 顶栏内容 */
-      .top_header ul{
-        width: auto;
-        list-style-type: none;
-        white-space:nowrap;
-        overflow: hidden;
-        margin-left: 5%;
-        padding: 0;
-      }
-      .top_header li {
-        float:left;
-        margin-right:2%;
-        position: relative;
-        overflow: hidden;
-      }
-      .top_header li a{
-        display: block;
-        color:#000000;
-        font-family: 微软雅黑;
-        text-align: center;
-        padding: 3px;
-        font-weight: bold;
-        overflow: hidden;
-        text-decoration: none;
-      }
-      .top_header li a:hover{
-        color: #656565;
-      }
-      /* 其他 */
-      .to_top{
-        background-color: rgba(255,255,255,0.5);
-        border-style: solid;
-        border-width: 1px;
-        border-color: rgb(0,0,0);
-        border-radius: 6px;
-      }
-      body{
-        background:#ffffff;
-      }
-    </style>
-    <script>
-      function to_top(){
-        window.scrollBy(0,-10);
-        scroll_delay=setTimeout('pageScroll()',100);
-        if(document.documentElement.scrollTop==0)clearTimeout(scroll_delay);
-      }
-    </script>
-    <body>
-      <div class="top_header">
+    <link rel="shortcut icon" href="web_icon.png">
+    <link rel="icon" sizes="100x100" href="web_icon.png">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="web_icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <link href="src/css/hl.css" rel="stylesheet">
+    <script src="src/js/hl.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="src/js/main.js"></script>
+    <link href="src/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="top_header">
         <ul>
-          <li><a href="MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+            <li>
+              <div>
+                <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+                <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+              </div>
+            </li>
+            <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
         </ul>
-      </div>
-      <div style="position: fixed;bottom: 3%;right: 3%;">
-        <button class="to_top" type="button" onclick="to_top();">返回顶部</button>
-      </div>
-    </body>
-  </head>
+    </div>
+    <!--目录-->
+    <div id="sideBar" class="sidenav">
+        <div style="overflow-y:scroll;">
+            <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
+            <hr style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+            <a class="sidenav-button" href="#test">test</a>
+        </div>
+        <div style="top: 8px;">
+            <a class="follow" href="https://space.bilibili.com/494279926">关注作者</a>
+        </div>
+    </div>
+    <!--目录-->
+    <!--正文-->
+    <div style="padding-top: 40px;">
+        <!--代码框-->
+        <ul style="list-style-type: none;padding: 1px 10px;background: #f8f9fa;border-radius: 8px;">
+            <li>
+                <div style="width: 100%;">
+                    <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
+                    <button class="copy-btn" onclick="copy_code('cid_1')" style="float: right;color: #424242;">
+                        <ul style="list-style-type: none;padding: 0;margin:0;overflow:hidden;">
+                            <li style="float: left;">复制</li>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 25 25" wdith="22" height="22" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </ul>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <pre><code id="cid_1" class="json"><ul><li>"panel": {</li><li>  "type": "panel"</li><li>}</li></ul></code></pre>
+            </li>
+        </ul>
+        <!--提示-->
+        <div class="tip">
+            <div class="tip-text">
+                <h2>aaa</h2>
+            </div>
+        </div>
+        <!--面板-->
+        <br><div class="panel"><h2>aaaaa</h2></div>
+        <!--标题-->
+        <br><span class="title">aaaaaa</span>
+        <hr class="title-hr"></hr>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p id="test">aaaa</p>
+    </div>
+    <!--正文-->
+    <div style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
+        <button class="to_top" type="button" onclick="to_top();">
+            <div style="text-align: center;">
+                <span style="color: #619dff;font-size: 20px;">▲</span><br>
+                返回顶部
+            </div>
+        </button>
+    </div>
+</body>
+
 </html>
