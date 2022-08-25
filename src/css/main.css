@@ -69,7 +69,6 @@
     -khtml-user-select: none;
     user-select: none;
     height: calc(100% - 60px);
-    ;
     width: 0;
     position: fixed;
     z-index: 1;
@@ -83,6 +82,7 @@
 .sidenav-button {
     padding: 5px 5px 8px 8px;
     margin-left: 6px;
+    margin-right: 6px;
     text-decoration: none;
     font-size: 15px;
     color: #4d4d4d;
