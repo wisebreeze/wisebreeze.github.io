@@ -20,13 +20,15 @@
     <script src="https://mcspruce.github.io/src/js/hl.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
+    <link href="https://mcspruce.github.io/src/css/animate.css" rel="stylesheet">
+
     <script src="https://mcspruce.github.io/src/js/main.js"></script>
     <link href="https://mcspruce.github.io/src/css/main.css" rel="stylesheet">
 </head>
 <body>
     <div class="top_header">
         <ul>
-            <li>
+            <li class="wow rollIn">
               <div>
                 <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
                 <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
@@ -40,77 +42,80 @@
         <div style="overflow-y:scroll;">
             <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
             <hr style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
-            <a class="sidenav-button" href="#test">test</a>
+            <a class="sidenav-button" href="#p1">序言</a>
+            <a class="sidenav-button" href="#p2">调查问卷</a>
+            <a class="sidenav-button" href="#p3">目录</a>
         </div>
         <div style="top: 8px;">
-            <a class="follow" href="https://space.bilibili.com/494279926">关注作者</a>
+            <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
         </div>
     </div>
     <!--目录-->
     <!--正文-->
     <div style="padding-top: 60px;">
-        <!--代码框-->
-        <ul style="list-style-type: none;padding: 1px 10px;background: #f8f9fa;border-radius: 8px;">
-            <li>
-                <div style="width: 100%;">
-                    <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
-                    <button class="copy-btn" onclick="copy_code('cid_1')" style="float: right;color: #424242;">
-                        <ul style="list-style-type: none;padding: 0;margin:0;overflow:hidden;">
-                            <li style="float: left;">复制</li>
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 25 25" wdith="22" height="22" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                        </ul>
-                    </button>
-                </div>
-            </li>
-            <li>
-                <pre><code id="cid_1" class="json"><ul><li>"panel": {</li><li>  "type": "panel"</li><li>}</li></ul></code></pre>
-            </li>
-        </ul>
-        <!--提示-->
-        <div class="tip">
+        <div class="tip wow bounceInLeft" data-wow-delay="0.8s">
             <div class="tip-text">
-                <h2>aaa</h2>
+                <span style="font-weight: bold;font-size: large;">提示</span>
+                <ul style="margin-top: 3px;margin-bottom: 3px;padding-left: -1px;">
+                    <li><span style="font-size: medium;">本教程仅适用于Minecraft基岩版</span></li>
+                    <li><span style="font-size: medium;font-weight: bold;">文章持续更新，建议<span style="color: #ffc038;">收藏</span></span></li>
+                    <li><span style="font-size: medium;">文档的内容难免会些<span style="color: #f70000;">错误</span>，你可以告诉作者进行纠正</span></li>
+                </ul>
             </div>
         </div>
-        <!--面板-->
-        <br><div class="panel"><h2>aaaaa</h2></div>
-        <!--标题-->
-        <br><span class="title">aaaaaa</span>
-        <hr class="title-hr"></hr>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p id="test">aaaa</p>
+        <!--标题1-->
+        <br><div id="p1" class="title wow fadeInLeftBig" data-wow-delay="1.5s">序言</div>
+        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+        <div class="wow bounceInUp" data-wow-delay="1.8s">这个文档是为了方便创作者更好地为创作MCBE UI资源，您可以使用本文档的内容来制作您的UI
+        <br><br>文档作者：MC_spruce
+        <br>B站主页：<a href="https://b23.tv/FFwBDKM" style="color: #0059e9;text-decoration: none;">Minecraft_spruce的个人空间</a></div>
+        <!--标题2-->
+        <br><div id="p2" class="title wow fadeInLeftBig" data-wow-delay="1.5s">调查问卷</div>
+        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+        <div class="wow bounceInUp" data-wow-delay="1.8s">为了更好地提供MCBE json UI教程，请问是否能占用您的一些时间（不会太多）来填写问卷呢？
+        <br><span style="font-size: 12px;">你可以随时填写问卷，因为问卷没有到期限制！</span>
+        <br><br><a href="https://shimo.im/forms/m4kMLLBMyLTQNEqD/fill?channel=bilibili" style="color: #fcfcfc;text-decoration: none;background: #0f7fff;padding: 3px;border-radius: 4px;">点我填写问卷</a></div>
+        <!--标题3-->
+        <br><style>
+            .list-link{
+                color: #0059e9;
+                text-decoration: none;
+            }
+            .list-link:hover{
+                color: #003da0;
+            }
+        </style>
+        <div id="p3" class="title wow fadeInLeftBig" data-wow-delay="1.5s">目录</div>
+        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+        <div class="wow bounceInUp" data-wow-delay="1.8s">* 点击蓝字阅读文章
+            <br>* 黑色字代表文章未完成或未编写！
+            <br><br><span style="font-weight: bold;background-color: rgb(51, 255, 153);padding: 2px 35% 2px 2px;border-radius: 6px;color: #1d1d1d;">入门</span>
+            <br>准备开发环境
+            <br>JSON基础语法
+            <br><br><span style="font-weight: bold;background-color: rgb(198, 98, 255);padding: 2px 35% 2px 2px;border-radius: 6px;color: #1d1d1d;">文档</span>
+            <br>图片控件
+            <br>按钮控件
+            <br>继承变量
+            <br>引用
+            <br>绑定
+            <br>动画
+            <br><br><span style="font-weight: bold;background-color: rgb(255, 200, 128);padding: 2px 35% 2px 2px;border-radius: 6px;color: #1d1d1d;">教程</span>
+            <br>修改界面背景
+            <br>伪高斯模糊
+            <br>查看所有交易物品
+        </div>
     </div>
     <!--正文-->
     <div style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
         <button class="to_top" type="button" onclick="to_top();">
             <div style="text-align: center;">
                 <span style="color: #619dff;font-size: 20px;">▲</span><br>
-                返回顶部
+                回顶部
             </div>
         </button>
     </div>
+    <script src="https://mcspruce.github.io/src/js/WOW.js"></script>
+    <script>new WOW().init();</script>
 </body>
 
 </html>
