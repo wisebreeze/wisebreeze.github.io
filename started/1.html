@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>准备开发环境</title>
+  <link rel="shortcut icon" href="https://mcspruce.github.io/web_icon.png">
+  <link rel="icon" sizes="100x100" href="https://mcspruce.github.io/web_icon.png">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="https://mcspruce.github.io/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="https://mcspruce.github.io/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="https://mcspruce.github.io/web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+
+  <link href="https://mcspruce.github.io/src/css/hl.css" rel="stylesheet">
+  <script src="https://mcspruce.github.io/src/js/hl.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link href="https://mcspruce.github.io/src/css/animate.css" rel="stylesheet">
+
+  <script src="https://mcspruce.github.io/src/js/main.js"></script>
+  <link href="https://mcspruce.github.io/src/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="top_header">
+    <ul>
+      <li class="wow rollIn">
+        <div>
+          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+        </div>
+      </li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+    </ul>
+  </div>
+  <!--目录-->
+  <div id="sideBar" class="sidenav">
+    <div style="overflow-y:scroll;">
+      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
+      <hr
+        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+      <a class="sidenav-button" href="#p1">准备</a>
+      <a class="sidenav-button" href="#p2">了解MC存档路径</a>
+      <a class="sidenav-button" href="#p3">目录</a>
+    </div>
+    <div style="top: 8px;">
+      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
+    </div>
+  </div>
+  <!--目录-->
+  <!--正文-->
+  <div style="padding-top: 60px;">
+    <br><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">准备开发环境</span>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <a class="home-btn wow bounceInUp" data-wow-delay="0.5s" href="https://MCspruce.github.io">返回目录</a>
+    <br><br>
+    <br><div id="p1" class="title wow fadeInLeftBig" data-wow-delay="0.8s">准备</div>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.8s"></hr>
+    <br><div class="wow bounceInUp" data-wow-delay="0.8s">如果你刚刚认识UI，你编写UI至少需要一个<b>代码编辑软件</b>!
+    <br><span style="background: #ffd446;font-size: 15px;">（作者与以下编辑软件无任何推广，纯属个人推荐）</span>
+    <br><div class="panel" style="padding: 3px 3px 8px 3px;"><li style="margin-bottom: -10px;"><a class="list-link" href="https://visualstudio.microsoft.com/zh-hans">Visual Studio Code(网站/Windows/Mac/Linux)</a></li>
+    <br><li style="margin-bottom: -10px;"><a class="list-link" href="https://binmt.lanzoui.com/b01bivkzc">MT管理器(Android/鸿蒙)</a></li>
+    <br><li style="margin-bottom: -10px;"><a class="list-link" href="https://apps.apple.com/us/app/kodex/id1038574481">Kodex(iOS/ipadOS)</a></li></div>
+    <b style="color: #ff0000;">[以上蓝字可点击]</b>
+    <br><br>因为UI是依靠原版资源包的基础上修改的，所以还需要下载原版资源包进一步修改
+    <br><span style="font-size: 20px;color: #003da0;">原版资源包(包含UI文件)</span>
+    <br><b>正式版</b> <a class="list-link" href="https://aka.ms/resourcepacktemplate">点我下载</a>
+    <br><b>测试版/预览版</b> <a class="list-link" href="https://aka.ms/MinecraftBetaResources">点我下载</a>
+    </div>
+    <br>
+    <div id="p2" class="title wow fadeInLeftBig" data-wow-delay="0.8s">了解MC存档路径</div>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.8s"></hr>
+    <br><div class="wow bounceInUp" data-wow-delay="0.8s">Windows：C:\Users\USERNAME\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang
+    <br>Android/鸿蒙：
+    <br>  （1.17或1.17以前）<span style="font-size: 13px;">games/com.mojang</span>
+    <br>  （1.18或1.18以后）Android/data/com.mojang.minecraftpe/files/games/com.mojang
+    <br>IOS/IPadOS：我的xxx/Minecraft/games/com.mojang</div>
+    ## manifest.json
+    
+    这个文件用于被Minecraft识别，必须存放在
+    
+    UI包的根目录
+    
+    文件示例（UUID自己生成）：
+    
+    ```json
+    {
+    // 支持1.12或以下版本填1，否则填2（建议填"1"
+    "format_version": 2,
+    "header": {
+    "name": "资源包名字",
+    "description": "资源包描述",
+    // UUID
+    "uuid": "",
+    // 资源包版本
+    "version": [1,0,0]
+    },
+    "modules": [
+    {
+    "type": "resources",
+    // 资源包版本
+    "version": [1,0,0],
+    // 这里的uuid不要与上方一致
+    "uuid": ""
+    }
+    ]
+    }
+    ```
+  </div>
+  <!--正文-->
+  <div style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
+    <button class="to_top" type="button" onclick="to_top();">
+      <div style="text-align: center;">
+        <span style="color: #619dff;font-size: 20px;">▲</span><br>
+        回顶部
+      </div>
+    </button>
+  </div>
+  <script src="https://mcspruce.github.io/src/js/WOW.js"></script>
+  <script>new WOW().init();</script>
+</body>
+
+</html>

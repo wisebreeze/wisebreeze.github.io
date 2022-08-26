@@ -127,6 +127,35 @@
 }
 
 /* 排版 */
+.top-title {
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 35px;
+}
+
+.list-link {
+    color: #0059e9;
+    text-decoration: none;
+}
+
+.list-link:hover {
+    color: #003da0;
+}
+
+.home-btn {
+    text-decoration: none;
+    background: #4f93ff;
+    color: aliceblue;
+    padding: 3px 8px 3px 8px;
+    border: #5246ff solid 1px;
+    border-radius: 5px;
+    bottom: 3px;
+}
+
+.home-btn:hover {
+    background: #0062ff;
+}
+
 .tip {
     border-left: #415dff solid 3px;
     background: rgb(228, 228, 228);
