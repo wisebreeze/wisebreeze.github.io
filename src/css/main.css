@@ -4,6 +4,7 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     -khtml-user-select: none;
+    z-index: 114514;
     user-select: none;
     height: 60px;
     width: 105%;
@@ -71,7 +72,7 @@
     height: calc(100% - 60px);
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 114514;
     bottom: 0;
     left: 0;
     background-color: rgb(236, 236, 236);
