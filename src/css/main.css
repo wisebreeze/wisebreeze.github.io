@@ -222,6 +222,45 @@
     background: #5d90ff;
 }
 
+/* 表格 */
+table {
+    border-collapse: collapse;
+}
+
+table caption {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+th, td {
+    border: 1px solid rgb(95, 95, 95);
+    text-align: center;
+    padding: 20px 0;
+}
+
+table thead tr {
+    background: #0a9dff;
+    color: #fff;
+}
+
+table tbody tr:nth-child(odd) {
+    background: rgb(230, 230, 230);
+}
+
+table tbody tr:hover {
+    background: rgb(202, 202, 202);
+}
+
+table tbody tr td:first-child {
+    background: rgb(255, 255, 255);
+}
+
+table tbody tr td {
+    text-align: right;
+    padding-right: 20px;
+}
+
 /* 其他 */
 .to_top {
     -moz-user-select: none;
