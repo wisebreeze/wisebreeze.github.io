@@ -236,7 +236,7 @@ table caption {
 th, td {
     border: 1px solid rgb(95, 95, 95);
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 table thead tr {
@@ -250,15 +250,6 @@ table tbody tr:nth-child(odd) {
 
 table tbody tr:hover {
     background: rgb(202, 202, 202);
-}
-
-table tbody tr td:first-child {
-    background: rgb(255, 255, 255);
-}
-
-table tbody tr td {
-    text-align: right;
-    padding-right: 20px;
 }
 
 /* 其他 */
