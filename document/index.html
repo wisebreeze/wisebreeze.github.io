@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>控件常用属性</title>
+  <link rel="shortcut icon" href="file:///storage/emulated/0/网站/web_icon.png">
+  <link rel="icon" sizes="100x100" href="file:///storage/emulated/0/网站/web_icon.png">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="file:///storage/emulated/0/网站/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="file:///storage/emulated/0/网站/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="file:///storage/emulated/0/网站/web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  
+  <link href="file:///storage/emulated/0/网站/src/css/main.css" rel="stylesheet">
+  <div class="top_header">
+    <ul>
+      <li class="wow rollIn">
+        <div>
+          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+        </div>
+      </li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+    </ul>
+  </div>
+</head>
+
+<body id="root" data-theme="light">
+  <!--目录-->
+  <div id="sideBar" class="sidenav">
+    <div style="overflow-y:scroll;">
+      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
+      <hr
+        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+      <a class="sidenav-button" href="#p1">认识按钮</a>
+      <a class="sidenav-button" href="#p2">定义按钮属性</a>
+      <a class="sidenav-button" href="#p3">按钮映射</a>
+      <a class="sidenav-button" href="#p4">超链接按钮</a>
+      <a class="sidenav-button" href="#p5">更改按钮外观</a>
+      <a class="sidenav-button" href="#p6">使按钮跟随鼠标指针</a>
+      <a class="sidenav-button" href="#p7">焦点</a>
+      <a class="sidenav-button" href="#p8">其他属性</a>
+      <a class="sidenav-button" href="#p9">代码示例</a>
+    </div>
+    <div style="top: 8px;">
+      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
+    </div>
+  </div>
+  <!--目录-->
+  <!--正文-->
+  <div style="padding-top: 60px;">
+    <br><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">控件常用属性</span>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <a class="home-btn wow bounceInUp" data-wow-delay="0.5s" href="javascript:history.back();">返回目录</a>
+  </div>
+  <!--正文-->
+  <div style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
+    <button class="to_top" type="button" onclick="to_top();">
+      <div style="text-align: center;">
+        <span style="color: #619dff;font-size: 20px;">▲</span><br>
+        回顶部
+      </div>
+    </button>
+  </div>
+  <link href="file:///storage/emulated/0/网站/src/css/hl.css" rel="stylesheet">
+  <script src="file:///storage/emulated/0/网站/src/js/hl.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link href="file:///storage/emulated/0/网站/src/css/animate.css" rel="stylesheet">
+
+  <script src="file:///storage/emulated/0/网站/src/js/main.js"></script>
+  <link href="file:///storage/emulated/0/网站/src/css/color.css" rel="stylesheet">
+  
+  <script src="file:///storage/emulated/0/网站/src/js/WOW.js"></script>
+  <script>new WOW().init();</script>
+</body>
+
+</html>

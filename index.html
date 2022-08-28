@@ -17,8 +17,6 @@
     <meta name="apple-touch-fullscreen" content="yes">
     
     <link href="https://mcspruce.github.io/src/css/main.css" rel="stylesheet">
-</head>
-<body>
     <div class="top_header">
         <ul>
             <li class="wow rollIn">
@@ -28,8 +26,11 @@
               </div>
             </li>
             <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+            <!--<li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="">切换主题</button></li>-->
         </ul>
     </div>
+</head>
+<body id="root" data-theme="light">
     <!--目录-->
     <div id="sideBar" class="sidenav">
         <div style="overflow-y:scroll;">
@@ -70,15 +71,7 @@
         <br><span style="font-size: 12px;">你可以随时填写问卷，因为问卷没有到期限制！</span>
         <br><br><a class="home-btn" href="https://shimo.im/forms/m4kMLLBMyLTQNEqD/fill?channel=bilibili">点我填写问卷</a></div>
         <!--标题3-->
-        <br><style>
-            .list-link{
-                color: #0059e9;
-                text-decoration: none;
-            }
-            .list-link:hover{
-                color: #003da0;
-            }
-        </style>
+        <br>
         <div id="p3" class="title wow fadeInLeftBig" data-wow-delay="1.5s">目录</div>
         <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
         <div class="wow bounceInUp" data-wow-delay="1.8s">* 点击蓝字阅读文章
@@ -88,7 +81,7 @@
             <br><a class="list-link" href="started/2.html">JSON基础语法</a>
             <br><br><span style="font-weight: bold;background-color: rgb(198, 98, 255);padding: 2px 35% 2px 2px;border-radius: 6px;color: #1d1d1d;">文档</span>
             <br>图片控件
-            <br>按钮控件
+            <br><a class="list-link" href="document/button.html">按钮控件</a>
             <br>继承变量
             <br>引用
             <br>绑定
