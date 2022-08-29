@@ -1,3 +1,20 @@
+if (typeof (Storage) !== "undefined") {
+    if (localStorage.themeType) {
+        var darkTheme = localStorage.getItem("themeType");
+        if (darkTheme == "dark") {
+            document.getElementById('root').setAttribute("data-theme", "dark");
+        }
+        else {
+            document.getElementById('root').setAttribute("data-theme", "light");
+        }
+    } else {
+        localStorage.setItem("themeType", "light");
+        document.getElementById('root').setAttribute("data-theme", "light");
+    }
+} else {
+    alert('抱歉，你的浏览器不支持或没有存储权限！\n解决：点击右上角用浏览器打开');
+}
+
 function to_top() {
     document.body.scrollIntoView({
         behavior: "smooth",
@@ -38,4 +55,21 @@ function copy_code(text) {
     alert('复制代码成功');
     // 删除 textarea （不保留痕迹+取消选中）
     document.body.removeChild(aux);
+}
+
+function changeMode() {
+    //var mode = document.getElementById('root').getAttribute("data-theme");
+    if (typeof(Storage) !== "undefined") {
+        var darkTheme = localStorage.getItem("themeType");
+        if (darkTheme == "dark") {
+            localStorage.setItem("themeType", "light");
+            document.getElementById('root').setAttribute("data-theme","light");
+        }
+        else {
+            localStorage.setItem("themeType", "dark");
+            document.getElementById('root').setAttribute("data-theme","dark");
+        }
+    } else {
+        alert('抱歉，你的浏览器不支持或没有存储权限！\n解决：点击右上角用浏览器打开');
+    }
 }

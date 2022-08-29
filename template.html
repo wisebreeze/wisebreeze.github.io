@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>我的世界基岩版 Json-UI教程</title>
+    <title>标题</title>
     <link rel="shortcut icon" href="https://mcspruce.github.io/web_icon.png">
     <link rel="icon" sizes="100x100" href="https://mcspruce.github.io/web_icon.png">
     <meta name="viewport"
@@ -15,17 +15,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-touch-fullscreen" content="yes">
-
-    <link href="https://mcspruce.github.io/src/css/hl.css" rel="stylesheet">
-    <script src="https://mcspruce.github.io/src/js/hl.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    <link href="src/css/animate.css" rel="stylesheet">
-
-    <script src="https://mcspruce.github.io/src/js/main.js"></script>
+    
     <link href="https://mcspruce.github.io/src/css/main.css" rel="stylesheet">
-</head>
-<body>
     <div class="top_header">
         <ul>
             <li class="wow rollIn">
@@ -35,14 +26,17 @@
               </div>
             </li>
             <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
         </ul>
     </div>
+</head>
+<body id="root" data-theme="light">
     <!--目录-->
     <div id="sideBar" class="sidenav">
         <div style="overflow-y:scroll;">
-            <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-            <hr style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
-            <a class="sidenav-button" href="#test">test</a>
+            <label class="sidebar-title">目录</label>
+            <hr class="sidebar-hr">
+            <a class="sidenav-button" href="#p1">边栏目录按钮</a>
         </div>
         <div style="top: 8px;">
             <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
@@ -51,8 +45,12 @@
     <!--目录-->
     <!--正文-->
     <div style="padding-top: 60px;">
+        <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">教程模板</span>
+        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+        <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
         <!--代码框-->
-        <ul class="box wow bounceInLeft" style="list-style-type: none;padding: 1px 10px;background: #f8f9fa;border-radius: 8px;">
+        <ul class="code wow bounceInLeft">
             <li>
                 <div style="width: 100%;">
                     <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
@@ -75,23 +73,32 @@
         <!--提示-->
         <div class="tip wow bounceInLeft" data-wow-delay="0.8s">
             <div class="tip-text">
-                <h2>aaa</h2>
+                <b>提示</b>
+                <br>这里写提示内容
             </div>
         </div>
         <!--面板-->
-        <br><div class="panel wow bounceInLeft" data-wow-delay="1.2s"><h2>aaaaa</h2></div>
+        <br><div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+          <h2>这是面板里面的内容</h2>
+        </div>
         <!--标题-->
-        <br><span class="title wow fadeInLeftBig" data-wow-delay="1.5s">aaaaaa</span>
+        <br><span class="title wow fadeInLeftBig" data-wow-delay="1.5s">段落标题</span>
         <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
         <!--控件-->
         <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-            <p><strong>pressed_control</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按下状态下子项目的名称</a></p>
-            <p>值：字符串
+            <p><strong>属性名称</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">属性简介</a></p>
+            <p>值：字符串/布尔值/数字/数组/对象
+            <p>默认值：XXX
                 <br><a class="c1-red">建议不要更改该属性！</a>
-                <br>在改变按钮外观时，同时更改control/pressed控件名有效
-                <br>引用<a class="panel c1-light-green">@common.button</a>时默认为pressed
+                <br>对这个属性的详细介绍
             </p>
         </div>
+        <table border="1" class="wow bounceInLeft" data-wow-delay="0.8s">
+          <caption>表格</caption>
+          <thead><tr><th>属性名</th><th>值</th><th>介绍</th></tr></thead>
+          <tbody><tr><td>XXX</td><td>字符串</td><td>...</td></tr>
+          <tr><td>XXX</td><td>布尔值</td><td>...</td></tr>
+        </table>
         <br>
         <br>
         <br>
@@ -117,11 +124,20 @@
         <button class="to_top" type="button" onclick="to_top();">
             <div style="text-align: center;">
                 <span style="color: #619dff;font-size: 20px;">▲</span><br>
-                回顶部
+                <span class="to-top-text">回顶部</span>
             </div>
         </button>
     </div>
-    <script src="src/js/WOW.js"></script>
+    <link href="https://mcspruce.github.io/src/css/hl.css" rel="stylesheet">
+    <script src="https://mcspruce.github.io/src/js/hl.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="https://mcspruce.github.io/src/css/animate.css" rel="stylesheet">
+
+    <script src="src/js/main.js"></script>
+    <link href="https://mcspruce.github.io/src/css/color.css" rel="stylesheet">
+    
+    <script src="https://mcspruce.github.io/src/js/WOW.js"></script>
     <script>new WOW().init();</script>
 </body>
 

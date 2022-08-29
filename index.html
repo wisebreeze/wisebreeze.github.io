@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>我的世界基岩版 Json-UI教程</title>
-    <link rel="shortcut icon" href="https://mcspruce.github.io/web_icon.png">
-    <link rel="icon" sizes="100x100" href="https://mcspruce.github.io/web_icon.png">
+    <link rel="shortcut icon" href="./web_icon.png">
+    <link rel="icon" sizes="100x100" href="./web_icon.png">
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-title" content="Json-UI教程">
-    <meta name="apple-touch-icon-precomposed" size="57x57" href="https://mcspruce.github.io/web_icon.png">
-    <meta name="apple-touch-icon-precomposed" size="114x114" href="https://mcspruce.github.io/web_icon.png">
-    <meta name="apple-touch-icon-precomposed" size="152x152" href="https://mcspruce.github.io/web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="./web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="./web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="./web_icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-touch-fullscreen" content="yes">
     
-    <link href="https://mcspruce.github.io/src/css/main.css" rel="stylesheet">
+    <link href="./src/css/main.css" rel="stylesheet">
     <div class="top_header">
         <ul>
             <li class="wow rollIn">
@@ -26,7 +26,7 @@
               </div>
             </li>
             <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
-            <!--<li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="">切换主题</button></li>-->
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
         </ul>
     </div>
 </head>
@@ -34,8 +34,8 @@
     <!--目录-->
     <div id="sideBar" class="sidenav">
         <div style="overflow-y:scroll;">
-            <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-            <hr style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+            <label class="sidebar-title">目录</label>
+            <hr class="sidebar-hr">
             <a class="sidenav-button" href="#p1">序言</a>
             <a class="sidenav-button" href="#p2">调查问卷</a>
             <a class="sidenav-button" href="#p3">目录</a>
@@ -47,6 +47,8 @@
     <!--目录-->
     <!--正文-->
     <div style="padding-top: 60px;">
+        <br><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">首页</span>
+        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
         <div class="tip wow bounceInLeft" data-wow-delay="0.8s">
             <div class="tip-text">
                 <span style="font-weight: bold;font-size: large;">提示</span>
@@ -74,6 +76,13 @@
         <br>
         <div id="p3" class="title wow fadeInLeftBig" data-wow-delay="1.5s">目录</div>
         <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+        <div class="tip wow bounceInLeft" data-wow-delay="0.8s">
+            <div class="tip-text">
+                <span style="font-size: medium;">教程可能还需要一些补充
+                <br>欢迎你为此项目作出贡献
+                <p><div style="display: inline;"><a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a> <a class="edit-btn" data-wow-delay="0.5s" href="./thanks.html">贡献名单</a></div></p></span>
+            </div>
+        </div>
         <div class="wow bounceInUp" data-wow-delay="1.8s">* 点击蓝字阅读文章
             <br>* 黑色字代表文章未完成或未编写！
             <br><br><span style="font-weight: bold;background-color: rgb(51, 255, 153);padding: 2px 35% 2px 2px;border-radius: 6px;color: #1d1d1d;">入门</span>
@@ -97,20 +106,20 @@
         <button class="to_top" type="button" onclick="to_top();">
             <div style="text-align: center;">
                 <span style="color: #619dff;font-size: 20px;">▲</span><br>
-                回顶部
+                <span class="to-top-text">回顶部</span>
             </div>
         </button>
     </div>
-    <link href="https://mcspruce.github.io/src/css/hl.css" rel="stylesheet">
-    <script src="https://mcspruce.github.io/src/js/hl.js"></script>
+    <link href="./src/css/hl.css" rel="stylesheet">
+    <script src="./src/js/hl.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
-    <link href="https://mcspruce.github.io/src/css/animate.css" rel="stylesheet">
+    <link href="./src/css/animate.css" rel="stylesheet">
 
-    <script src="https://mcspruce.github.io/src/js/main.js"></script>
-    <link href="https://mcspruce.github.io/src/css/color.css" rel="stylesheet">
+    <script src="src/js/main.js"></script>
+    <link href="./src/css/color.css" rel="stylesheet">
     
-    <script src="https://mcspruce.github.io/src/js/WOW.js"></script>
+    <script src="./src/js/WOW.js"></script>
     <script>new WOW().init();</script>
 </body>
 

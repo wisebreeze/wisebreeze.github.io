@@ -26,6 +26,7 @@
         </div>
       </li>
       <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
     </ul>
   </div>
 </head>
@@ -56,7 +57,8 @@
   <div style="padding-top: 60px;">
     <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">按钮控件</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
-    <a class="home-btn wow bounceInUp" data-wow-delay="0.5s" href="javascript:history.back();">返回目录</a>
+    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
     <p>接下来，让我们更深入一些吧！</p>
     
     <p>什么是按钮？
@@ -64,8 +66,7 @@
     
     <p>你可以<a class="panel c1-light-green">@common.button</a>来引用原版的按钮控件</p>
     <p>也可以使用type定义button控件</p>
-    <ul class="box wow bounceInLeft"
-      style="list-style-type: none;padding: 1px 10px;background: #f8f9fa;border-radius: 8px;">
+    <ul class="code wow bounceInLeft">
       <li>
         <div style="width: 100%;">
           <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
@@ -243,8 +244,7 @@
       </p>
     </div>
 
-    <ul class="box wow bounceInLeft"
-      style="list-style-type: none;padding: 1px 10px;background: #f8f9fa;border-radius: 8px;">
+    <ul class="code wow bounceInLeft">
       <li>
         <div style="width: 100%;">
           <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
@@ -737,7 +737,7 @@
     <p>是不是觉得上面的文档太乱？
     <br>没事，我来教你写一个简单的按钮</p>
     <p>跟着下面的注释改就行了</p>
-    <ul class="box wow bounceInLeft" style="list-style-type: none;padding: 1px 10px;background: #f8f9fa;border-radius: 8px;">
+    <ul class="code wow bounceInLeft">
         <li>
             <div style="width: 100%;">
                 <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
@@ -761,7 +761,7 @@
     <p>对于了解继承变量的玩家，可以在按钮控件的controls引用同一个控件。这样会省下几个控件
     <br>但是不建议新手这么做！
     <br>例如：</p>
-    <ul class="box wow bounceInLeft" style="list-style-type: none;padding: 1px 10px;background: #f8f9fa;border-radius: 8px;">
+    <ul class="code wow bounceInLeft">
         <li>
             <div style="width: 100%;">
                 <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
