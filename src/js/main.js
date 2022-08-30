@@ -11,8 +11,6 @@ if (typeof (Storage) !== "undefined") {
         localStorage.setItem("themeType", "light");
         document.getElementById('root').setAttribute("data-theme", "light");
     }
-} else {
-    alert('抱歉，你的浏览器不支持或没有存储权限！\n解决：点击右上角用浏览器打开');
 }
 
 function to_top() {

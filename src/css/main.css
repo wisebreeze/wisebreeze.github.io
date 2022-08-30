@@ -1,11 +1,13 @@
 /* 主题 */
 /* 默认主题 */
 body[data-theme="light"] {
+  overflow-x: hidden;
   background: #ffffff;
   --tip-bg: rgb(228, 228, 228);
   --panel: #f3f3f3;
   --link: #0059e9;
   --link-hover: #003da0;
+  --image: brightness(100%);
   /*表格*/
   --table-thead: #0a9dff;
   --tbody-odd: rgb(230, 230, 230);
@@ -27,12 +29,14 @@ body[data-theme="light"] {
 }
 /* 黑暗主题 */
 body[data-theme="dark"] {
-  background: #000000;
+  overflow-x: hidden;
+  background: #1A1A1A;
   color: #ffffff;
   --tip-bg: #606060;
   --panel: #424242;
   --link: #10CBFF;
   --link-hover: #A9ECFF;
+  --image: brightness(80%);
   /*表格*/
   --table-thead: #335EE1;
   --tbody-odd: #404040;
