@@ -13,6 +13,15 @@ if (typeof (Storage) !== "undefined") {
     }
 }
 
+window.onscroll = function () { scroll() };
+function scroll() {
+    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+        document.getElementById("to_top").style.display = "block";
+    } else {
+        document.getElementById("to_top").style.display = "none";
+    }
+}
+
 function to_top() {
     document.body.scrollIntoView({
         behavior: "smooth",
@@ -20,6 +29,7 @@ function to_top() {
 }
 
 window.onload = function () {
+    document.getElementById("to_top").style.display = "none";
     document.getElementById("close-btn").style.visibility = 'hidden';
     document.getElementById("open-btn").style.visibility = 'visible';
 }
