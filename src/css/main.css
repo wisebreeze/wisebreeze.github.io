@@ -20,7 +20,7 @@ body[data-theme="light"] {
   /*侧边栏*/
   --sidebar-bg: rgba(236, 236, 236, 0.55);
   --sidebar-btn-t: #4d4d4d;
-  --sidebar-btn-s: 0 5px 8px 0 rgba(113, 113, 124, 0.3);
+  --sidebar-btn-s: 0 5px 4px 0 rgba(113, 113, 124, 0.3);
   --sidebar-title-color: #000000;
   --sidebar-btnh-bg: #ffffff;
   /*返回顶部*/

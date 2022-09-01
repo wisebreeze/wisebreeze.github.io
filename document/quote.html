@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>引用</title>
+  <link rel="shortcut icon" href="../web_icon.png">
+  <link rel="icon" sizes="100x100" href="../web_icon.png">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <div class="top_header">
+    <ul>
+      <li class="wow rollIn">
+        <div>
+          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+        </div>
+      </li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
+    </ul>
+  </div>
+</head>
+
+<body id="root" data-theme="light">
+  <!--目录-->
+  <div id="sideBar" class="sidenav">
+    <div style="overflow-y:scroll;">
+      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
+      <hr
+        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+      <a class="sidenav-button" href="#p1">引用</a>
+      <a class="sidenav-button" href="#p2">引用时使用变量</a>
+      <a class="sidenav-button" href="#p3">继承引用</a>
+    </div>
+    <div style="top: 8px;">
+      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
+    </div>
+  </div>
+  <!--目录-->
+  <!--正文-->
+  <div style="padding-top: 60px;">
+    <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">引用</span>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
+    <p>首先~先看下面代码</p>
+    
+    <p><pre><code>
+    "text": {
+      "type": "text",
+      "size": [ "default", "100%" ],
+      "text": "a"
+    },
+    
+    "text_2": {
+      "type": "text",
+      "size": [ "default", "100%" ],
+      "text": "b"
+    }
+      </code></pre>
+      那么，这些代码可以<strong>简化</strong>吗？</p>
+    
+    <blockquote>
+      <p>Q：简化代码可以引用吗?可以那怎么引用?</p>
+    </blockquote>
+    
+    <p>首先上面代码可以看到有几个<strong>重复</strong>的值和变量
+      <br>是可以使用引用的</p>
+    
+    <p>使用引用后</p>
+    
+    <p><pre><code>
+    "text@text_common": {
+      "text": "a"
+    },
+    
+    "text_2@text_common": {
+      "text": "b"
+    },
+    
+    "text_common": {
+      "type": "text",
+      "size": [ "default", "100%" ]
+    }
+    </code></pre>
+      这样，<a class="panel">text、text_2</a>控件都能用到type和size的值
+      并且值是<strong>相同</strong>的</p>
+    
+    <p>那么<strong>引用</strong>只需要在在<a class="c1-red">控件名</a>后加上<a class="panel">@控件名</a></p>
+    
+    <p>这样就能在这个控件引用其他控件的属性值了！</p>
+    
+    <div id="p2" class="title wow fadeInLeftBig" data-wow-delay="1.5s">引用时使用变量</div>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+    
+    <p>那么<strong>引用的同时</strong>是否可以使用继承？</p>
+    
+    <p>例如：</p>
+    
+    <p><pre><code class="hljs json">
+    "text@text_common": {
+      "text": "a"
+    },
+    
+    "text_2@text_common": {
+      "$a": "b"
+    },
+    
+    "text_common": {
+      "type": "text",
+      "size": [ "default", "100%" ],
+      "text": "$a"
+    }</code></pre>
+    这样就可以做到了
+      <br><br><strong>引用</strong>和<b>继承</b>的共同和不同点
+    </p>
+    
+    <ul>
+      <li>继承和引用的值一致</li>
+      <li>继承可以全局赋值，引用只能在当前控件使用
+      </li>
+    </ul>
+    
+    <div id="p2" class="title wow fadeInLeftBig" data-wow-delay="1.5s">继承引用</div>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+    <p>如下面代码所示，<a class="panel">@$变量名</a>就可以使用继承引用了<pre><code>
+    "panel": {
+      "type": "panel",
+      "$b": "控件名",
+      "controls": [
+        {
+          "a@$b"
+        }
+      ]
+    }
+    </code></pre>
+      接着，给<a class="panel">$变量</a>赋值
+      <br>看到上方代码所示</p>
+    
+    <p>赋值只需要</p>
+    
+    <p class="panel">"$变量": "控件名"</p>
+    
+    <p>引用和继承是UI进阶的重点</p>
+    
+    <p>那么你学会应用<strong>"引用"</strong>了吗?</p>
+  </div>
+  <!--正文-->
+  <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
+    <button class="to_top" type="button" onclick="to_top();">
+      <div style="text-align: center;">
+        <span style="color: #619dff;font-size: 20px;">▲</span><br>
+        回顶部
+      </div>
+    </button>
+  </div>
+  <link href="../src/css/hl.css" rel="stylesheet">
+  <script src="../src/js/hl.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link href="../src/css/animate.css" rel="stylesheet">
+
+  <script src="../src/js/main.js"></script>
+  <link href="../src/css/color.css" rel="stylesheet">
+  
+  <script src="../src/js/WOW.js"></script>
+  <script>new WOW().init();</script>
+</body>
+
+</html>

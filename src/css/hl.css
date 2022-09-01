@@ -2,11 +2,13 @@
     border: 0;
     font-family: serif;
     font-size: 12px;
-    background: #ffffff;
+    background: #ececec;
     display: block;
     padding: 1px;
     margin: 0;
     width: 100%;
+    border-radius: 8px;
+    box-shadow: inset -3px -3px 4px #c4c4c4,inset 3px 3px 4px #dddddd;
     font-weight: 200;
     color: #333;
     white-space: pre-wrap
