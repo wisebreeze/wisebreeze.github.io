@@ -26,6 +26,8 @@ body[data-theme="light"] {
   /*返回顶部*/
   --to-top-bg: rgb(225, 225, 225);
   --to-top-hover-bg: rgb(255, 255, 255);
+  --to-top-s: 20px 20px 52px #c4c4c4,
+    -20px -20px 52px #ffffff;
   --to-top-text: #000000;
   /*顶栏*/
   --header-color: linear-gradient(to right, rgb(0, 216, 223), rgb(35, 130, 255));
@@ -58,6 +60,8 @@ body[data-theme="dark"] {
   /*返回顶部*/
   --to-top-bg: rgb(130, 130, 130);
   --to-top-hover-bg: rgb(184, 184, 184);
+  --to-top-s: 8px 8px 10px #141414,
+        -3px -3px 10px #3b3b3b;
   --to-top-text: #ffffff;
   /*顶栏*/
   --header-color: linear-gradient(to right, rgb(32, 114, 255), rgb(89, 36, 233));
@@ -144,6 +148,15 @@ body[data-theme="dark"] {
     background-color: var(--sidebar-bg);
     overflow-x: hidden;
     transition: 0.25s;
+}
+
+.sidenav div::-webkit-scrollbar {
+    display: none;
+}
+
+.sidenav div {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .sidebar-title {
@@ -396,7 +409,7 @@ table tbody tr:hover {
 .to_top:hover {
     -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
     transition: all 0.3s cubic-bezier(.02, .01, .47, 1);
-    box-shadow: 1px 1px 8px 2px rgba(113, 113, 124, 0.5);
+    box-shadow: var(--to-top-s);
     background-color: var(--to-top-hover-bg);
 }
 
