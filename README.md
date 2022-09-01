@@ -96,8 +96,6 @@ JSON代码内容
 <br>代码中的换行都必须改为\</li>\<li>
 <br>
 ```
-<a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
-<!--代码框-->
 <ul class="code wow bounceInLeft">
     <li>
         <div style="width: 100%;">
