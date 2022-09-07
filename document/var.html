@@ -60,75 +60,69 @@
         <br>里面存放一个叫<a class="panel c1-gold">_global_variables.json</a>的文件
         <br>这是文件里面的内容</p>
     
-    <pre><code class="hljs json">
-    {
-      //////// Text colors ////////
-      "$generic_button_text_color": [ 1.0, 1.0, 1.0 ],
-      "$light_button_default_text_color": [ 0.3, 0.3, 0.3 ],
-      "$light_button_hover_text_color": [ 1.0, 1.0, 1.0 ],
-      "$light_button_pressed_text_color": [ 1.0, 1.0, 1.0 ],
-      "$light_button_locked_text_color": [ 0.7, 0.7, 0.7 ],
-      …还有很多
-    }
-    </code></pre>
+    <pre class="json"><code><ul><li>{
+.  //////// Text colors ////////
+.  "$generic_button_text_color": [ 1.0, 1.0, 1.0 ],
+.  "$light_button_default_text_color": [ 0.3, 0.3, 0.3 ],
+.  "$light_button_hover_text_color": [ 1.0, 1.0, 1.0 ],
+.  "$light_button_pressed_text_color": [ 1.0, 1.0, 1.0 ],
+.  "$light_button_locked_text_color": [ 0.7, 0.7, 0.7 ],
+.  …还有很多
+.}</li></ul></code></pre>
     <p>可以发现，代码都是<strong>"$变量": "值"</strong>
     
     <p><b>那么要如何在控件中使用变量呢？</b></p>
     
-    <p><pre><code>
-      "test_panel": {
-        "type": "panel",
-        "size": [ "100%", "100%" ],
-        "controls": [
-          {
-            "test_image": {
-              "type": "image",
-              "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
-              "size": [ 32, 32 ],
-              "layer": 10
-            }
-          },
-          {
-            "text": {
-              "type": "label",
-              "size": [ "100%", "default" ],
-              "text": "设置",
-              "color": [ 0.8, 0.8, 0.8 ],
-              "offset": [ 0, 32 ],
-              "layer": 10
-            }
-          }
-        ]
-      }
-    </pre></code>
+    <p><pre class="json"><code><ul><li>"test_panel": {
+.  "type": "panel",
+.  "size": [ "100%", "100%" ],
+.  "controls": [
+.    {
+.      "test_image": {
+.        "type": "image",
+.        "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
+.        "size": [ 32, 32 ],
+.        "layer": 10
+.      }
+.    },
+.    {
+.      "text": {
+.        "type": "label",
+.        "size": [ "100%", "default" ],
+.        "text": "设置",
+.        "color": [ 0.8, 0.8, 0.8 ],
+.        "offset": [ 0, 32 ],
+.        "layer": 10
+.      }
+.    }
+.  ]
+.}</li></ul></pre></code>
       <strong>使用继承（变量）效果 ▼</strong>
-      <pre><code>
-      "test_panel": {
-        "type": "panel",
-        "size": [ "100%", "100%" ],
-        "$layer": 10,
-        "controls": [
-          {
-            "test_image": {
-              "type": "image",
-              "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
-              "size": [ 32, 32 ],
-              "layer": "$layer"
-            }
-          },
-          {
-            "text": {
-              "type": "label",
-              "size": [ "100%", "default" ],
-              "text": "设置",
-              "color": [ 0.8, 0.8, 0.8 ],
-              "offset": [ 0, 32 ],
-              "layer": "$layer"
-            }
-          }
-        ]
-      }
-    </pre></code>
+      <pre class="json"><code><ul><li>"test_panel": {
+.  "type": "panel",
+.  "size": [ "100%", "100%" ],
+.  "$layer": 10,
+.  "controls": [
+.    {
+.      "test_image": {
+.        "type": "image",
+.        "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
+.        "size": [ 32, 32 ],
+.        "layer": "$layer"
+.      }
+.    },
+.    {
+.      "text": {
+.        "type": "label",
+.        "size": [ "100%", "default" ],
+.        "text": "设置",
+.        "color": [ 0.8, 0.8, 0.8 ],
+.        "offset": [ 0, 32 ],
+.        "layer": "$layer"
+.      }
+.    }
+.  ]
+.}</li></ul></pre></code>
       <strong>可以看到</strong>
       继承需要在控件属性的值声明（修改）为<a class="panel">"$变量名称"</a>
     </p>
@@ -153,23 +147,17 @@
     
     <p>错误原因：继承的赋予的值型一致，text变量不支持数组</p>
     
-    <p><pre><code>
-    "$a": [ 0.1, 1, 1 ],
-    "color": "$a",
-    "text": "$a"
-    </code></pre>
+    <p><pre class="json"><code><ul><li>"$a": [ 0.1, 1, 1 ],
+."color": "$a",
+."text": "$a"</li></ul></code></pre>
       实际上系统认为的值
-      <pre><code>
-    "color": [ 0.1, 1, 1 ],
-    "text": [ 0.1, 1, 1 ]
-    </code></pre>
+      <pre class="json"><code><ul><li>"color": [ 0.1, 1, 1 ],
+."text": [ 0.1, 1, 1 ]</li></ul></code></pre>
       <a class="panel c1-light-green">正确示范</a>
-      <pre><code>
-    "$a": [ 0.1, 1, 1 ],
-    "$b": "文字",
-    "color": "$a",
-    "text": "$b"
-    </code></pre>
+      <pre class="json"><code><ul><li>"$a": [ 0.1, 1, 1 ],
+."$b": "文字",
+."color": "$a",
+."text": "$b"</li></ul></code></pre>
     </p>
     
     <br><span id="p3" class="title wow fadeInLeftBig" data-wow-delay="1.5s">变量默认值</span>
@@ -177,16 +165,14 @@
     
     <p>在<a class="panel">RP/ui/start_screen.json</a>文件的start_screen_content控件</p>
     
-    <p><pre><code>
-      "start_screen_content": {
-        "type": "panel",
-        "$achievements_ignored|default": false,
-        "$feedback_ignored|default": false,
-        "$store_ignored|default": false,
-        "$is_toolbox_ignored|default": false
-        … 还有更多
-      }
-    </code></pre>
+    <p><pre class="json"><code><ul><li>"start_screen_content": {
+.  "type": "panel",
+.  "$achievements_ignored|default": false,
+.  "$feedback_ignored|default": false,
+.  "$store_ignored|default": false,
+.  "$is_toolbox_ignored|default": false
+.  … 还有更多
+.}</li></ul></code></pre>
     面板中有个变量</p>
     
     <p><div class="panel">"$achievements_ignored|default": false</div>
@@ -198,11 +184,9 @@
     
     <p><em><strong>下面举个例子</em></strong></p>
     
-    <p><pre><code>
-    "$test": "a",
-    "$test|default": "b",
-    "text": "$test"
-    </code></pre>
+    <p><pre class="json"><code><ul><li>"$test": "a",
+."$test|default": "b",
+."text": "$test"</li></ul></code></pre>
       这样情况下
       <strong>text</strong>的值为<a class="panel">"b"</a>
     </p>
@@ -221,12 +205,10 @@
     
     <p>赋值示范</p>
     
-    <p><pre><code>
-    {
-      "$text": "a"
-      // 可以添加多个变量
-    }
-    </code></pre>
+    <p><pre class="json"><code><ul><li>{
+.  "$text": "a"
+.  // 可以添加多个变量
+.}</li></ul></code></pre>
   </div>
   <!--正文-->
   <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">

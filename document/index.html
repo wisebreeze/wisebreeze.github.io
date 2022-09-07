@@ -234,24 +234,61 @@
             </table>
         </p>
     </div>
+    .ep.bb alpha ..bb .et 透明度 ..et
+      <p>
+        值：数字/浮点数
+        .hh默认值：1
+        .hh改变这个控件的透明度，但不影响子控件的透明度
+        .hh浮点数的范围在0~1之间
+      </p>
+    ..ep
+    .ep.bb propagate_alpha ..bb .et 传播透明度 ..et
+      <p>
+        值：数字/浮点数
+        .hh默认值：1
+        .hh改变子控件以及当前控件的透明度
+        .hh浮点数的范围在0~1之间
+      </p>
+    ..ep
+    .ep.bb clips_children ..bb .et 剪辑子控件 ..et
+      <p>
+        值：布尔值
+        .hh默认值：false
+        .hh为true时，如果子控件超出当前控件的大小会被剪辑
+        .hh除非子控件"allow_clipping": true
+      </p>
+    ..ep
+    .ep.bb allow_clipping ..bb .et 允许剪辑 ..et
+      <p>
+        值：布尔值
+        .hh默认值：true
+        .hh为true时，如果子控件超出某个剪辑控件的大小不会被剪辑
+      </p>
+    ..ep
+    .ep.bb use_child_anchors ..bb .et 剪辑的锚点 ..et
+      <p>
+        值：字符串/列举
+        .hh值为anchor_from、anchor_to的值
+      </p>
+    ..ep
+    .ep.bb clip_state_change_event ..bb .et 改变剪辑状态的事件 ..et
+      <p>
+        值：字符串
+      </p>
+    ..ep
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
         <p><strong>bindings</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定</a></p>
-        <p>文件还在编写中，敬请期待～
+        <p>在其他文件中详细介绍，<a class="list-link" href="./bindings.html">点我跳转</a>
         </p>
     </div>
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
         <p><strong>anims</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画</a></p>
-        <p>文件还在编写中，敬请期待～
+        <p>在其他文件中详细介绍，<a class="list-link" href="./anim.html">点我跳转</a>
         </p>
     </div>
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
         <p><strong>animation_reset_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画重置名称</a></p>
-        <p>文件还在编写中，敬请期待～
-        </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>animation_reset_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画重置名称</a></p>
-        <p>文件还在编写中，敬请期待～
+        <p>在其他文件中详细介绍，<a class="list-link" href="./anim.html">点我跳转</a>
         </p>
     </div>
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">

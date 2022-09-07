@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>动画控件</title>
+  <link rel="shortcut icon" href="../web_icon.png">
+  <link rel="icon" sizes="100x100" href="../web_icon.png">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <div class="top_header">
+    <ul>
+      <li class="wow rollIn">
+        <div>
+          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+        </div>
+      </li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
+    </ul>
+  </div>
+</head>
+
+<body id="root" data-theme="light">
+  <!--目录-->
+  <div id="sideBar" class="sidenav">
+    <div style="overflow-y:scroll;">
+      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
+      <hr
+        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+      <a class="sidenav-button" href="#p1">创建动画控件</a>
+      <a class="sidenav-button" href="#p2">定义动画属性</a>
+      <a class="sidenav-button" href="#p3">定义动画属性 / 播放动画条件</a>
+      <a class="sidenav-button" href="#p4">定义动画属性 / 播放动画样式</a>
+      <a class="sidenav-button" href="#p5">为控件添加动画</a>
+      <a class="sidenav-button" href="#p6">动画的运用</a>
+      <a class="sidenav-button" href="#p7">注意事项</a>
+    </div>
+    <div style="top: 8px;">
+      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
+    </div>
+  </div>
+  <!--目录-->
+  <!--正文-->
+  <div style="padding-top: 60px;">
+    <br><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">动画控件</span>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
+    <br><br><span id="p1" class="title wow fadeInLeftBig" data-wow-delay="1.5s">创建动画控件</span>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+    <p>动画控件与其他控件不同的是，<b>动画控件</b>是使用anim_type来定义控件的类型，而不是type (动画控件作为单独的一个控件)</p>
+
+    <p>例如：
+<pre class="json"><code>  "test_anim": {
+    "anim_type": "wait"
+  }
+</code></pre></p>
+
+anim_type可能的值（字符串/列举）：
+
+<div class="c-red">* 加粗文字是常用动画类型</div>
+
+<b>alpha</b> – 不透明度
+<br>clip – 剪辑
+<br><b>size</b> – 大小
+<br>color – 颜色
+<br><b>offset</b> – 锚点
+<br>uv – 图片显示锚点
+<br><b>flip_book</b> – 序列帧
+<br><b>wait</b> – 等待（无动画）
+
+<br><br><span class="title wow fadeInLeftBig" data-wow-delay="1.5s">定义动画属性</span>
+<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+
+动画控件还需要完善其它属性才能生效
+
+<br>简单示例：
+
+<pre><code>{
+  "test_offset_anim": {
+    "anim_type": "offset",
+    "duration": 5,
+    "form": [ 10, 0 ],
+    "to": [ 0, 0 ],
+    "easing": "spring"
+  }
+}
+</code></pre>
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>duration</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放动画的时间</a></p>
+    <p>值：数字
+        <br>与"秒"为单位，用于改变播放动画时间
+    </p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>from</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放动画时的初始状态</a></p>
+    <p>值：数字/数组
+        <br>值会因动画控件类型而异（alpha 是数字，其余为数组）
+        <br>该属性设置控件为播放时的状态
+        <br>注意：控件类型为wait时无需from、to属性
+    </p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>to</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放动画时的结束状态</a></p>
+    <p>值：数字/数组
+        <br>值会因动画控件类型而异（alpha 是数字，其余为数组）
+        <br>该属性设置控件为播放时的状态
+        <br>注意：控件类型为wait时无需from、to属性
+    </p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>next</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放结束后播放的下一个动画控件</a></p>
+    <p>值：字符串
+        <br>字符串格式为"@（控件所在文件的命名空间）.（动画控件名）"
+        <br>例如："@hud.title_anim"
+        <br>注意：控件类型为wait时无需from、to属性
+    </p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>destroy_at_end</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放动画结束后将要破坏的控件</a></p>
+    <p>值：字符串/控件名
+        <br>播放结束后指定的控件将会隐藏
+        <br>注意：
+        <br>控件名不需要添加"所在文件的命名空间"，字符串直接填写控件名即可
+        <br>建议将需要破坏的控件与动画控件处于同一个JSON  UI文件
+    </p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>ignored</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">隐藏动画效果</a></p>
+    <p>值：布尔值
+        <br>默认值：false
+        <br>为true时，将隐藏动画效果
+    </p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>reversible</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放是否为可逆的</a></p>
+    <p>值：布尔值
+        <br>默认值：false
+    </p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>resettable</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放是否为可复位的</a></p>
+    <p>值：布尔值
+        <br>默认值：false
+    </p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>scale_from_starting_alpha</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">从Alpha开始时保持比例</a></p>
+    <p>值：布尔值
+        <br>默认值：false
+    </p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>activated</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否激活播放</a></p>
+    <p>值：布尔值
+        <br>默认值：true
+    </p>
+</div>
+
+<br><span id="p3" class="title wow fadeInLeftBig" data-wow-delay="1.5s">定义动画属性 / 播放动画条件</span>
+<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>play_event</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放事件</a></p>
+    <p>值：字符串/事件名称</p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>end_event</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">结束事件</a></p>
+    <p>值：字符串/事件名称</p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>start_event</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">开始播放事件</a></p>
+    <p>值：字符串/事件名称</p>
+</div>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>reset_event</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">重置播放事件</a></p>
+    <p>值：字符串/事件名称</p>
+</div>
+
+事件名称：<b>预设事件/按钮映射名称</b>
+
+<br><b>为按钮映射名称时：</b>可以直接填写from_button_id或to_button_id的值
+
+<br><b>为预设事件时：</b>可以填写以下列举的事件，也可以使用该文件其它的事件
+
+<br><br>screen.entrance_push    -   进入（推入）屏幕
+
+<br>screen.entrance_pop    -   进入（弹入）屏幕
+
+<br>screen.exit_push    -   退出（推入）屏幕
+
+<br>screen.exit_pop    -   退出（弹入）屏幕
+
+<br>screen.entrance_end    -   结束进入屏幕
+
+<br>screen.exit_end    -   结束退出屏幕
+
+<br><br><span id="p4" class="title wow fadeInLeftBig" data-wow-delay="1.5s">定义动画属性 / 播放动画样式</span>
+<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>easing</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放动画样式</a></p>
+    <p>值：字符串/枚举
+        <br>使你的动画更缓和/更适用于你的UI界面
+        <p>
+          字符串可能为：
+          <div style="margin-left: 15px;">linear (默认)
+          <br>spring
+          <br>in_bounce
+          <br>out_bounce
+          <br>in_out_bounce
+          <br>in_expo
+          <br>out_expo
+          <br>in_out_expo
+          <br>in_sine
+          <br>out_sine
+          <br>in_out_sine
+          <br>in_cubic
+          <br>out_cubic
+          <br>in_out_cubic
+          <br>in_back
+          <br>out_back
+          <br>in_out_back
+          <br>in_elastic
+          <br>out_elastic
+          <br>in_out_elastic
+          <br>in_quad
+          <br>out_quad
+          <br>in_out_quad
+          <br>in_circ
+          <br>out_circ
+          <br>in_out_circ
+          <br>in_quart
+          <br>out_quart
+          <br>in_out_quart
+          <br>in_quint
+          <br>out_quint
+          <br>in_out_quint
+          </div>
+        </p>
+        <p>
+          文档无法演示动画，需要请前往原视频观看
+        <div class="tip wow bounceInLeft" data-wow-delay="0.8s">
+          <div class="tip-text">
+              <b>提示</b>
+              <br>1. in_out动画表示进行in动画样式后播放out动画样式
+              <br>2. in动画表示从起点开始播放动画样式
+              <br>3. out动画表示到达终点后播放动画样式
+          </div>
+        </div>
+        </p>
+    </p>
+</div>
+
+<br><span id="p5" class="title wow fadeInLeftBig" data-wow-delay="1.5s">为控件添加动画</span>
+<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+
+写好动画控件还不能直接被控件使用，那么要如何让一个控件使用并播放动画呢？
+
+<br>很简单，例如：
+
+<pre class="json"><code>{
+  "test": {
+    "type": "panel",
+    "offset": "@hud.test_anim"//值 = @命名空间.控件名
+  },
+  "test_anim": {
+    "anim_type": "offset"//具体动画属性就不再展示了
+  }
+}
+</code></pre>
+
+<pre class="json"><code>{
+  "test": {
+    "type": "panel",
+    "anims": [
+      "@hud.test_anim"//值 = @命名空间.控件名
+    ]
+  },
+  "test_anim": {
+    "anim_type": "offset"//具体动画属性就不再展示了
+  }
+}
+</code></pre>
+<b>为单个属性添加 （适用于单个动画控件）</b>
+<br>将属性的值改为@命名空间.动画控件名称
+
+<div class="tip wow bounceInLeft" data-wow-delay="0.8s">
+    <div class="tip-text">
+        <b>提示</b>
+        <br>1. 并不是所有的属性都可以引用动画控件
+        <br>如果引用的动画控件anim_type为offset
+        <br>那么需要引用这个动画控件的控件，只能在这个控件的offset属性中引用
+        <br>2. 命名空间为引用的动画控件所在的文件的命名空间（namespace），如果动画控件与需要引用这个动画控件的控件在同一个文件，就不用写上命名空间，但建议还是写上命名空间
+        <br>3. 命名空间与动画控件名称之间需要逗号分隔"."（英文标点）
+        <br>4. 没有写上命名空间，而且动画控件与需要引用这个动画控件的控件不在同一个文件，这个动画不会播放
+    </div>
+</div>
+<p><b>为多个属性添加 （适用于多个动画控件）</b></p>
+
+<p>这时需要一个新的属性 — anims</p>
+
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>anims</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画</a></p>
+    <p>值：数组
+        <br>例如: "anims": ["XXX"]
+        <br>"anims"子属性的值为<a class="c1-gold">@命名空间.动画控件名称</a>
+        
+        <br><br>提示：
+        <br>1. 命名空间为引用的动画控件所在的文件的命名空间（namespace），如果动画控件与需要引用这个动画控件的控件在同一个文件，就不用写上命名空间，但建议还是写上命名空间
+        <br>2. 命名空间与动画控件名称之间需要逗号分隔"."（英文标点）
+        <br>3. 没有写上命名空间，而且动画控件与需要引用这个动画控件的控件不在同一个文件，这个动画不会播放
+    </p>
+</div>
+
+<hr>
+添加的动画虽然能播放，但是只能播放一次，需要再播放一次还需重进Minecraft。
+<br>面对这样的情况要如何解决呢？
+
+<p>我们还需要一个重置动画的属性 -- <b>animation_reset_name</b></p>
+
+<pre class="json"><code>{
+  "test": {
+    "type": "panel",
+    "animation_reset_name": "screen_animation_reset",
+    "anims": [
+      "@hud.test_anim"//值 = @命名空间.控件名
+    ]
+  }
+}
+</code></pre>
+<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+    <p><strong>animation_reset_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">重置动画事件</a></p>
+    <p>值：字符串
+        <br>值类似于上文所说的<a class="c-red">"reset_event"</a>
+        <br>可以为预设事件/按钮映射名称
+        <p>如果只想离开屏幕重置动画
+        <br>值可以是<a class="panel c1-gold">screen_animation_name</a></p>
+    </p>
+</div>
+
+<br><span id="p6" class="title wow fadeInLeftBig" data-wow-delay="1.5s">动画的运用</span>
+<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+
+以上就是动画控件的全部内容了。理论存在，实践开始！
+
+<br>那么动画可以做到什么呢？
+
+<p><br><b>1. 进度条</b>
+
+     <br>利用剪辑面板剪辑出界部分的特性，再配合offset平移动画即可实现
+
+     <br><br>比如上面的绿色进度，首先用["100%","100%"]保持父控件的大小
+
+     <br>然后使用offset平移动画（将from设为["-100%",0]，to设为[0,0]）
+
+     <br>只要触发这个动画就可以看到进度条的效果了
+
+     <br>（提示：把from与to的值调换位置，能看到进度从100%到0%的效果哦！）</p>
+
+<p><br><b>2. 计时器</b>
+
+     <br>还是利用剪辑面板剪辑出界部分的特性，再配合offset平移动画即可实现
+
+     <br>这个以后会详细讲解，这里只说原理 
+
+     <br><br>其实这个显示文字不会随着时间变化而变化，实际上是使用动画改变stack_panel的offset位置
+
+     <br>所以，显示的内容是由多个文字组成堆叠面板并由剪辑面板剪辑而成的</p>
+
+<p><b>3.欢迎面板</b>
+
+     <br>利用动画默认不会重置的特性，我们可以只给这个控件播放动画，结束后立即"销毁"控件（不给动画重置）
+
+     <br>至于进入屏幕显示"欢迎面板"控件，可以用start_event或play_event属性
+
+<div class="tip wow bounceInLeft" data-wow-delay="0.8s">
+    <div class="tip-text">
+        <b>提示</b>
+        <br>这里只做思路分析，详细json代码暂时不进行演示
+    </div>
+</div></p>
+
+<br><span id="p7" class="title wow fadeInLeftBig" data-wow-delay="1.5s">注意事项</span>
+<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+
+<b>代码没有错误，为何不能播放动画？</b>
+
+<br>答： 请确保"屏幕动画"开启，没有前往打开Minecraft -> 设置 -> 视频 -> 屏幕动画 -> 开启
+
+<p>你如果有什么问题都可以在视频评论区提出哦，我会尽量回答你的问题的─=≡Σ(((つ•̀ω•́)つ</p>
+
+  </div>
+  <!--正文-->
+  <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
+    <button class="to_top" type="button" onclick="to_top();">
+      <div style="text-align: center;">
+        <span style="color: #619dff;font-size: 20px;">▲</span><br>
+        回顶部
+      </div>
+    </button>
+  </div>
+  <link href="../src/css/hl.css" rel="stylesheet">
+  <script src="../src/js/hl.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link href="../src/css/animate.css" rel="stylesheet">
+
+  <script src="../src/js/main.js"></script>
+  <link href="../src/css/color.css" rel="stylesheet">
+  
+  <script src="../src/js/WOW.js"></script>
+  <script>new WOW().init();</script>
+</body>
+
+</html>

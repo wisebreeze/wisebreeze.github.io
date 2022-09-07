@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>引用</title>
+  <title>查看所有交易物品</title>
   <link rel="shortcut icon" href="../web_icon.png">
   <link rel="icon" sizes="100x100" href="../web_icon.png">
   <meta name="viewport"
@@ -38,9 +38,7 @@
       <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
       <hr
         style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
-      <a class="sidenav-button" href="#p1">引用</a>
-      <a class="sidenav-button" href="#p2">引用时使用变量</a>
-      <a class="sidenav-button" href="#p3">继承引用</a>
+      <a class="sidenav-button" href="../index.html">首页</a>
     </div>
     <div style="top: 8px;">
       <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
@@ -49,105 +47,45 @@
   <!--目录-->
   <!--正文-->
   <div style="padding-top: 60px;">
-    <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">引用</span>
+    <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">查看所有交易物品</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
     <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
-    <p>首先~先看下面代码</p>
-    
-    <p><pre class="json"><code><ul><li>"text": {
-.  "type": "text",
-.  "size": [ "default", "100%" ],
-.  "text": "a"
-.},
-.
-."text_2": {
-.  "type": "text",
-.  "size": [ "default", "100%" ],
-.  "text": "b"
-.}</li></ul></code></pre>
-      那么，这些代码可以<strong>简化</strong>吗？</p>
-    
-    <blockquote>
-      <p>Q：简化代码可以引用吗?可以那怎么引用?</p>
-    </blockquote>
-    
-    <p>首先上面代码可以看到有几个<strong>重复</strong>的值和变量
-      <br>是可以使用引用的</p>
-    
-    <p>使用引用后</p>
-    
-    <p><pre class="json"><code><ul><li>"text@text_common": {
-.  "text": "a"
-.},
-.
-."text_2@text_common": {
-.  "text": "b"
-.},
-.
-."text_common": {
-.  "type": "text",
-.  "size": [ "default", "100%" ]
-.}</li></ul></code></pre>
-      这样，<a class="panel">text、text_2</a>控件都能用到type和size的值
-      并且值是<strong>相同</strong>的</p>
-    
-    <p>那么<strong>引用</strong>只需要在在<a class="c1-red">控件名</a>后加上<a class="panel">@控件名</a></p>
-    
-    <p>这样就能在这个控件引用其他控件的属性值了！</p>
-    
-    <div id="p2" class="title wow fadeInLeftBig" data-wow-delay="1.5s">引用时使用变量</div>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
-    
-    <p>那么<strong>引用的同时</strong>是否可以使用继承？</p>
-    
-    <p>例如：</p>
-    
-    <p><pre class="json"><code><ul><li>"text@text_common": {
-.  "text": "a"
-.},
-.
-."text_2@text_common": {
-.  "$a": "b"
-.},
-.
-."text_common": {
-.  "type": "text",
-.  "size": [ "default", "100%" ],
-.  "text": "$a"
-.}</li></ul></code></pre>
-    这样就可以做到了
-      <br><br><strong>引用</strong>和<b>继承</b>的共同和不同点
-    </p>
-    
-    <ul>
-      <li>继承和引用的值一致</li>
-      <li>继承可以全局赋值，引用只能在当前控件使用
-      </li>
-    </ul>
-    
-    <div id="p2" class="title wow fadeInLeftBig" data-wow-delay="1.5s">继承引用</div>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
-    <p>如下面代码所示，<a class="panel">@$变量名</a>就可以使用继承引用了
-    <pre class="json"><code><ul><li>"panel": {
-.  "type": "panel",
-.  "$b": "控件名",
-.  "controls": [
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div> 
+.hh.hh我们打开村民交易的 UI
+
+<p>只能看见村民当前等级交易的物品</p>
+
+<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/locked.png"></img>
+
+<p>实际上，更高等级的交易项目被隐藏了</p>
+
+<p>这个界面文件是<a class="c-red">trade_2_screen.json</a>
+.hh(pocket UI档案的交易项目也在这个json文件)
+</p>
+
+<p>要做到样其实很简单
+
+.hh打开文件，找到tier_stack_panel控件</p>
+<pre class="json"><code><ul><li>"tier_stack_panel": {
+.  "type": "stack_panel",
+.  "size": [ "100%", "100%c + 1px" ]，
+.  …
+.  "bindings": [
 .    {
-.      "a@$b": {}
+.    …
 .    }
 .  ]
 .}</li></ul></code></pre>
-      接着，给<a class="panel">$变量</a>赋值
-      <br>看到上方代码所示</p>
-    
-    <p>赋值只需要</p>
-    
-    <p class="panel">"$变量": "控件名"</p>
-    
-    <p>引用和继承是UI进阶的重点</p>
-    
-    <p>那么你学会应用<strong>"引用"</strong>了吗?</p>
+
+<p>接着，将控件替换为：</p>
+<pre class="json"><code><ul><li>"tier_stack_panel": {
+.  "bindings": []
+.}
+</li></ul></code></pre>
+
+<p>最后，保存并打开Minecraft</p>
+<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/unlock.png"></img>
+<p>最后记得给UP点个关注吧(*^▽^*)</p>
   </div>
   <!--正文-->
   <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">

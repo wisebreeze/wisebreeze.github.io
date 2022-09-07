@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>伪高斯模糊</title>
+  <link rel="shortcut icon" href="../web_icon.png">
+  <link rel="icon" sizes="100x100" href="../web_icon.png">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <div class="top_header">
+    <ul>
+      <li class="wow rollIn">
+        <div>
+          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+        </div>
+      </li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
+    </ul>
+  </div>
+</head>
+
+<body id="root" data-theme="light">
+  <!--目录-->
+  <div id="sideBar" class="sidenav">
+    <div style="overflow-y:scroll;">
+      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
+      <hr
+        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+      <a class="sidenav-button" href="../index.html">首页</a>
+    </div>
+    <div style="top: 8px;">
+      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
+    </div>
+  </div>
+  <!--目录-->
+  <!--正文-->
+  <div style="padding-top: 60px;">
+    <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">伪高斯模糊</span>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div> 
+.hh.hh首先准备两张图片
+
+.hh<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/default.PNG"></img>
+
+<p>一张是没有模糊的</p>
+
+.hh<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/blur.PNG"></img>
+
+<p>另一张是带有高斯模糊的
+  .hh（高斯模糊图片可以使用Photoshop制作）
+</p>
+
+<p>首先把没有模糊的设为背景
+
+.hh代码示例</p>
+<pre class="json"><code><ul><li>"default_image": {
+.  "type": "image",
+.  "texture": "图片路径",
+.  "fill": true,
+.  "size": ["100%","100%"],
+.  "controls": []
+.}</li></ul></code></pre>
+
+<p>在controls内添加亿点点控件：</p>
+<pre class="json"><code><ul><li>"background": {
+.  "type": "image",
+.  // texture/ui/background
+.  // 可以换成无高斯模糊图片的路径
+.  "texture": "textures/ui/background",
+.  "layer": -100,
+.  "fill": true,
+.  "controls": [
+.    {
+.      // 这个是剪辑面板
+.      "clip_panel": {
+.        "type": "panel",
+.        "size": ["100%", "100%"],
+.        // clips_children和offset是重点
+.        "clips_children": true,
+.        "offset":["-70%",0],
+.        "controls": [
+.          {
+.            // 这个是模糊图片
+.            "blur": {
+.            "type": "image",
+.            // textures/ui/new_background
+.            // 可以换为带有高斯模糊的图片
+.            "texture": "textures/ui/new_background",
+.            "size": ["100%","100%"],
+.            // offset是重点
+.            "offset":["70%",0],
+.            "fill": true
+.            }
+.          }
+.        ]
+.      }
+.    }
+.  ]
+.}</li></ul></code></pre>
+
+<p>在clip_panel控件中，有clips_children和offset属性</p>
+.ep.bb clips_children ..bb
+<div style="margin-left: 15px;top: 0;">作用是让高斯模糊图片只显示在clip_panel的大小范围内，超出部分直接剪掉</div>
+..ep
+.ep.bb offset ..bb <a class="c-red">(重点)</a>
+<div style="margin-left: 15px;top: 0;">作用是改变高斯模糊显示的位置
+.hhclip_panel的offset为向左移动
+.hh然后blur图片控件向右移动
+.hh可以发现，blur的offset与clip_panel的offset刚好相反
+.hh这样模糊图片才会被面板剪辑</div>
+..ep
+<p>显示效果</p>
+<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/blur_screen.PNG"></img>
+<hr>
+<p>.bb那么，为什么示例中的offset是70%呢？..bb
+.hh.hh没有模糊的图片大小是["100%","100%"]
+.hh面板向左移动70%，就是说面板在屏幕上<a class="c-red">仅有30%的区域</a>显示
+.hh把图片向右移动，就能显示图片左边的部分</p>
+<hr>
+<p>
+  .bb如何将高斯模糊在中间显示？..bb
+  .hh.hh利用上方代码，简单说一下如何实现在中间显示</p>
+<p>先全屏背景设为模糊图片
+  .hh假设中间部大小为<a class="c-red">["20%","20%"]</a>
+  .hh左边部分就是<a class="c1-gold">80%(100%-20%)</a>
+  .hh上下右部分同理
+  .hh将上下左右80%的部分均添加剪辑后的无模糊的图片
+  .hh这里就不用图片展示了
+</p>
+<hr>
+<p>.bb易错点..bb
+.hh1.模糊图片与剪辑面板的offset的值是相反的
+.hh2.模糊显示在左边 - 剪辑面板的offset数组X轴（第一个值）必须为负数
+.hh  模糊显示在右边 - 剪辑面板的offset数组X轴（第一个值）必须为正数
+.hh  模糊显示在上方 - 剪辑面板的offset数组Y轴（第二个值）必须为负数
+.hh  模糊显示在下方 - 剪辑面板的offset数组Y轴（第二个值）必须为正数
+</p>
+<p><a class="c-red">.bb本次教程较难理解，建议反复多次阅读..bb</a>
+  .hh最后记得给UP点个关注吧(*^▽^*)</p>
+  </div>
+  <!--正文-->
+  <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
+    <button class="to_top" type="button" onclick="to_top();">
+      <div style="text-align: center;">
+        <span style="color: #619dff;font-size: 20px;">▲</span><br>
+        回顶部
+      </div>
+    </button>
+  </div>
+  <link href="../src/css/hl.css" rel="stylesheet">
+  <script src="../src/js/hl.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link href="../src/css/animate.css" rel="stylesheet">
+
+  <script src="../src/js/main.js"></script>
+  <link href="../src/css/color.css" rel="stylesheet">
+  
+  <script src="../src/js/WOW.js"></script>
+  <script>new WOW().init();</script>
+</body>
+
+</html>
