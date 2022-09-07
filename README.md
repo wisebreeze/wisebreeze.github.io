@@ -39,22 +39,10 @@
 
 ### 提示
 ```
-<div class="tip wow bounceInLeft" data-wow-delay="0.8s">
-    <div class="tip-text">
-        <b>提示标题</b>
-        <br>提示内容
-    </div>
-</div>
-```
-
-### 提示
-```
-<div class="tip wow bounceInLeft" data-wow-delay="0.8s">
-    <div class="tip-text">
-        <b>提示标题</b>
-        <br>提示内容
-    </div>
-</div>
+.tip
+    <b>提示标题</b>
+    <br>提示内容
+..tip
 ```
 
 ### 标明内容
@@ -74,13 +62,12 @@
 
 ### 控件属性解释框
 ```
-<div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-    <p><strong>属性名称</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">属性简介</a></p>
+.ep.bb 属性名称 ..bb .et属性简介..et
     <p>值：字符串/布尔值/数字/数组/对象
     <p>默认值：XXX
         <br>属性的详细介绍
     </p>
-</div>
+..ep
 ```
 
 ### 无行号的高亮代码框
@@ -91,30 +78,24 @@ JSON代码内容
 ```
 
 ### 带行号和复制按钮的高亮代码框
-这里有几处需要改
+这个需要修改
 <br>cid_1 改成 cid_XXX(任意数字)
-<br>代码中的换行都必须改为\</li>\<li>
+<br>代码换行后要在当前的行开头加上`.`
 <br>
 ```
 <ul class="code wow bounceInLeft">
     <li>
         <div style="width: 100%;">
             <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
-            <button class="copy-btn wow shake" onclick="copy_code('cid_1')" style="float: right;color: #424242;">
-                <ul style="list-style-type: none;padding: 0;margin:0;overflow:hidden;">
-                    <li style="float: left;">复制</li>
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 25 25" wdith="22" height="22" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
-                        </path>
-                    </svg>
-                </ul>
-            </button>
+            <button class="copy-btn wow shake" onclick="copy_code('cid_1')" style="float: right;color: #424242;">.copy</button>
         </div>
     </li>
     <!--下面是存放代码的-->
     <li>
-        <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_1" class="json"><ul><li>这里存放你的代码</li></ul></code></pre>
+        <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_1" class="json"><ul><li>"控件": {
+.  // 这个是示例代码，请自行更改
+.  "test": "aaa"
+.}</li></ul></code></pre>
     </li>
 </ul>
 ```
