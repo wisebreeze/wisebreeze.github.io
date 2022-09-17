@@ -257,6 +257,14 @@ pre {
     filter: var(--image);
 }
 
+label {
+    cursor: text;
+}
+
+button {
+    cursor: pointer;
+}
+
 .info-panel {
   background: var(--info-panel);
   padding: 5px;
@@ -281,7 +289,7 @@ pre {
 .info-div {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: 3px 3px 3px 3px;
 }
