@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-touch-fullscreen" content="yes">
-    <meta http-equiv="refresh" content="5;url=./index.html">
+    <meta http-equiv="refresh" content="8;url=./index.html">
 
     <link href="./src/css/main.css" rel="stylesheet">
     <style>
@@ -24,9 +24,13 @@
             border-radius: 6px;
             text-decoration: none;
             color: #ffffff;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 2%;
+            padding-bottom: 2%;
         }
         .back-btn:hover{
-            background: #6ed1ff;
+            background: #008dce;
         }
     </style>
     <div class="top_header">
@@ -38,26 +42,13 @@
     </div>
 </head>
 <body id="root" data-theme="light">
-    <!--目录-->
-    <div id="sideBar" class="sidenav">
-        <div style="overflow-y:scroll;">
-            <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-            <hr style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
-            <a class="sidenav-button" href="./">首页</a>
-        </div>
-        <div style="top: 8px;">
-            <a class="follow" href="https://space.bilibili.com/494279926">关注作者</a>
-        </div>
-    </div>
-    <!--目录-->
     <!--正文-->
-    <div style="padding-top: 60px;width: 100%;">
-        <div style="margin-top: 15vmin;"></div>
-        <p align="center" style="font-size: xx-large;font-weight: bold;">页面不存在</p>
-        <p align="center" style="font-size: medium;">可能是输入错误的Url导致的，5秒后自动返回首页看看有没有你想要的把~</p>
-        <p align="center">
-            <a href="https://mcspruce.github.io/" class="back-btn" style="padding-left: 10%;padding-right: 10%;padding-top: 1%;padding-bottom: 1%;">返回首页</a>
-        </p>
+    <div style="padding-top: 60px;width: 100%;display: flex;display: -webkit-flex;flex-direction: column;justify-content: space-between;align-items: center;">
+        <div style="margin-top: 20vh;"></div>
+        <div style="font-size: xx-large;font-weight: bold;margin-bottom: 16px;">页面不存在</div>
+        <div style="font-size: medium;text-align: center;">可能是输入错误的Url导致的，8秒后自动返回首页看看有没有你想要的把~</div>
+        <div style="margin-top: 3vh;"></div>
+        <a href="https://mcspruce.github.io/" class="back-btn">返回首页</a>
     </div>
     <!--正文-->
     <link href="./src/css/animate.css" rel="stylesheet">
