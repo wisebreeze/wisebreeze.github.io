@@ -1,12 +1,19 @@
-/* 主题 */
-/* 默认主题 */
-body[data-theme="light"] {
+/* 全局 */
+body {
   -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
   transition: all 0.3s cubic-bezier(.02, .01, .47, 1);
   overflow-x: hidden;
-  background: #ffffff;
-  --tip-bg: rgb(228, 228, 228);
-  --panel: #f3f3f3;
+}
+
+/* 默认主题 */
+body[data-theme="light"] {
+  background: #F2F2F2;
+  --info-panel: #d3f7ff;
+  --info-btn-bg: #54ADED;
+  --info-btn-hbg: #0091ff;
+  --info-btn-s: 2px 2px 8px #dadada;
+  --tip-bg: #ffffff;
+  --panel: #E8E8E8;
   --link: #0059e9;
   --link-hover: #003da0;
   --image: brightness(100%);
@@ -15,8 +22,8 @@ body[data-theme="light"] {
   --tbody-odd: rgb(230, 230, 230);
   --tbody-hover: rgb(202, 202, 202);
   /*代码*/
-  --copy-btn: #e4e4e4;
-  --codebg: #f3f3f3;
+  --copy-btn: #ffffff;
+  --codebg: #E8E8E8;
   /*侧边栏*/
   --sidebar-bg: rgba(236, 236, 236, 0.55);
   --sidebar-btn-t: #4d4d4d;
@@ -25,20 +32,21 @@ body[data-theme="light"] {
   --sidebar-btnh-bg: #ffffff;
   /*返回顶部*/
   --to-top-bg: rgb(225, 225, 225);
-  --to-top-hover-bg: rgb(255, 255, 255);
-  --to-top-s: 20px 20px 52px #c4c4c4,
-    -20px -20px 52px #ffffff;
+  --to-top-hover-bg: #F2F2F2;
+  --to-top-s: 5px 5px 5px #c4c4c4,
+    -3px -3px 6px #ffffff;
   --to-top-text: #000000;
   /*顶栏*/
-  --header-color: linear-gradient(to right, rgb(0, 216, 223), rgb(35, 130, 255));
+  --header-color: linear-gradient(to right, rgb(16, 244, 252), rgb(0, 102, 236));
 }
 /* 黑暗主题 */
 body[data-theme="dark"] {
-  -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
-  transition: all 0.3s cubic-bezier(.02, .01, .47, 1);
-  overflow-x: hidden;
   background: #1A1A1A;
   color: #ffffff;
+  --info-panel: #454A4B;
+  --info-btn-bg: #304AE2;
+  --info-btn-hbg: linear-gradient(to bottom right, #5972ff, #011dbe);
+  --info-btn-s: 2px 2px 8px rgb(90, 90, 90);
   --tip-bg: #606060;
   --panel: #424242;
   --link: #10CBFF;
@@ -144,10 +152,10 @@ body[data-theme="dark"] {
     z-index: 666;
     bottom: 0;
     left: 0;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
     background-color: var(--sidebar-bg);
     overflow-x: hidden;
-    transition: 0.25s;
+    transition: 0.22s;
 }
 
 .sidenav div::-webkit-scrollbar {
@@ -155,6 +163,7 @@ body[data-theme="dark"] {
 }
 
 .sidenav div {
+    overflow-y:scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -204,17 +213,21 @@ body[data-theme="dark"] {
     text-decoration: none;
     font-size: 15px;
     text-align: center;
-    color: #525252;
-    background-color: #ff61e5;
-    border: #ff1bd9 solid 1px;
-    border-radius: 20px;
+    color: #ffffff;
+    background-color: #1ebfff;
+    border: #078ae2 solid 1px;
+    border-radius: 18px;
     width: 85%;
     bottom: 5px;
     display: block;
+    -webkit-transition: all 0.6s cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: all 0.6s cubic-bezier(.02, .01, .47, 1);
 }
 
 .follow:hover {
-    color: #fdfdfd;
+    box-shadow: var(--sidebar-btn-s);
+    background-color: #0380e6;
+    border: #0258c9 solid 1px;
 }
 
 @media screen and (max-height: 450px) {
@@ -228,6 +241,28 @@ body[data-theme="dark"] {
 }
 
 /* 排版 */
+img {
+  filter: var(--image);
+  border-radius: 8px;
+}
+
+hr {
+    border: none;
+    background-color: #b1b1b1;
+    height: 1px;
+    border-radius: 3px;
+}
+
+pre {
+    filter: var(--image);
+}
+
+.info-panel {
+  background: var(--info-panel);
+  padding: 5px;
+  border-radius: 10px;
+}
+
 .top-title {
     font-weight: bold;
     font-family: sans-serif;
@@ -241,6 +276,33 @@ body[data-theme="dark"] {
 
 .list-link:hover {
     color: var(--link-hover);
+}
+
+.info-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3px 3px 3px 3px;
+}
+
+.info-div a {
+    text-decoration: none;
+    padding: 5px 5px 5px 5px;
+    margin-top: 8px;
+    width: 48%;
+    display: block;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 8px;
+    background: var(--info-btn-bg);
+    -webkit-transition: all 0.8s cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: all 0.8s cubic-bezier(.02, .01, .47, 1);
+}
+
+.info-div a:hover {
+    background: var(--info-btn-hbg);
+    box-shadow: var(--info-btn-s);
 }
 
 .home-btn {
@@ -272,9 +334,11 @@ body[data-theme="dark"] {
 }
 
 .theme-btn {
+    cursor: hand;
     text-decoration: none;
     background: #4F99FF;
     color: aliceblue;
+    outline: none;
     padding: 3px 8px 3px 8px;
     border: #1253AF solid 1px;
     border-radius: 10px;
@@ -330,10 +394,22 @@ body[data-theme="dark"] {
 }
 
 .title-hr {
-    border: none;
-    background-color: #b1b1b1;
-    height: 2px;
-    border-radius: 1px;
+    border: none !important;
+    background-color: #b1b1b1 !important;
+    height: 2px !important;
+    border-radius: 1px !important;
+}
+
+.code-top {
+    display: inline;
+    width: 100%;
+}
+
+.code-title {
+    font-size: 15px;
+    color: #313131;
+    margin-top: 7px;
+    font-weight: bold;
 }
 
 .copy-btn {
@@ -343,13 +419,10 @@ body[data-theme="dark"] {
     -khtml-user-select: none;
     user-select: none;
     background: var(--copy-btn);
-    font-size: 15px;
-    padding: auto;
     padding-top: 3px;
-    padding-bottom: 1px;
+    padding-bottom: 3px;
     margin-right: 3px;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-left: 3px;
     border-radius: 6px;
     border: none;
     -webkit-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
@@ -358,7 +431,7 @@ body[data-theme="dark"] {
 
 .copy-btn:hover {
     background: #5d90ff;
-    transform: translate(-5px, 0);
+    transform: translate(-3px, 0);
     transition-delay: 0s !important;
 }
 
@@ -402,11 +475,15 @@ table tbody tr:hover {
     background-color: var(--to-top-bg);
     border: none;
     border-radius: 8px;
+    outline: none;
+    cursor: hand;
+    opacity: 0.9;
     -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
     transition: all 0.3s cubic-bezier(.02, .01, .47, 1);
 }
 
 .to_top:hover {
+    opacity: 1 !important;
     -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
     transition: all 0.3s cubic-bezier(.02, .01, .47, 1);
     box-shadow: var(--to-top-s);
@@ -418,16 +495,16 @@ table tbody tr:hover {
 }
 
 @keyframes to-top-anim {
-    0% {
-        right: -5%;
-        opacity: 0.1;
-    }
-   80% {
-        right: 4%;
-        opacity: 1;
-    }
-   100% {
-        right: 3%;
-        opacity: 1;
-    }
+  0% {
+    right: -5%;
+    opacity: 0.1;
+  }
+  80% {
+    right: 4%;
+    opacity: 1;
+  }
+  100% {
+    right: 3%;
+    opacity: 1;
+  }
 }

@@ -48,21 +48,7 @@ window.onload = function () {
         // 代码
         body = body.replace(/\n\./g, "</li><li>");
         body = body.replace(/\.copy/g, "<ul style=\"list-style-type: none; padding: 0; margin: 0; overflow: hidden;\"><li style=\"float: left;\">复制</li><svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 25 25\" wdith=\"22\" height=\"22\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z\"></path></svg></ul>");
-    document.getElementById("root").innerHTML = body;
-
-    /*var codeNum = document.getElementById("code");
-    var code = document.getElementById("code").innerHTML;
-    var json = ["name","ooo","test"];
-    var num = 0;
-    for (var num of code) {
-        num++;
-    }
-    alert(num.length);
-    for(i=0;i<json.length;i++) {
-        alert(json[i]);
-        //newCode = code[0].replace(/\n/g, "</li><li>");
-        //document.getElementById("code").innerHTML = newCode;
-    }*/
+        document.getElementById("root").innerHTML = body;
 
     // 隐藏元素
     document.getElementById("to_top").style.display = "none";
@@ -106,7 +92,7 @@ function copy_code(text) {
 }
 
 // 快捷键
-document.addEventListener('keydown', function (key) {
+document.addEventListener('keyup', function (key) {
     if(key.keyCode == 49) {
         document.body.scrollIntoView({
             behavior: "smooth",
