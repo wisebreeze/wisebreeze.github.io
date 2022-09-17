@@ -34,10 +34,9 @@
 <body id="root" data-theme="light">
   <!--目录-->
   <div id="sideBar" class="sidenav">
-    <div style="overflow-y:scroll;">
-      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-      <hr
-        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
       <a class="sidenav-button" href="../index.html">首页</a>
     </div>
     <div style="top: 8px;">
@@ -62,9 +61,9 @@
 <p>要做到样其实很简单
 
 .hh这里以下图作为背景示例</p>
-<img style="filter: var(--image);border-radius: 15px;" width="220" hight="auto" src="../src/image/bg.png"></img>
+<img width="220" hight="auto" src="../src/image/bg.png"></img>
 <p>首先准备图片并放入指定路径，然后在想添加背景的文件写好图片控件</p>
-<pre class="json"><code><ul><li>"background": {
+<pre class="json wow fadeInRightBig"><code><ul><li>"background": {
 .  "type": "image",
 .  "texture": "textures/ui/background",
 .  "layer": -100,
@@ -82,8 +81,8 @@
 </p>
 ..ep
 <p>填完后代码就像这样子</p>
-<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/背景.PNG"></img>
-<pre class="json"><code><ul><li>"background": {
+<img width="280" hight="auto" src="../src/image/背景.PNG"></img>
+<pre class="json wow fadeInRightBig"><code><ul><li>"background": {
 .  "type": "image",
 .  "texture": "textures/ui/background",
 .  "layer": -100,

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>认识JSON-UI</title>
+  <link rel="shortcut icon" href="../web_icon.png">
+  <link rel="icon" sizes="100x100" href="../web_icon.png">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <div class="top_header">
+    <ul>
+      <li class="wow rollIn">
+        <div>
+          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+        </div>
+      </li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
+    </ul>
+  </div>
+</head>
+
+<body id="root" data-theme="light">
+  <!--目录-->
+  <div id="sideBar" class="sidenav">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
+      <a class="sidenav-button" href="../index.html">首页</a>
+    </div>
+    <div style="top: 8px;">
+      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
+    </div>
+  </div>
+  <!--目录-->
+  <!--正文-->
+  <div style="margin-top: 60px;">
+    <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">认识JSON-UI</span>
+    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="../">返回首页</a>
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
+    <p>.bb什么是JSON-UI？..bb</p>
+    <p>在Minecraft Bedrock Edition（即《我的世界》基岩版，以下简称MCBE）中的用户界面（以下简称UI）有两种：
+      .hh<a class="c-red">一个是JSON UI，另外一个是Ore UI</a>
+      .hh本文档主要讲述JSON-UI。
+      .hh.hhJSON-UI就是由JSON文件构成的UI界面，它能允许我们通过修改JSON文件来改变UI，以及在<a class="c-red">一定的程度内</a>为UI添加一些行为和功能。
+      .hh首先，JSON-UI的JSON文件主要存放在<a class="panel">RP/ui/</a>文件夹内
+    </p>
+    <hr>
+    <p>.bbui文件夹内有什么文件？..bb</p>
+    <p>_global_variables.json | 全局变量，以后会详细讲解
+    .hh_ui_defs.json | 声明JSON-UI文件，以后会详细讲解
+    .hhui_common.json | UI模板，存放常用的控件模板
+    .hhxxx_screen.json | 某个屏幕文件，存放该屏幕的控件
+    <hr>
+    接下来，详细解读xxx_screen.json的内容</p>
+    <p>
+    <ul class="code wow bounceInLeft">
+    <div class="code-top">
+      <div class="code-title">RP/ui/start_screen.json
+      <button class="copy-btn wow shake" onclick="copy_code('cid_1')" style="float: right;color: #424242;">.copy</button>
+    </div></div>
+    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_1" class="json"><ul><li>{
+.  "namespace": "start",
+.
+.  "label": {
+.    "type": "label",
+.    "text": "Hello World"
+.  }
+.}</li></ul></code></pre></ul>
+其中，"namespace"是这个UI文件的标识符。
+.hh我们通常称它为.bb命名空间..bb
+.hh它必须是<a class="c-red">唯一的</a>名称，一般用于跨文件引用控件。
+</p>
+
+<p>
+文中的<a class="panel">"label": {}</a>是.bb控件..bb，你可以把它当作屏幕上某个元素。
+
+.hh.hh而控件开头的 "label" 是.bb控件名..bb，用于在其他控件引用这个控件的元素。
+.hh每个控件的控件名必须是<a class="c-red">唯一的</a>名称。
+
+.hh.hh"text": "Hello World" 就是这个控件中的某个.bb元素..bb，用于完善控件的外观、位置。
+.hh.hh整理一下，一个JSON-UI文件的结构是：
+.hh命名空间 + （控件 -> {控件名 + 元素}）
+</p>
+<hr>
+<p>.bb什么是Ore UI？..bb</p>
+<p>上面提到了ore UI，现在简单了解一下。
+  .hh.hhOre UI就是由Web前端技术（Html5 + CSS + JavaScript）构成的UI界面，与JSON-UI不同的是，它可以运行JavaScript代码！
+  .hh.hh首先，将Ore UI与JSON-UI对比可以发现：
+  .hh* JSON-UI更利于阅读、修改。
+  .hh* Ore UI只能通过修改安装包实现美化，而且代码似乎被混淆了，修改难度大大上升。
+  .hh.hh毕竟Ore UI与渲染龙一样，目前还不能用资源包调用修改它们！
+</p>
+<hr>
+<p>接下来，我们<a class="list-link" href="../index.html">返回主页</a>打开“创建控件”入门教程，一起深入了解UI吧！
+</p>
+  </div>
+  <!--正文-->
+  <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
+    <button class="to_top" type="button" onclick="to_top();">
+      <div style="text-align: center;">
+        <span style="color: #619dff;font-size: 20px;">▲</span><br>
+        回顶部
+      </div>
+    </button>
+  </div>
+  <link href="../src/css/hl.css" rel="stylesheet">
+  <script src="../src/js/hl.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link href="../src/css/animate.css" rel="stylesheet">
+
+  <script src="../src/js/main.js"></script>
+  <link href="../src/css/color.css" rel="stylesheet">
+  
+  <script src="../src/js/WOW.js"></script>
+  <script>new WOW().init();</script>
+</body>
+
+</html>

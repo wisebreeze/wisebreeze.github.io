@@ -34,10 +34,9 @@
 <body id="root" data-theme="light">
   <!--目录-->
   <div id="sideBar" class="sidenav">
-    <div style="overflow-y:scroll;">
-      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-      <hr
-        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
       <a class="sidenav-button" href="#p1">继承</a>
       <a class="sidenav-button" href="#p2">注意事项</a>
       <a class="sidenav-button" href="#p3">变量默认值</a>
@@ -60,7 +59,7 @@
         <br>里面存放一个叫<a class="panel c1-gold">_global_variables.json</a>的文件
         <br>这是文件里面的内容</p>
     
-    <pre class="json"><code><ul><li>{
+    <pre class="json wow fadeInRightBig"><code><ul><li>{
 .  //////// Text colors ////////
 .  "$generic_button_text_color": [ 1.0, 1.0, 1.0 ],
 .  "$light_button_default_text_color": [ 0.3, 0.3, 0.3 ],
@@ -73,7 +72,7 @@
     
     <p><b>那么要如何在控件中使用变量呢？</b></p>
     
-    <p><pre class="json"><code><ul><li>"test_panel": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"test_panel": {
 .  "type": "panel",
 .  "size": [ "100%", "100%" ],
 .  "controls": [
@@ -98,7 +97,7 @@
 .  ]
 .}</li></ul></pre></code>
       <strong>使用继承（变量）效果 ▼</strong>
-      <pre class="json"><code><ul><li>"test_panel": {
+      <pre class="json wow fadeInRightBig"><code><ul><li>"test_panel": {
 .  "type": "panel",
 .  "size": [ "100%", "100%" ],
 .  "$layer": 10,
@@ -123,8 +122,7 @@
 .    }
 .  ]
 .}</li></ul></pre></code>
-      <strong>可以看到</strong>
-      继承需要在控件属性的值声明（修改）为<a class="panel">"$变量名称"</a>
+      可以看到继承需要在控件属性的值修改为<a class="panel">"$变量名称"</a>
     </p>
     
     <p>例如 <a class="panel">"layer": "$变量"</a></p>
@@ -147,14 +145,14 @@
     
     <p>错误原因：继承的赋予的值型一致，text变量不支持数组</p>
     
-    <p><pre class="json"><code><ul><li>"$a": [ 0.1, 1, 1 ],
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"$a": [ 0.1, 1, 1 ],
 ."color": "$a",
 ."text": "$a"</li></ul></code></pre>
       实际上系统认为的值
-      <pre class="json"><code><ul><li>"color": [ 0.1, 1, 1 ],
+      <pre class="json wow fadeInRightBig"><code><ul><li>"color": [ 0.1, 1, 1 ],
 ."text": [ 0.1, 1, 1 ]</li></ul></code></pre>
       <a class="panel c1-light-green">正确示范</a>
-      <pre class="json"><code><ul><li>"$a": [ 0.1, 1, 1 ],
+      <pre class="json wow fadeInRightBig"><code><ul><li>"$a": [ 0.1, 1, 1 ],
 ."$b": "文字",
 ."color": "$a",
 ."text": "$b"</li></ul></code></pre>
@@ -165,7 +163,7 @@
     
     <p>在<a class="panel">RP/ui/start_screen.json</a>文件的start_screen_content控件</p>
     
-    <p><pre class="json"><code><ul><li>"start_screen_content": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"start_screen_content": {
 .  "type": "panel",
 .  "$achievements_ignored|default": false,
 .  "$feedback_ignored|default": false,
@@ -184,7 +182,7 @@
     
     <p><em><strong>下面举个例子</em></strong></p>
     
-    <p><pre class="json"><code><ul><li>"$test": "a",
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"$test": "a",
 ."$test|default": "b",
 ."text": "$test"</li></ul></code></pre>
       这样情况下
@@ -205,7 +203,7 @@
     
     <p>赋值示范</p>
     
-    <p><pre class="json"><code><ul><li>{
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>{
 .  "$text": "a"
 .  // 可以添加多个变量
 .}</li></ul></code></pre>

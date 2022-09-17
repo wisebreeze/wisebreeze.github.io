@@ -33,7 +33,7 @@
 <body id="root" data-theme="light">
     <!--目录-->
     <div id="sideBar" class="sidenav">
-        <div style="overflow-y:scroll;">
+        <div>
             <label class="sidebar-title">目录</label>
             <hr class="sidebar-hr">
             <a class="sidenav-button" href="#p1">边栏目录按钮</a>
@@ -50,26 +50,12 @@
         <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
          <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
         <!--代码框-->
-        <ul class="code wow bounceInLeft">
-            <li>
-                <div style="width: 100%;">
-                    <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
-                    <button class="copy-btn wow shake" onclick="copy_code('cid_1')" style="float: right;color: #424242;">
-                        <ul style="list-style-type: none;padding: 0;margin:0;overflow:hidden;">
-                            <li style="float: left;">复制</li>
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 25 25" wdith="22" height="22" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                        </ul>
-                    </button>
-                </div>
-            </li>
-            <li>
-                <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_1" class="json"><ul><li>"panel": {</li><li>  "type": "panel"</li><li>}</li></ul></code></pre>
-            </li>
-        </ul>
+        <br><ul class="code wow bounceInLeft">
+        <div class="code-top">
+          <div class="code-title">RP/ui/start_screen.json
+          <button class="copy-btn wow shake" onclick="copy_code('cid_1')" style="float: right;color: #424242;">.copy</button>
+        </div></div>
+        <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_1" class="json"><ul><li>"panel": {</li><li>  "type": "panel"</li><li>}</li></ul></code></pre></ul>
         <!--提示-->
         <div class="tip wow bounceInLeft" data-wow-delay="0.8s">
             <div class="tip-text">

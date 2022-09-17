@@ -34,10 +34,9 @@
 <body id="root" data-theme="light">
   <!--目录-->
   <div id="sideBar" class="sidenav">
-    <div style="overflow-y:scroll;">
-      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-      <hr
-        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
       <a class="sidenav-button" href="../index.html">首页</a>
     </div>
     <div style="top: 8px;">
@@ -55,7 +54,7 @@
 
 <p>只能看见村民当前等级交易的物品</p>
 
-<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/locked.png"></img>
+<img width="280" hight="auto" src="../src/image/locked.png"></img>
 
 <p>实际上，更高等级的交易项目被隐藏了</p>
 
@@ -66,7 +65,7 @@
 <p>要做到样其实很简单
 
 .hh打开文件，找到tier_stack_panel控件</p>
-<pre class="json"><code><ul><li>"tier_stack_panel": {
+<pre class="json wow fadeInRightBig"><code><ul><li>"tier_stack_panel": {
 .  "type": "stack_panel",
 .  "size": [ "100%", "100%c + 1px" ]，
 .  …
@@ -78,13 +77,13 @@
 .}</li></ul></code></pre>
 
 <p>接着，将控件替换为：</p>
-<pre class="json"><code><ul><li>"tier_stack_panel": {
+<pre class="json wow fadeInRightBig"><code><ul><li>"tier_stack_panel": {
 .  "bindings": []
 .}
 </li></ul></code></pre>
 
 <p>最后，保存并打开Minecraft</p>
-<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/unlock.png"></img>
+<img width="280" hight="auto" src="../src/image/unlock.png"></img>
 <p>最后记得给UP点个关注吧(*^▽^*)</p>
   </div>
   <!--正文-->

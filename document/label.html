@@ -34,10 +34,9 @@
 <body id="root" data-theme="light">
   <!--目录-->
   <div id="sideBar" class="sidenav">
-    <div style="overflow-y:scroll;">
-      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-      <hr
-        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
       <a class="sidenav-button" href="#p1">认识控件</a>
       <a class="sidenav-button" href="#p2">常用属性</a>
       <a class="sidenav-button" href="#p3">其他属性</a>
@@ -59,7 +58,7 @@
     </p>
     <p>首先，了解一下文本控件吧！</p>
     <p>文本控件类型为label
-      <pre class="json"><code><ul><li>"type": "label"</li></ul></code></pre>
+      <pre class="json wow fadeInRightBig"><code><ul><li>"type": "label"</li></ul></code></pre>
     </p>
     <p>接下来，我们给文本添加一些属性</p>
     <br><span id="p2" class="title wow fadeInLeftBig" data-wow-delay="0.5s">常用属性</span>
@@ -212,19 +211,31 @@
     ..ep
     <br><span id="p4" class="title wow fadeInLeftBig" data-wow-delay="0.5s">代码示例</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
-    <p>简单的文本控件</p>
-    <pre class="json"><code><ul><li>"label": {
+    <ul class="code wow bounceInLeft">
+    <div class="code-top">
+      <div class="code-title">简单的文本控件
+      <button class="copy-btn wow shake" onclick="copy_code('cid_1')" style="float: right;color: #424242;">.copy</button>
+    </div></div>
+    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_1" class="json"><ul><li>"label": {
 .  "type": "label",
 .  "text": "test"
-.}</li></ul></code></pre>
-    <p>强制unicode的文本控件</p>
-    <pre class="json"><code><ul><li>"label": {
+.}</li></ul></code></pre></ul>
+<ul class="code wow bounceInLeft">
+    <div class="code-top">
+      <div class="code-title">强制unicode的文本控件
+      <button class="copy-btn wow shake" onclick="copy_code('cid_2')" style="float: right;color: #424242;">.copy</button>
+    </div></div>
+    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_2" class="json"><ul><li>"label": {
 .  "type": "label",
 .  "text": "test",
 .  "font_type": "unicode"
-.}</li></ul></code></pre>
-    <p>使用notify_on_ellipses的文本控件</p>
-    <pre class="json"><code><ul><li>"label": {
+.}</li></ul></code></pre></ul>
+<ul class="code wow bounceInLeft">
+    <div class="code-top">
+      <div class="code-title">使用notify_on_ellipses的文本控件
+      <button class="copy-btn wow shake" onclick="copy_code('cid_3')" style="float: right;color: #424242;">.copy</button>
+    </div></div>
+    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_3" class="json"><ul><li>"label": {
 .  "type": "label",
 .  "text": "test",
 .  "notify_on_ellipses": [
@@ -235,7 +246,7 @@
 ."控件": {
 .  "type": "panel"
 .  ...
-.}</li></ul></code></pre>
+.}</li></ul></code></pre></ul>
   </div>
   <!--正文-->
   <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">

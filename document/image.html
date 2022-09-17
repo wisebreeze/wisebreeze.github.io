@@ -34,10 +34,9 @@
 <body id="root" data-theme="light">
   <!--目录-->
   <div id="sideBar" class="sidenav">
-    <div style="overflow-y:scroll;">
-      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-      <hr
-        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
       <a class="sidenav-button" href="#p1">常用属性</a>
       <a class="sidenav-button" href="#p2">其他属性</a>
       <a class="sidenav-button" href="#p3">动图属性</a>
@@ -67,7 +66,7 @@
     
     <p>图片的控件类型为<a class="panel">image</a></p>
     
-    <p><pre><code><ul><li>"type": "image"</li></ul></code></pre>
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"type": "image"</li></ul></code></pre>
       以下是图片一些常用属性：</p>
     
     .ep.bb texture ..bb .et图片的路径..et</p>
@@ -288,7 +287,7 @@
       3.然后回到你要添加动图的文件，并添加基础的图片控件和属性
       <br><a class="c-red">* 下面以下文代码作演示(texture的值填你刚存放图片的资源包路径)</a></p>
     
-    <p><pre class="json"><code><ul><li>"test_image": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"test_image": {
 .  "type":"image",
 .  "texture":"textures/ui/auto_save",
 .  "size":[16,16]
@@ -316,7 +315,7 @@
     
     <p>＊不要照抄，这里仅做示范，可能会与你的代码不同</p>
     
-    <p><pre class="json"><code><ul><li>"auto_save": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"auto_save": {
 .  "type": "image",
 .  "texture": "textures/ui/auto_save",
 .  "size": [ 16, 16 ],
@@ -332,7 +331,7 @@
       <br>"easing": "linear"</div>
       例如
     
-    <p><pre class="json"><code><ul><li>"image_anim": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"image_anim": {
 .  "anim_type": "flip_book",
 .  "easing": "linear"
 .}</li></ul></code></pre>
@@ -391,7 +390,7 @@
     
     <p>填完的效果可能这样的</p>
     
-    <p><pre class="json"><code><ul><li>"image_anim": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"image_anim": {
 .  "anim_type": "flip_book",
 .  "initial_uv": [ 0, 0 ],
 .  "frame_count": 9,
@@ -403,7 +402,7 @@
       7.回到图片控件添加uv变量
       例如：</p>
     
-    <p><pre class="json"><code><ul><li>"auto_save": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"auto_save": {
 .  "type": "image",
 .  "texture": "textures/ui/auto_save",
 .  "size": [ 16, 16 ],
@@ -427,7 +426,7 @@
         </div>
       </li>
       <li>
-        <pre id="code" class="json"><code><ul><li>"image_anim": {
+        <pre class="json wow fadeInRightBig"><code><ul><li>"image_anim": {
 .  "anim_type": "flip_book",
 .  "initial_uv": [ 0, 0 ],
 .  "frame_count": 9,

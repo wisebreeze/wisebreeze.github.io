@@ -34,10 +34,9 @@
 <body id="root" data-theme="light">
   <!--目录-->
   <div id="sideBar" class="sidenav">
-    <div style="overflow-y:scroll;">
-      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-      <hr
-        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
       <a class="sidenav-button" href="../index.html">首页</a>
     </div>
     <div style="top: 8px;">
@@ -53,11 +52,11 @@
          <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div> 
 .hh.hh首先准备两张图片
 
-.hh<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/default.PNG"></img>
+.hh<img width="280" hight="auto" src="../src/image/default.PNG"></img>
 
 <p>一张是没有模糊的</p>
 
-.hh<img style="filter: var(--image);border-radius: 15px;" width="280" hight="auto" src="../src/image/blur.PNG"></img>
+.hh<img width="280" hight="auto" src="../src/image/blur.PNG"></img>
 
 <p>另一张是带有高斯模糊的
   .hh（高斯模糊图片可以使用Photoshop制作）
@@ -66,7 +65,7 @@
 <p>首先把没有模糊的设为背景
 
 .hh代码示例</p>
-<pre class="json"><code><ul><li>"default_image": {
+<pre class="json wow fadeInRightBig"><code><ul><li>"default_image": {
 .  "type": "image",
 .  "texture": "图片路径",
 .  "fill": true,
@@ -75,7 +74,7 @@
 .}</li></ul></code></pre>
 
 <p>在controls内添加亿点点控件：</p>
-<pre class="json"><code><ul><li>"background": {
+<pre class="json wow fadeInRightBig"><code><ul><li>"background": {
 .  "type": "image",
 .  // texture/ui/background
 .  // 可以换成无高斯模糊图片的路径

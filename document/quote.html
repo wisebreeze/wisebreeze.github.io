@@ -34,10 +34,9 @@
 <body id="root" data-theme="light">
   <!--目录-->
   <div id="sideBar" class="sidenav">
-    <div style="overflow-y:scroll;">
-      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-      <hr
-        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
       <a class="sidenav-button" href="#p1">引用</a>
       <a class="sidenav-button" href="#p2">引用时使用变量</a>
       <a class="sidenav-button" href="#p3">继承引用</a>
@@ -55,7 +54,7 @@
          <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
     <p>首先~先看下面代码</p>
     
-    <p><pre class="json"><code><ul><li>"text": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"text": {
 .  "type": "text",
 .  "size": [ "default", "100%" ],
 .  "text": "a"
@@ -77,7 +76,7 @@
     
     <p>使用引用后</p>
     
-    <p><pre class="json"><code><ul><li>"text@text_common": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"text@text_common": {
 .  "text": "a"
 .},
 .
@@ -103,7 +102,7 @@
     
     <p>例如：</p>
     
-    <p><pre class="json"><code><ul><li>"text@text_common": {
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"text@text_common": {
 .  "text": "a"
 .},
 .
@@ -129,7 +128,7 @@
     <div id="p2" class="title wow fadeInLeftBig" data-wow-delay="1.5s">继承引用</div>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
     <p>如下面代码所示，<a class="panel">@$变量名</a>就可以使用继承引用了
-    <pre class="json"><code><ul><li>"panel": {
+    <pre class="json wow fadeInRightBig"><code><ul><li>"panel": {
 .  "type": "panel",
 .  "$b": "控件名",
 .  "controls": [

@@ -34,10 +34,9 @@
 <body id="root" data-theme="light">
   <!--目录-->
   <div id="sideBar" class="sidenav">
-    <div style="overflow-y:scroll;">
-      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-      <hr
-        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
       <a class="sidenav-button" href="#p1">创建动画控件</a>
       <a class="sidenav-button" href="#p2">定义动画属性</a>
       <a class="sidenav-button" href="#p3">定义动画属性 / 播放动画条件</a>
@@ -62,10 +61,10 @@
     <p>动画控件与其他控件不同的是，<b>动画控件</b>是使用anim_type来定义控件的类型，而不是type (动画控件作为单独的一个控件)</p>
 
     <p>例如：
-<pre class="json"><code>  "test_anim": {
-    "anim_type": "wait"
-  }
-</code></pre></p>
+<pre class="json wow fadeInRightBig"><code><ul><li>"test_anim": {
+.    "anim_type": "wait"
+.}
+</li></ul></code></pre></p>
 
 anim_type可能的值（字符串/列举）：
 
@@ -87,16 +86,14 @@ anim_type可能的值（字符串/列举）：
 
 <br>简单示例：
 
-<pre><code>{
-  "test_offset_anim": {
-    "anim_type": "offset",
-    "duration": 5,
-    "form": [ 10, 0 ],
-    "to": [ 0, 0 ],
-    "easing": "spring"
-  }
-}
-</code></pre>
+<pre class="json wow fadeInRightBig"><code><ul><li>"test_offset_anim": {
+.  "anim_type": "offset",
+.  "duration": 5,
+.  "form": [ 10, 0 ],
+.  "to": [ 0, 0 ],
+.  "easing": "spring"
+.}
+</li></ul></code></pre>
 <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
     <p><strong>duration</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放动画的时间</a></p>
     <p>值：数字
@@ -118,7 +115,7 @@ anim_type可能的值（字符串/列举）：
     <p>值：数字/数组
         <br>值会因动画控件类型而异（alpha 是数字，其余为数组）
         <br>该属性设置控件为播放时的状态
-        <br>注意：控件类型为wait时无需from、to属性
+        <br><a class="c-red">注意：控件类型为wait时无需from、to属性</a>
     </p>
 </div>
 
@@ -127,7 +124,7 @@ anim_type可能的值（字符串/列举）：
     <p>值：字符串
         <br>字符串格式为"@（控件所在文件的命名空间）.（动画控件名）"
         <br>例如："@hud.title_anim"
-        <br>注意：控件类型为wait时无需from、to属性
+        <br><a class="c-red">注意：控件类型为wait时无需from、to属性<a>
     </p>
 </div>
 
@@ -150,28 +147,28 @@ anim_type可能的值（字符串/列举）：
 </div>
 
 <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-    <p><strong>reversible</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放是否为可逆的</a></p>
+    <p><strong>reversible</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放是否为可逆的 [需要验证]</a></p>
     <p>值：布尔值
         <br>默认值：false
     </p>
 </div>
 
 <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-    <p><strong>resettable</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放是否为可复位的</a></p>
+    <p><strong>resettable</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放是否为可复位的 [需要验证]</a></p>
     <p>值：布尔值
         <br>默认值：false
     </p>
 </div>
 
 <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-    <p><strong>scale_from_starting_alpha</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">从Alpha开始时保持比例</a></p>
+    <p><strong>scale_from_starting_alpha</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">从Alpha开始时保持比例 [需要验证]</a></p>
     <p>值：布尔值
         <br>默认值：false
     </p>
 </div>
 
 <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-    <p><strong>activated</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否激活播放</a></p>
+    <p><strong>activated</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否激活播放 [需要验证]</a></p>
     <p>值：布尔值
         <br>默认值：true
     </p>
@@ -282,29 +279,31 @@ anim_type可能的值（字符串/列举）：
 
 <br>很简单，例如：
 
-<pre class="json"><code>{
-  "test": {
-    "type": "panel",
-    "offset": "@hud.test_anim"//值 = @命名空间.控件名
-  },
-  "test_anim": {
-    "anim_type": "offset"//具体动画属性就不再展示了
-  }
-}
-</code></pre>
+<pre class="json wow fadeInRightBig"><code><ul><li>{
+.  "test": {
+.    "type": "panel",
+.    "offset": "@hud.test_anim"//值 = @命名空间.控件名
+.  },
+.
+.  "test_anim": {
+.    "anim_type": "offset"//具体动画属性就不再展示了
+.  }
+.}
+</li></ul></code></pre>
 
-<pre class="json"><code>{
-  "test": {
-    "type": "panel",
-    "anims": [
-      "@hud.test_anim"//值 = @命名空间.控件名
-    ]
-  },
-  "test_anim": {
-    "anim_type": "offset"//具体动画属性就不再展示了
-  }
-}
-</code></pre>
+<pre class="json wow fadeInRightBig"><code><ul><li>{
+.  "test": {
+.    "type": "panel",
+.    "anims": [
+.      "@hud.test_anim"//值 = @命名空间.控件名
+.    ]
+.  },
+.
+.  "test_anim": {
+.    "anim_type": "offset"//具体动画属性就不再展示了
+.  }
+.}
+</li></ul></code></pre>
 <b>为单个属性添加 （适用于单个动画控件）</b>
 <br>将属性的值改为@命名空间.动画控件名称
 
@@ -342,16 +341,14 @@ anim_type可能的值（字符串/列举）：
 
 <p>我们还需要一个重置动画的属性 -- <b>animation_reset_name</b></p>
 
-<pre class="json"><code>{
-  "test": {
-    "type": "panel",
-    "animation_reset_name": "screen_animation_reset",
-    "anims": [
-      "@hud.test_anim"//值 = @命名空间.控件名
-    ]
-  }
-}
-</code></pre>
+<pre class="json wow fadeInRightBig"><code><ul><li>"test": {
+.  "type": "panel",
+.  "animation_reset_name": "screen_animation_reset",
+.  "anims": [
+.    "@hud.test_anim"//值 = @命名空间.控件名
+.  ]
+.}
+</li></ul></code></pre>
 <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
     <p><strong>animation_reset_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">重置动画事件</a></p>
     <p>值：字符串

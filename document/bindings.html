@@ -34,10 +34,9 @@
 <body id="root" data-theme="light">
   <!--目录-->
   <div id="sideBar" class="sidenav">
-    <div style="overflow-y:scroll;">
-      <label style="color: #000000;font-size: 20px;margin-left: 3px;margin-bottom: 2px;">目录</label>
-      <hr
-        style="width: 90%;background: -webkit-linear-gradient(left, rgb(118, 189, 255) , rgb(12, 36, 255));height: 1px;border: none;">
+    <div>
+      <label class="sidebar-title">目录</label>
+      <hr class="sidebar-hr">
       <a class="sidenav-button" href="#p1">认识绑定</a>
       <a class="sidenav-button" href="#p2">绑定的相反值</a>
     </div>
@@ -56,14 +55,12 @@
     
     <p>这里用start_screen.json作例子</p>
     
-    <p><pre class="json"><code>
-    "bindings": [
-      {
-        "binding_name": "#sign_in_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
-    </code></pre>
+    <p><pre class="json wow fadeInRightBig"><code><ul><li>"bindings": [
+.  {
+.    "binding_name": "#sign_in_visible",
+.    "binding_name_override": "#visible"
+.  }
+.]</li></ul></code></pre>
       简单来说，这个控件在登陆微软账号后显示，返之未登陆就隐藏</p>
     
     <br><span id="p1" class="title wow fadeInLeftBig" data-wow-delay="1.5s">认识绑定</span>
@@ -100,32 +97,28 @@
     
     <p>* text属性变量的值必须是<strong>绑定名</strong>才行</p>
     
-    <pre class="json"><code>
-    "version": {
-      "type": "label",
-      "text": "#version",
-      "bindings": [
-        {
-          "binding_name": "#version",
-          "binding_name_override": "#text"
-        }
-      ]
-    }
-    </code></pre>
+    <pre class="json wow fadeInRightBig"><code><ul><li>"version": {
+.  "type": "label",
+.  "text": "#version",
+.  "bindings": [
+.    {
+.      "binding_name": "#version",
+.      "binding_name_override": "#text"
+.    }
+.  ]
+.}</li></ul></code></pre>
     
     <p>bindings的binding_name_override也可以忽略</p>
     
-    <pre class="json"><code>
-    "version": {
-      "type": "label",
-      "text": "#version",
-      "bindings": [
-        {
-          "binding_name": "#version"
-        }
-      ]
-    }
-    </code></pre></div>
+    <pre class="json wow fadeInRightBig"><code><ul><li>"version": {
+.  "type": "label",
+.  "text": "#version",
+.  "bindings": [
+.    {
+.      "binding_name": "#version"
+.    }
+.  ]
+.}</li></ul></code></pre></div>
     
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
       <p><strong>binding_condition</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定条件</a></p>
@@ -154,21 +147,19 @@
     
     <p>示例：</p>
     
-    <pre class="json"><code>
-    "bindings": [
-      {
-        "binding_name": "$toggle_state_binding_name",
-        "binding_name_override": "#toggle_state"
-      },
-      {
-        "binding_type": "$toggle_enabled_binding_type",
-        "binding_condition": "$toggle_enabled_binding_condition",
-        "binding_collection_name": "$toggle_grid_collection_name",
-        "binding_name": "$toggle_enabled_binding_name",
-        "binding_name_override": "#enabled"
-      }
-    ]
-    </code></pre>
+    <pre class="json wow fadeInRightBig"><code><ul><li>"bindings": [
+.  {
+.    "binding_name": "$toggle_state_binding_name",
+.    "binding_name_override": "#toggle_state"
+.  },
+.  {
+.    "binding_type": "$toggle_enabled_binding_type",
+.    "binding_condition": "$toggle_enabled_binding_condition",
+.    "binding_collection_name": "$toggle_grid_collection_name",
+.    "binding_name": "$toggle_enabled_binding_name",
+.    "binding_name_override": "#enabled"
+.  }
+.]</li></ul></code></pre>
     
     <br><span id="p2" class="title wow fadeInLeftBig" data-wow-delay="1.5s">绑定的相反值</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
