@@ -23,8 +23,8 @@
 <br>4. 修改完成后，点击下面的绿色(提交更改)按钮
 <br>5. 修改完成，等待作者的审核
 
-## 为html添加元素
-属性中的中文可以改，可以按照自己需求添加！
+## html新元素
+这个新元素由main.js文件处理，在其他网站无效！
 
 ### 链接
 ```
@@ -39,15 +39,18 @@
 
 ### 提示
 ```
-.tip
-    <b>提示标题</b>
+<tip>
+    <b>提示</b>
     <br>提示内容
-..tip
+</tip>
 ```
 
-### 标明内容
+### 警告
 ```
-<span class="panel wow bounceInLeft" data-wow-delay="1.2s">标明内容</span>
+<warning>
+    <b>警告</b>
+    <br>提示内容
+</warning>
 ```
 
 ### 表格
@@ -70,32 +73,20 @@
 ..ep
 ```
 
-### 无行号的高亮代码框
+### 仅带行号的高亮代码框
 ```
-<pre><code class="hljs json">
+<pre class="json"><code>
 JSON代码内容
 </code></pre>
 ```
 
 ### 带行号和复制按钮的高亮代码框
-这个需要修改
-<br>cid_1 改成 cid_XXX(任意数字)
-<br>代码换行后要在当前的行开头加上`.`
-<br>
 ```
-<ul class="code wow bounceInLeft">
-    <li>
-        <div style="width: 100%;">
-            <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
-            <button class="copy-btn wow shake" onclick="copy_code('cid_1')" style="float: right;color: #424242;">.copy</button>
-        </div>
-    </li>
-    <!--下面是存放代码的-->
-    <li>
-        <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_1" class="json"><ul><li>"控件": {
-.  // 这个是示例代码，请自行更改
-.  "test": "aaa"
-.}</li></ul></code></pre>
-    </li>
-</ul>
+<bcode>
+    <ctitle>RP/ui/start_screen.json</ctitle>
+    <lcode>"控件": {
+  // 这个是示例代码，请自行更改
+  "test": "aaa"
+}</lcode>
+</bcode>
 ```
