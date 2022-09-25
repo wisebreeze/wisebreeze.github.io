@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>JSON基础语法</title>
-  <link rel="shortcut icon" href="../web_icon.png">
-  <link rel="icon" sizes="100x100" href="../web_icon.png">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport"
-    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-title" content="Json-UI教程">
   <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
   <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
@@ -15,47 +15,56 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
   
   <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
   <div class="top_header">
     <ul>
-      <li class="wow rollIn">
+      <li class="animated rollIn">
         <div>
           <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
           <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
         </div>
       </li>
-      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
       <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
     </ul>
   </div>
 </head>
 
 <body id="root" data-theme="light">
-  <!--目录-->
-  <div id="sideBar" class="sidenav">
-    <div>
-      <label class="sidebar-title">目录</label>
-      <hr class="sidebar-hr">
-      <a class="sidenav-button" href="#p1">语法</a>
-      <a class="sidenav-button" href="#p2">JSON特点</a>
-      <a class="sidenav-button" href="#p3">JSON压缩和格式化</a>
-      <a class="sidenav-button" href="#p4">JSON注释</a>
-      <a class="sidenav-button" href="#p5">JSON转义</a>
-      <a class="sidenav-button" href="#p6">Unicode</a>
-    </div>
-    <div style="top: 8px;">
-      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
-    </div>
-  </div>
-  <!--目录-->
   <!--正文-->
-  <div style="margin-top: 60px;">
-    <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">JSON基础语法</span>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
-    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="../">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
-    <br><br><div class="wow bounceInUp" data-wow-delay="0.8s">要了解json-UI，那就必须了解json(JavaScript Object Notation)语言
+  <div id="content">
+    <div class="left_title">
+      <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">JSON基础语法</span>
+      <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+      <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="../">返回首页</a>
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a>
+      </div>
+    </div>
+    <div class="right_content animated bounceInRight">
+      <div class="dropdown">
+        <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
+        <div class="dropdown-content" id="DropdownContent">
+          <a class="sidenav-button" href="#p1">语法</a>
+          <a class="sidenav-button" href="#p2">JSON特点</a>
+          <a class="sidenav-button" href="#p3">JSON压缩和格式化</a>
+          <a class="sidenav-button" href="#p4">JSON注释</a>
+          <a class="sidenav-button" href="#p5">JSON转义</a>
+          <a class="sidenav-button" href="#p6">Unicode</a>
+        </div>
+      </div>
+      <p>
+        <div class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+          阅读进度 - <a id="number_progress"></a>
+          <div class="progress-bg"><div id="progress"></div></div>
+        </div>
+      </p>
+    </div>
+    <div class="left_content"><br><div class="wow bounceInUp" data-wow-delay="0.8s">要了解json-UI，那就必须了解json(JavaScript Object Notation)语言
     <br><b class="c-red">java≠JavaScript≠JSON</b></div>
     <br><br><div class="wow bounceInUp" data-wow-delay="1s">如果想深入了解JSON，可以前往<a class="list-link" href="https://www.w3school.com.cn/js/js_json_syntax.asp">www.w3school.com.cn/js/js_json_syntax.asp</a></div>
     <br><br><div class="wow bounceInUp" data-wow-delay="0.8s"><b>JSON的文件后缀名为.json</b>
@@ -128,9 +137,11 @@
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
     > 无论是压缩还是格式化，只要语法正确都能解析
     <br>json压缩后文件体积更小，例如
-    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code class="json"><ul><li>{"a":"b"}</li></ul></code></pre>
+    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code class="json">{"a":"b"}</code></pre>
     但是数据较多时很难阅读，格式化更能更好编辑json，例如
-    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code class="json"><ul><li>{</li><li>  "a":"b"</li><li>}</li></ul></code></pre>
+    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code class="json">{
+  "a":"b"
+}</code></pre>
     但是这样做会<b class="c-red">增加文本字节</b>
     <br><br><span id="p4" class="title wow fadeInLeftBig" data-wow-delay="0.5s">JSON注释</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
@@ -139,7 +150,13 @@
     <br><b class="c-blue">单行注释</b>的符号是<a class="panel">//</a>，//后面的内容在这行不会被解析
     <br><b class="c-blue">段落注释</b>的符号分别为<a class="panel">/*</a>和<a class="panel">*/</a>，/*后面的内容将不会被解析，直到*/
     <br>例如
-    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code class="json"><ul><li>{</li><li>  //这行不会被解析</li><li>  "a": "b"</li><li>  /*</li><li>  这里不能被解析</li><li>  */</li><li>}</li></ul></code></pre>
+    <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code class="json">{
+  //这行不会被解析
+  "a": "b"
+  /*
+  这里不能被解析
+  */
+}</code></pre>
     <br><span id="p5" class="title wow fadeInLeftBig" data-wow-delay="0.5s">JSON转义</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
     值为<b>字符串</b>时
@@ -152,27 +169,20 @@
     <br>例如：<a class="panel">\U2192</a>
     <br>同时Unicode也可以被转义
     <br>在Unicode前面多加个<a class="panel">\</a>就行了
-  </div>
+  </div></div>
   <!--正文-->
-  <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
-    <button class="to_top" type="button" onclick="to_top();">
-      <div style="text-align: center;">
-        <span style="color: #619dff;font-size: 20px;">▲</span><br>
-        回顶部
-      </div>
-    </button>
-  </div>
-  <link href="../src/css/hl.css" rel="stylesheet">
-  <script src="../src/js/hl.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <link href="../src/css/animate.css" rel="stylesheet">
-
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
-  
+
+  <link href="../src/css/hl.css" rel="stylesheet">
+  <script src="../src/js/hl.js"></script>
+
+  <link href="../src/css/animate.css" rel="stylesheet">
   <script src="../src/js/WOW.js"></script>
-  <script>new WOW().init();</script>
+  <script>
+  new WOW().init();
+  hljs.initHighlightingOnLoad();
+  </script>
 </body>
 
 </html>

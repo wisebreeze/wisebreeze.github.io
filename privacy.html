@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>隐私政策</title>
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="100x100" href="./favicon.ico">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="./web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="./web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="./web_icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+    <meta name="author" content="MC_spruce">
+
+    <link href="./src/css/main.css" rel="stylesheet">
+    <script src="./src/js/jQuery.js"></script>
+    <div class="top_header">
+        <ul>
+            <li class="animated rollIn">
+              <div>
+                <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+                <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+              </div>
+            </li>
+            <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
+        </ul>
+    </div>
+</head>
+<body id="root" data-theme="light">
+    <!--正文-->
+    <div id="content">
+        <div class="right_content pc animated bounceInRight">
+          <div style="width: 20vw;" class="info-panel animated bounceInRight" data-wow-delay="0.65s">
+            阅读进度 - <a id="number_progress"></a>
+            <div class="progress-bg"><div id="progress"></div></div>
+          </div>
+        </div>
+        <div class="left_content" hide_bq="true"><br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">隐私政策</span>
+        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+        <a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
+        <br><br>我们充分保护你的隐私权，我们制定本政策以方便告诉您如何<b>收集、使用、储存</b>您的个人数据。
+        <br>请您仔细阅读本政策！
+        <br><br>不过请放心，我们不会把你任何的个人数据上传至网络，仅用于储存本地以改善用户体验。
+        <br><br><div class="title wow fadeInLeftBig" data-wow-delay="0.5s">我们收集的数据</div>
+        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+        目前需要的信息：
+        <br>&nbsp;&nbsp;- 当前时间
+        <br>&nbsp;&nbsp;- 网站数据
+        <br>&nbsp;&nbsp;- 页面滚动位置
+        <br>&nbsp;&nbsp;- 窗口大小
+        <br><br><div class="title wow fadeInLeftBig" data-wow-delay="0.5s">我们如何使用收集的数据</div>
+        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+        <b>当前时间</b>
+        <br>&nbsp;&nbsp;获取精准到秒的数据，用于获取随机数。
+        <br><b>网站数据</b>
+        <br>&nbsp;&nbsp;用于储存和获取缓存数据，用于读取与更改当前的主题以及侧边栏状态。部分数据会在用户推出浏览器时销毁。
+        <br><b>页面滚动位置</b>
+        <br>&nbsp;&nbsp;用于获取目前用户阅读的进度并显示在右侧（仅平板和电脑）。
+        <br><b>窗口大小</b>
+        <br>&nbsp;&nbsp;获取窗口大小用于改变界面布局。
+        <br><br><div class="title wow fadeInLeftBig" data-wow-delay="0.5s">如何删除收集数据</div>
+        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+        我们会把您的个人数据储存在浏览器数据文件，删除浏览器数据即可销毁收集的数据。
+    </div></div>
+    <!--正文-->
+    <script src="./src/js/main.js"></script>
+    <link href="./src/css/color.css" rel="stylesheet">
+  
+    <link href="./src/css/hl.css" rel="stylesheet">
+    <script src="./src/js/hl.js"></script>
+  
+    <link href="./src/css/animate.css" rel="stylesheet">
+    <script src="./src/js/WOW.js"></script>
+    <script>
+    new WOW().init();
+    hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

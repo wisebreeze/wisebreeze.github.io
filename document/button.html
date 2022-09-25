@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>按钮控件</title>
-  <link rel="shortcut icon" href="../web_icon.png">
-  <link rel="icon" sizes="100x100" href="../web_icon.png">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport"
-    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-title" content="Json-UI教程">
   <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
   <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
@@ -15,70 +15,67 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
   
   <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
   <div class="top_header">
     <ul>
-      <li class="wow rollIn">
+      <li class="animated rollIn">
         <div>
           <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
           <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
         </div>
       </li>
-      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
       <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
     </ul>
   </div>
 </head>
 
 <body id="root" data-theme="light">
-  <!--目录-->
-  <div id="sideBar" class="sidenav">
-    <div>
-      <label class="sidebar-title">目录</label>
-      <hr class="sidebar-hr">
-      <a class="sidenav-button" href="#p1">认识按钮</a>
-      <a class="sidenav-button" href="#p2">定义按钮属性</a>
-      <a class="sidenav-button" href="#p3">按钮映射</a>
-      <a class="sidenav-button" href="#p4">超链接按钮</a>
-      <a class="sidenav-button" href="#p5">更改按钮外观</a>
-      <a class="sidenav-button" href="#p6">使按钮跟随鼠标指针</a>
-      <a class="sidenav-button" href="#p7">焦点</a>
-      <a class="sidenav-button" href="#p8">其他属性</a>
-      <a class="sidenav-button" href="#p9">代码示例</a>
-    </div>
-    <div style="top: 8px;">
-      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
-    </div>
-  </div>
-  <!--目录-->
   <!--正文-->
-  <div style="padding-top: 60px;">
-    <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">按钮控件</span>
+  <div id="content">
+    <div class="left_title"><br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">按钮控件</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
-    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="../">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
-    <p>接下来，让我们更深入一些吧！</p>
+    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
+    <div class="right_content animated bounceInRight">
+      <div class="dropdown">
+        <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
+        <div class="dropdown-content" id="DropdownContent">
+          <a class="sidenav-button" href="#p1">认识按钮</a>
+          <a class="sidenav-button" href="#p2">定义按钮属性</a>
+          <a class="sidenav-button" href="#p3">按钮映射</a>
+          <a class="sidenav-button" href="#p4">超链接按钮</a>
+          <a class="sidenav-button" href="#p5">更改按钮外观</a>
+          <a class="sidenav-button" href="#p6">使按钮跟随鼠标指针</a>
+          <a class="sidenav-button" href="#p7">焦点</a>
+          <a class="sidenav-button" href="#p8">其他属性</a>
+          <a class="sidenav-button" href="#p9">代码示例</a>
+        </div>
+      </div>
+      <p>
+        <div class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+          阅读进度 - <a id="number_progress"></a>
+          <div class="progress-bg"><div id="progress"></div></div>
+        </div>
+      </p>
+    </div>
+    <div class="left_content"><p>接下来，让我们更深入一些吧！</p>
     
     <p>什么是按钮？
     <br>它能让你打开其他的界面，还会根据四种状态<a class="panel c1-gold">默认，悬停，按下，锁定</a>来改变按钮本身的纹理</p>
     
     <p>你可以<a class="panel c1-light-green">@common.button</a>来引用原版的按钮控件</p>
     <p>也可以使用type定义button控件</p>
-    <ul class="code wow bounceInLeft">
-      <li>
-        <div style="width: 100%;">
-          <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
-          <button class="copy-btn wow shake" onclick="copy_code('cid_1')" style="float: right;color: #424242;">
-            .copy
-          </button>
-        </div>
-      </li>
-      <li>
-        <pre class="wow fadeInRightBig"
-          data-wow-delay="0.5s"><code id="cid_1" class="json"><ul><li>"button": {
-.  "type": "button"
-.}</li></ul></code></pre>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"button": {
+  "type": "button"
+}</lcode></bcode>
       </li>
     </ul>
     <br><span id="p2" class="title wow fadeInLeftBig" data-wow-delay="1.5s">定义按钮属性</span>
@@ -157,6 +154,11 @@
     <br><span id="p3" class="title wow fadeInLeftBig" data-wow-delay="1.5s">按钮映射</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
     
+    <p>直接添加按钮只会改变自身材质，如果需要按钮有实际作用，
+    <br>需要使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a class="list-link" href="./anim.html">动画控件</a>)</p>
+    <a class="c-red">触发映射条件时而且from_button_id指定按键按下并松手仅触发一次to_button_id事件</a>
+    <br>下面我们来认识一下如何添加按钮映射吧！
+
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
       <p><strong>button_mappings</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射组</a></p>
       <p>值：数组
@@ -165,17 +167,17 @@
       </p>
     </div>
     
-    <p><pre><code style="filter: var(--image);" class="hljs json wow bounceInLeft">
-    // 示例
-    “button_mappings”: [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "$pressed_button_name",
-        "mapping_type": "pressed",
-        "input_mode_condition": "gamepad_and_not_gaze"
-      }
-    ]
-    </code></pre></p>
+    <p><bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>// 示例
+"button_mappings": [
+  {
+    "from_button_id": "button.menu_select",
+    "to_button_id": "$pressed_button_name",
+    "mapping_type": "pressed",
+    "input_mode_condition": "gamepad_and_not_gaze"
+  }
+]</lcode></bcode></p>
     
     <table border="1" class="wow bounceInLeft" data-wow-delay="0.8s">
       <caption>button_mappings 子属性</caption>
@@ -209,22 +211,25 @@
   <p>以下是一些常用的button_id：</p>
     
     <div class="panel wow bounceInLeft"><ul>
-      <li><code>button.menu_cancel（Esc键或返回键）</code></li>
-      <li><code>button.exit（退出屏幕）</code></li>
-      <li><code>button.menu_ok（Enter键）</code></li>
-      <li><code>button.menu_select（单击或点击）</code></li>
-      <li><code>button.hide_hud（F1键)</code></li>
-      <li><code>button.hide_paperdoll（纸娃娃）</code></li>
-      <li><code>button.menu_up  ↑</code></li>
-      <li><code>button.menu_down  ↓</code></li>
-      <li><code>button.menu_left  ←</code></li>
-      <li><code>button.menu_right  →</code></li>
-      <li><code>button.menu_autocomplete（Tab键）</code></li>
-      <li><code>button.menu_autocomplete_back（上个Tab键）</code></li>
-      <li><code>button.menu_tab_left（左Tab键）</code></li>
-      <li><code>button.menu_tab_right（右Tab键）</code></li>
+      <li>button.menu_cancel（Esc键或返回键）</li>
+      <li>button.exit（退出屏幕）</li>
+      <li>button.menu_ok（Enter键）</li>
+      <li>button.menu_select（单击或点击）</li>
+      <li>button.hide_hud（F1键)</li>
+      <li>button.hide_paperdoll（纸娃娃）</li>
+      <li>button.menu_up  ↑</li>
+      <li>button.menu_down  ↓</li>
+      <li>button.menu_left  ←</li>
+      <li>button.menu_right  →</li>
+      <li>button.menu_autocomplete（Tab键）</li>
+      <li>button.menu_autocomplete_back（上个Tab键）</li>
+      <li>button.menu_tab_left（左Tab键）</li>
+      <li>button.menu_tab_right（右Tab键）</li>
     </ul></div>
 
+    <p>如果仅需按下按钮触发映射事件，可以先引用"commom.button"，然后使用$pressed_button_name
+      .hh提示：$pressed_button_name的值等于to_button_id
+    </p>
     <br><span id="p4" class="title wow fadeInLeftBig" data-wow-delay="1.5s">超链接按钮</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
 
@@ -232,55 +237,38 @@
       <p><strong>property_bag / #hyperlink</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按下后打开的链接</a></p>
       <p>值：字符串
         <br>按下后会打开浏览器并转到指定的链接
-        <br><div class="tip"><div class="tip-text"><b>tip：</b>
-        <br>仅对Minecraft原版的链接有效</div></div>
-      </p>
+        </p><tip><b>tip：</b>
+        <br>仅对Minecraft原版的链接有效</tip>
     </div>
 
-    <ul class="code wow bounceInLeft">
-      <li>
-        <div style="width: 100%;">
-          <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
-          <button class="copy-btn wow shake" onclick="copy_code('cid_2')" style="float: right;color: #424242;">
-            <ul style="list-style-type: none;padding: 0;margin:0;overflow:hidden;">
-              <li style="float: left;">复制</li>
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 25 25" wdith="22" height="22"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
-                </path>
-              </svg>
-            </ul>
-          </button>
-        </div>
-      </li>
-      <li>
-        <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code style="filter: var(--image);" id="cid_2" class="json"><ul><li>"feedback_button@common.button": {
-. "property_bag": {
-.   "#hyperlink"： "https://aka.ms/minecraftfb"
-. }
-.}</li></ul></code></pre>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"feedback_button@common.button": {
+ "property_bag": {
+   "#hyperlink"： "https://aka.ms/minecraftfb"
+ }
+}</lcode></bcode>
       </li>
     </ul>
       这样就可以按下按钮后打开网站了
       不过，只能打开以下几种网站（其他网站会没效果）</p>
     
     <div class="panel"><ul>
-      <li><code>https://aka.ms/MCBanned</code></li>
-      <li><code>https://aka.ms/minecraftfb</code></li>
-      <li><code>https://aka.ms/minecraftfbbeta</code></li>
-      <li><code>https://aka.ms/MCMultiplayerHelp</code></li>
-      <li><code>https://account.xbox.com/Settings</code></li>
-      <li><code>https://social.xbox.com/changegamertag</code></li>
-      <li><code>https://aka.ms/meeterms</code></li>
-      <li><code>https://aka.ms/mcedulogs</code></li>
-      <li><code>https://aka.ms/minecraftedusupport</code></li>
-      <li><code>https://aka.ms/switchattribution</code></li>
-      <li><code>https://aka.ms/switchcontent</code></li>
-      <li><code>https://aka.ms/privacy</code></li>
-      <li><code>https://www.minecraft.net/licensed-content/?hideChrome</code></li>
-      <li><code>https://www.minecraft.net/attribution/?hideChrome</code></li>
-      <li><code>https://itunes.apple.com/us/app/minecraft/id479516143?mt=8</code></li></ul></div>
+      <li>https://aka.ms/MCBanned</li>
+      <li>https://aka.ms/minecraftfb</li>
+      <li>https://aka.ms/minecraftfbbeta</li>
+      <li>https://aka.ms/MCMultiplayerHelp</li>
+      <li>https://account.xbox.com/Settings</li>
+      <li>https://social.xbox.com/changegamertag</li>
+      <li>https://aka.ms/meeterms</li>
+      <li>https://aka.ms/mcedulogs</li>
+      <li>https://aka.ms/minecraftedusupport</li>
+      <li>https://aka.ms/switchattribution</li>
+      <li>https://aka.ms/switchcontent</li>
+      <li>https://aka.ms/privacy</li>
+      <li>https://www.minecraft.net/licensed-content/?hideChrome</li>
+      <li>https://www.minecraft.net/attribution/?hideChrome</li>
+      <li>https://itunes.apple.com/us/app/minecraft/id479516143?mt=8</li></ul></div>
     
   <br><span id="p5" class="title wow fadeInLeftBig" data-wow-delay="1.5s">更改按钮外观</span>
   <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
@@ -289,16 +277,18 @@
       
     <h3>文字按钮</h3>
     
-    <img style="filter: var(--image);border-radius: 15px;" width="320" height="auto" src="../src/image/button/1.png"></img>
+    <img width="320" height="auto" src="../src/image/button/1.png"></img>
     <p>类似于start界面中间的三个按钮，这种按钮通常叫做文字按钮
     <br>首先举个例子：
     </p>
     
-    <p><pre class="json"><code style="filter: var(--image);"><ul><li>"play_button@common_button.light_text_button": {
-.  "size": ["100%","100%"],
-.  "$pressed_button_name": "$play_button_target",
-.  "$button_text": "menu.play"
-.}</li></ul></code></pre></p>
+    <p><bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"play_button@common_button.light_text_button": {
+  "size": ["100%","100%"],
+  "$pressed_button_name": "$play_button_target",
+  "$button_text": "menu.play"
+}</lcode></bcode></p>
     <table border="1">
       <thead><tr><th>属性名</th><th>值</th><th>介绍</th></tr></thead>
       <tbody></tbody><tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
@@ -319,23 +309,25 @@
     
     <h3>图片按钮</h3>
     
-    <img style="filter: var(--image);border-radius: 15px;" width="320" height="auto" src="../src/image/button/2.png"></img>
+    <img width="320" height="auto" src="../src/image/button/2.png"></img>
     <p>类似于start界面左下角的按钮，这种按钮通常叫做图片按钮
       <br>首先举个例子：
     </p>
     
-    <pre class="json"><code style="filter: var(--image);"><ul><li>"icon": {
-.  "type": "image",
-.  "texture": "textures/ui/achievements",
-.  "layer": 3,
-.  "size": [16,16]
-.},
-.
-."button@common_button.light_content_button": {
-.  "size": ["100%","100%"],
-.  "$button_content": "start.icon",
-.  "$pressed_button_name": "button.menu_achievements"
-.}</li></ul></code></pre>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"icon": {
+  "type": "image",
+  "texture": "textures/ui/achievements",
+  "layer": 3,
+  "size": [16,16]
+},
+
+"button@common_button.light_content_button": {
+  "size": ["100%","100%"],
+  "$button_content": "start.icon",
+  "$pressed_button_name": "button.menu_achievements"
+}</lcode></bcode>
   <table border="1">
     <thead>
       <tr>
@@ -410,18 +402,20 @@
     <br>首先举个例子：
     </p>
     
-    <pre class="json"><code style="filter: var(--image);"><ul><li>"icon": {
-.  "type": "image",
-.  "texture": "textures/ui/achievements",
-.  "layer": 3,
-.  "size": [16,16]
-.},
-.
-."button@common_button.no_background_content_button": {
-.  "size": ["100%","100%"],
-.  "$button_content": "start.icon",
-.  "$pressed_button_name": "button.menu_achievements"
-.}</li></ul></code></pre>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"icon": {
+  "type": "image",
+  "texture": "textures/ui/achievements",
+  "layer": 3,
+  "size": [16,16]
+},
+
+"button@common_button.no_background_content_button": {
+  "size": ["100%","100%"],
+  "$button_content": "start.icon",
+  "$pressed_button_name": "button.menu_achievements"
+}</lcode></bcode>
      
   <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
     <p><strong>$pressed_button_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射事件</a></p>
@@ -444,39 +438,41 @@
     <br>首先举个例子：
     </p>
     
-  <pre class="json"><code style="filter: var(--image);"><ul><li>"icon": {
-.  "type": "image",
-.  "texture": "textures/ui/achievements",
-.  "layer": 3,
-.  "size": [16,16],
-.  "alpha": "$icon_alpha",
-.  "$icon_alpha|default": 1
-.},
-.
-."test_button@common.button": {
-.  "size": ["100%","100%"],
-.  "$pressed_button_name": "button.menu_achievements",
-.  "controls": [
-.    // 当前显示的内容取决于按钮状态
-.    //
-.   {
-.      // 默认状态
-.      "default@icon": {}
-.    },
-.    {
-.      // 悬停状态
-.      "hover@icon": {"$icon_alpha"： 0.8}// 当按钮为悬停状态时，内容透明度为0.8
-.    },
-.    {
-.      // 按下状态
-.      "pressed@icon": {}
-.    },
-.    {
-.      // 锁定状态
-.      "locked@icon": {}
-.    }
-.  ]
-.}</li></ul></code></pre>
+  <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"icon": {
+  "type": "image",
+  "texture": "textures/ui/achievements",
+  "layer": 3,
+  "size": [16,16],
+  "alpha": "$icon_alpha",
+  "$icon_alpha|default": 1
+},
+
+"test_button@common.button": {
+  "size": ["100%","100%"],
+  "$pressed_button_name": "button.menu_achievements",
+  "controls": [
+    // 当前显示的内容取决于按钮状态
+    //
+   {
+      // 默认状态
+      "default@icon": {}
+    },
+    {
+      // 悬停状态
+      "hover@icon": {"$icon_alpha"： 0.8}// 当按钮为悬停状态时，内容透明度为0.8
+    },
+    {
+      // 按下状态
+      "pressed@icon": {}
+    },
+    {
+      // 锁定状态
+      "locked@icon": {}
+    }
+  ]
+}</lcode></bcode>
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
       <p><strong>$pressed_button_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射事件</a></p>
       <p>值：字符串/映射事件
@@ -498,10 +494,12 @@
     
     <p>这种按钮通常用于关闭当前屏幕</p>
     
-    <p><pre><code style="filter: var(--image);"><ul><li>"close_button@common.close_button": {
-.  "size": ["100%","100%"],
-.  "$close_button_to_button_id": "button.menu_exit"
-.}</li></ul></code></pre>
+    <p><bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"close_button@common.close_button": {
+  "size": ["100%","100%"],
+  "$close_button_to_button_id": "button.menu_exit"
+}</lcode></bcode>
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
       <p><strong>$close_button_to_button_id</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射事件</a></p>
       <p>值：字符串/映射事件
@@ -516,10 +514,12 @@
     
     <p>这种按钮通常用于返回上个屏幕</p>
     
-    <p><pre><code style="filter: var(--image);"><ul><li>"back_button@common.back_button": {
-.  "size": ["100%","100%"],
-.  "$back_button_pressed_button_name": "button.menu_exit"
-.}</li></ul></code></pre>
+    <p><bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"back_button@common.back_button": {
+  "size": ["100%","100%"],
+  "$back_button_pressed_button_name": "button.menu_exit"
+}</lcode></bcode>
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
       <p><strong>$back_button_pressed_button_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射事件</a></p>
       <p>值：字符串/映射事件
@@ -650,29 +650,30 @@
       值：数组
       <br><a class="c1-red">本属性名包含四个属性，属性名以括号方式列举属性</a>
       <br>属性示例: 
-      <pre class="json"><code style="filter: var(--image);" class="hljs json"><ul><li>"focus_container_custom_right": [
-.  {
-.    "other_focus_container_name": "控件名",. .   "focus_id_inside": "内部焦点名"
-.  }
-.]</li></ul></code></pre>
+      <pre class="json"><code>"focus_container_custom_right": [
+  {
+    "other_focus_container_name": "控件名",. .   "focus_id_inside": "内部焦点名"
+  }
+]</code></pre>
        <p>代码示例: </p>
-       <pre class="json"><code style="filter: var(--image);" class="hljs json"><ul><li>{
-.  ...
-.  "test": {
-.    "type": "panel",
-.    "focus_container": true
-.  },
-.  
-.  "focus_panel": {
-.    "type": "input_panel",
-.    "focus_container_custom_right": [
-.      {
-.        "other_focus_container_name": "test",
-.        "focus_id_inside": "none"
-.      }
-.    ]
-.  }
-.}</li></ul></code></pre><br>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>{
+  "test": {
+    "type": "panel",
+    "focus_container": true
+  },
+  
+  "focus_panel": {
+    "type": "input_panel",
+    "focus_container_custom_right": [
+      {
+        "other_focus_container_name": "test",
+        "focus_id_inside": "none"
+      }
+    ]
+  }
+}</lcode></bcode><br>
     </div>
     
     <br><span id="p8" class="title wow fadeInLeftBig" data-wow-delay="1.5s">其他属性</span>
@@ -723,128 +724,101 @@
     <p>是不是觉得上面的文档太乱？
     <br>没事，我来教你写一个简单的按钮</p>
     <p>跟着下面的注释改就行了</p>
-    <ul class="code wow bounceInLeft">
-        <li>
-            <div style="width: 100%;">
-                <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
-                <button class="copy-btn wow shake" onclick="copy_code('cid_3')" style="float: right;color: #424242;">
-                  .copy
-                </button>
-            </div>
-        </li>
-        <li>
-            <pre><code style="filter: var(--image);" id="cid_3" class="hljs json"><ul><li>  "content": {
-.  // 这是按钮样式的按钮
-.  "type": "image",
-.    "texture": "textures/items/apple"
-.  },
-.  
-.  "content_hover": {
-.    // 这是按钮样式的按钮
-.    "type": "image",
-.    "texture": "textures/items/diamond"
-.  },
-.  
-.  "content_pressed": {
-.    // 这是按钮样式的按钮
-.    "type": "image",
-.    "texture": "textures/items/bamboo"
-.  },
-.  
-.  "button@common.button": {
-.    //这个就是按钮控件
-.    "size": [100,20],// 这行是按钮的大小
-.    // 下面是按下后的事件
-.    "$pressed_button_name": "button.menu_settings",
-.    // 定义按钮外观
-.    "controls": [
-.      {
-.        // 此处的content请换成你需要引用的控件
-.        // 引用的控件将作为默认状态显示
-.        "default@content": {}
-.      },
-.      {
-.        // 此处的content_hover请换成你需要引用的控件
-.        // 引用的控件将作为悬停状态显示
-.        "hover@content_hover": {}
-.      },
-.      {
-.        // 此处的content_pressed请换成你需要引用的控件
-.        // 引用的控件将作为按下状态显示
-.        "pressed@content_pressed": {}
-.      }
-.    ]
-.  }</li></ul></code></pre>
-        </li>
-    </ul>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"content": {
+  // 这是按钮样式的按钮
+  "type": "image",
+    "texture": "textures/items/apple"
+  },
+  
+  "content_hover": {
+    // 这是按钮样式的按钮
+    "type": "image",
+    "texture": "textures/items/diamond"
+  },
+  
+  "content_pressed": {
+    // 这是按钮样式的按钮
+    "type": "image",
+    "texture": "textures/items/bamboo"
+  },
+  
+  "button@common.button": {
+    //这个就是按钮控件
+    "size": [100,20],// 这行是按钮的大小
+    // 下面是按下后的事件
+    "$pressed_button_name": "button.menu_settings",
+    // 定义按钮外观
+    "controls": [
+      {
+        // 此处的content请换成你需要引用的控件
+        // 引用的控件将作为默认状态显示
+        "default@content": {}
+      },
+      {
+        // 此处的content_hover请换成你需要引用的控件
+        // 引用的控件将作为悬停状态显示
+        "hover@content_hover": {}
+      },
+      {
+        // 此处的content_pressed请换成你需要引用的控件
+        // 引用的控件将作为按下状态显示
+        "pressed@content_pressed": {}
+      }
+    ]
+  }</lcode></bcode>
     
     <p>对于了解继承变量的玩家，可以在按钮控件的controls引用同一个控件。这样会省下几个控件
     <br>但是不建议新手这么做！
     <br>例如：</p>
-    <ul class="code wow bounceInLeft">
-        <li>
-            <div style="width: 100%;">
-                <span style="font-size: 15px;color: #313131;bottom: 5px;">RP/ui/start_screen.json</span>
-                <button class="copy-btn wow shake" onclick="copy_code('cid_4')" style="float: right;color: #424242;">
-                    .copy
-                </button>
-            </div>
-        </li>
-        <li>
-            <pre><code style="filter: var(--image);" id="cid_4" class="hljs json"><ul><li>"content": {
-.  // 这是按钮样式的按钮
-.  "type": "image",
-.  "texture": "$image"
-.},
-.
-."button@common.button": {
-.  //这个就是按钮控件
-.  "size": [100,20],// 这行是按钮的大小
-.  // 下面是按下后的事件
-.  "$pressed_button_name": "button.menu_settings",
-.  // 定义按钮外观
-.  "controls": [
-.      // 此处的content_hover请换成你需要引用的控件
-.      // 引用的控件将作为默认状态显示
-.      "default@content": {"$image": "textures/items/apple"}
-.    },
-.    {
-.      // 此处的content_hover请换成你需要引用的控件
-.      // 引用的控件将作为悬停状态显示
-.      "hover@content": {"$image": "textures/items/diamond"}
-.    },
-.    {
-.      // 此处的content_hover请换成你需要引用的控件
-.      // 引用的控件将作为按下状态显示
-.      "pressed@content": {"$image": "textures/items/bamboo"}
-.    }
-.  ]
-.}</li></ul></code></pre>
-        </li>
-    </ul>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"content": {
+  // 这是按钮样式的按钮
+  "type": "image",
+  "texture": "$image"
+},
+
+"button@common.button": {
+  //这个就是按钮控件
+  "size": [100,20],// 这行是按钮的大小
+  // 下面是按下后的事件
+  "$pressed_button_name": "button.menu_settings",
+  // 定义按钮外观
+  "controls": [
+      // 此处的content_hover请换成你需要引用的控件
+      // 引用的控件将作为默认状态显示
+      "default@content": {"$image": "textures/items/apple"}
+    },
+    {
+      // 此处的content_hover请换成你需要引用的控件
+      // 引用的控件将作为悬停状态显示
+      "hover@content": {"$image": "textures/items/diamond"}
+    },
+    {
+      // 此处的content_hover请换成你需要引用的控件
+      // 引用的控件将作为按下状态显示
+      "pressed@content": {"$image": "textures/items/bamboo"}
+    }
+  ]
+}</lcode></bcode>
     <p>好了～以上就是按钮控件的内容了(๑❛ᴗ❛๑)
     <br>如果不懂建议反复观看哦！</p>
-  </div>
+    </div></div>
   <!--正文-->
-  <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
-    <button class="to_top" type="button" onclick="to_top();">
-      <div style="text-align: center;">
-        <span style="color: #619dff;font-size: 20px;">▲</span><br>
-        回顶部
-      </div>
-    </button>
-  </div>
-  <link href="../src/css/hl.css" rel="stylesheet">
-  <script src="../src/js/hl.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <link href="../src/css/animate.css" rel="stylesheet">
-
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
-  
+
+  <link href="../src/css/hl.css" rel="stylesheet">
+  <script src="../src/js/hl.js"></script>
+
+  <link href="../src/css/animate.css" rel="stylesheet">
   <script src="../src/js/WOW.js"></script>
-  <script>new WOW().init();</script>
+  <script>
+  new WOW().init();
+  hljs.initHighlightingOnLoad();
+  </script>
 </body>
 
 </html>

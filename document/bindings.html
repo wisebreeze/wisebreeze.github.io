@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>绑定</title>
-  <link rel="shortcut icon" href="../web_icon.png">
-  <link rel="icon" sizes="100x100" href="../web_icon.png">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport"
-    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-title" content="Json-UI教程">
   <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
   <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
@@ -15,52 +15,60 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
   
   <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
   <div class="top_header">
     <ul>
-      <li class="wow rollIn">
+      <li class="animated rollIn">
         <div>
           <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
           <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
         </div>
       </li>
-      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
       <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
     </ul>
   </div>
 </head>
 
 <body id="root" data-theme="light">
-  <!--目录-->
-  <div id="sideBar" class="sidenav">
-    <div>
-      <label class="sidebar-title">目录</label>
-      <hr class="sidebar-hr">
-      <a class="sidenav-button" href="#p1">认识绑定</a>
-      <a class="sidenav-button" href="#p2">绑定的相反值</a>
-    </div>
-    <div style="top: 8px;">
-      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
-    </div>
-  </div>
-  <!--目录-->
   <!--正文-->
-  <div style="padding-top: 60px;">
-    <br><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">绑定</span>
+  <div id="content">
+    <div class="left_title"><br><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">绑定</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
     <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
-    <p>在UI的某个文件中，都会发现有<strong>bindings</strong>这个控件属性</p>
+      <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
+      <div class="right_content animated bounceInRight">
+      <div class="dropdown">
+        <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
+        <div class="dropdown-content" id="DropdownContent">
+          <a class="sidenav-button" href="#p1">认识绑定</a>
+          <a class="sidenav-button" href="#p2">绑定的相反值</a>
+        </div>
+      </div>
+      <p>
+        <div class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+          阅读进度 - <a id="number_progress"></a>
+          <div class="progress-bg"><div id="progress"></div></div>
+        </div>
+      </p>
+    </div>
+    <div class="left_content"><p>在UI的某个文件中，都会发现有<strong>bindings</strong>这个控件属性</p>
     
     <p>这里用start_screen.json作例子</p>
     
-    <p><pre class="json wow fadeInRightBig"><code><ul><li>"bindings": [
-.  {
-.    "binding_name": "#sign_in_visible",
-.    "binding_name_override": "#visible"
-.  }
-.]</li></ul></code></pre>
+    <p><bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"bindings": [
+  {
+    "binding_name": "#sign_in_visible",
+    "binding_name_override": "#visible"
+  }
+]</lcode></bcode>
       简单来说，这个控件在登陆微软账号后显示，返之未登陆就隐藏</p>
     
     <br><span id="p1" class="title wow fadeInLeftBig" data-wow-delay="1.5s">认识绑定</span>
@@ -97,28 +105,32 @@
     
     <p>* text属性变量的值必须是<strong>绑定名</strong>才行</p>
     
-    <pre class="json wow fadeInRightBig"><code><ul><li>"version": {
-.  "type": "label",
-.  "text": "#version",
-.  "bindings": [
-.    {
-.      "binding_name": "#version",
-.      "binding_name_override": "#text"
-.    }
-.  ]
-.}</li></ul></code></pre>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"version": {
+  "type": "label",
+  "text": "#version",
+  "bindings": [
+    {
+      "binding_name": "#version",
+      "binding_name_override": "#text"
+    }
+  ]
+}</lcode></bcode>
     
     <p>bindings的binding_name_override也可以忽略</p>
     
-    <pre class="json wow fadeInRightBig"><code><ul><li>"version": {
-.  "type": "label",
-.  "text": "#version",
-.  "bindings": [
-.    {
-.      "binding_name": "#version"
-.    }
-.  ]
-.}</li></ul></code></pre></div>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"version": {
+  "type": "label",
+  "text": "#version",
+  "bindings": [
+    {
+      "binding_name": "#version"
+    }
+  ]
+}</lcode></bcode></div>
     
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
       <p><strong>binding_condition</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定条件</a></p>
@@ -147,19 +159,21 @@
     
     <p>示例：</p>
     
-    <pre class="json wow fadeInRightBig"><code><ul><li>"bindings": [
-.  {
-.    "binding_name": "$toggle_state_binding_name",
-.    "binding_name_override": "#toggle_state"
-.  },
-.  {
-.    "binding_type": "$toggle_enabled_binding_type",
-.    "binding_condition": "$toggle_enabled_binding_condition",
-.    "binding_collection_name": "$toggle_grid_collection_name",
-.    "binding_name": "$toggle_enabled_binding_name",
-.    "binding_name_override": "#enabled"
-.  }
-.]</li></ul></code></pre>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"bindings": [
+  {
+    "binding_name": "$toggle_state_binding_name",
+    "binding_name_override": "#toggle_state"
+  },
+  {
+    "binding_type": "$toggle_enabled_binding_type",
+    "binding_condition": "$toggle_enabled_binding_condition",
+    "binding_collection_name": "$toggle_grid_collection_name",
+    "binding_name": "$toggle_enabled_binding_name",
+    "binding_name_override": "#enabled"
+  }
+]</lcode></bcode>
     
     <br><span id="p2" class="title wow fadeInLeftBig" data-wow-delay="1.5s">绑定的相反值</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
@@ -179,27 +193,20 @@
     <p>这样就可以知道，值改成(not 绑定名)就可以了，因为绑定名需要符合条件（整体为true）时才能输出true</p>
     
     <p>绑定差不多就教到这了</p>
-  </div>
+  </div></div>
   <!--正文-->
-  <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
-    <button class="to_top" type="button" onclick="to_top();">
-      <div style="text-align: center;">
-        <span style="color: #619dff;font-size: 20px;">▲</span><br>
-        回顶部
-      </div>
-    </button>
-  </div>
-  <link href="../src/css/hl.css" rel="stylesheet">
-  <script src="../src/js/hl.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <link href="../src/css/animate.css" rel="stylesheet">
-
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
-  
+
+  <link href="../src/css/hl.css" rel="stylesheet">
+  <script src="../src/js/hl.js"></script>
+
+  <link href="../src/css/animate.css" rel="stylesheet">
   <script src="../src/js/WOW.js"></script>
-  <script>new WOW().init();</script>
+  <script>
+  new WOW().init();
+  hljs.initHighlightingOnLoad();
+  </script>
 </body>
 
 </html>

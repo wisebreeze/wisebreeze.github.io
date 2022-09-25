@@ -7,7 +7,6 @@
     padding: 1px;
     margin: 0;
     width: 100%;
-    border-radius: 8px;
     box-shadow: inset -3px -3px 4px #c4c4c4,inset 3px 3px 4px #dddddd;
     font-weight: 200;
     color: #333;
@@ -25,7 +24,7 @@
 
 .hljs ul li {
     list-style: decimal-leading-zero;
-    border-left: 2px solid rgb(166, 208, 255) !important;
+    border-left: 2px solid rgb(166, 208, 255);
     background: rgb(255, 255, 255);
     padding: 5px !important;
     margin: 0 !important;
@@ -35,6 +34,7 @@
 }
 
 .hljs ul li:hover {
+    border-left: 2px solid rgb(45, 152, 255);
     background-color: #f5f5f5;
 }
 

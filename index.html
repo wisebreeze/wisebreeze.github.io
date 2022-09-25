@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>我的世界基岩版 Json-UI教程</title>
-    <link rel="shortcut icon" href="./web_icon.png">
-    <link rel="icon" sizes="100x100" href="./web_icon.png">
+    <title>我的世界基岩版JSON UI教程</title>
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="100x100" href="./favicon.ico">
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-title" content="Json-UI教程">
@@ -15,50 +15,39 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-touch-fullscreen" content="yes">
-    
+    <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+    <meta name="author" content="MC_spruce">
+
     <link href="./src/css/main.css" rel="stylesheet">
+    <script src="./src/js/jQuery.js"></script>
     <div class="top_header">
         <ul>
-            <li class="wow rollIn">
+            <li class="animated rollIn">
               <div>
                 <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
                 <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
               </div>
             </li>
-            <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+            <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
             <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
         </ul>
     </div>
 </head>
 <body id="root" data-theme="light">
-    <!--目录-->
-    <div id="sideBar" class="sidenav">
-        <div>
-            <label class="sidebar-title">目录</label>
-            <hr class="sidebar-hr">
-            <a class="sidenav-button" href="#p1">首页</a>
-            <a class="sidenav-button" href="#p2">目录</a>
-        </div>
-        <div style="top: 8px;">
-            <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
-        </div>
-    </div>
-    <!--目录-->
     <!--正文-->
-    <div style="padding-top: 60px;">
-        <span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">首页</span>
+    <div id="content">
+        <div class="left_content" hide_bq="true"><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">首页</span>
         <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
-        <div class="tip wow bounceInLeft" data-wow-delay="0.5s">
-            <div class="tip-text">
-                <span style="font-weight: bold;font-size: large;">提示</span>
-                <ul style="margin-top: 3px;margin-bottom: 3px;padding-left: -1px;">
-                    <li><span style="font-size: medium;">本教程仅适用于Minecraft基岩版</span></li>
-                    <li><span style="font-size: medium;font-weight: bold;">文章持续更新，建议<span style="color: #ffc038;">收藏</span></span></li>
-                </ul>
-            </div>
-        </div>
+        <tip>
+          <span style="font-weight: bold;font-size: large;">提示</span>
+          <ul style="margin-top: 3px;margin-bottom: 3px;padding-left: -1px;">
+              <li><span style="font-size: medium;">本教程仅适用于Minecraft基岩版</span></li>
+              <li><span style="font-size: medium;font-weight: bold;">文章持续更新，建议<span style="color: #ffc038;">收藏</span></span></li>
+          </ul>
+        </tip>
         <!--标题1-->
-        <div class="wow bounceInUp" data-wow-delay="0.6s"><p>本文档用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI。</p>
+        <div class="wow bounceInUp" data-wow-delay="0.6s"><p>本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI。</p>
         <p><div class="info-panel">
           <label style="font-weight: bold;">文档作者：MC_spruce</label>
           <div class="info-div"><a href="https://b23.tv/FFwBDKM">B站主页</a><div style="width: 10px;"></div><a href="https://jq.qq.com/?_wv=1027&k=2Ee4pUUF">交流群</a></div></div></p>
@@ -93,27 +82,26 @@
             <br><a class="list-link" href="tutorial/blur.html">伪高斯模糊</a>
             <br><a class="list-link" href="tutorial/交易.html">查看所有交易物品</a>
         </div>
-    </div>
+        <div class="right_content animated bounceInRight">
+        <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+            阅读进度 - <a id="number_progress"></a>
+            <div class="progress-bg"><div id="progress"></div></div>
+        </div>
+        </div>
+    </div></div>
     <!--正文-->
-    <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
-        <button class="to_top" type="button" onclick="to_top();">
-            <div style="text-align: center;">
-                <span style="color: #619dff;font-size: 20px;">▲</span><br>
-                <span class="to-top-text">回顶部</span>
-            </div>
-        </button>
-    </div>
+    <script src="./src/js/main.js"></script>
+    <link href="./src/css/color.css" rel="stylesheet">
+  
     <link href="./src/css/hl.css" rel="stylesheet">
     <script src="./src/js/hl.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
+  
     <link href="./src/css/animate.css" rel="stylesheet">
-
-    <script src="src/js/main.js"></script>
-    <link href="./src/css/color.css" rel="stylesheet">
-    
     <script src="./src/js/WOW.js"></script>
-    <script>new WOW().init();</script>
+    <script>
+    new WOW().init();
+    hljs.initHighlightingOnLoad();
+    </script>
 </body>
 
 </html>

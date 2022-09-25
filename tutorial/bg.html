@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>修改界面背景</title>
-  <link rel="shortcut icon" href="../web_icon.png">
-  <link rel="icon" sizes="100x100" href="../web_icon.png">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport"
-    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-title" content="Json-UI教程">
   <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
   <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
@@ -15,8 +15,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
   
   <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
   <div class="top_header">
     <ul>
       <li class="wow rollIn">
@@ -25,32 +29,26 @@
           <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
         </div>
       </li>
-      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
       <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
     </ul>
   </div>
 </head>
 
 <body id="root" data-theme="light">
-  <!--目录-->
-  <div id="sideBar" class="sidenav">
-    <div>
-      <label class="sidebar-title">目录</label>
-      <hr class="sidebar-hr">
-      <a class="sidenav-button" href="../index.html">首页</a>
-    </div>
-    <div style="top: 8px;">
-      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
-    </div>
-  </div>
-  <!--目录-->
   <!--正文-->
-  <div style="padding-top: 60px;">
-    <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">修改界面背景</span>
+  <div id="content">
+    <div class="left_title"><br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">修改界面背景</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
     <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div> 
-.hh.hh学会图片后，我们来给UI加上背景吧！
+         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div> 
+    <div class="right_content animated bounceInRight">
+    <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+      阅读进度 - <a id="number_progress"></a>
+      <div class="progress-bg"><div id="progress"></div></div>
+    </div>
+  </div>
+<div class="left_content">.hh学会图片后，我们来给UI加上背景吧！
 
 <p>这里以start_screen.json（开始界面）为例</p>
 
@@ -63,12 +61,14 @@
 .hh这里以下图作为背景示例</p>
 <img width="220" hight="auto" src="../src/image/bg.png"></img>
 <p>首先准备图片并放入指定路径，然后在想添加背景的文件写好图片控件</p>
-<pre class="json wow fadeInRightBig"><code><ul><li>"background": {
-.  "type": "image",
-.  "texture": "textures/ui/background",
-.  "layer": -100,
-.  "fill": true
-.}</li></ul></code></pre>
+<bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"background": {
+  "type": "image",
+  "texture": "textures/ui/background",
+  "layer": -100,
+  "fill": true
+}</lcode></bcode>
 <p>* 图片控件最好加上<b class="panel">"fill": true</b>属性</p>
 <p>写好控件后，在文件中找到控件名带有<a class="c-red">“@common.base_screen”</a>的控件</p>
 <p>并在这个控件下方添加属性</p>
@@ -76,45 +76,41 @@
 <p>值：字符串/控件
 .hh默认值：common.empty_panel
 .hh例如："$screen_bg_content": "start.background"
-.hh.tip提示：值最好填上"命名空间.控件名"
-.hh命名空间是这个json文件开头的.bb"namespace"..bb键后面的值..tip
-</p>
 ..ep
+<tip>提示：值最好填上"命名空间.控件名"
+.hh命名空间是这个json文件开头的.bb"namespace"..bb键后面的值</tip>
+</p>
+
 <p>填完后代码就像这样子</p>
 <img width="280" hight="auto" src="../src/image/背景.PNG"></img>
-<pre class="json wow fadeInRightBig"><code><ul><li>"background": {
-.  "type": "image",
-.  "texture": "textures/ui/background",
-.  "layer": -100,
-.  "fill": true
-.},
-.
-."start_screen@common.base_screen": {
-.  // 此处省略了一些无关的代码
-.  "$screen_content": "start.start_screen_content",
-.  "$screen_bg_content": "start.background"
-.}</li></ul></code></pre>
-  </div>
+<bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"background": {
+  "type": "image",
+  "texture": "textures/ui/background",
+  "layer": -100,
+  "fill": true
+},
+
+"start_screen@common.base_screen": {
+  // 此处省略了一些无关的代码
+  "$screen_content": "start.start_screen_content",
+  "$screen_bg_content": "start.background"
+}</lcode></bcode>
+  </div></div>
   <!--正文-->
-  <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
-    <button class="to_top" type="button" onclick="to_top();">
-      <div style="text-align: center;">
-        <span style="color: #619dff;font-size: 20px;">▲</span><br>
-        回顶部
-      </div>
-    </button>
-  </div>
-  <link href="../src/css/hl.css" rel="stylesheet">
-  <script src="../src/js/hl.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <link href="../src/css/animate.css" rel="stylesheet">
-
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
-  
+
+  <link href="../src/css/hl.css" rel="stylesheet">
+  <script src="../src/js/hl.js"></script>
+
+  <link href="../src/css/animate.css" rel="stylesheet">
   <script src="../src/js/WOW.js"></script>
-  <script>new WOW().init();</script>
+  <script>
+  new WOW().init();
+  hljs.initHighlightingOnLoad();
+  </script>
 </body>
 
 </html>

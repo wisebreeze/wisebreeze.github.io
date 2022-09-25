@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>我的世界基岩版 Json-UI教程</title>
-    <link rel="shortcut icon" href="./web_icon.png">
-    <link rel="icon" sizes="100x100" href="./web_icon.png">
+    <title>贡献名单</title>
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="icon" sizes="100x100" href="./favicon.ico">
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-title" content="Json-UI教程">
@@ -15,62 +15,53 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+    <meta name="author" content="MC_spruce">
     
     <link href="./src/css/main.css" rel="stylesheet">
+    <script src="./src/js/jQuery.js"></script>
     <div class="top_header">
         <ul>
             <li class="wow rollIn">
-              <div>
-                <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
-                <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
-              </div>
-            </li>
-            <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+                <div>
+                  <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+                  <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+                </div>
+              </li>
+            <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
             <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
         </ul>
     </div>
 </head>
 <body id="root" data-theme="light">
-    <!--目录-->
-    <div id="sideBar" class="sidenav">
-        <div style="overflow-y:scroll;">
-            <label class="sidebar-title">目录</label>
-            <hr class="sidebar-hr">
-            <a class="sidenav-button" href="./index.html">首页</a>
-        </div>
-        <div style="top: 8px;">
-            <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
-        </div>
-    </div>
-    <!--目录-->
     <!--正文-->
-    <div style="padding-top: 60px;">
-        <br><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">贡献名单</span>
+    <div id="content">
+        <div class="left_content" hide_bq="true"><br><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">贡献名单</span>
         <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
         <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
-        <p>空空如也</p>
-    </div>
-    <!--正文-->
-    <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
-        <button class="to_top" type="button" onclick="to_top();">
-            <div style="text-align: center;">
-                <span style="color: #619dff;font-size: 20px;">▲</span><br>
-                <span class="to-top-text">回顶部</span>
+         <a class="edit-btn" data-wow-delay="0.5s" href="./index.html">在 github 上编辑</a></div>
+         <div class="right_content animated bounceInRight">
+            <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+              阅读进度 - <a id="number_progress"></a>
+              <div class="progress-bg"><div id="progress"></div></div>
             </div>
-        </button>
-    </div>
+          </div>
+        <p>空空如也</p>
+    </div></div>
+    <!--正文-->
+    <script src="./src/js/main.js"></script>
+    <link href="./src/css/color.css" rel="stylesheet">
+  
     <link href="./src/css/hl.css" rel="stylesheet">
     <script src="./src/js/hl.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
+  
     <link href="./src/css/animate.css" rel="stylesheet">
-
-    <script src="src/js/main.js"></script>
-    <link href="./src/css/color.css" rel="stylesheet">
-    
     <script src="./src/js/WOW.js"></script>
-    <script>new WOW().init();</script>
+    <script>
+    new WOW().init();
+    hljs.initHighlightingOnLoad();
+    </script>
 </body>
 
 </html>

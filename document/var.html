@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>继承</title>
-  <link rel="shortcut icon" href="../web_icon.png">
-  <link rel="icon" sizes="100x100" href="../web_icon.png">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport"
-    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-title" content="Json-UI教程">
   <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
   <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
@@ -15,8 +15,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
   
   <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
   <div class="top_header">
     <ul>
       <li class="wow rollIn">
@@ -25,103 +29,109 @@
           <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
         </div>
       </li>
-      <li><a href="https://MCspruce.github.io">我的世界基岩版 Json-UI教程</a></li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
       <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
     </ul>
   </div>
 </head>
 
 <body id="root" data-theme="light">
-  <!--目录-->
-  <div id="sideBar" class="sidenav">
-    <div>
-      <label class="sidebar-title">目录</label>
-      <hr class="sidebar-hr">
-      <a class="sidenav-button" href="#p1">继承</a>
-      <a class="sidenav-button" href="#p2">注意事项</a>
-      <a class="sidenav-button" href="#p3">变量默认值</a>
-      <a class="sidenav-button" href="#p4">全局变量</a>
-    </div>
-    <div style="top: 8px;">
-      <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
-    </div>
-  </div>
-  <!--目录-->
   <!--正文-->
-  <div style="padding-top: 60px;">
-    <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">继承</span>
+  <div id="content">
+    <div class="left_title"><br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">继承</span>
     <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
     <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
-    <p>继承定义：变量继承到某个的控件的属性</p>
+    <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
+    <div class="right_content animated bounceInRight">
+      <div class="dropdown">
+        <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
+        <div class="dropdown-content" id="DropdownContent">
+          <a class="sidenav-button" href="#p1">继承</a>
+          <a class="sidenav-button" href="#p2">注意事项</a>
+          <a class="sidenav-button" href="#p3">变量默认值</a>
+          <a class="sidenav-button" href="#p4">全局变量</a>
+        </div>
+      </div>
+      <p>
+        <div class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+          阅读进度 - <a id="number_progress"></a>
+          <div class="progress-bg"><div id="progress"></div></div>
+        </div>
+      </p>
+    </div>
+    <div class="left_content"><p>继承定义：变量继承到某个的控件的属性</p>
     
     <p>在原版资源包UI文件夹中
         <br>里面存放一个叫<a class="panel c1-gold">_global_variables.json</a>的文件
         <br>这是文件里面的内容</p>
     
-    <pre class="json wow fadeInRightBig"><code><ul><li>{
-.  //////// Text colors ////////
-.  "$generic_button_text_color": [ 1.0, 1.0, 1.0 ],
-.  "$light_button_default_text_color": [ 0.3, 0.3, 0.3 ],
-.  "$light_button_hover_text_color": [ 1.0, 1.0, 1.0 ],
-.  "$light_button_pressed_text_color": [ 1.0, 1.0, 1.0 ],
-.  "$light_button_locked_text_color": [ 0.7, 0.7, 0.7 ],
-.  …还有很多
-.}</li></ul></code></pre>
+    <pre class="json wow fadeInRightBig"><code>{
+  //////// Text colors ////////
+  "$generic_button_text_color": [ 1.0, 1.0, 1.0 ],
+  "$light_button_default_text_color": [ 0.3, 0.3, 0.3 ],
+  "$light_button_hover_text_color": [ 1.0, 1.0, 1.0 ],
+  "$light_button_pressed_text_color": [ 1.0, 1.0, 1.0 ],
+  "$light_button_locked_text_color": [ 0.7, 0.7, 0.7 ],
+  …还有很多
+}</code></pre>
     <p>可以发现，代码都是<strong>"$变量": "值"</strong>
     
     <p><b>那么要如何在控件中使用变量呢？</b></p>
     
-    <p><pre class="json wow fadeInRightBig"><code><ul><li>"test_panel": {
-.  "type": "panel",
-.  "size": [ "100%", "100%" ],
-.  "controls": [
-.    {
-.      "test_image": {
-.        "type": "image",
-.        "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
-.        "size": [ 32, 32 ],
-.        "layer": 10
-.      }
-.    },
-.    {
-.      "text": {
-.        "type": "label",
-.        "size": [ "100%", "default" ],
-.        "text": "设置",
-.        "color": [ 0.8, 0.8, 0.8 ],
-.        "offset": [ 0, 32 ],
-.        "layer": 10
-.      }
-.    }
-.  ]
-.}</li></ul></pre></code>
+    <p><bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"test_panel": {
+  "type": "panel",
+  "size": [ "100%", "100%" ],
+  "controls": [
+    {
+      "test_image": {
+        "type": "image",
+        "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
+        "size": [ 32, 32 ],
+        "layer": 10
+      }
+    },
+    {
+      "text": {
+        "type": "label",
+        "size": [ "100%", "default" ],
+        "text": "设置",
+        "color": [ 0.8, 0.8, 0.8 ],
+        "offset": [ 0, 32 ],
+        "layer": 10
+      }
+    }
+  ]
+}</lcode></bcode>
       <strong>使用继承（变量）效果 ▼</strong>
-      <pre class="json wow fadeInRightBig"><code><ul><li>"test_panel": {
-.  "type": "panel",
-.  "size": [ "100%", "100%" ],
-.  "$layer": 10,
-.  "controls": [
-.    {
-.      "test_image": {
-.        "type": "image",
-.        "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
-.        "size": [ 32, 32 ],
-.        "layer": "$layer"
-.      }
-.    },
-.    {
-.      "text": {
-.        "type": "label",
-.        "size": [ "100%", "default" ],
-.        "text": "设置",
-.        "color": [ 0.8, 0.8, 0.8 ],
-.        "offset": [ 0, 32 ],
-.        "layer": "$layer"
-.      }
-.    }
-.  ]
-.}</li></ul></pre></code>
+      <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"test_panel": {
+  "type": "panel",
+  "size": [ "100%", "100%" ],
+  "$layer": 10,
+  "controls": [
+    {
+      "test_image": {
+        "type": "image",
+        "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
+        "size": [ 32, 32 ],
+        "layer": "$layer"
+      }
+    },
+    {
+      "text": {
+        "type": "label",
+        "size": [ "100%", "default" ],
+        "text": "设置",
+         "color": [ 0.8, 0.8, 0.8 ],
+        "offset": [ 0, 32 ],
+        "layer": "$layer"
+      }
+    }
+  ]
+}</lcode></bcode>
       可以看到继承需要在控件属性的值修改为<a class="panel">"$变量名称"</a>
     </p>
     
@@ -145,17 +155,23 @@
     
     <p>错误原因：继承的赋予的值型一致，text变量不支持数组</p>
     
-    <p><pre class="json wow fadeInRightBig"><code><ul><li>"$a": [ 0.1, 1, 1 ],
-."color": "$a",
-."text": "$a"</li></ul></code></pre>
+    <p><pre class="json wow fadeInRightBig"><code>"test": {
+  "$a": [ 0.1, 1, 1 ],
+  "color": "$a",
+  "text": "$a"
+}</code></pre>
       实际上系统认为的值
-      <pre class="json wow fadeInRightBig"><code><ul><li>"color": [ 0.1, 1, 1 ],
-."text": [ 0.1, 1, 1 ]</li></ul></code></pre>
+      <pre class="json wow fadeInRightBig"><code>"test": {
+  "color": [ 0.1, 1, 1 ],
+  "text": [ 0.1, 1, 1 ]
+}</code></pre>
       <a class="panel c1-light-green">正确示范</a>
-      <pre class="json wow fadeInRightBig"><code><ul><li>"$a": [ 0.1, 1, 1 ],
-."$b": "文字",
-."color": "$a",
-."text": "$b"</li></ul></code></pre>
+      <pre class="json wow fadeInRightBig"><code>"test": {
+  "$a": [ 0.1, 1, 1 ],
+  "$b": "文字",
+  "color": "$a",
+  "text": "$b"
+}</code></pre>
     </p>
     
     <br><span id="p3" class="title wow fadeInLeftBig" data-wow-delay="1.5s">变量默认值</span>
@@ -163,14 +179,14 @@
     
     <p>在<a class="panel">RP/ui/start_screen.json</a>文件的start_screen_content控件</p>
     
-    <p><pre class="json wow fadeInRightBig"><code><ul><li>"start_screen_content": {
-.  "type": "panel",
-.  "$achievements_ignored|default": false,
-.  "$feedback_ignored|default": false,
-.  "$store_ignored|default": false,
-.  "$is_toolbox_ignored|default": false
-.  … 还有更多
-.}</li></ul></code></pre>
+    <p><pre class="json wow fadeInRightBig"><code>"start_screen_content": {
+  "type": "panel",
+  "$achievements_ignored|default": false,
+  "$feedback_ignored|default": false,
+  "$store_ignored|default": false,
+  "$is_toolbox_ignored|default": false
+  … 还有更多
+}</code></pre>
     面板中有个变量</p>
     
     <p><div class="panel">"$achievements_ignored|default": false</div>
@@ -182,9 +198,13 @@
     
     <p><em><strong>下面举个例子</em></strong></p>
     
-    <p><pre class="json wow fadeInRightBig"><code><ul><li>"$test": "a",
-."$test|default": "b",
-."text": "$test"</li></ul></code></pre>
+    <p><bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"test": {
+  "$test": "a",
+  "$test|default": "b",
+  "text": "$test"
+}</lcode></bcode>
       这样情况下
       <strong>text</strong>的值为<a class="panel">"b"</a>
     </p>
@@ -203,31 +223,26 @@
     
     <p>赋值示范</p>
     
-    <p><pre class="json wow fadeInRightBig"><code><ul><li>{
-.  "$text": "a"
-.  // 可以添加多个变量
-.}</li></ul></code></pre>
-  </div>
+    <p><bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>{
+  "$text": "a"
+  // 可以添加多个变量
+}</lcode></bcode>
+  </p></div>
   <!--正文-->
-  <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
-    <button class="to_top" type="button" onclick="to_top();">
-      <div style="text-align: center;">
-        <span style="color: #619dff;font-size: 20px;">▲</span><br>
-        回顶部
-      </div>
-    </button>
-  </div>
-  <link href="../src/css/hl.css" rel="stylesheet">
-  <script src="../src/js/hl.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <link href="../src/css/animate.css" rel="stylesheet">
-
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
-  
+
+  <link href="../src/css/hl.css" rel="stylesheet">
+  <script src="../src/js/hl.js"></script>
+
+  <link href="../src/css/animate.css" rel="stylesheet">
   <script src="../src/js/WOW.js"></script>
-  <script>new WOW().init();</script>
+  <script>
+  new WOW().init();
+  hljs.initHighlightingOnLoad();
+  </script>
 </body>
 
 </html>
