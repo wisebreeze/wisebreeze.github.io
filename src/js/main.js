@@ -1,3 +1,7 @@
+// 全局变量
+var wh = window.innerHeight;
+var pid = 1;
+
 if (typeof (Storage) !== "undefined") {
   if (localStorage.themeType) {
       var darkTheme = localStorage.getItem("themeType");
@@ -22,10 +26,20 @@ window.onscroll = function () {
     document.getElementById('progress').style.width = Math.trunc((now_scroll / max_scroll) * 100) + "%";
   }
 
+    $("h1,h2,h3,h4,h5,h6").each(function(){
+        var hp = this.getBoundingClientRect();
+        var condition = $(this).offset().top - $(document).scrollTop();
+        if((hp.top<wh && hp.top>-hp.height) && condition < 20){
+            HeadingName = $(this).attr("id");
+            $('.menu-this').removeClass('menu-this');
+            $(`a[href="#${HeadingName}"]`).addClass('menu-this');
+        }
+    });
+
   if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-        document.getElementById("to_top").style.display = "block";
+        $("#to_top").css("display","block");
     } else {
-        document.getElementById("to_top").style.display = "none";
+        $("#to_top").css("display","none");
     }
 };
 
@@ -56,8 +70,6 @@ window.onload = function () {
         // 粗体
         body = body.replace(/\.{2}bb/g, "</b>");
         body = body.replace(/\.bb/g, "<b>");
-        // 代码
-        body = body.replace(/\.copy/g, "<ul style=\"list-style-type: none; padding: 0; margin: 0; overflow: hidden;\"><li style=\"float: left;\">复制</li><svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 25 25\" wdith=\"22\" height=\"22\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z\"></path></svg></ul>");
         document.getElementById("root").innerHTML = body;
 
     //插入内容
@@ -66,6 +78,18 @@ window.onload = function () {
     }
     $("div.left_content").append("<div id=\"to_top\">\n    <button class=\"to_top\" onclick=\"to_top();\">\n      <div>\n        <span>▲</span><br>回顶部\n      </div>\n    </button>\n  </div>");
     $("#root").prepend("<div id=\"sideBar\" class=\"sidenav\">\n    <div>\n      <label class=\"sidebar-title\">导航</label>\n      <hr class=\"sidebar-hr\">\n      <a class=\"sidenav-button\" href=\"https://mcspruce.github.io\">首页</a>\n      <a class=\"sidenav-button\" href=\"https://space.bilibili.com/494279926\">B站主页</a>\n      <a class=\"sidenav-button\" href=\"https://jq.qq.com/?_wv=1027&k=2Ee4pUUF\">交流群</a>\n     <a class=\"sidenav-button\" href=\"https://mcspruce.github.io/privacy.html\">隐私政策</a>\n    </div>\n  </div>");
+    $("h1").each(function(){
+        $(this).addClass("top-title wow fadeInLeftBig");
+        $(this).attr("data-wow-delay","0.5s");
+    });
+    $("h2,h3,h4,h5,h6").each(function(){
+        headingLevel = this.tagName.toLowerCase();
+        headingName = $(this).text();
+        $(this).attr({"id": `pid_${pid}`,"data-wow-delay": "1.5s"});
+        $(this).addClass("title wow fadeInLeftBig");
+        $("#DropdownContent").append(`<a class="menu-${headingLevel}" href="#pid_${pid}">${headingName}</a>`);
+        pid = pid + 1;
+    });
 }
 
 $("bcode").each(function(){
@@ -163,17 +187,13 @@ document.addEventListener('keyup', function (key) {
         }
     }
     if(key.keyCode == 51) {
-        if(sessionStorage.getItem("sidebar")) {
-            $("#sideBar").css("width","180px");
-            $("#close-btn").css("visibility","visible");
-            $("#open-btn").css("visibility","hidden");
-            sessionStorage.setItem("sidebar", true);
+        if(sessionStorage.getItem("dropdown")) {
+            document.getElementById("DropdownContent").classList.remove('show');
+            sessionStorage.removeItem("dropdown");
         }
         else {
-            $("#sideBar").css("width","0");
-            $("#close-btn").css("visibility","hidden");
-            $("#open-btn").css("visibility","visible");
-            sessionStorage.removeItem("sidebar");
+            document.getElementById("DropdownContent").classList.toggle("show");
+            sessionStorage.setItem("dropdown", true);
         }
     }
     if(key.keyCode == 52) {
@@ -196,6 +216,7 @@ document.addEventListener('keyup', function (key) {
 // 目录
 function dropdown() {
     document.getElementById("DropdownContent").classList.toggle("show");
+    sessionStorage.setItem("dropdown", true);
 }
 
 window.onclick = function(e) {
@@ -203,6 +224,7 @@ window.onclick = function(e) {
     var Dropdown = document.getElementById("DropdownContent");
       if (Dropdown.classList.contains('show')) {
         Dropdown.classList.remove('show');
+        sessionStorage.removeItem("dropdown");
       }
   }
 }
