@@ -38,22 +38,13 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <br><div class="left_title"><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">动画控件</span>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <br><div class="left_title"><h1>动画控件</h1>
     <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
         <div class="right_content animated bounceInRight">
         <div class="dropdown">
             <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
-            <div class="dropdown-content" id="DropdownContent">
-                <a class="sidenav-button" href="#p1">创建动画控件</a>
-                <a class="sidenav-button" href="#p2">定义动画属性</a>
-                <a class="sidenav-button" href="#p3">定义动画属性 / 播放动画条件</a>
-                <a class="sidenav-button" href="#p4">定义动画属性 / 播放动画样式</a>
-                <a class="sidenav-button" href="#p5">为控件添加动画</a>
-                <a class="sidenav-button" href="#p6">动画的运用</a>
-                <a class="sidenav-button" href="#p7">注意事项</a>
-            </div>
+            <div class="dropdown-content" id="DropdownContent"></div>
         </div>
         <p>
             <div class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
@@ -89,8 +80,7 @@ anim_type可能的值（字符串/列举）：
 <br><b>flip_book</b> – 序列帧
 <br><b>wait</b> – 等待（无动画）
 
-<br><br><span class="title wow fadeInLeftBig" data-wow-delay="1.5s">定义动画属性</span>
-<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+<h2>定义动画属性</h2>
 
 动画控件还需要完善其它属性才能生效
 
@@ -185,8 +175,8 @@ anim_type可能的值（字符串/列举）：
     </p>
 </div>
 
-<br><span id="p3" class="title wow fadeInLeftBig" data-wow-delay="1.5s">定义动画属性 / 播放动画条件</span>
-<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+<h2>定义动画属性 / 播放动画条件</h2>
+在没有定义播放动画的条件的情况下，只要控件显示即可播放。
 
 <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
     <p><strong>play_event</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放事件</a></p>
@@ -226,8 +216,7 @@ anim_type可能的值（字符串/列举）：
 
 <br>screen.exit_end    -   结束退出屏幕
 
-<br><br><span id="p4" class="title wow fadeInLeftBig" data-wow-delay="1.5s">定义动画属性 / 播放动画样式</span>
-<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+<h2>定义动画属性 / 播放动画样式</h2>
 
 <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
     <p><strong>easing</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">播放动画样式</a></p>
@@ -283,8 +272,7 @@ anim_type可能的值（字符串/列举）：
     </p>
 </div>
 
-<br><span id="p5" class="title wow fadeInLeftBig" data-wow-delay="1.5s">为控件添加动画</span>
-<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+<h2>为控件添加动画</h2>
 
 写好动画控件还不能直接被控件使用，那么要如何让一个控件使用并播放动画呢？
 
@@ -373,8 +361,7 @@ anim_type可能的值（字符串/列举）：
     </p>
 </div>
 
-<br><span id="p6" class="title wow fadeInLeftBig" data-wow-delay="1.5s">动画的运用</span>
-<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+<h2>动画的运用</h2>
 
 以上就是动画控件的全部内容了。理论存在，实践开始！
 
@@ -415,8 +402,7 @@ anim_type可能的值（字符串/列举）：
     </div>
 </div></p>
 
-<br><span id="p7" class="title wow fadeInLeftBig" data-wow-delay="1.5s">注意事项</span>
-<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+<h2>注意事项</h2>
 
 <b>代码没有错误，为何不能播放动画？</b>
 

@@ -38,18 +38,13 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><br><span class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">准备开发环境</span>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <div class="left_title"><br><h1>准备开发环境</h1>
     <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="../">返回首页</a>
          <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
     <div class="right_content animated bounceInRight">
       <div class="dropdown">
         <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
-        <div class="dropdown-content" id="DropdownContent">
-          <a class="sidenav-button" href="#p1">准备</a>
-          <a class="sidenav-button" href="#p2">了解资源包储存路径</a>
-          <a class="sidenav-button" href="#p3">manifest.json</a>
-        </div>
+        <div class="dropdown-content" id="DropdownContent"></div>
       </div>
       <p>
         <div class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
@@ -59,8 +54,7 @@
       </p>
     </div>
     <div class="left_content"><br>
-    <div id="p1" class="title wow fadeInLeftBig" data-wow-delay="0.8s">准备</div>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.8s"></hr>
+    <h2>准备</h2>
     <br><div class="wow bounceInUp" data-wow-delay="0.8s">如果你刚刚认识UI，你编写UI至少需要一个<b>代码编辑软件</b>!
     <br><span class="c1-gold" style="font-size: 15px;">（作者与以下编辑软件无任何推广，纯属个人推荐）</span>
     <br><div class="panel"><li style="margin-bottom: -10px;"><a class="list-link" href="https://visualstudio.microsoft.com/zh-hans">Visual Studio Code(网站/Windows/Mac/Linux)</a></li>
@@ -72,16 +66,13 @@
     <br><b>> 正式版</b> <a class="list-link" href="https://aka.ms/resourcepacktemplate">点我下载</a>
     <br><b>> 测试版/预览版</b> <a class="list-link" href="https://aka.ms/MinecraftBetaResources">点我下载</a></div>
     </div>
-    <br>
-    <div id="p2" class="title wow fadeInLeftBig" data-wow-delay="0.8s">了解资源包储存路径</div>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.8s"></hr>
+    <h2>了解资源包储存路径</h2>
     <br><div class="wow bounceInUp" data-wow-delay="0.8s">Windows：<div class="panel" style="font-size: 13px;">C:\Users\USERNAME\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\resource_packs\</div>
     <br>Android/鸿蒙：
     <br>1.17或1.17以前<span class="panel" style="font-size: 13px;">games/com.mojang/resource_packs/</span>
     <br>1.18或1.18以后<span class="panel" style="font-size: 13px;">Android/data/com.mojang.minecraftpe/files/games/com.mojang/resource_packs/</span>
     <br><br>IOS/IPadOS：<div class="panel" style="font-size: 13px;">我的xxx/Minecraft/games/com.mojang/resource_packs/</div></div>
-    <br><div id="p3" class="title wow fadeInLeftBig" data-wow-delay="0.8s">manifest.json</div>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.8s"></hr>
+    <h2>manifest.json</h2>
     <div class="wow bounceInUp" data-wow-delay="0.8s">这个文件用于Minecraft识别，必须存放在<span class="panel">资源包的根目录</span>
     <br><textarea id="id_box" readonly rows="5" style="filter: var(--image);background: #e6e6e6;border: #7a7a7a solid 1px;border-radius: 4px;width: 98%;overflow: hidden;resize:none;"></textarea>
     <br><button type="button" class="home-btn" onclick="spawn_id(1)">生成1个UUID</button>

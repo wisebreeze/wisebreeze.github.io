@@ -39,8 +39,7 @@
   <!--正文-->
   <div id="content">
     <div class="left_title">
-      <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">JSON基础语法</span>
-      <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+      <br><h1>JSON基础语法</h1>
       <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="../">返回首页</a>
          <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a>
       </div>
@@ -48,14 +47,7 @@
     <div class="right_content animated bounceInRight">
       <div class="dropdown">
         <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
-        <div class="dropdown-content" id="DropdownContent">
-          <a class="sidenav-button" href="#p1">语法</a>
-          <a class="sidenav-button" href="#p2">JSON特点</a>
-          <a class="sidenav-button" href="#p3">JSON压缩和格式化</a>
-          <a class="sidenav-button" href="#p4">JSON注释</a>
-          <a class="sidenav-button" href="#p5">JSON转义</a>
-          <a class="sidenav-button" href="#p6">Unicode</a>
-        </div>
+        <div class="dropdown-content" id="DropdownContent"></div>
       </div>
       <p>
         <div class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
@@ -89,31 +81,31 @@
     <br><br><b>布尔值 </b><span class="c1-gold">示例: true false</span>
     <br><br><b>无值 </b><span class="c1-gold">示例: null</span></div>
     下面详细讲一下值
-    <br><br><b class="c-blue">字符串</b>
+    <h3 class="c-blue">字符串</h3>
     <div class="panel">
     "text":"文字"
     </div>
     需要双引号<a class="panel">""</a>包围，里面可以是任何内容
     <br><div class="tip"><div class="tip-text"><b>提示：</b><br>字符串内部的换行最好使用<a class="c1-gold">\n</a></div></div>
-    <br><br><b class="c-blue">数字</b>
+    <h3 class="c-blue">数字</h3>
     <div class="panel">
     "number":1.0
     </div>
     数字可以为浮点数或整数
-    <br><br><b class="c-blue">对象</b>
+    <h3 class="c-blue">对象</h3>
     <div class="panel">
     "object":{"key":"a","key_a":1}
     </div>
     里面包含许多键和值
     <br>但是要注意，里面的键名不能<b class="c-red">重复</b>
     <br>里面的每个键和值都需要逗号分隔
-    <br><br><b class="c-blue">数组</b>
+    <h3 class="c-blue">数组</h3>
     <div class="panel">
     "array":["a",1,{"a":{}}]
     </div>
     里面包含了许多值，但不能包含键名
     <br><a class="c-red">里面的每个键和值都需要逗号分隔</a>
-    <br><br><b class="c-blue">布尔值</b>
+    <h3 class="c-blue">布尔值</h3>
     <div class="panel">
     "boolean_value":true
     </div>
@@ -127,14 +119,12 @@
     "null_value": null
     </div>
     空值，代表该值没有任何数据
-    <br><br><span id="p2" class="title wow fadeInLeftBig" data-wow-delay="0.5s">JSON特点</span>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <h2>JSON特点</h2>
     <div class="wow bounceInUp" data-wow-delay="0.8s">* 兼容强，每个编程语言都支持json读取，存储，解析
     <br>* 比xml文件体积更小
     <br>* 易学易用
     <br>* 解析速度快</div>
-    <br><br><span id="p3" class="title wow fadeInLeftBig" data-wow-delay="0.5s">JSON压缩和格式化</span>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <h2>JSON压缩和格式化</h2>
     > 无论是压缩还是格式化，只要语法正确都能解析
     <br>json压缩后文件体积更小，例如
     <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code class="json">{"a":"b"}</code></pre>
@@ -143,8 +133,7 @@
   "a":"b"
 }</code></pre>
     但是这样做会<b class="c-red">增加文本字节</b>
-    <br><br><span id="p4" class="title wow fadeInLeftBig" data-wow-delay="0.5s">JSON注释</span>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <h2>JSON注释</h2>
     一般所有编程语言都可以<b>注释代码</b>
     <br>json语言的注释为段落注释和单行注释<br>
     <br><b class="c-blue">单行注释</b>的符号是<a class="panel">//</a>，//后面的内容在这行不会被解析
@@ -157,14 +146,12 @@
   这里不能被解析
   */
 }</code></pre>
-    <br><span id="p5" class="title wow fadeInLeftBig" data-wow-delay="0.5s">JSON转义</span>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <h2>JSON转义</h2>
     值为<b>字符串</b>时
     <br><a class="c-red">不能直接把</a><a class="panel">"</a><a class="c-red">填入字符串</a>
     <br>只要在<a class="panel">"</a>前面加上<a class="panel">\</a>就行了
     <br>例如：<a class="panel">\"</a>
-    <br><br><span id="p6" class="title wow fadeInLeftBig" data-wow-delay="0.5s">Unicode</span>
-    <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+    <h2>Unicode</h2>
     JSON的键和值都是支持Unicode的
     <br>例如：<a class="panel">\U2192</a>
     <br>同时Unicode也可以被转义
