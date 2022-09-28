@@ -1,43 +1,3 @@
-.hljs {
-    border: none;
-    font-family: serif;
-    font-size: 12px;
-    background: #ececec;
-    display: block;
-    padding: 1px;
-    margin: 0;
-    width: 100%;
-    box-shadow: inset -3px -3px 4px #c4c4c4,inset 3px 3px 4px #dddddd;
-    font-weight: 200;
-    color: #333;
-    white-space: pre-wrap
-}
-
-.hljs ul {
-    list-style: decimal;
-    font-size: 15px;
-    background-color: rgb(255, 255, 255);
-    margin: 0px 0px 0 40px !important;
-    border-collapse: collapse;
-    padding: 0px;
-}
-
-.hljs ul li {
-    list-style: decimal-leading-zero;
-    border-left: 2px solid rgb(166, 208, 255);
-    background: rgb(255, 255, 255);
-    padding: 5px !important;
-    margin: 0 !important;
-    line-height: 1.1em;
-    word-break: break-all;
-    word-wrap: break-word;
-}
-
-.hljs ul li:hover {
-    border-left: 2px solid rgb(45, 152, 255);
-    background-color: #f5f5f5;
-}
-
 .hljs-comment,
 .hljs-quote {
     color: #5c6370;
@@ -60,10 +20,6 @@
 
 .hljs-literal {
     color: #4180ff
-}
-
-.hljs-string {
-    color: #067d17
 }
 
 .hljs-regexp,
@@ -89,7 +45,7 @@
 .hljs-selector-class,
 .hljs-selector-attr,
 .hljs-selector-pseudo {
-    color: #cc7832
+    color: #dd8944
 }
 
 .hljs-symbol,
