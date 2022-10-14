@@ -1,8 +1,19 @@
 // 全局变量
 var wh = window.innerHeight;
 var pid = 1;
+var copy_id = 1;
+var copyPrefix = 'copy_id_';
 var menuHeight = 21;
+var sidebar_link = {
+    "sidebar": [
+        {"link":"https://mcspruce.github.io","title":"首页"},
+        {"link":"https://space.bilibili.com/494279926","title":"B站主页"},
+        {"link":"https://jq.qq.com/?_wv=1027&k=2Ee4pUUF","title":"交流群"},
+        {"link":"https://mcspruce.github.io/privacy.html","title":"隐私政策"}
+    ]
+}
 
+// 加载主题
 if (typeof (Storage) !== "undefined") {
   if (localStorage.themeType) {
       var darkTheme = localStorage.getItem("themeType");
@@ -20,7 +31,9 @@ if (typeof (Storage) !== "undefined") {
    console.log("main.js: 浏览器不支持储存，或没有储存权限！");
 }
 
+// 滚动事件
 window.onscroll = function () {
+  // 页面进度条
   if (document.getElementById('progress') && document.getElementById("number_progress")) {// 检测元素是否存在
     max_scroll = document.documentElement.scrollHeight - window.innerHeight;// 获取界面最大滚动高度
     now_scroll = window.scrollY;// 获取当前滚动的位置
@@ -30,6 +43,7 @@ window.onscroll = function () {
     document.getElementById('progress').style.width = scrollPercentage;// 转为进度条并显示
   }
 
+    // 改变目录
     $("h1,h2,h3,h4,h5,h6").each(function(){
         // 检测元素是否在可视范围
         var hp = this.getBoundingClientRect();
@@ -42,12 +56,14 @@ window.onscroll = function () {
                 linkHeight = document.querySelector(`a[href="#${HeadingName}"]`).getAttribute("href");// 获取ID
                 linkHeight = (linkHeight.replace("#pid_",'') * menuHeight) - menuHeight;// 获取元素位置
                 document.querySelector("#DropdownContent").scrollTo(0,linkHeight);// 滚动到指定位置
-            } else {
+            } else if (document.querySelector("#DropdownContent")) {
+                $('.menu-this').removeClass('menu-this');// 重置Class类名
                 document.querySelector("#DropdownContent").scrollTo(0,0);// 回到顶部
             }
         }
     });
 
+  // 改变
   if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
         $("#to_top").css("display","block");
     } else {
@@ -56,9 +72,7 @@ window.onscroll = function () {
 };
 
 function to_top() {
-    document.body.scrollIntoView({
-        behavior: "smooth",
-    });
+    document.body.scrollIntoView({behavior: "smooth"});
 }
 
 window.onload = function () {
@@ -76,7 +90,7 @@ window.onload = function () {
         body = body.replace(/\.hh/g, "<br>");
         // 控件
         body = body.replace(/\.{2}ep/g, "</div>");
-        body = body.replace(/\.ep/g, "<div class=\"panel wow bounceInLeft\" data-wow-delay=\"1.2s\"><p>");
+        body = body.replace(/\.ep/g, "<div class=\"panel wow bounceInLeft\" data-wow-delay=\"0.8s\"><p>");
         body = body.replace(/\.{2}et/g, "</a>");
         body = body.replace(/\.et/g, "<a class=\"panel c1-yellow c-gray\" style=\"font-size: 10px;\">");
         // 粗体
@@ -89,7 +103,19 @@ window.onload = function () {
       $("div.left_content").append("<fieldset class=\"wow bounceInLeft\">\n    <legend>版权须知</legend>\n    1、除非另有说明，否则文档内容均采用<a class=\"list-link\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
     }
     $("div.left_content").append("<div id=\"to_top\">\n    <button class=\"to_top\" onclick=\"to_top();\">\n      <div>\n        <span>▲</span><br>回顶部\n      </div>\n    </button>\n  </div>");
-    $("#root").prepend("<div id=\"sideBar\" class=\"sidenav\">\n    <div>\n      <label class=\"sidebar-title\">导航</label>\n      <hr class=\"sidebar-hr\">\n      <a class=\"sidenav-button\" href=\"https://mcspruce.github.io\">首页</a>\n      <a class=\"sidenav-button\" href=\"https://space.bilibili.com/494279926\">B站主页</a>\n      <a class=\"sidenav-button\" href=\"https://jq.qq.com/?_wv=1027&k=2Ee4pUUF\">交流群</a>\n     <a class=\"sidenav-button\" href=\"https://mcspruce.github.io/privacy.html\">隐私政策</a>\n    </div>\n  </div>");
+    $("#root").prepend("<div id=\"sideBar\" class=\"sidenav\">\n    <div>\n      <label class=\"sidebar-title\">导航</label>\n      <hr class=\"sidebar-hr\">\n    </div>\n  </div>");
+    for (var linkTarget in sidebar_link.sidebar) {
+        $("#sideBar div").append("<a class=\"sidenav-button\" href=\"" + sidebar_link.sidebar[linkTarget].link + "\">" + sidebar_link.sidebar[linkTarget].title + "</a>")
+    }
+    //加载顶部按钮
+    $(".left_title").each(function(){
+        $(this).append("<div></div>");
+        $(this).find('div').addClass("wow bounceInUp");// 加载动画
+        $(this).find('div').attr("data-wow-delay","0.5s");// 加载动画延迟
+        $(this).find('div').append("<a class=\"home-btn\" href=\"https://mcspruce.github.io/\">返回首页</a>");// 返回首页按钮
+        $(this).find('div').append("<a class=\"edit-btn\" href=\"https://github.com/MCspruce/MCspruce.github.io\">在 github 上编辑</a>");// 编辑按钮
+        $(this).html("<br>" + $(this).html());
+    });
     //加载目录
     $("h1").each(function(){
         $(this).addClass("top-title wow fadeInLeftBig");// 加载动画
@@ -105,19 +131,26 @@ window.onload = function () {
     });
 }
 
+$("ed").each(function(){
+    // 改变样式
+    $(this).addClass("panel wow bounceInLeft");
+    $(this).attr("data-wow-delay", "0.8s");
+    $(this).find("et").addClass('panel c1-yellow c-gray');
+});
 $("bcode").each(function(){
     // 自动分配复制ID
-    var copy_id = "copy_id_" + Math.trunc((Math.floor(Math.random() * ((new Date()).valueOf() - 32767 + 1)) + (new Date().getSeconds())) / 520);
+    //var copy_id = "copy_id_" + Math.trunc((Math.floor(Math.random() * ((new Date()).valueOf() - 32767 + 1)) + (new Date().getSeconds())) / 520);
     // 改变代码样式
-    $(this).find("lcode").html("<pre class=\"json wow bounceInUp\" id=\"" + copy_id + "\"><code>" + $(this).find("lcode").html() + "</code></pre>");
+    $(this).find("lcode").html("<pre class=\"json wow bounceInUp\"><code id=\"" + copyPrefix + copy_id + "\">" + $(this).find("lcode").html() + "</code></pre>");
     $(this).find("ctitle").addClass("code-title");
     // 准备复制按钮
-    $(this).find("ctitle").append("<button class=\"copy-btn wow shake\" onclick=copy_code('" + copy_id + "')><svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 25 25\" wdith=\"22\" height=\"22\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z\"></path></svg><a>复制</a></button>")
+    $(this).find("ctitle").append("<button class=\"copy-btn wow shake\" onclick=copy_code('" + copyPrefix + copy_id + "')><svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 25 25\" wdith=\"22\" height=\"22\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z\"></path></svg><a>复制</a></button>")
     $(this).html("<div class=\"code wow bounceInLeft\">\n" + $(this).html() + "\n</div>");
+    copy_id++;
 });
 // 自动代码换行
 $("code").each(function(){
-    $(this).html("<ul><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ul>");
+    $(this).html("<ul><li>" + $(this).html().replace(/\n/g,"</li><li>") +"</li></ul>");
 });
 // 提示
 $("tip, warning").each(function(){
@@ -144,13 +177,13 @@ function closeNav() {
 // 复制代码
 function copy_code(text) {
     // 创建 textarea
-    const aux = document.createElement('textarea');
-    // 获取代码框内容
-    const copy_content = document.getElementById(text).innerText;
+    var aux = document.createElement('textarea');
+    // 为 textarea 设置制只读
+    aux.setAttribute('readonly', 'readonly');
     // 为 textarea 写入代码框内容
-    aux.innerHTML = copy_content;
+    aux.innerHTML = document.getElementById(text).innerText;
     // 在 body 写入 aux 的 textarea
-    document.body.appendChild(aux);
+    document.querySelector('#content').appendChild(aux);
     // 选中 aux
     aux.select();
     // 复制选中的 aux
@@ -158,7 +191,7 @@ function copy_code(text) {
     // 提示
     alert('复制代码成功');
     // 删除 textarea （不保留痕迹+取消选中）
-    document.body.removeChild(aux);
+    document.querySelector('#content').removeChild(aux);
 }
 
 // 快捷键

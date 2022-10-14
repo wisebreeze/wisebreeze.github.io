@@ -31,6 +31,9 @@ body[data-theme="light"] {
   --link: #0059e9;
   --link-hover: #003da0;
   --link-this-hover: #00d10a;
+  --bq-b: rgb(212, 212, 212);
+  --bq-bg: rgb(255, 255, 255);
+  --lc: rgb(202, 255, 247);
   --image: brightness(100%);
   /*选项*/
   --select-t: #444;
@@ -99,6 +102,9 @@ body[data-theme="dark"] {
   --link: #10CBFF;
   --link-hover: #A9ECFF;
   --link-this-hover: #2dff5b;
+  --bq-b: rgb(82, 82, 82);
+  --bq-bg: rgb(58, 58, 58);
+  --lc: rgb(88, 88, 88);
   --image: brightness(80%);
   /*选项*/
   --select-t: rgb(255, 255, 255);
@@ -139,8 +145,8 @@ body[data-theme="dark"] {
   /*顶栏*/
   --header-color: linear-gradient(to right, rgb(32, 114, 255), rgb(89, 36, 233));
   /*hljs*/
-  --hljs-bg: #747474;
-  --hljs-s: #5f5f5f;
+  --hljs-bg: #9c9c9c;
+  --hljs-s: #777777;
   --hljs-list-t: rgb(255, 255, 255);
   --hljs-list-bg: rgb(37, 37, 37);
   --hljs-list-h-bg: rgb(70, 70, 70);
@@ -161,6 +167,14 @@ body[data-theme="dark"] {
     -webkit-user-select: none;
 }
 
+/* 标题按钮 */
+.left_title div {
+    display: flex;
+    width: 230px;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* 链接标题 */
 .link-header {
     display: block;
@@ -173,6 +187,13 @@ body[data-theme="dark"] {
 }
 
 /* 新增标签 */
+blockquote {
+    border-left: 2px solid var(--bq-b);
+    background: var(--bq-bg);
+    margin: 8px 0 8px 0;
+    padding: 8px 5px 8px 5px;
+}
+
 warning, tip {
     display: block;
     padding: 3px 8px;
@@ -191,6 +212,22 @@ tip {
 
 ctitle {
     display: block;
+}
+
+ed {
+    display: block;
+}
+
+et {
+    font-size: 10px;
+}
+
+lc {
+    padding-left: 2px;
+    padding-right: 2px;
+    margin: 3px;
+    border-radius: 6px;
+    background: var(--lc);
 }
 
 /* 设置
@@ -299,7 +336,7 @@ h2, h3, h4, h5, h6 {
 }
 
 *::-webkit-scrollbar-track {
-    background-color: var(--scroll-track);
+    background: var(--scroll-track);
 }
 
 /* 响应式布局 */
@@ -479,6 +516,22 @@ h2, h3, h4, h5, h6 {
 
 .top_header li div a:hover {
     color: #cbfff4;
+}
+
+#open-btn {
+    top: -2px;
+    padding: 1px;
+    cursor:pointer;
+    font-size: 20px;
+    visibility: visible;
+}
+
+#close-btn {
+    top: -30px;
+    padding: 1px;
+    cursor:pointer;
+    font-size: 20px;
+    visibility: hidden;
 }
 
 /* 侧边栏 */
@@ -886,15 +939,9 @@ table tbody tr:hover {
 }
 
 /* 隐藏内容 */
-#close-btn {
-    visibility: hidden
-  }
-  #open-btn {
-    visibility: visible
-  }
-  #to_top {
-    display: none
-  }
+#to_top {
+  display: none
+}
 
 /* 文本框 */
 textarea {

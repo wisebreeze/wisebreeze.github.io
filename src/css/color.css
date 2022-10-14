@@ -96,6 +96,7 @@
 
 .c1-blue {
   background: #1058d3;
+  color: #ffffff;
 }
 
 .c1-light-blue {
@@ -109,18 +110,22 @@
 
 .c1-cyan {
   background: #003da0;
+  color: #fff;
 }
 
 .c1-dark-blue {
   background: #003da0;
+  color: #fff;
 }
 
 .c1-gold {
   background: #ffd446;
+  color: #444;
 }
 
 .c1-green {
   background: #006C0E;
+  color: #fff;
 }
 
 .c1-light-green {
@@ -129,10 +134,12 @@
 
 .c1-brown {
   background: #9c6500;
+  color: #fff;
 }
 
 .c1-yellow {
-  background: #fffcaf;
+  background: #fff93c;
+  color: #444;
 }
 
 .c1-dark-yellow {
