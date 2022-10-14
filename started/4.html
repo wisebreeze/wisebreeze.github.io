@@ -38,9 +38,7 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><br><h1>创建控件</h1>
-    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="../">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
+    <div class="left_title"><h1>创建控件</h1></div>
     <div class="right_content animated bounceInRight">
       <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
         阅读进度 - <a id="number_progress"></a>
@@ -62,7 +60,7 @@ hh这篇文章主要讲解如何添加控件。</p>
 }</lcode></bcode>
 <p>像这样，在json根添加新json对象(即控件)即可。</p>
 <p><a class="c-red">但是你不能像下面的代码这么做！</a></p>
-<pre class="json wow fadeInRightBig"><code>{
+<bcode><lcode>{
   "namespace": "start",
   
   // 这样做是错误的，请不要模仿！
@@ -72,7 +70,7 @@ hh这篇文章主要讲解如何添加控件。</p>
       "text": "hello world"
     }
   }
-}</code></pre>
+}</lcode></bcode>
 <hr>
 <p>添加一个控件就是如此简单，那么如何让控件在屏幕上显示呢？</p>
 <bcode>

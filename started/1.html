@@ -25,8 +25,8 @@
     <ul>
       <li class="animated rollIn">
         <div>
-          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
-          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+          <a id="open-btn" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" onclick="closeNav()">◄</a>
         </div>
       </li>
       <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
@@ -38,9 +38,7 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><br><h1>准备开发环境</h1>
-    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="../">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
+    <div class="left_title"><h1>准备开发环境</h1></div>
     <div class="right_content animated bounceInRight">
       <div class="dropdown">
         <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
@@ -53,9 +51,9 @@
         </div>
       </p>
     </div>
-    <div class="left_content"><br>
+    <div class="left_content">
     <h2>准备</h2>
-    <br><div class="wow bounceInUp" data-wow-delay="0.8s">如果你刚刚认识UI，你编写UI至少需要一个<b>代码编辑软件</b>!
+    <div class="wow bounceInUp" data-wow-delay="0.8s">如果你刚刚认识UI，你编写UI至少需要一个<b>代码编辑软件</b>!
     <br><span class="c1-gold" style="font-size: 15px;">（作者与以下编辑软件无任何推广，纯属个人推荐）</span>
     <br><div class="panel"><li style="margin-bottom: -10px;"><a class="list-link" href="https://visualstudio.microsoft.com/zh-hans">Visual Studio Code(网站/Windows/Mac/Linux)</a></li>
     <br><li style="margin-bottom: -10px;"><a class="list-link" href="https://binmt.lanzoui.com/b01bivkzc">MT管理器(Android/鸿蒙)</a></li>
@@ -67,7 +65,7 @@
     <br><b>> 测试版/预览版</b> <a class="list-link" href="https://aka.ms/MinecraftBetaResources">点我下载</a></div>
     </div>
     <h2>了解资源包储存路径</h2>
-    <br><div class="wow bounceInUp" data-wow-delay="0.8s">Windows：<div class="panel" style="font-size: 13px;">C:\Users\USERNAME\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\resource_packs\</div>
+    <div class="wow bounceInUp" data-wow-delay="0.8s">Windows：<div class="panel" style="font-size: 13px;">C:\Users\USERNAME\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\resource_packs\</div>
     <br>Android/鸿蒙：
     <br>1.17或1.17以前<span class="panel" style="font-size: 13px;">games/com.mojang/resource_packs/</span>
     <br>1.18或1.18以后<span class="panel" style="font-size: 13px;">Android/data/com.mojang.minecraftpe/files/games/com.mojang/resource_packs/</span>
