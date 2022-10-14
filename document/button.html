@@ -25,8 +25,8 @@
     <ul>
       <li class="animated rollIn">
         <div>
-          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
-          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+          <a id="open-btn" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" onclick="closeNav()">◄</a>
         </div>
       </li>
       <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
@@ -38,9 +38,7 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><br><h1>按钮控件</h1>
-    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
+    <div class="left_title"><h1>按钮控件</h1></div>
     <div class="right_content animated bounceInRight">
       <div class="dropdown">
         <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
@@ -68,13 +66,11 @@
       </li>
     </ul>
     <br><h2>定义按钮属性</h2>
-    <div class="tip wow bounceInLeft" data-wow-delay="0.8s">
-      <div class="tip-text">
-        <p><b>提示：</b>
-        <br>size等常用属性被整理至另外一个文件
-        <p><a class="home-btn" href="./index.html">点击查看</a></p></p>
-      </div>
-    </div>
+    <tip>
+    <b>提示：</b>
+      <br>size等常用属性被整理至另外一个文件
+    <p><a class="home-btn" href="./index.html">点击查看</a></p>
+    </tip>
     <p>这些属性可以不用写，因为@commom.button时就已经默认了</p>
     
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
@@ -139,7 +135,7 @@
         <br>引用<a class="panel c1-light-green">@common.button</a>时默认为1.0
       </p>
     </div>
-    <br><h2>按钮映射</h2>
+    <h2>按钮映射</h2>
     
     <p>直接添加按钮只会改变自身材质，如果需要按钮有实际作用，
     <br>需要使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a class="list-link" href="./anim.html">动画控件</a>)</p>
@@ -197,7 +193,7 @@
   </ul></p>
   <p>以下是一些常用的button_id：</p>
     
-    <div class="panel wow bounceInLeft"><ul>
+    <ul class="wow bounceInLeft" style="list-style: square;">
       <li>button.menu_cancel（Esc键或返回键）</li>
       <li>button.exit（退出屏幕）</li>
       <li>button.menu_ok（Enter键）</li>
@@ -212,12 +208,12 @@
       <li>button.menu_autocomplete_back（上个Tab键）</li>
       <li>button.menu_tab_left（左Tab键）</li>
       <li>button.menu_tab_right（右Tab键）</li>
-    </ul></div>
+    </ul>
 
     <p>如果仅需按下按钮触发映射事件，可以先引用"commom.button"，然后使用$pressed_button_name
       .hh提示：$pressed_button_name的值等于to_button_id
     </p>
-    <br><h2>超链接按钮</h2>
+    <h2>超链接按钮</h2>
 
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
       <p><strong>property_bag / #hyperlink</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按下后打开的链接</a></p>
@@ -239,7 +235,7 @@
       这样就可以按下按钮后打开网站了
       不过，只能打开以下几种网站（其他网站会没效果）</p>
     
-    <div class="panel"><ul>
+    <ul class="wow bounceInLeft" style="list-style: square;">
       <li>https://aka.ms/MCBanned</li>
       <li>https://aka.ms/minecraftfb</li>
       <li>https://aka.ms/minecraftfbbeta</li>
@@ -254,9 +250,9 @@
       <li>https://aka.ms/privacy</li>
       <li>https://www.minecraft.net/licensed-content/?hideChrome</li>
       <li>https://www.minecraft.net/attribution/?hideChrome</li>
-      <li>https://itunes.apple.com/us/app/minecraft/id479516143?mt=8</li></ul></div>
+      <li>https://itunes.apple.com/us/app/minecraft/id479516143?mt=8</li></ul>
     
-  <br><h2>更改按钮外观</h2>
+  <h2>更改按钮外观</h2>
     
   <p>接下来，我们将外观分成几部分讲解</p>
       
@@ -432,7 +428,6 @@
   "$pressed_button_name": "button.menu_achievements",
   "controls": [
     // 当前显示的内容取决于按钮状态
-    //
    {
       // 默认状态
       "default@icon": {}
@@ -513,7 +508,7 @@
       <br>按钮控件跟随准心时，可无视offset等改变位置的属性，但仍然会被剪辑面板剪辑
     </div>
     
-    <br><h2>焦点</h2>
+    <h2>焦点</h2>
     
     <p>焦点用于方便选中其他控件，仅游戏手柄和键盘能使用焦点</p>
     
@@ -651,16 +646,6 @@
     
     <p>还有一些属性没有讲，但是他们并不重要！
     <br>不过他们仍然为控件做出一些改动</p>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>draggable</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">允许拖动按钮</a></p>
-      值：字符串/列举
-      <br>值为"vertical"时，仅允许竖直方向拖动
-      <br>值为"horizontal"时，仅允许水平方向拖动
-      <br>值为"both"时，可任意拖动
-      <br>拖动时仍受"clips_children"影响
-      <br><a class="c-red">不过，松开手放开按钮时会触发按钮映射事件</a>
-    </div>
     
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
       <p><strong>always_handle_pointer</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">总是处理指针位置</a></p>

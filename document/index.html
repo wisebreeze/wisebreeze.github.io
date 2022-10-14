@@ -25,8 +25,8 @@
     <ul>
       <li class="wow rollIn">
         <div>
-          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
-          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+          <a id="open-btn" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" onclick="closeNav()">◄</a>
         </div>
       </li>
       <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
@@ -38,17 +38,15 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><br><h1>控件常用属性</h1>
-    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
-    <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
+    <div class="left_title"><h1>控件常用属性</h1></div>
     <div class="right_content animated bounceInRight">
       <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
         阅读进度 - <a id="number_progress"></a>
         <div class="progress-bg"><div id="progress"></div></div>
       </div>
     </div>
-    <div class="left_content"><div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>type</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">控件类型</a></p>
+    <div class="left_content"><ed>
+        <p><b>type</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">控件类型</a></p>
         <p>值：字符串
             <br>定义这个控件的类型
             <br>字符串的值可能为
@@ -73,15 +71,15 @@
               <li>selection_wheel</li>
             </ul>
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>size</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">控件大小</a></p>
+    </ed>
+    <ed>
+        <p><b>size</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">控件大小</a></p>
         <p>值：数组
             <br>默认值：[ "default", "default" ]
             <br>size分别为[ x, y ]
             <br>即用于定义X/Y轴大小</p>
         <p>X/Y轴的值可以为
-        <ul>
+        <ul style="list-style: none;padding-left: 1rem;">
         <li class="panel c1-light-blue">像素</li>
         <li class="panel c1-light-blue">默认</li>
         <li class="panel c1-light-blue">百分比</li>
@@ -91,13 +89,11 @@
         <li class="panel c1-light-blue">填充</li>
         <li class="panel c1-light-blue">Y轴百分比</li>
         <li class="panel c1-light-blue">X轴百分比</li></ul>
-        <div class="tip wow bounceInLeft" data-wow-delay="0.8s">
-            <div class="tip-text">
-                <b>提示</b>
-                <br>1. 以下提到的父元素指嵌套*当前控件*的控件（即父控件的controls含有*当前控件*）
-                <br>2. 以下提到的子元素指*当前控件*的嵌套控件（即*当前控件*的controls含有子控件）
-            </div>
-        </div>
+        <tip>
+          <b>提示</b>
+          <br>1. 以下提到的父元素指嵌套*当前控件*的控件（即父控件的controls含有*当前控件*）
+          <br>2. 以下提到的子元素指*当前控件*的嵌套控件（即*当前控件*的controls含有子控件）
+        </tip>
         <b>> 像素</b>
         <br>值: 数字 | 字符串
         <br>例如: [1,9]   ["3px","5px"]
@@ -148,7 +144,7 @@
         <br>控件大小为["100%","100%x"] => ["100%","100%"]
         </p>
         <p>
-        <a class="c-red">你不能这样做，会导致控件出现问题</a>
+        <warning>你不能这样做，会导致控件出现问题
         <br>示例: 
         <br>["100%x","100%y"]
         <br>["100%y","100%x"]
@@ -156,88 +152,119 @@
         <br>["100%","100%y"]
         <br>["-100%","100%"]
         <br>(size不能为负数，负数一般用于offset)
-        </p>
+        </warning></p>
         <p>
         你知道吗: 
         <br>+ "size": [0,0]时可以将控件隐藏，但是仍然建议使用<a class="panel c1-dark-yellow">ignored</a>隐藏控件
         <br>+ "size"可以使用加减符号，例如["100% + 2% - 9px","20%"]（像素大小在参与加减计算中必须加上<a class="panel c1-dark-yellow">px</a>）
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>layer</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">显示的图层级</a></p>
+    </ed>
+    <ed>
+    <b> color </b> <et class="panel c1-yellow c-gray">控件颜色</et>
+    <p>值：数组 | 字符串
+       .hh默认值：[ 1, 1, 1 ]
+       .hh能使用RGB或列举的颜色改变控件颜色</p>
+       <p>.bb值作为字符串时..bb
+       .hh可以填写以下的颜色
+       .hh白色 white
+       .hh淡灰色 silver
+       .hh灰色 gray
+       .hh黑色 black
+       .hh红色 red
+       .hh绿色 green
+       .hh黄色 yellow
+       .hh棕色 brown
+       .hh黄绿色 greenyellow
+       .hh淡蓝色 cyan
+       .hh蓝色 blue
+       .hh橙色 orange
+       .hh...
+       .hh
+       .hh.bb值作为数组时..bb
+       .hh可以作为为RGB格式
+       .hh数组的值必须为整数且范围在0到1之间
+       .hh.hh<a class="c-red">.bb如何将（255色）转换为0到1的数？..bb
+       .hhR、G、B分别除于255
+       .hh例如：[ 11, 45, 14 ] ÷ 255
+       .hh≈ [ 0.0431, 0.1764, 0.0549 ] （保留4位小数）
+       </a>
+      </p>
+    </ed>
+    <ed>
+        <b>layer</b> <et>显示的图层级</et>
         <p>值：整数
             <br>默认值：0
             <br>能防止当前控件与其它控件<a class="panel c1-light-green">重叠</a>
             <br>层数越大控件将会把层数小的控件覆盖
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>enabled</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否启用控件</a></p>
+    </ed>
+    <ed>
+        <p><b>enabled</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否启用控件</a></p>
         <p>值：布尔值
             <br>默认值：true
             <br>为true时启用显示，为false时锁定控件
             <br>仅限于可互动类控件
             <br>锁定时，无法改变控件状态
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>visible</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否显示控件</a></p>
+      </ed>
+    <ed>
+        <p><b>visible</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否显示控件</a></p>
         <p>值：布尔值
             <br>默认值：true
             <br>为true时控件显示，为false时隐藏控件
             <br>可与ignored配合使用
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>ignored</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否隐藏控件</a></p>
+    </ed>
+    <ed>
+        <p><b>ignored</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否隐藏控件</a></p>
         <p>值：布尔值
             <br>默认值：false
             <br>为true时隐藏显示，为false时显示控件
             <br>可与visible配合使用
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>offset</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">偏移量</a></p>
+      </ed>
+    <ed>
+        <p><b>offset</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">偏移量</a></p>
         <p>值：数组/坐标
             <br>默认值：[0,0]
             <br>偏移是基于父元素的左上角，因此正方向为右下方(即负-y正+x，第四象限)
             <br>数组的值与size一致
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>anchor_from</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">开始锚点</a></p>
+    </ed>
+    <ed>
+        <p><b>anchor_from</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">开始锚点</a></p>
         <p>值：字符串/列举
             <br>默认值：center
             <br>改变控件的开始(左上角)锚点
-            <br>列举的值有：
+            <br>列举值有：
             <table border="1" class="wow bounceInLeft" data-wow-delay="0.8s">
               <tbody><tr><td>top_left</td><td>top_middle</td><td>top_right</td></tr>
               <tr><td>left_middle</td><td>center</td><td>right_middle</td></tr>
               <tr><td>bottom_left</td><td>bottom_middle</td><td>bottom_right</td></tr></tbody>
             </table>
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>anchor_to</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">结束锚点</a></p>
+    </ed>
+    <ed>
+        <p><b>anchor_to</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">结束锚点</a></p>
         <p>值：字符串/列举
             <br>默认值：center
             <br>改变控件的结束(右下角)锚点
-            <br>列举的值有：
+            <br>列举值有：
             <table border="1" class="wow bounceInLeft" data-wow-delay="0.8s">
               <tbody><tr><td>top_left</td><td>top_middle</td><td>top_right</td></tr>
               <tr><td>left_middle</td><td>center</td><td>right_middle</td></tr>
               <tr><td>bottom_left</td><td>bottom_middle</td><td>bottom_right</td></tr></tbody>
             </table>
         </p>
-    </div>
-    .ep.bb alpha ..bb .et 透明度 ..et
+    </ed>
+    <ed>.bb alpha ..bb .et 透明度 ..et
       <p>
         值：数字/浮点数
         .hh默认值：1
         .hh改变这个控件的透明度，但不影响子控件的透明度
         .hh浮点数的范围在0~1之间
       </p>
-    ..ep
+    </ed>
     .ep.bb propagate_alpha ..bb .et 传播透明度 ..et
       <p>
         值：数字/浮点数
@@ -246,6 +273,15 @@
         .hh浮点数的范围在0~1之间
       </p>
     ..ep
+    <ed>
+      <p><strong>draggable</strong> <et>允许拖动控件</et></p>
+      值：字符串/列举
+      <br>值为"vertical"时，仅允许竖直方向拖动
+      <br>值为"horizontal"时，仅允许水平方向拖动
+      <br>值为"both"时，可任意拖动
+      <br>拖动时仍受"clips_children"影响
+      <br><a class="c-red">不过，松开手放开按钮时会触发按钮映射事件</a>
+    </ed>
     .ep.bb clips_children ..bb .et 剪辑子控件 ..et
       <p>
         值：布尔值
@@ -264,7 +300,14 @@
     .ep.bb use_child_anchors ..bb .et 剪辑的锚点 ..et
       <p>
         值：字符串/列举
-        .hh值为anchor_from、anchor_to的值
+        <br>默认值：center
+        <br>改变控件的剪辑锚点
+        <br>列举值有：
+        <table border="1" class="wow bounceInLeft" data-wow-delay="0.8s">
+          <tbody><tr><td>top_left</td><td>top_middle</td><td>top_right</td></tr>
+          <tr><td>left_middle</td><td>center</td><td>right_middle</td></tr>
+          <tr><td>bottom_left</td><td>bottom_middle</td><td>bottom_right</td></tr></tbody>
+        </table>
       </p>
     ..ep
     .ep.bb clip_state_change_event ..bb .et 改变剪辑状态的事件 ..et
@@ -272,36 +315,36 @@
         值：字符串
       </p>
     ..ep
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>bindings</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定</a></p>
+    <ed>
+        <p><b>bindings</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定</a></p>
         <p>在其他文件中详细介绍，<a class="list-link" href="./bindings.html">点我跳转</a>
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>anims</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画</a></p>
+    </ed>
+    <ed>
+        <p><b>anims</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画</a></p>
         <p>在其他文件中详细介绍，<a class="list-link" href="./anim.html">点我跳转</a>
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>animation_reset_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画重置名称</a></p>
+    </ed>
+    <ed>
+        <p><b>animation_reset_name</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画重置名称</a></p>
         <p>在其他文件中详细介绍，<a class="list-link" href="./anim.html">点我跳转</a>
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>variables</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">变量</a></p>
+    </ed>
+    <ed>
+        <p><b>variables</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">变量</a></p>
         <p>文件还在编写中，敬请期待～
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>controls</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">嵌套控件</a></p>
+    </ed>
+    <ed>
+        <p><b>controls</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">嵌套控件</a></p>
         <p>文件还在编写中，敬请期待～
         </p>
-    </div>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-        <p><strong>modifications</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">修改</a></p>
+    </ed>
+    <ed>
+        <p><b>modifications</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">修改</a></p>
         <p>文件还在编写中，敬请期待～
         </p>
-    </div>
+    </ed>
   </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>

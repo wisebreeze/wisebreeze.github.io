@@ -25,8 +25,8 @@
     <ul>
       <li class="animated rollIn">
         <div>
-          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
-          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+          <a id="open-btn" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" onclick="closeNav()">◄</a>
         </div>
       </li>
       <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
@@ -38,9 +38,7 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><br><h1>文本控件</h1>
-    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
-         <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
+    <div class="left_title"><h1>文本控件</h1></div>
     <div class="right_content animated bounceInRight">
       <div class="dropdown">
         <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
@@ -60,12 +58,11 @@
     <p>文本控件类型为label</p>
     <div class="left_content"><p>接下来，我们给文本添加一些属性</p>
     <h2>常用属性</h2>
-    .tip
-    <p><b>提示：</b>
+    <tip>
+    <b>提示：</b>
       <br>size等常用属性被整理至另外一个文件
     <p><a class="home-btn" href="./index.html">点击查看</a></p>
-    </p>
-    ..tip
+    </tip>
     .ep.bb text ..bb .et 文字 ..et
       <p>值：字符串
          .hh定义文本控件显示的文字
@@ -74,37 +71,7 @@
          .hh同时可以使用.lang文件翻译来改变文本语言
       </p>
     ..ep
-    .ep.bb color ..bb .et 文本颜色 ..et
-      <p>值：数组 | 字符串
-         .hh默认值：[ 1, 1, 1 ]
-         .hh能使用RGB或列举的颜色改变字体颜色</p>
-         <p>.bb值作为字符串时..bb
-         .hh可以填写以下的颜色
-         .hh白色 white
-         .hh淡灰色 silver
-         .hh灰色 gray
-         .hh黑色 black
-         .hh红色 red
-         .hh绿色 green
-         .hh黄色 yellow
-         .hh棕色 brown
-         .hh黄绿色 greenyellow
-         .hh淡蓝色 cyan
-         .hh蓝色 blue
-         .hh橙色 orange
-         .hh...
-         .hh
-         .hh.bb值作为数组时..bb
-         .hh可以为RGB
-         .hh数组的值必须为整数且范围在0到1之间
-         .hh<a class="c-red">.bb如何将（255色）转换为0到1的数？..bb
-         .hhR、G、B分别除于255
-         .hh例如：[ 11, 45, 14 ] ÷ 255
-         .hh≈ [ 0.0431, 0.1764, 0.0549 ] （保留4位小数）
-         </a>
-        </p>
-    ..ep
-    <br><h2>其他属性</h2>
+    <h2>其他属性</h2>
     .ep.bb locked_color ..bb .et 锁定时的文本颜色 ..et
       <p>值：数组 | 字符串
          .hh与"color"的值相同，不再介绍

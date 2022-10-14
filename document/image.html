@@ -25,8 +25,8 @@
     <ul>
       <li class="wow rollIn">
         <div>
-          <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
-          <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+          <a id="open-btn" onclick="openNav()">&#9776;</a>
+          <a id="close-btn" onclick="closeNav()">◄</a>
         </div>
       </li>
       <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
@@ -38,9 +38,7 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><br><h1>图片控件</h1>
-    <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
-    <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div></div>
+    <div class="left_title"><h1>图片控件</h1></div>
     <div class="right_content animated bounceInRight">
       <div class="dropdown">
         <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
@@ -57,16 +55,15 @@
     
     <h2>常用属性</h2>
     
-    .tip
-    <p><b>提示：</b>
+    <tip>
+    <b>提示：</b>
       <br>size等常用属性被整理至另外一个文件
     <p><a class="home-btn" href="./index.html">点击查看</a></p>
-    </p>
-    ..tip
+    </tip>
     
     <p>图片的控件类型为<a class="panel">image</a></p>
     
-    <p><pre class="json wow fadeInRightBig"><code>"type": "image"</code></pre>
+    <p><bcode><lcode>"type": "image"</lcode></bcode>
       以下是图片一些常用属性：</p>
     
     .ep.bb texture ..bb .et图片的路径..et</p>
@@ -150,36 +147,43 @@
     .ep.bb allow_debug_missing_texture ..bb .et 显示错误材质 ..et
       <p>值：布尔值
          .hh默认值：true
-         .hh当"textures"使用的路径不存在或图片不存在时，是否使用missing_texture.png
+         .hh当"textures"使用的路径不存在或图片不存在时，是否使用RP/textures/misc/missing_texture.png作为图片显示
       </p>
     ..ep
 
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>nineslice_size</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">伸缩贴图</a></p>
+      <p><strong>nineslice_size</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">九宫格切片纹理</a></p>
       <p>值：浮点数 | 数组
         <br>默认值：0
-        <br>改变图片的伸缩比例
-        <br>作为浮点数时必须为正有理数
-        <p>它有有三种格式
+        <br>改变图片的九宫格切片
+        <br>九宫格切片即为图片在父控件的九宫格比例
+        <br>
+        <br>值作为浮点数时不能为负数
+        <p>九宫格切片有三种形式
           <li>浮点数</li>
           <li>[x,y]</li>
           <li>[x¹,y¹,x²,y²]</li>
         </p>
-        <b>当不使用nineslice_size时：</b>
-        <div style="margin-left: 15px;">图片会以1:1的比例伸缩</div>
-        <b>当值为浮点数时：</b>
-        <div style="margin-left: 15px;">图片伸缩比例等于当前控件比例（会改变图片显示的大小），将外围xxx格像素缩小</div>
-        <b>当值为[x,y]时：</b>
-        <div style="margin-left: 15px;">图片伸缩比例等于当前控件比例（会改变图片显示的大小），将外围低于[ x, y ]的像素缩小
+        <p><a class="c-light-blue">以下“浮点数”简称为"?"</a>
+        <br>九宫格外的像素会保持原样，在九宫格切片以内的像素会按照九宫格比例放大
+        </p>
+        <b>当不使用九宫格时：</b>
+        <div style="margin-left: 15px;">图片保持1:1的九宫格切片</div>
+        <b>当九宫格为浮点数时：</b>
+        <div style="margin-left: 15px;">图片九宫格切片的X轴和Y轴<a class="c-red">都</a>会向内“?”格延伸</div>
+        <b>当九宫格为[x,y]时：</b>
+        <div style="margin-left: 15px;">图片九宫格切片的X轴和Y轴<a class="c-red">分别</a>会向内[ x, y ]格延伸
         <br>例如：[20,12]
-        <br>首先图片的伸缩比例等于当前控件比例
-        <br>X轴0~20格像素，Y轴0~12格像素进行缩小处理</div>
-        <b>当值为[x¹,y¹,x²,y²]时：</b>
-        <div style="margin-left: 15px;">图片伸缩比例等于当前控件比例（会改变图片显示的大小），将外围低于[ x¹, y¹, x², y² ]的像素缩小
-        <br>例如：[2,7,5,9]（设图片大小为32,32）
-        <br>首先图片的伸缩比例等于当前控件比例
-        <br>第一个伸缩点为左上角的[0,0]到右下方的[2,7]（在这范围的像素会缩小）
-        <br>第二个拉伸点为右下角[0,0]到左上方[5,9]（在这范围的像素会缩小）</div>
+        <br>九宫格X轴会向内20格延伸，九宫格X轴会向内12格延伸。
+        <br>九宫格外的像素会忽略，保持原样；
+        <br>九宫格内的像素会按照九宫格比例放大。</div>
+        <b>当九宫格为[x¹,y¹,x²,y²]时：</b>
+        <div style="margin-left: 15px;">图片九宫格切片的X轴和Y轴<a class="c-red">分别</a>会向内[ x¹, y¹, x², y² ]格延伸
+        <br>例如：[2,7,5,9]
+        <br>九宫格左上角的X轴和Y轴<a class="c-red">分别</a>会向内[ x¹, y¹ ]格延伸；
+        <br>九宫格右下角的X轴和Y轴<a class="c-red">分别</a>会向内[ x², y² ]格延伸。
+        <br>九宫格外的像素会忽略，保持原样；
+        <br>九宫格内的像素会按照九宫格比例放大。</div>
       </p>
     </div>
     
@@ -192,11 +196,11 @@
         <br><br>例如："uv": [ x, y ]
         <br>参考坐标图
         <br><img width="100" height="auto" src="../src/image/正方向.png"></img>
-        .tip
+        <tip>
           <b>注意</b>
-          <div style="margin-left: 15px;">如果第一个值超过贴图的长，那么图片将不会显示
-          <br>如果第二个值超过贴图的宽，那么图片将不会显示</div>
-        ..tip
+          <br>&nbsp;&nbsp;如果第一个值超过贴图的长，那么图片将不会显示
+          <br>&nbsp;&nbsp;如果第二个值超过贴图的宽，那么图片将不会显示
+        </tip>
         如果：
         <br>texture指定的图片大小是2900*1080
         <br>uv是[ 1, 3 ]
