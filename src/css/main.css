@@ -277,6 +277,11 @@ h2, h3, h4, h5, h6 {
     padding-bottom: 0.6rem;
 }
 
+h3 {font-size: 1.2rem !important;}
+h4 {font-size: 1.1rem !important;}
+h5 {font-size: 1.0rem !important;}
+h6 {font-size: 0.8rem !important;}
+
 .menu-h2, .menu-h3, .menu-h4, .menu-h5, .menu-h6 {
     display: block;
     color: var(--sidebar-btn-t);
@@ -290,8 +295,11 @@ h2, h3, h4, h5, h6 {
 }
 .menu-this {
     color: var(--link);
-    border-left: solid 3px var(--link-this-hover);
+    border-left: solid 3px var(--link-this-hover) !important;
     padding-left: 0.3em;
+}
+.menu-this:hover {
+    text-decoration: underline;
 }
 .menu-h2 {
 	margin-left: 0.6em;
@@ -756,6 +764,7 @@ legend {
     list-style-type: none;
     padding: 1px 10px;
     border-radius: 8px;
+    margin: 1rem 0 1rem 0;
 }
 
 .code-top {
