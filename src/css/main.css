@@ -230,47 +230,6 @@ lc {
     background: var(--lc);
 }
 
-/* 设置
-div.select option::selection, div.select option:hover {
-    background: var(--select-os-bg);
-}
-div.select option {
-    outline: none;
-    background: var(--select-o-bg);
-}
-div.select select {
-    display: block;
-    outline: none;
-    padding: 6px;
-    border: none;
-    font-size: 0.88rem;
-    cursor: pointer;
-    width: 100%;
-    color: var(--select-t);
-    background: transparent;
-}
-div.select {
-    display: inline-block;
-    width: 300px;
-    position: relative;
-    vertical-align: middle;
-    background: var(--select-d);
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    border-radius: 5px;
-    overflow: hidden;
-}
-div.select:hover {
-    background: var(--select-h);
-}
-div.select::before {
-    content: "";
-    position: absolute;
-    height: 0;
-    width: 0;
-    cursor: pointer;
-}*/
-
 /* 分段 */
 h2, h3, h4, h5, h6 {
     border-bottom: solid 1px #cecece;
@@ -298,24 +257,12 @@ h6 {font-size: 0.8rem !important;}
     border-left: solid 3px var(--link-this-hover) !important;
     padding-left: 0.3em;
 }
-.menu-this:hover {
-    text-decoration: underline;
-}
-.menu-h2 {
-	margin-left: 0.6em;
-}
-.menu-h3 {
-	margin-left: 1.6em;
-}
-.menu-h4 {
-	margin-left: 2.6em;
-}
-.menu-h5 {
-	margin-left: 3.6em;
-}
-.menu-h6 {
-	margin-left: 4.6em;
-}
+.menu-this:hover {text-decoration: underline;}
+.menu-h2 {margin-left: 0.6em;}
+.menu-h3 {margin-left: 1.6em;}
+.menu-h4 {margin-left: 2.6em;}
+.menu-h5 {margin-left: 3.6em;}
+.menu-h6 {margin-left: 4.6em;}
 
 /* 阅读进度条 */
 .progress-bg {
@@ -661,6 +608,10 @@ legend {
 }
 
 /* 链接 */
+.doc-link {
+    font-size: 1.1em;
+}
+
 .list-link {
     color: var(--link);
     text-decoration: none;
