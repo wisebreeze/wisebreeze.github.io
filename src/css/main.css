@@ -132,7 +132,7 @@ body[data-theme="dark"] {
   --dropdown-bg: rgba(80, 80, 80, 0.45);
   --dropdown-s: rgba(226, 226, 226, 0.55);
   --sidebar-bg: rgba(80, 80, 80, 0.55);
-  --sidebar-title-color: #acacac;
+  --sidebar-title-color: #d4d4d4;
   --sidebar-btn-t: #ffffff;
   --sidebar-btn-s: 0 5px 8px 0 rgba(230, 230, 230, 0.4);
   --sidebar-btnh-bg: #ebebeb;
@@ -141,7 +141,7 @@ body[data-theme="dark"] {
   --to-top-hover-bg: rgb(184, 184, 184);
   --to-top-s: 5px 5px 5px #000000,
     -3px -3px 6px #515151;
-  --to-top-text: #ffffff;
+  --to-top-text: #000000;
   /*顶栏*/
   --header-color: linear-gradient(to right, rgb(32, 114, 255), rgb(89, 36, 233));
   /*hljs*/
@@ -179,7 +179,7 @@ body[data-theme="dark"] {
 .link-header {
     display: block;
     font-weight: bold;
-    padding: 2px;
+    padding: 2px 5px 2px 5px;
     width: 35%;
     border-radius: 4px;
     margin-top: 0.8em;
@@ -429,7 +429,7 @@ h6 {font-size: 0.8rem !important;}
     top: 0;
 }
 
-.top_header ul {
+.top_header > ul {
     width: auto;
     list-style-type: none;
     white-space: nowrap;
@@ -509,11 +509,11 @@ h6 {font-size: 0.8rem !important;}
     transition: 0.22s;
 }
 
-.sidenav div::-webkit-scrollbar {
+.sidenav > div::-webkit-scrollbar {
     display: none;
 }
 
-.sidenav div {
+.sidenav > div {
     overflow-y:scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -879,9 +879,7 @@ table tbody tr:hover {
     background-color: var(--to-top-hover-bg);
 }
 
-.to-top-text {
-  color: var(--to-top-text);
-}
+.to-top > div > .to-top-text {color: var(--to-top-text);}
 
 @keyframes to-top-anim {
   0% {
