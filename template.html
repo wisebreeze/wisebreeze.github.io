@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>我的世界基岩版JSON</title>
+    <title>我的世界基岩版 UI 文档</title>
     <link rel="shortcut icon" href="./favicon.ico">
     <link rel="icon" sizes="100x100" href="./favicon.ico">
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+    <meta name="apple-mobile-web-app-title" content="MCBE UI教程 文档">
     <meta name="apple-touch-icon-precomposed" size="57x57" href="./web_icon.png">
     <meta name="apple-touch-icon-precomposed" size="114x114" href="./web_icon.png">
     <meta name="apple-touch-icon-precomposed" size="152x152" href="./web_icon.png">
@@ -20,6 +20,7 @@
     <meta name="author" content="MC_spruce">
     
     <link href="https://mcspruce.github.io/src/css/main.css" rel="stylesheet">
+    <script src="https://mcspruce.github.io/src/js/jQuery.js"></script>
     <div class="top_header">
         <ul>
             <li class="wow rollIn">
@@ -28,50 +29,40 @@
                 <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
               </div>
             </li>
-            <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
+            <li><a href="https://MCspruce.github.io">我的世界基岩版 UI 文档</a></li>
             <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
         </ul>
     </div>
 </head>
 <body id="root" data-theme="light">
-    <!--目录-->
-    <div id="sideBar" class="sidenav">
-        <div>
-            <label class="sidebar-title">目录</label>
-            <hr class="sidebar-hr">
-            <a class="sidenav-button" href="#p1">边栏目录按钮</a>
-        </div>
-        <div style="top: 8px;">
-            <a class="follow " href="https://space.bilibili.com/494279926">关注作者</a>
-        </div>
-    </div>
-    <!--目录-->
     <!--正文-->
-    <div style="padding-top: 60px;">
-        <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">教程模板</span>
+    <div id="content"><div class="left_content" hide_bq="true">
+        <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">Test</span>
         <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
         <div class="wow bounceInUp" style="display: inline;"><a class="home-btn" data-wow-delay="0.5s" href="https://mcspruce.github.io/">返回首页</a>
          <a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a></div>
         <!--代码框-->
-        <br><ul class="code wow bounceInLeft">
-        <div class="code-top">
-          <div class="code-title">RP/ui/start_screen.json
-          <button class="copy-btn wow shake" onclick="copy_code('cid_1')" style="float: right;color: #424242;">.copy</button>
-        </div></div>
-        <pre class="wow fadeInRightBig" data-wow-delay="0.5s"><code id="cid_1" class="json"><ul><li>"panel": {</li><li>  "type": "panel"</li><li>}</li></ul></code></pre></ul>
+        <br><bcode>
+            <ctitle>RP/ui/start_screen.json</ctitle>
+            <lcode>"panel": {
+  "type": "panel"
+}</lcode></bcode>
         <!--提示-->
-        <div class="tip wow bounceInLeft" data-wow-delay="0.8s">
-            <div class="tip-text">
-                <b>提示</b>
-                <br>这里写提示内容
-            </div>
-        </div>
+        <tip>
+            <b>提示</b>
+            <br>aaa
+        </tip>
+        <!--警告-->
+        <warning>
+            <b>警告</b>
+            <br>aaa
+        </warning>
         <!--面板-->
-        <br><div class="panel wow bounceInLeft" data-wow-delay="1.2s">
+        <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
           <h2>这是面板里面的内容</h2>
         </div>
         <!--标题-->
-        <br><span class="title wow fadeInLeftBig" data-wow-delay="1.5s">段落标题</span>
+        <span class="title wow fadeInLeftBig" data-wow-delay="1.5s">段落标题</span>
         <hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
         <!--控件-->
         <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
@@ -108,16 +99,8 @@
         <br>
         <br>
         <p id="test">aaaa</p>
-    </div>
+    </div></div>
     <!--正文-->
-    <div id="to_top" style="position: fixed;bottom: 3%;right: 3%;padding: 3px;animation-name: to-top-anim;animation-duration: 0.5s;">
-        <button class="to_top" type="button" onclick="to_top();">
-            <div style="text-align: center;">
-                <span style="color: #619dff;font-size: 20px;">▲</span><br>
-                <span class="to-top-text">回顶部</span>
-            </div>
-        </button>
-    </div>
     <link href="https://mcspruce.github.io/src/css/hl.css" rel="stylesheet">
     <script src="https://mcspruce.github.io/src/js/hl.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
