@@ -8,7 +8,7 @@
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport"
       content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="apple-mobile-web-app-title" content="Json-UI教程">
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
   <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
   <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
   <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
@@ -29,7 +29,7 @@
           <a id="close-btn" onclick="closeNav()">◄</a>
         </div>
       </li>
-      <li><a href="https://MCspruce.github.io">我的世界基岩版 JSON UI 教程</a></li>
+      <li><a href="https://MCspruce.github.io">我的世界基岩版 UI 文档</a></li>
       <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
     </ul>
   </div>
@@ -191,21 +191,21 @@
     <ul class="wow bounceInLeft" style="list-style: square;"><li>not_gaze - 无条件</li>
     <li>gamepad_and_not_gaze - 使用游戏手柄</li>
   </ul></p>
-  <p>以下是一些常用的button_id：</p>
+  <p>以下是一些常用的to_button_id：</p>
     
     <ul class="wow bounceInLeft" style="list-style: square;">
       <li>button.menu_cancel（Esc键或返回键）</li>
       <li>button.exit（退出屏幕）</li>
-      <li>button.menu_ok（Enter键）</li>
-      <li>button.menu_select（单击或点击）</li>
-      <li>button.hide_hud（F1键)</li>
-      <li>button.hide_paperdoll（纸娃娃）</li>
+      <li>button.menu_ok（确定键）</li>
+      <li>button.menu_select（单击/点击/Enter键）</li>
+      <li>button.hide_hud（隐藏/显示Hud - 仅用于Hud屏幕)</li>
+      <li>button.hide_paperdoll（隐藏/显示纸娃娃 - 仅用于Hud屏幕）</li>
       <li>button.menu_up  ↑</li>
       <li>button.menu_down  ↓</li>
       <li>button.menu_left  ←</li>
       <li>button.menu_right  →</li>
-      <li>button.menu_autocomplete（Tab键）</li>
-      <li>button.menu_autocomplete_back（上个Tab键）</li>
+      <li>button.menu_autocomplete（Tab键 - 常用于聊天屏幕）</li>
+      <li>button.menu_autocomplete_back（上个Tab键 - 常用于聊天屏幕）</li>
       <li>button.menu_tab_left（左Tab键）</li>
       <li>button.menu_tab_right（右Tab键）</li>
     </ul>
@@ -215,21 +215,22 @@
     </p>
     <h2>超链接按钮</h2>
 
+<bcode>
+  <ctitle>RP/ui/start_screen.json</ctitle>
+  <lcode>"feedback_button@common.button": {
+  "property_bag": {
+    "#hyperlink"： "https://aka.ms/minecraftfb"
+  }
+}</lcode></bcode>
+
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
       <p><strong>property_bag / #hyperlink</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按下后打开的链接</a></p>
       <p>值：字符串
         <br>按下后会打开浏览器并转到指定的链接
         </p><tip><b>tip：</b>
-        <br>仅对Minecraft原版的链接有效</tip>
+        <br>仅对以下列举的链接有效</tip>
     </div>
 
-    <bcode>
-      <ctitle>RP/ui/start_screen.json</ctitle>
-      <lcode>"feedback_button@common.button": {
- "property_bag": {
-   "#hyperlink"： "https://aka.ms/minecraftfb"
- }
-}</lcode></bcode>
       </li>
     </ul>
       这样就可以按下按钮后打开网站了
