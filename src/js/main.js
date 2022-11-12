@@ -113,7 +113,7 @@ window.onload = function () {
         $(this).find('div').addClass("wow bounceInUp");// 加载动画
         $(this).find('div').attr("data-wow-delay","0.5s");// 加载动画延迟
         $(this).find('div').append("<a class=\"home-btn\" href=\"https://mcspruce.github.io/\">返回首页</a>");// 返回首页按钮
-        $(this).find('div').append("<a class=\"edit-btn\" href=\"https://github.com/MCspruce/MCspruce.github.io\">在 github 上编辑</a>");// 编辑按钮
+        //$(this).find('div').append("<a class=\"edit-btn\" href=\"https://github.com/MCspruce/MCspruce.github.io\">在 github 上编辑</a>");// 编辑按钮
         $(this).html("<br>" + $(this).html());
     });
     //加载目录
