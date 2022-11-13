@@ -8,7 +8,7 @@ var sidebar_link = {
     "sidebar": [
         {"link":"https://mcspruce.github.io","title":"首页"},
         {"link":"https://space.bilibili.com/494279926","title":"B站主页"},
-        {"link":"https://jq.qq.com/?_wv=1027&k=2Ee4pUUF","title":"交流群"},
+        {"link":"https://mcspruce.github.io/group.html","title":"交流群"},
         {"link":"https://mcspruce.github.io/privacy.html","title":"隐私政策"}
     ]
 }
