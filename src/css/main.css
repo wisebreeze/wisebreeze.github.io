@@ -167,6 +167,13 @@ body[data-theme="dark"] {
     -webkit-user-select: none;
 }
 
+.ns {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
 /* 标题按钮 */
 .left_title div {
     display: flex;
@@ -789,6 +796,31 @@ ctitle {
 
 .edit-btn:hover {
     background: #85DF3A;
+}
+
+.group-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.group-btn {
+    background: #00e6f7;
+    color: #444;
+    display: block;
+    width: 60%;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 4px 0 4px 0;
+    text-decoration: none;
+}
+
+.group-btn:hover {
+    background: #0199d4;
+    color: #fff;
 }
 
 .theme-btn {
