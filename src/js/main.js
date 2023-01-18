@@ -6,10 +6,10 @@ var copyPrefix = 'copy_id_';
 var menuHeight = 21;
 var sidebar_link = {
     "sidebar": [
-        {"link":"https://mcspruce.github.io","title":"首页"},
+        {"link":"https://jsonui.netlify.app","title":"首页"},
         {"link":"https://space.bilibili.com/494279926","title":"B站主页"},
-        {"link":"https://mcspruce.github.io/group.html","title":"交流群"},
-        {"link":"https://mcspruce.github.io/privacy.html","title":"隐私政策"}
+        {"link":"https://jsonui.netlify.app/group.html","title":"交流群"},
+        {"link":"https://jsonui.netlify.app/privacy.html","title":"隐私政策"}
     ]
 }
 
@@ -112,7 +112,7 @@ window.onload = function () {
         $(this).append("<div></div>");
         $(this).find('div').addClass("wow bounceInUp");// 加载动画
         $(this).find('div').attr("data-wow-delay","0.5s");// 加载动画延迟
-        $(this).find('div').append("<a class=\"home-btn\" href=\"https://mcspruce.github.io/\">返回首页</a>");// 返回首页按钮
+        $(this).find('div').append("<a class=\"home-btn\" href=\"https://jsonui.netlify.app/\">返回首页</a>");// 返回首页按钮
         //$(this).find('div').append("<a class=\"edit-btn\" href=\"https://github.com/MCspruce/MCspruce.github.io\">在 github 上编辑</a>");// 编辑按钮
         $(this).html("<br>" + $(this).html());
     });
