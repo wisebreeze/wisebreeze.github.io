@@ -841,6 +841,8 @@ ctitle {
 /* 表格 */
 table {
     border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
 }
 
 table caption {
