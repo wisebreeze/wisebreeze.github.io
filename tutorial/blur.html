@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>伪高斯模糊</title>
+  <title>伪模糊</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport"
@@ -38,7 +38,7 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>伪高斯模糊</h1></div> 
+    <div class="left_title"><h1>伪模糊</h1></div> 
 <div class="right_content animated bounceInRight">
   <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
     阅读进度 - <a id="number_progress"></a>
@@ -47,17 +47,17 @@
 </div>
 <div class="left_content">.hh首先准备两张图片
 
-.hh<img width="280" hight="auto" src="../src/image/default.PNG"></img>
+<br><img width="280" hight="auto" src="../src/image/default.PNG"></img>
 
 <p>一张是没有模糊的</p>
 
-.hh<img width="280" hight="auto" src="../src/image/blur.PNG"></img>
+<img width="280" hight="auto" src="../src/image/blur.PNG"></img>
 
-<p>另一张是带有高斯模糊的
-  .hh（高斯模糊图片可以使用Photoshop制作）
+<p>另一张是带有模糊效果的
+  <br>（模糊效果图片可以使用Photoshop或画世界制作）
 </p>
 
-<p>首先把没有模糊的设为背景
+<p>首先把没有模糊效果的设为背景
 
 .hh代码示例</p>
 <bcode>
@@ -75,30 +75,29 @@
       <ctitle>RP/ui/start_screen.json</ctitle>
       <lcode>"background": {
   "type": "image",
-  // texture/ui/background
-  // 可以换成无高斯模糊图片的路径
+  // 可以换成无模糊图片的路径
   "texture": "textures/ui/background",
   "layer": -100,
+  "size": ["100%","100%"],
   "fill": true,
   "controls": [
     {
-      // 这个是剪辑面板
+      // 剪辑面板
       "clip_panel": {
         "type": "panel",
         "size": ["100%", "100%"],
-        // clips_children和offset是重点
+        // offset是改变模糊位置的位置
         "clips_children": true,
         "offset":["-70%",0],
         "controls": [
           {
-            // 这个是模糊图片
+            // 这个是带模糊效果图片
             "blur": {
             "type": "image",
-            // textures/ui/new_background
-            // 可以换为带有高斯模糊的图片
+            // 可以换为带有模糊效果图片的路径
             "texture": "textures/ui/new_background",
             "size": ["100%","100%"],
-            // offset是重点
+            // offset是改变模糊位置的位置
             "offset":["70%",0],
             "fill": true
             }
@@ -110,44 +109,42 @@
 }</lcode></bcode>
 
 <p>在clip_panel控件中，有clips_children和offset属性</p>
-.ep.bb clips_children ..bb
-<div style="margin-left: 15px;top: 0;">作用是让高斯模糊图片只显示在clip_panel的大小范围内，超出部分直接剪掉</div>
-..ep
-.ep.bb offset ..bb <a class="c-red">(重点)</a>
-<div style="margin-left: 15px;top: 0;">作用是改变高斯模糊显示的位置
-.hhclip_panel的offset为向左移动
-.hh然后blur图片控件向右移动
-.hh可以发现，blur的offset与clip_panel的offset刚好相反
-.hh这样模糊图片才会被面板剪辑</div>
-..ep
-<p>显示效果</p>
+<table>
+  <thead><tr><th>属性</th><th>作用</th></tr></thead>
+  <tbody><tr><td>clips_children</td><td>让模糊效果的图片只显示在clip_panel的大小范围内，超出部分直接剪掉</td></tr>
+  <tr><td>offset</td><td>改变模糊效果的位置
+<br>clip_panel的offset为向左移动
+<br>接着blur图片控件向右移动
+<br>我们可以发现，blur的offset与clip_panel的offset刚好相反
+<br>这样模糊效果的图片才会被剪辑</td></tr></tbody>
+</table>
+<p>显示效果：</p>
 <img width="280" hight="auto" src="../src/image/blur_screen.PNG"></img>
 <hr>
 <p>.bb那么，为什么示例中的offset是70%呢？..bb
-.hh.hh没有模糊的图片大小是["100%","100%"]
+.hh.hh没有模糊效果的图片大小是["100%","100%"]
 .hh面板向左移动70%，就是说面板在屏幕上<a class="c-red">仅有30%的区域</a>显示
 .hh把图片向右移动，就能显示图片左边的部分</p>
 <hr>
 <p>
-  .bb如何将高斯模糊在中间显示？..bb
+  .bb如何将伪模糊效果在中间显示？..bb
   .hh.hh利用上方代码，简单说一下如何实现在中间显示</p>
-<p>先全屏背景设为模糊图片
+<p>先全屏背景设为模糊效果图片
   .hh假设中间部大小为<a class="c-red">["20%","20%"]</a>
   .hh左边部分就是<a class="c1-gold">80%(100%-20%)</a>
   .hh上下右部分同理
-  .hh将上下左右80%的部分均添加剪辑后的无模糊的图片
+  .hh将上下左右80%的部分均添加剪辑后的无模糊效果的图片
   .hh这里就不用图片展示了
 </p>
 <hr>
 <p>.bb易错点..bb
-.hh1.模糊图片与剪辑面板的offset的值是相反的
-.hh2.模糊显示在左边 - 剪辑面板的offset数组X轴（第一个值）必须为负数
-.hh  模糊显示在右边 - 剪辑面板的offset数组X轴（第一个值）必须为正数
-.hh  模糊显示在上方 - 剪辑面板的offset数组Y轴（第二个值）必须为负数
-.hh  模糊显示在下方 - 剪辑面板的offset数组Y轴（第二个值）必须为正数
+.hh1.模糊效果图片与剪辑面板的offset的值是相反的
+.hh2.模糊效果显示在左边 - 剪辑面板的offset数组X轴（第一个值）必须为负数
+.hh  模糊效果显示在右边 - 剪辑面板的offset数组X轴（第一个值）必须为正数
+.hh  模糊效果显示在上方 - 剪辑面板的offset数组Y轴（第二个值）必须为负数
+.hh  模糊效果显示在下方 - 剪辑面板的offset数组Y轴（第二个值）必须为正数
 </p>
-<p><a class="c-red">.bb本次教程较难理解，建议反复多次阅读..bb</a>
-  .hh最后记得给UP点个关注吧(*^▽^*)</p>
+<p>最后记得给UP主点个小小的关注吧(*^▽^*)</p>
   </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>
