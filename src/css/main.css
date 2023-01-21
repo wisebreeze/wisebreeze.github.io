@@ -319,37 +319,37 @@ h6 {font-size: 0.8rem !important;}
 }
 
 @media only screen and (min-width: 768px) {
-    .left_content, .left_title {
-        display: block;
-        width: 70vw;
-    }
+  .left_content, .left_title {
+    display: block;
+    width: 70vw;
+  }
 
-    .drop_btn {
-        width: 25vw !important;
-    }
+  .drop_btn {
+    width: 25vw !important;
+  }
 
-    .dropdown-content {
-        position: absolute !important;
-        margin-left: 2vw !important;
-        width: 20vw !important;
-    }
+  .dropdown-content {
+    position: absolute !important;
+    margin-left: 2vw !important;
+    width: 20vw !important;
+  }
 
-    .right_content {
-        right: 1vw;
-        top: 65px;
-        width: min-content;
-        position: fixed;
-    }
+  .right_content {
+    right: 1vw;
+    top: 65px;
+    width: min-content;
+    position: fixed;
+  }
 
-    .pc {
-        display: block;
-    }
+  .pc {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 767px) {
-    .pc {
-        display: none;
-    }
+  .pc {
+    display: none;
+  }
 }
 
 /* 目录 */
@@ -514,6 +514,13 @@ h6 {font-size: 0.8rem !important;}
     background-color: var(--sidebar-bg);
     overflow-x: hidden;
     transition: 0.22s;
+}
+
+.sidenav.open {
+    width: 180px;
+}
+.sidenav.close {
+    width: 0;
 }
 
 .sidenav > div::-webkit-scrollbar {
