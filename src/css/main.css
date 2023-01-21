@@ -879,6 +879,7 @@ table tbody tr:hover {
 
 th, td {
     padding-left: 0.5rem;
+    padding-right: 0.5rem;
     text-align: left;
 }
 
