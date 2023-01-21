@@ -848,8 +848,13 @@ ctitle {
 /* 表格 */
 table {
     border-collapse: collapse;
-    width: 100%;
     overflow-x: auto;
+    width: 100%;
+    display: block;
+}
+
+table::-webkit-scrollbar {
+    height: 3px;
 }
 
 table caption {
