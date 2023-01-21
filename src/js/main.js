@@ -137,6 +137,11 @@ $("ed").each(function(){
     $(this).attr("data-wow-delay", "0.8s");
     $(this).find("et").addClass('panel c1-yellow c-gray');
 });
+$("table").each(function(){
+    // 改变样式
+    $(this).addClass("wow bounceInLeft");
+    $(this).attr("data-wow-delay", "0.8s");
+});
 $("bcode").each(function(){
     // 自动分配复制ID
     //var copy_id = "copy_id_" + Math.trunc((Math.floor(Math.random() * ((new Date()).valueOf() - 32767 + 1)) + (new Date().getSeconds())) / 520);
@@ -160,7 +165,8 @@ $("tip, warning").each(function(){
 
 // 开启侧边栏
 function openNav() {
-    $("#sideBar").css("width","180px");
+    $("#sideBar").removeClass("close");
+    $("#sideBar").addClass("open");
     $("#close-btn").css("visibility","visible");
     $("#open-btn").css("visibility","hidden");
     sessionStorage.setItem("sidebar", true);
@@ -168,7 +174,8 @@ function openNav() {
 
 // 关闭侧边栏
 function closeNav() {
-    $("#sideBar").css("width","0");
+    $("#sideBar").removeClass("open");
+    $("#sideBar").addClass("close");
     $("#close-btn").css("visibility","hidden");
     $("#open-btn").css("visibility","visible");
     sessionStorage.removeItem("sidebar");
