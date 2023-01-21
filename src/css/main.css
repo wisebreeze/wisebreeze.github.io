@@ -7,8 +7,8 @@ body {
 
 * {
   font-family: 'Microsoft Yahei';
-  -webkit-transition: all 0.1s cubic-bezier(0.02, 0.01, 0, 1.08);
-  transition: all 0.1s cubic-bezier(0.02, 0.01, 0, 1.08);
+  -webkit-transition: all 0.2s cubic-bezier(0.02, 0.01, 0, 1.08);
+  transition: all 0.2s cubic-bezier(0.02, 0.01, 0, 1.08);
 }
 
 /* 选中内容 */
@@ -53,6 +53,7 @@ body[data-theme="light"] {
   --table-thead: #0a9dff;
   --tbody-even: rgb(230, 230, 230);
   --tbody-hover: rgb(221, 221, 221);
+  --th-border: rgb(95, 95, 95);
   /*代码*/
   --copy-title: #313131;
   --copy-btn: #e4e4e4;
@@ -124,6 +125,7 @@ body[data-theme="dark"] {
   --table-thead: #335EE1;
   --tbody-even: #404040;
   --tbody-hover: #363636;
+  --th-border: #b7b7b7;
   /*代码*/
   --copy-title: #fdfdfd;
   --copy-btn: #9e9e9e;
@@ -864,10 +866,15 @@ table caption {
 }
 
 th, td {
-    border: 1px solid rgb(95, 95, 95);
     text-align: center;
     padding: 10px 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: left;
 }
+
+th {border: 1px solid var(--th-border);}
+td {border: #b7b7b7 solid 1px;}
 
 table thead tr {
     background: var(--table-thead);
@@ -880,12 +887,6 @@ table thead tr {
 
 table tbody tr:hover {
     background: var(--tbody-hover);
-}
-
-th, td {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    text-align: left;
 }
 
 /* 返回顶部 */
