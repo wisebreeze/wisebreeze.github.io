@@ -63,115 +63,53 @@
       <br>size等常用属性被整理至另外一个文件
     <p><a class="home-btn" href="./index.html">点击查看</a></p>
     </tip>
-    .ep.bb text ..bb .et 文字 ..et
-      <p>值：字符串
-         .hh定义文本控件显示的文字
-         .hh可以使用 § 符号进行改变颜色
-         .hh“\n”可以使文本换行
-         .hh同时可以使用.lang文件翻译来改变文本语言
-      </p>
-    ..ep
+    <table>
+      <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead>
+      <tbody><tr><td>text</td><td>文字</td><td>字符串</td><td>定义文本控件显示的文字<br>可以使用 § 符号进行改变颜色<br><lc>\n</lc> 可以使文本换行<br>同时可以使用.lang文件翻译来改变文本语言。 <sup>[1]</sup></td></tr></tbody>
+    </table>
+    <ol><li>如果<lc>"localize": true</lc>，那么 <lc>"text"</lc> 文字不会被 .lang 文件翻译。</li></ol>
     <h2>其他属性</h2>
-    .ep.bb locked_color ..bb .et 锁定时的文本颜色 ..et
-      <p>值：数组 | 字符串
-         .hh与"color"的值相同，不再介绍
-         .hh需要父控件<a class="c1-gold">"enabled": false</a>以应用"locked_color"为文本颜色
-      </p>
-    ..ep
-    .ep.bb locked_alpha ..bb .et 锁定时的文本透明度 ..et
-      <p>值：数组
-         .hh与"alpha"的值相同，不再介绍
-         .hh需要父控件<a class="c1-gold">"enabled": false</a>以应用"locked_alpha"为文本透明度
-      </p>
-    ..ep
-    .ep.bb shadow ..bb .et 影子 ..et
-      <p>值：布尔值
-         .hh默认值：false
-         .hh启用时，文字右下方会有影子渲染
-         .hh影子样式不可自定义
-      </p>
-    ..ep
-    .ep.bb hide_hyphen ..bb .et 隐藏由分词引起的自动换行 ..et
-      <p>值：布尔值
-         .hh默认值：false
-      </p>
-    ..ep
-    .ep.bb notify_on_ellipses ..bb .et 去掉省略号时要改变的控件 ..et
-      <p>值：数组
-         例如："notify_on_ellipses": ["控件名"]
-      </p>
-    ..ep
-    .ep.bb enable_profanity_filter ..bb .et 启用敏感词 ..et
-      <p>值：布尔值
-         .hh默认值：false
-         .hh为true时启用，启用后控件中的敏感词作为“***”显示
-         .hh目前Minecraft暂不支持简体中文的敏感词
-      </p>
-    ..ep
-    .ep.bb font_size ..bb .et 字体大小 ..et
-      <p>值：字符串/列举
-         .hh默认值：normal
-         .hh用于改变字体大小
-         .hh值可以是
-         .hhsmall - 小
-         .hhnormal - 正常
-         .hhlarge - 大
-         .hhextra_large - 更大
-      </p>
-    ..ep
-    .ep.bb font_scale_factor ..bb .et 字体缩放比例 ..et
-      <p>值：数字/浮点数
-         .hh默认值：1.0
-         .hh用于改变字体缩放比例
-         .hh以font_size为基础缩放
-      </p>
-    ..ep
-    .ep.bb localize ..bb .et 本地化 ..et
-      <p>值：布尔值
-         .hh默认值：false
-         .hh为true时，不能被.lang文件翻译
-      </p>
-    ..ep
-    .ep.bb line_padding ..bb .et 行间距 ..et
-      <p>值：数字
-         .hh改变文字间的行间距
-      </p>
-    ..ep
-    .ep.bb font_type ..bb .et 字体 ..et
-      <p>值：字符串/列举
-         .hh改变文字的字体
-         .hh如果text包含“中文”则强制unicode
-         .hh<a class="c-red">网易中国版改变font_type会引起字体显示问题</a>
-         .hh可能的值：
-         .hhdefault - 默认
-         .hhrune - 附魔字体
-         .hhMinecraftTen - MinecraftTen
-         .hhunicode - unicode
-         .hhsmooth - 平滑字体
-         .hh提示：添加第三方字体会引起崩溃
-      </p>
-    ..ep
-    .ep.bb backup_font_type ..bb .et 备份字体 ..et
-      <p>值：字符串/列举
-         .hh不起作用时，改变文字的备份字体
-         .hh如果text包含“中文”则强制unicode
-         .hh<a class="c-red">网易中国版改变font_type会引起字体显示问题</a>
-         .hh可能的值：
-         .hhdefault - 默认
-         .hhrune - 附魔字体
-         .hhMinecraftTen - MinecraftTen
-         .hhunicode - unicode
-         .hhsmooth - 平滑字体
-         .hh提示：添加第三方字体会引起崩溃
-      </p>
-    ..ep
-    .ep.bb text_alignment ..bb .et 文字对齐 ..et
-      <p>值：字符串/列举
-         .hh默认情况下，对齐方向以anchor_from，anchor_to为准
-         .hh可能的值：
-         .hhcenter，left，right
-      </p>
-    ..ep
+    <table>
+      <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
+      <tbody><tr><td>locked_color</td><td>锁定时的文本颜色</td><td>数组 或 字符串</td><td></td><td>与"color"的值相同，不再介绍。<sup>[1]</sup></td></tr>
+      <tr><td>shadow</td><td>文本阴影</td><td>布尔值</td><td>false</td><td>是否显示文本阴影。</td></tr>
+      <tr><td>hide_hyphen</td><td>是否隐藏文本中的连字符</td><td>布尔值</td><td>false</td><td>是否隐藏文本中的连字符（既 “-” 字符）。</td></tr>
+      <tr><td>notify_on_ellipses</td><td>遇到省略号时改变的文本</td><td>数组</td><td></td><td>如果文本遇到省略号时，将要改变的文本<br>例如：<br><lc>"notify_on_ellipses": ["text"]</lc></td></tr>
+      <tr><td>enable_profanity_filter</td><td>启用敏感词过滤器</td><td>布尔值</td><td>true</td><td>启用后控件中的敏感词作为“***”显示。 <sup>[2]</sup></td></tr>
+      <tr><td>font_size</td><td>字体大小</td><td>字符串：列举</td><td>normal</td><td>该控件文本的字体大小。<br>列举的值有：<br><lc>small</lc> 小<br><lc>normal</lc> 正常<br><lc>large</lc> 大<br><lc>extra_large</lc> 特大</td></tr>
+      <tr><td>font_scale_factor</td><td>字体缩放大小</td><td>浮点数</td><td>1.0</td><td>用于改变字体缩放大小。</td></tr>
+      <tr><td>localize</td><td>本地化</td><td>布尔值</td><td>false</td><td>文本控件的文本是否支持本地化。<br>（本地化：文本不会被 .lang 文件翻译）</td></tr>
+      <tr><td>line_padding</td><td>行间距</td><td>浮点数</td><td>0.0</td><td>改变文本每行之间的间距。</td></tr>
+      <tr><td>font_type</td><td>字体</td><td>字符串：列举</td><td>default</td><td>文本控件中的文本字体。 <sup>[3]</sup><br>列举的值有：<br><lc>default</lc> 默认<br><lc>rune</lc> 标准银河字母<br><lc>MinecraftTen</lc> MinecraftTen 字体<br><lc>unicode</lc> unicode 字体<br><lc>smooth</lc> 平滑字体<br><lc>OldSmoothFont</lc> 旧版平滑字体</td></tr>
+      <tr><td>backup_font_type</td><td>备份字体【弃用】</td><td>字符串：列举</td><td>default</td><td>文本控件中的文本备份字体。 <sup>[3]</sup><br>列举的值有：<br><lc>default</lc> 默认<br><lc>rune</lc> 标准银河字母<br><lc>MinecraftTen</lc> MinecraftTen 字体<br><lc>unicode</lc> unicode 字体<br><lc>smooth</lc> 平滑字体<br><lc>OldSmoothFont</lc> 旧版平滑字体</td></td></tr>
+      <tr><td>text_alignment</td><td>文本对齐</td><td>字符串：列举</td><td>center</td><td>文本的对齐方式，会随着锚点的改变而改变。<br>列举的值有：<br><lc>left</lc> 文本居左<br><lc>center</lc> 文本居中<br><lc>right</lc> 文本居右</td></tr>
+      <tr><td>text_tts</td><td>文本空间文本转语音</td><td>字符串</td><td></td><td>规定该控件文本转语音的文本。</td></tr>
+    </table>
+    <ol>
+    <li>需要父控件 <lc>"enabled": false</lc> 以使用锁定颜色为文本颜色</li>
+    <li>目前暂不支持简体中文的敏感词。 [仅国际版]</li>
+    <li>如果 "text" 文字包含中文字符则会强制unicode。</li>
+    </ol>
+    <h2>不同语言的文字</h2>
+    <p>上表提到了 .lang 文件，接下来研究一下不同语言的文字吧！</p>
+    <p>我们用这个文字控件示例</p>
+    <bcode>
+      <ctitle>RP/ui/start_screen.json</ctitle>
+      <lcode>"label": {
+  "type": "label",
+  "text": "test.lang"
+}</lcode>
+    </bcode>
+    <tip><b>注意</b>
+<br>"text" 的文字尽量不能包含 = # 以及 空格</tip>
+    打开 <lc>RP/texts/zh_CN.lang</lc> 文件，并输入：
+    <bcode><ctitle>RP/texts/zh_CN.lang</ctitle><lcode>test.lang=测试</lcode></bcode>
+    打开 <lc>RP/texts/en_US.lang</lc> 文件，并输入：
+    <bcode><ctitle>RP/texts/en_US.lang</ctitle><lcode>test.lang=Test</lcode></bcode>
+    <p>回到游戏可以看到，文本控件显示的是 <lc>测试</lc> 而不是 <lc>test.lang</lc></p>
+    <p>再把 游戏的语言<sup>[1]</sup> 切换到 "English (US)" ，可以看到文本控件显示的是 <lc>test</lc></p>
+
+    <ol><li>切换游戏语言步骤：Minecraft > 设置 > 语言 > 选择某个语言</li></ol>
     <h2>代码示例</h2>
     <bcode>
       <ctitle>简单的文本控件</ctitle>
