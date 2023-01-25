@@ -59,7 +59,7 @@ body[data-theme="light"] {
   --copy-btn: #e4e4e4;
   --codebg: #ffffff;
   /*侧边栏*/
-  --dropdown-bg: rgba(236, 236, 236, 0.45);
+  --dropdown-bg: rgba(206, 206, 206, 0.45);
   --dropdown-s: rgba(104, 104, 104, 0.55);
   --sidebar-bg: rgba(236, 236, 236, 0.55);
   --sidebar-btn-t: #4d4d4d;
