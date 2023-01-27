@@ -15,7 +15,9 @@ var sidebar_link = {
 var titleSuffix = " | 我的世界基岩版 UI 文档";
 
 // 标题
-if ($("title").attr("home") == null){$("title").text($("title").text() + titleSuffix);}
+if ($("title").attr("home") == null){
+  if ($("title")){$("title").text($("title").text() + titleSuffix);}
+}
 
 // 点击右侧内容关闭侧边栏
 $("body").on("click", "#content", function(e) {
