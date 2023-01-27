@@ -1016,3 +1016,23 @@ textarea:focus {
 .hljs-string {
     color: var(--hljs-string)
 }
+
+/* 取色器 */
+.color_input {
+  width: 100px;
+  height: 30px;
+  border: #5246ff solid 1px;
+  outline: none;
+  background: #4f93ff;
+  border-radius: 5px;
+  padding: 4px 8px 4px 8px;;
+}
+.color_input:hover {
+  background: #0062ff;
+}
+
+::-webkit-color-swatch {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
