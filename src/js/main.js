@@ -120,10 +120,12 @@ window.onload = function () {
     }
     //加载顶部按钮
     $(".left_title").each(function(){
+        const back_link = $(this).attr("back_link") || "https://jsonui.netlify.app/";
+        const back_text = $(this).attr("back_text") || "返回首页";
         $(this).append("<div></div>");
         $(this).find('div').addClass("wow bounceInUp");// 加载动画
         $(this).find('div').attr("data-wow-delay","0.5s");// 加载动画延迟
-        $(this).find('div').append("<a class=\"home-btn\" href=\"https://jsonui.netlify.app/\">返回首页</a>");// 返回首页按钮
+        $(this).find('div').append(`<a class="home-btn" href="${back_link}">${back_text}</a>`);// 返回按钮
         //$(this).find('div').append("<a class=\"edit-btn\" href=\"https://github.com/MCspruce/MCspruce.github.io\">在 github 上编辑</a>");// 编辑按钮
         $(this).html("<br>" + $(this).html());
     });
@@ -193,7 +195,7 @@ function closeNav() {
 }
 
 // 复制代码
-function copy_code(text) {
+function copy_code(text,tip) {
     // 创建 textarea
     var aux = document.createElement('textarea');
     // 为 textarea 设置制只读
@@ -207,7 +209,8 @@ function copy_code(text) {
     // 复制选中的 aux
     document.execCommand("copy");
     // 提示
-    alert('复制代码成功');
+    const tip_text = tip || '复制代码成功';
+    alert(tip_text);
     // 删除 textarea （不保留痕迹+取消选中）
     document.querySelector('#content').removeChild(aux);
 }
