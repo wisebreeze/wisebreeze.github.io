@@ -12,6 +12,15 @@ var sidebar_link = {
         {"link":"https://jsonui.netlify.app/privacy.html","title":"隐私政策"}
     ]
 }
+var titleSuffix = " | 我的世界基岩版 UI 文档";
+
+// 标题
+if ($("title").attr("home") == null){$("title").text($("title").text() + titleSuffix);}
+
+// 点击右侧内容关闭侧边栏
+$("body").on("click", "#content", function(e) {
+   closeNav();
+});
 
 // 加载主题
 if (typeof (Storage) !== "undefined") {
@@ -169,7 +178,7 @@ function openNav() {
     $("#sideBar").addClass("open");
     $("#close-btn").css("visibility","visible");
     $("#open-btn").css("visibility","hidden");
-    sessionStorage.setItem("sidebar", true);
+    //sessionStorage.setItem("sidebar", true);
 }
 
 // 关闭侧边栏
@@ -178,7 +187,7 @@ function closeNav() {
     $("#sideBar").addClass("close");
     $("#close-btn").css("visibility","hidden");
     $("#open-btn").css("visibility","visible");
-    sessionStorage.removeItem("sidebar");
+    //sessionStorage.removeItem("sidebar");
 }
 
 // 复制代码
