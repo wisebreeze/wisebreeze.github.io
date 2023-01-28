@@ -113,7 +113,8 @@ window.onload = function () {
     if($("div.left_content").attr("hide_bq") == null){
       $("div.left_content").append("<fieldset class=\"wow bounceInLeft\">\n    <legend>版权须知</legend>\n    1、除非另有说明，否则文档内容均采用<a class=\"list-link\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
     }
-    $("div.left_content").append("<div id=\"to_top\">\n    <button class=\"to_top\" onclick=\"to_top();\">\n      <div>\n        <span>▲</span><div class=\"to-top-text\">回顶部</div>\n      </div>\n    </button>\n  </div>");
+    const to_top_text = $("#root").attr("to_top_text") || "回顶部";
+    $("div.left_content").append(`<div id="to_top">\n    <button class="to_top" onclick="to_top();">\n      <div>\n        <span>▲</span><div class="to-top-text">${to_top_text}</div>\n      </div>\n    </button>\n  </div>`);
     $("#root").prepend("<div id=\"sideBar\" class=\"sidenav\">\n    <div>\n      <label class=\"sidebar-title\">导航</label>\n      <hr class=\"sidebar-hr\">\n    </div>\n  </div>");
     for (var linkTarget in sidebar_link.sidebar) {
         $("#sideBar div").append("<a class=\"sidenav-button\" href=\"" + sidebar_link.sidebar[linkTarget].link + "\">" + sidebar_link.sidebar[linkTarget].title + "</a>")
