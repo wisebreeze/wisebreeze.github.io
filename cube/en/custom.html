@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title home="true">Custom Tutorial | Cube UI document</title>
+    <link rel="shortcut icon" href="https://jsonui.netlify.app/favicon.ico">
+    <link rel="icon" sizes="100x100" href="https://jsonui.netlify.app/favicon.ico">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="Cube UI document">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="https://jsonui.netlify.app/web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="https://jsonui.netlify.app/web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="https://jsonui.netlify.app/web_icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--<meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">-->
+    <meta name="author" content="MC_spruce">
+
+    <script src="https://jsonui.netlify.app/src/js/jQuery.js"></script>
+    <link href="https://jsonui.netlify.app/src/css/main.css" rel="stylesheet">
+    <div class="top_header">
+        <ul>
+            <li><a href="https://jsonui.netlify.app/cube/en/index.html">Cube UI document</a></li>
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">Custom Tutorial</button>
+            </li>
+        </ul>
+    </div>
+</head>
+<body id="root" to_top_text="To Top" data-theme="light">
+    <!--正文-->
+    <div id="content">
+        <div class="left_title" back_text="Home" back_link="https://jsonui.netlify.app/cube/en/index.html"><h1>User guide</h1></div>
+        <div class="right_content animated bounceInRight">
+            <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+              Reading Progress - <a id="number_progress"></a>
+              <div class="progress-bg"><div id="progress"></div></div>
+            </div>
+        </div>
+        <div class="left_content" hide_bq="true">
+You need to download a <a class="list-link" href="https://gitlab.com/MCspruce/cube-ui/-/raw/main/subpack/set.mcpack" download="set.mcpack">custom resource pack</a> to customize the Cube UI.
+
+<h2>Custom Tutorial</h2>
+! Supported audio file formats: .ogg .fsb
+<br>! Best image file format: .png .jpg
+<br>! Try to convert the file format to the above mentioned formats
+
+<h3>Modify the click sound</h3>
+1. open the cube_ui/sounds/ directory of the custom pack
+<br>2. put the desired click sound into that directory
+<br>3. delete the original click.ogg file
+<br>4. rename the desired click sound file to click.ogg
+
+<h3>Modifying cue sound effects</h3>
+1. open the cube_ui/sounds/ directory of the custom pack
+<br>2. put the desired sound effects into the directory
+<br>3. delete the original toast.ogg file
+<br>4. rename the desired click sound effect file to toast.ogg
+
+<h3>Modify background music</h3>
+1. open the sounds/music/menu/ directory of the custom pack
+<br>2. put the desired background music into the directory
+<br>3. rename the desired background music file to menu1.ogg
+<br>4. then you can also add menu2.ogg menu3.ogg menu4.ogg to this directory
+
+<h3>Modify the background image</h3>
+1. Open the textures/ui/ directory of the custom resource pack
+<br>2. Place the desired background image into this directory
+<br>3. Rename the desired background image file to panorama_overlay.png or panorama_overlay.jpg (keep the original suffix)
+
+<h3>Modify the background image (blurred)</h3>
+1. open the textures/ui/ directory of the custom resource pack
+<br>2. put the desired blurred background image into the directory
+<br>3. rename the blurred background image file to panorama_blur.png or panorama_blur.jpg (keep the original suffix)
+
+<h3>Modify variables</h3>
+1. open the ui/_global_variables.json file of the custom resource pack
+<br>2. Modify the values of some variables
+
+<h2>Save the changes and apply</h2>
+
+！ Save the changes and apply! To modify the custom pack again and import it into the game
+<br>   You need to go to Game > Settings > Storage > Cube UI Custom Bundle > Delete and then import the custom bundle.
+
+<p>1. Go to the directory where the manifest.json file of the custom pack is located
+<br>2. Select all the files and folders in the directory
+<br>3. compress the selected files and folders
+<br>4. change the name of the compressed package to .mcpack
+<br>5. Import the .mcpack into Minecraft
+<br>6. Go to Minecraft and activate the Cube UI custom resource pack</p>
+        </div>
+    </div>
+    <!--正文-->
+    <link href="https://jsonui.netlify.app/src/css/color.css" rel="stylesheet">
+    <link href="https://jsonui.netlify.app/src/css/animate.css" rel="stylesheet">
+    <link href="https://jsonui.netlify.app/src/css/hl.css" rel="stylesheet">
+    <script src="https://jsonui.netlify.app/src/js/main.js"></script>
+</body>
+
+</html>

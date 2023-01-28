@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title home="true">User guide | Cube UI document</title>
+    <link rel="shortcut icon" href="https://jsonui.netlify.app/favicon.ico">
+    <link rel="icon" sizes="100x100" href="https://jsonui.netlify.app/favicon.ico">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="Cube UI document">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="https://jsonui.netlify.app/web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="https://jsonui.netlify.app/web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="https://jsonui.netlify.app/web_icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--<meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">-->
+    <meta name="author" content="MC_spruce">
+
+    <script src="https://jsonui.netlify.app/src/js/jQuery.js"></script>
+    <link href="https://jsonui.netlify.app/src/css/main.css" rel="stylesheet">
+    <div class="top_header">
+        <ul>
+            <li><a href="https://jsonui.netlify.app/cube/en/index.html">Cube UI document</a></li>
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">Switch Theme</button>
+            </li>
+        </ul>
+    </div>
+</head>
+<body id="root" to_top_text="To Top" data-theme="light">
+    <!--正文-->
+    <div id="content">
+        <div class="left_title" back_text="Home" back_link="https://jsonui.netlify.app/cube/en/index.html"><h1>User guide</h1></div>
+        <div class="right_content animated bounceInRight">
+            <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+              Reading Progress - <a id="number_progress"></a>
+              <div class="progress-bg"><div id="progress"></div></div>
+            </div>
+        </div>
+        <div class="left_content" hide_bq="true">
+<h2>Container Assist Button</h2>
+<b>Drop item button [chest icon]</b>
+<br>Click this button to discard a selected item after selecting it
+<br><b>Discard all items button [chest icon with plus sign]</b>
+<br>Click this button to discard all the selected items after selecting them
+<br><b>Destroy item button [fire icon]</b>
+<br>[Visible in Creation Mode] Click this button after selecting an item to destroy the selected one
+<br><b>Destroy all items button [fire icon with plus sign]</b>
+<br>[Visible in creation mode] Click this button after selecting an item to destroy all of the selected items
+<br><b>Help/Recipe button [compass icon]</b>
+<br>Click to see the help/recipe for that container
+<br><b>mode</b>
+<br>Default - No effect
+<br>Auto - selected item automatically fills to empty slot (auto grab box/quick move)
+<br>Drop - selected item automatically drop all
+
+<h2>Cross-archive replication structure</h2>
+<tip><b>Tip</b>
+<br>Make sure you have admin rights!!!</tip>
+
+<br>Additional packages required: <a class="list-link" href="https://gitlab.com/MCspruce/cube-ui/-/raw/main/subpack/简单工具.mcpack" download="Simple tool">Simple Tools (click to download)</a>
+
+<p>Exporting
+<br>1. type <lc>/give @s structure_block</lc> in the chat bar to get a structure block
+<br>2. Place the structure block and select the building structure with the structure block
+<br>3. Fill in the name of the structure block on the left and remember it
+<br>4. Click the "Export" button in the bottom right corner
+<br>5. Place the .mcstructure file in the <lc>structures</lc> folder of the <lc>Simple Tools</lc> (Cube UI add-on package)</p>
+
+<p>Importing
+<br>1. Move <lc>Simple Tools</lc> to <lc>(the previous path varies by system)/game/com.mojang/behavior_packs</lc> file
+<br>2. Go to Minecraft and activate the "Simple Tools" add-on package in the archive you want to import
+<br>3. Enter the world
+<br>4. Type <lc>/give @s structure_block</lc> in the chat bar to get a structure block
+<br>5. Place the structure block and set the structure block to load mode
+<br>6. Fill in the name of the structure block you just entered
+<br>7. Set the area where the structure block is to be loaded
+<br>8. Click Load</p>
+
+<tip><b>Note:</b>
+<br>* The second time you import, you don't need to move the simplex and activate the simplex, just skip this step! (unless it is not an archive that has been imported before)
+<br>* When exporting the move .mcstructure file for the second time.
+    You need to search for "simple tools" in the minecraftWorld folder.
+    Then import the .mcstructure file into the structures folder of Simple Tools! (unless it is not a previously imported archive)</tip>
+        </div>
+    </div>
+    <!--正文-->
+    <link href="https://jsonui.netlify.app/src/css/color.css" rel="stylesheet">
+    <link href="https://jsonui.netlify.app/src/css/animate.css" rel="stylesheet">
+    <link href="https://jsonui.netlify.app/src/css/hl.css" rel="stylesheet">
+    <script src="https://jsonui.netlify.app/src/js/main.js"></script>
+</body>
+
+</html>
