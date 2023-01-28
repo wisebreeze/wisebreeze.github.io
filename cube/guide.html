@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title home="true">使用教程 | Cube UI 文档</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" sizes="100x100" href="../favicon.ico">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="Cube UI 文档">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--<meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">-->
+    <meta name="author" content="MC_spruce">
+
+    <script src="../src/js/jQuery.js"></script>
+    <link href="../src/css/main.css" rel="stylesheet">
+    <div class="top_header">
+        <ul>
+            <li><a href="https://jsonui.netlify.app/cube/index.html">Cube UI 文档</a></li>
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button>
+            </li>
+        </ul>
+    </div>
+</head>
+<body id="root" data-theme="light">
+    <!--正文-->
+    <div id="content">
+        <div class="left_title" back_link="https://jsonui.netlify.app/cube/index.html"><h1>使用教程</h1></div>
+        <div class="right_content animated bounceInRight">
+            <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+              阅读进度 - <a id="number_progress"></a>
+              <div class="progress-bg"><div id="progress"></div></div>
+            </div>
+        </div>
+        <div class="left_content" hide_bq="true">
+<h2>容器辅助按钮</h2>
+<b>丢弃物品按钮【箱子图标】</b>
+<br>选定物品后点击该按钮丢弃选中的一个物品
+<br><b>丢弃全部物品按钮【箱子图标，有加号】</b>
+<br>选定物品后点击该按钮丢弃选中的全部物品
+<br><b>摧毁物品按钮【垃圾桶图标】</b>
+<br>[创造模式可见] 选定物品后点击该按钮摧毁选中的一个物品
+<br><b>摧毁全部物品按钮【垃圾桶图标，有加号】</b>
+<br>[创造模式可见] 选定物品后点击该按钮摧毁选中的全部物品
+<br><b>帮助/配方按钮【指南针图标】</b>
+<br>点击查看该容器的帮助/配方
+<br><b>切换模式</b>
+<br>默认 - 无效果
+<br>自动 - 选中物品自动填充至空槽位(自动抢箱/快速移动)
+<br>丢弃 - 选中物品自动丟弃全部
+
+<h2>跨设备/存档复制建筑结构</h2>
+<tip><b>提示</b>
+<br>请确保你有管理员权限！！！</tip>
+
+需要用到的附加包：<a class="list-link" href="https://gitlab.com/MCspruce/cube-ui/-/raw/main/subpack/Cube_UI_Dawn.mcpack">简单工具（点击下载）</a>
+
+<p>导出
+<br>1. 在聊天栏输入<lc>/give @s structure_block</lc>获得结构方块
+<br>2. 放置结构方块并用结构方块框选建筑结构
+<br>3. 填好左边的结构方块名称并记住
+<br>4. 点击右下角的"导出"按钮
+<br>5. 将.mcstructure文件放在"简单工具"(Cube UI附加包)的<lc>structures</lc>文件夹中</p>
+
+<p>导入
+<br>1. 将"简单工具"移动到<lc>(前面的路径因系统而异)/game/com.mojang/behavior_packs</lc>文件中
+<br>2. 进入Minecraft并在需要导入的存档激活"简单工具"附加包
+<br>3. 进入世界
+<br>4. 在聊天栏输入<lc>/give @s structure_block</lc>获得结构方块
+<br>5. 放置结构方块并设置结构方块为加载模式
+<br>6. 填好刚刚输入的结构方块名称
+<br>7. 调好结构方块要加载的区域
+<br>8. 点击加载</p>
+
+<tip><b>注意：</b>
+<br>* 第二次导入不用移动简单工具和激活简单工具，跳过此步即可！(除非不是之前导入过的存档)
+<br>* 第二次导出移动.mcstructure文件时。
+    需要在minecraftWorld文件夹搜索"简单工具"，
+    再将.mcstructure文件导入至简单工具的structures文件夹中！(除非不是之前导入过的存档)</tip>
+        </div>
+    </div>
+    <!--正文-->
+    <link href="../src/css/color.css" rel="stylesheet">
+    <link href="../src/css/animate.css" rel="stylesheet">
+    <link href="../src/css/hl.css" rel="stylesheet">
+    <script src="../src/js/main.js"></script>
+</body>
+
+</html>
