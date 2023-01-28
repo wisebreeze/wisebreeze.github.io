@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title home="true">导入教程 | Cube UI 文档</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" sizes="100x100" href="../favicon.ico">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="Cube UI 文档">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--<meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">-->
+    <meta name="author" content="MC_spruce">
+
+    <script src="../src/js/jQuery.js"></script>
+    <link href="../src/css/main.css" rel="stylesheet">
+    <div class="top_header">
+        <ul>
+            <li><a href="https://jsonui.netlify.app/cube/index.html">Cube UI 文档</a></li>
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button>
+            </li>
+        </ul>
+    </div>
+</head>
+<body id="root" data-theme="light">
+    <!--正文-->
+    <div id="content">
+        <div class="left_title" back_link="https://jsonui.netlify.app/cube/index.html"><h1>导入教程</h1></div>
+        <div class="right_content animated bounceInRight">
+            <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+              阅读进度 - <a id="number_progress"></a>
+              <div class="progress-bg"><div id="progress"></div></div>
+            </div>
+        </div>
+        <div class="left_content" hide_bq="true">
+<tip><b>注意事项</b>
+<br>1. 压缩包文件选择<lc>"改后缀名"</lc>或<lc>"移动文件"</lc>，文件夹选择<lc>"移动文件"</lc>
+<br>2. 以下方法<b>仅适用于Minecraft 基岩版</b></tip>
+
+<h2>一、删除旧版资源包部分</h2>
+
+<tip><b>提示</b>
+<br>如果您曾经已导入Cube UI，
+<br>再次导入务必需要更新资源包！</tip>
+
+按照以下流程删除旧版UI资源包
+<br><lc><b>进入Minecraft＞设置＞存储＞资源包＞选择Cube UI＞点击删除</b></lc>
+
+<h2>二、检查环境</h2>
+<p>安卓设备检查Minecraft文件储存位置是否设为外部
+<br><lc>Minecraft > 设置 > 存储 > 文件储存位置 > 外部</lc></p>
+
+<p>Windows设备检查是否显示文件扩展名
+<br><lc>桌面 > 我的电脑(计算机) > 组织 > 文件夹和搜索选项 > 查看 > 隐藏已知文件类型扩展名(必须关闭) > 应用</lc></p>
+
+<p>检查是否有支持重命名的文件管理</p>
+
+<p>检查文件是否完整
+<br>* 至少有清单文件(manifest.json)</p>
+  
+<p>检查Minecraft版本是否大于或等于1.17
+<br>* 没有请升级Minecraft</p>
+
+<h2>三、导入资源包部分</h2>
+<h3>mcpack后缀名直接导入（.mcaddon文件也可以）</h3>
+<b> Windows</b>
+<br>方法一
+<br>1 双击打开
+<br>方法二
+<br>1 右键要导入的文件
+<br>2 打开方式
+<br>3 选择Minecraft
+
+<b>ES文件浏览器</b>
+<br>1 长按.mcpack文件
+<br>2 点击更多
+<br>3 点击打开
+<br>4 选择Minecraft
+<br>5 点击仅此一次
+
+<b>MT管理器</b>
+<br>1 长按.mcpack文件
+<br>2 点击打开方式…
+<br>3 点击左下角的类型
+<br>4 点击全部
+<br>5 点击Minecraft
+
+<h3>移动文件</h3>
+<p><b>windows</b>
+<br>移动文件至<lc>C:\Users\[用户名]\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\resource_packs</lc></p>
+
+<p><b>android 或 HarmonyOS</b>
+<br>移动文件至<lc>/storage/emulated/0/Android/data/com.mojang.minecraftpe/files/games/com.mojang/resource_packs</lc></p>
+
+<p><b>ios</b>
+<br>文件移动至<lc>我的iphone＞Minecraft＞games＞commojang＞resource_packs</lc></p>
+
+<h2>四、等待Minecraft提示导入成功</h2>
+
+<h2>五、激活资源包</h2>
+<b>在全局启用</b>
+<br>    &nbsp;&nbsp;<lc>设置＞全局资源＞选择Cube UI资源包＞激活＞返回</lc>
+<br>  <b>在世界中启用</b>
+<br>    &nbsp;&nbsp;<lc>游戏＞编辑需要的世界＞资源包＞选择Cube UI资源包＞激活＞返回</lc>
+        </div>
+    </div>
+    <!--正文-->
+    <link href="../src/css/color.css" rel="stylesheet">
+    <link href="../src/css/animate.css" rel="stylesheet">
+    <link href="../src/css/hl.css" rel="stylesheet">
+    <script src="../src/js/main.js"></script>
+</body>
+
+</html>
