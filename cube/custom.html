@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title home="true">自定义教程 | Cube UI 文档</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" sizes="100x100" href="../favicon.ico">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="Cube UI 文档">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--<meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">-->
+    <meta name="author" content="MC_spruce">
+
+    <script src="../src/js/jQuery.js"></script>
+    <link href="../src/css/main.css" rel="stylesheet">
+    <div class="top_header">
+        <ul>
+            <li><a href="https://jsonui.netlify.app/cube/index.html">Cube UI 文档</a></li>
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button>
+            </li>
+        </ul>
+    </div>
+</head>
+<body id="root" data-theme="light">
+    <!--正文-->
+    <div id="content">
+        <div class="left_title" back_link="https://jsonui.netlify.app/cube/index.html"><h1>自定义教程</h1></div>
+        <div class="right_content animated bounceInRight">
+            <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+              阅读进度 - <a id="number_progress"></a>
+              <div class="progress-bg"><div id="progress"></div></div>
+            </div>
+        </div>
+        <div class="left_content" hide_bq="true">
+你需要下载 <a class="list-link" href="https://gitlab.com/MCspruce/cube-ui/-/raw/main/subpack/set.mcpack">自定义资源包</a> 进行个性定制 Cube UI。
+
+<h2>自定义教程</h2>
+
+！支持的音频文件格式：.ogg .fsb
+<br>！最佳的图片文件格式：.png .jpg
+<br>！尽量将文件格式转化为以上所提及的格式
+
+<h3>修改点击音效</h3>
+1. 打开自定义资源包的 cube_ui/sounds/ 目录
+<br>2. 将想要的点击音效放入该目录
+<br>3. 删除原来的 click.ogg 文件
+<br>4. 将想要的点击音效文件重命名为 click.ogg
+
+<h3>修改提示音效</h3>
+1. 打开自定义资源包的 cube_ui/sounds/ 目录
+<br>2. 将想要的提示音效放入该目录
+<br>3. 删除原来的 toast.ogg 文件
+<br>4. 将想要的点击音效文件重命名为 toast.ogg
+
+<h3>修改背景音乐</h3>
+1. 打开自定义资源包的 sounds/music/menu/ 目录
+<br>2. 将想要的背景音乐放入该目录
+<br>3. 将想要的背景音乐文件重命名为 menu1.ogg
+<br>4. 随后也可以添加 menu2.ogg menu3.ogg menu4.ogg 到此目录
+
+<h3>修改背景图片</h3>
+1. 打开自定义资源包的 textures/ui/ 目录
+<br>2. 将想要的背景图片放入该目录
+<br>3. 将想要的背景图片文件重命名为 panorama_overlay.png 或 panorama_overlay.jpg（保留原有后缀）
+
+<h3>修改背景图片（模糊）</h3>
+1. 打开自定义资源包的 textures/ui/ 目录
+<br>2. 将想要的模糊背景图片放入该目录
+<br>3. 将想要的模糊背景图片文件重命名为 panorama_blur.png 或 panorama_blur.jpg（保留原有后缀）
+
+<h3>修改变量</h3>
+1. 打开自定义资源包的 ui/_global_variables.json 文件
+<br>2. 修改某些变量的值
+
+<h2>保存更改并应用</h2>
+
+<p>！如需再次修改自定义资源包并导入游戏，
+<br>  需要进入游戏 > 设置 > 存储 > Cube UI 自定义资源包 > 删除 再进行导入自定义资源包操作。</p>
+
+<p>1. 来到自定义资源包的 manifest.json 文件所在的目录
+<br>2. 选中该目录所有文件及文件夹
+<br>3. 压缩选中的文件及文件夹
+<br>4. 修改命名压缩后的压缩包的后缀名为 .mcpack
+<br>5. 将 .mcpack 导入 Minecraft
+<br>6. 进入 Minecraft 并激活 Cube UI 自定义资源包</p>
+        </div>
+    </div>
+    <!--正文-->
+    <link href="../src/css/color.css" rel="stylesheet">
+    <link href="../src/css/animate.css" rel="stylesheet">
+    <link href="../src/css/hl.css" rel="stylesheet">
+    <script src="../src/js/main.js"></script>
+</body>
+
+</html>
