@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>随机生成字符</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" sizes="100x100" href="../favicon.ico">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+    <meta name="author" content="MC_spruce">
+
+    <script src="../src/js/jQuery.js"></script>
+    <link href="../src/css/main.css" rel="stylesheet">
+    <div class="top_header">
+        <ul>
+            <li class="animated rollIn">
+              <div>
+                <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+                <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+              </div>
+            </li>
+            <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button>
+            </li>
+        </ul>
+    </div>
+</head>
+<body id="root" data-theme="light">
+    <!--正文-->
+    <div id="content">
+        <div class="left_title"><h1>随机生成字符</h1></div>
+        <div class="right_content animated bounceInRight">
+          <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+            阅读进度 - <a id="number_progress"></a>
+            <div class="progress-bg"><div id="progress"></div></div>
+          </div>
+        </div>
+        <div class="left_content" hide_bq="true">
+            <p>
+            随机字典: 
+            <input class="input" type="text" id="random_dictionary" value="abacdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789" /><br>
+            字符长度: 
+            <input class="input" type="number" id="random_length" style="width:60px;" value="5" /><br>
+            输出结果: 
+            <a id="random_input" style="word-break:break-all;"></a><br>
+            <p>
+            <p><button class="home-btn" onclick="random()">生成随机字符</button>
+            <button class="home-btn" onclick="copy_code('random_input','复制成功！')">复制结果</button>
+        </div>
+<script>
+function getRandomString(len){
+    let _charStr = $("#random_dictionary").val() || 'abacdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789',
+    min = 0, 
+    max = _charStr.length-1, 
+    _str = '';
+    if (_charStr.length < 12) {
+      alert(`随机字典的字符太少了，最少12个（${_charStr.length} / 12）`);
+      return false;
+    }
+    len = len || 5;
+    for(var i = 0, index; i < len; i++){
+      index = (function(randomIndexFunc, i){         
+        return randomIndexFunc(min, max, i, randomIndexFunc);
+      })(function(min, max, i, _self){
+        let indexTemp = Math.floor(Math.random()*(max-min+1)+min),
+            numStart = _charStr.length - 10;
+        if(i==0&&indexTemp >=numStart){
+            indexTemp = _self(min, max, i, _self);
+        }
+        return indexTemp ;
+      }, i);
+    _str += _charStr[index];
+  }
+  return _str;
+}
+
+function random() {
+  random_length = $("#random_length").val();
+  if (random_length > 150) {
+    alert("字符长度不能超过150");
+    return false;
+  }
+  random_string = getRandomString(random_length);
+  $("#random_input").html(random_string);
+}
+</script>
+    </div>
+    <!--正文-->
+    <link href="../src/css/color.css" rel="stylesheet">
+    <link href="../src/css/animate.css" rel="stylesheet">
+    <link href="../src/css/hl.css" rel="stylesheet">
+    <script src="../src/js/main.js"></script>
+</body>
+
+</html>
