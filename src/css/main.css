@@ -31,6 +31,9 @@ body[data-theme="light"] {
   --bq-bg: rgb(255, 255, 255);
   --lc: rgb(202, 255, 247);
   --image: brightness(100%);
+  /*分类*/
+  --category-bg: #ececec;
+  --category-head: #bcbcbc;
   /*信息栏*/
   --info-panel: #ffffff;
   --info-panel-s: #e5e7ed;
@@ -107,6 +110,9 @@ body[data-theme="dark"] {
   --bq-bg: rgb(58, 58, 58);
   --lc: rgb(88, 88, 88);
   --image: brightness(80%);
+  /*分类*/
+  --category-bg: #6060607c;
+  --category-head: rgb(32, 114, 255);
   /*信息栏*/
   --info-panel: #606060;
   --info-panel-s: #111111;
@@ -183,6 +189,21 @@ body[data-theme="dark"] {
     -moz-user-select: none;
     -webkit-user-select: none;
 }
+
+/* 分类 */
+.category_div {
+    background: var(--category-bg);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0.5rem 0 0.5rem 0;
+}
+.category_head {
+    font-weight: bold;
+    display: block;
+    background: var(--category-head);
+    padding: 4px 5px 4px 5px;
+}
+.category_content {padding: 8px;line-height:1.6rem;}
 
 /* 标题按钮 */
 .left_title div {
