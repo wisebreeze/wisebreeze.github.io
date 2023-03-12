@@ -145,17 +145,25 @@ window.onload = function () {
     });
 }
 
+// 分类
+$(".category_div").each(function(){
+  $(this).prepend(`<div class="category_head"><i class="${$(this).attr("icon")}"></i>&nbsp;${$(this).attr("title")}</div>`);
+  $(this).find(".category_content > a").addClass("list-link doc-link");
+});
+// 控件说明
 $("ed").each(function(){
     // 改变样式
     $(this).addClass("panel wow bounceInLeft");
     $(this).attr("data-wow-delay", "0.8s");
     $(this).find("et").addClass('panel c1-yellow c-gray');
 });
+// 表格
 $("table").each(function(){
     // 改变样式
     $(this).addClass("wow bounceInLeft");
     $(this).attr("data-wow-delay", "0.8s");
 });
+// 代码
 $("bcode").each(function(){
     // 自动分配复制ID
     //var copy_id = "copy_id_" + Math.trunc((Math.floor(Math.random() * ((new Date()).valueOf() - 32767 + 1)) + (new Date().getSeconds())) / 520);
