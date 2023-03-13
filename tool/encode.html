@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>加密 / 解密</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" sizes="100x100" href="../favicon.ico">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+    <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+    <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+    <meta name="author" content="MC_spruce">
+
+    <script src="../src/js/jQuery.js"></script>
+    <link href="../src/css/main.css" rel="stylesheet">
+    <div class="top_header">
+        <ul>
+            <li class="animated rollIn">
+              <div>
+                <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
+                <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
+              </div>
+            </li>
+            <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
+            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button>
+            </li>
+        </ul>
+    </div>
+</head>
+<body id="root" data-theme="light">
+    <!--正文-->
+    <div id="content">
+        <div class="left_title"><h1>加密 / 解密</h1></div>
+        <div class="right_content animated bounceInRight">
+          <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+            阅读进度 - <a id="number_progress"></a>
+            <div class="progress-bg"><div id="progress"></div></div>
+          </div>
+        </div>
+        <div class="left_content" hide_bq="true">
+            <div class="category_div" icon="none" title="原文">
+              <div class="category_content">
+              <textarea id="original_text" rows="6"></textarea>
+            </div></div>
+            <div class="category_div" icon="none" title="输出">
+              <div class="category_content">
+              <textarea readonly id="result_output" rows="6"></textarea>
+            </div></div>
+            <div class="btn_div">
+            <button class="home-btn" onclick="copy_output()">复制输出内容</button>
+            <button class="home-btn" onclick="str_to_base64()">转为 base64</button>
+            <button class="home-btn" onclick="base64_to_str()">解密 base64</button>
+            <button class="home-btn" onclick="str_to_morse()">转为 摩斯电码</button>
+            <button class="home-btn" onclick="morse_to_str()">解密 摩斯电码</button></div>
+        </div>
+<style>
+.category_content {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.category_content > textarea {
+  background: none;
+  outline: none;
+  border: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.btn_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn_div > .home-btn {
+  display: block;
+  width: 100%;
+  height: 2.2rem;
+  margin: 4px;
+}
+</style>
+<script>
+function str_to_base64() {
+  str = $("#original_text").val();
+  base64_var = encodeURI(str);
+  base64_var = btoa(base64_var);
+  $("#result_output").html(base64_var);
+}
+function base64_to_str() {
+  str = $("#original_text").val();
+  def_var = atob(str);
+  def_var = decodeURI(def_var);
+  $("#result_output").html(def_var);
+}
+function str_to_morse() {
+  str = $("#original_text").val();
+  $("#result_output").html(en_morse(str));
+}
+function morse_to_str() {
+  str = $("#original_text").val();
+  $("#result_output").html(de_morse(str));
+}
+// 摩斯电码
+var oldarr = [
+  'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+  '1','2','3','4','5','6','7','8','9','0',
+  '.',':',',',';','?','=',"'",'/','!','-','_','"','(',')','$','&','@','+',' '
+]
+var newarr = [
+  '.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..',
+  '.----','..---','...--','....-','.....','-....','--...','---..','----.','-----',
+  '.-.-.-','---...','--..--','-.-.-.','..--..','-...-','.----.','-..-.','-.-.--','-....-','..--.-','.-..-.','-.--.','-.--.-','...-..-','.-...','.--.-.','.-.-.',' '
+]
+function en_morse(str){
+  var strin=str.toUpperCase(),
+  size,
+  value = "";
+  for(i=0;i<str.length;i++){
+    size = oldarr.indexOf(strin.charAt(i));
+    value += newarr[size] + " ";
+  }
+  return value;
+}
+function de_morse(str){
+  var strarr = str.split(" ") || [],
+  size,
+  value="";
+  for(i=1;i<strarr.length;i++){
+    size = newarr.indexOf(strarr[i-1]);
+    if(oldarr[size]==null){
+      value += " ";
+    }
+    else{
+      value += oldarr[size]
+    }
+  }
+  return value;
+}
+// 复制
+function copy_output() {
+  // 创建 textarea
+  var aux = document.createElement('textarea');
+  // 为 textarea 设置制只读
+  aux.setAttribute('readonly', 'readonly');
+  // 为 textarea 写入代码框内容
+  aux.innerHTML = $("#result_output").val();
+  // 在 body 写入 aux 的 textarea
+  document.querySelector('#content').appendChild(aux);
+  // 选中 aux
+  aux.select();
+  // 复制选中的 aux
+  document.execCommand("copy");
+  // 删除 textarea （不保留痕迹+取消选中）
+  document.querySelector('#content').removeChild(aux);
+}
+</script>
+    </div>
+    <!--正文-->
+    <link href="../src/css/color.css" rel="stylesheet">
+    <link href="../src/css/animate.css" rel="stylesheet">
+    <link href="../src/css/hl.css" rel="stylesheet">
+    <script src="../src/js/main.js"></script>
+</body>
+
+</html>
