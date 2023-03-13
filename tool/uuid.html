@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>生成随机字符</title>
+    <title>生成 UUID</title>
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="icon" sizes="100x100" href="../favicon.ico">
     <meta name="viewport"
@@ -38,7 +38,7 @@
 <body id="root" data-theme="light">
     <!--正文-->
     <div id="content">
-        <div class="left_title"><h1>生成随机字符</h1></div>
+        <div class="left_title"><h1>生成 UUID</h1></div>
         <div class="right_content animated bounceInRight">
           <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
             阅读进度 - <a id="number_progress"></a>
@@ -46,52 +46,83 @@
           </div>
         </div>
         <div class="left_content" hide_bq="true">
-            <p>
-            随机字典: 
-            <input class="input" type="text" id="random_dictionary" value="abacdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789" /><br>
-            字符长度: 
-            <input class="input" type="number" id="random_length" style="width:60px;" value="5" /><br>
-            输出结果: 
-            <a id="random_input" style="word-break:break-all;"></a><br>
-            <p>
-            <p><button class="home-btn" onclick="random()">生成随机字符</button>
-            <button class="home-btn" onclick="copy_code('random_input','复制成功！')">复制结果</button>
+            <div class="category_div" icon="none" title="输出结果">
+              <div class="category_content">
+              <span id="to_uuid" style="display: block;line-height: 1.6rem;height: 6rem;"></span>
+            </div></div>
+            <div class="btn_div">
+            <button class="home-btn" onclick="uuid(1)">生成1个 UUID</button>
+            <button class="home-btn" onclick="uuid(2)">生成2个 UUID</button>
+            <button class="home-btn" onclick="uuid(4)">生成4个 UUID</button>
+            <button class="home-btn" onclick="copy_uuid()">逐条复制</button></div>
         </div>
-<script>
-function getRandomString(len){
-    let _charStr = $("#random_dictionary").val() || 'abacdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789',
-    min = 0, 
-    max = _charStr.length-1, 
-    _str = '';
-    if (_charStr.length < 12) {
-      alert(`随机字典的字符太少了，最少12个（${_charStr.length} / 12）`);
-      return false;
-    }
-    len = len || 5;
-    for(var i = 0, index; i < len; i++){
-      index = (function(randomIndexFunc, i){         
-        return randomIndexFunc(min, max, i, randomIndexFunc);
-      })(function(min, max, i, _self){
-        let indexTemp = Math.floor(Math.random()*(max-min+1)+min),
-            numStart = _charStr.length - 10;
-        if(i==0&&indexTemp >=numStart){
-            indexTemp = _self(min, max, i, _self);
-        }
-        return indexTemp ;
-      }, i);
-    _str += _charStr[index];
-  }
-  return _str;
+<style>
+.category_content {
+  overflow-y: auto;
 }
-
-function random() {
-  random_length = $("#random_length").val();
-  if (random_length > 150) {
-    alert("字符长度不能超过150");
+.btn_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn_div > .home-btn {
+  display: block;
+  width: 100%;
+  height: 2.2rem;
+  margin: 4px;
+}
+</style>
+<script>
+function get_uuid() {
+  var date = new Date().getTime();
+  if (window.performance && typeof window.performance.now === "function") {
+      date += performance.now(); 
+  }
+  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+  var r = (date + Math.random() * 16) % 16 | 0;
+  date = Math.floor(date / 16);
+  return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+  });
+  return uuid;
+}
+function uuid(uuid_count) {
+  $("#to_uuid").empty();
+  for (i = 0; i < uuid_count; i++) {
+    let new_uuid = get_uuid();
+    $("#to_uuid").html($("#to_uuid").html() + '\n' + new_uuid);
+  }
+}
+function copy_uuid() {
+  var input_uuid = $("#to_uuid").html();
+  var arr_uuid = input_uuid.split("\n");
+  // uuid 1
+  setTimeout( function(){
+    copy(arr_uuid[1]);
+  }, 50 );
+  // uuid 2
+  setTimeout( function(){
+    copy(arr_uuid[2]);
+  }, 200 );
+  // uuid 3
+  setTimeout( function(){
+    copy(arr_uuid[3]);
+  }, 400 );
+  // uuid 4
+  setTimeout( function(){
+    copy(arr_uuid[4]);
+  }, 500 );
+}
+function copy(text) {
+  if (text == null) {
     return false;
   }
-  random_string = getRandomString(random_length);
-  $("#random_input").html(random_string);
+  var aux = document.createElement('textarea');
+  aux.setAttribute('readonly', 'readonly');
+  aux.innerHTML = text;
+  document.querySelector('#content').appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+  document.querySelector('#content').removeChild(aux);
 }
 </script>
     </div>
