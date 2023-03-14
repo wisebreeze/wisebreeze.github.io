@@ -883,6 +883,8 @@ table {
     border-collapse: collapse;
     overflow-x: auto;
     width: 100%;
+    border: none;
+    outline: none;
     display: block;
 }
 
