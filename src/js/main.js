@@ -74,7 +74,7 @@ window.onscroll = function () {
             HeadingName = $(this).attr("id");// 获取ID
             if (HeadingName != null) {// 检测是否有ID
                 $('.menu-this').removeClass('menu-this');// 重置Class类名
-                $(`a[href="#${HeadingName}"]`).addClass('menu-this');// 给指定元素加类名
+                $(`.dropdown-content a[href="#${HeadingName}"]`).addClass('menu-this');// 给指定元素加类名
                 linkHeight = document.querySelector(`a[href="#${HeadingName}"]`).getAttribute("href");// 获取ID
                 linkHeight = (linkHeight.replace("#pid_",'') * menuHeight) - menuHeight;// 获取元素位置
                 document.querySelector("#DropdownContent").scrollTo(0,linkHeight);// 滚动到指定位置
