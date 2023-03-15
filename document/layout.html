@@ -57,8 +57,13 @@
 <h2>属性</h2>
 <table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
-  <tbody><tr><td>size</td><td>控件大小</td><td>数组：矢量[x,y]</td><td>["default","default"]</td><td>详见 <a class="link" href="#pid_2">控件大小 ><br></td></tr>
-  <tr><td>offset</td><td>偏移量</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>详见 <a class="link" href="#pid_3">偏移量 ></a></td></tr></tbody>
+  <tbody><tr><td>size</td><td>大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>详见 <a class="link" href="#pid_2">控件大小 ><br></td></tr>
+  <tr><td>offset</td><td>偏移量</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>详见 <a class="link" href="#pid_3">偏移量 ></a></td></tr>
+  <tr><td>layer</td><td>层级</td><td>数字</td><td>0</td><td>改变该控件的层级。<br><br>提高层级有利于防止被其他控件覆盖。</td></tr>
+  <tr><td>min_size</td><td>最小大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>规定该控件最小的大小。如果 size < min_size ，则 size 使用 min_size 作为大小。<br><br>坐标轴详见 <a class="link" href="#pid_2">控件大小 ><br></td></tr>
+  <tr><td>max_size</td><td>最大大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>规定该控件最大的大小。如果 size > max_size ，则 size 使用 max_size 作为大小。<br><br>坐标轴详见 <a class="link" href="#pid_2">控件大小 ><br></td></tr>
+  <tr><td>anchor_from</td><td>父锚点</td><td>字符串</td><td>center</td><td>规定该控件的父锚点。<br><br>详见 <a class="link" href="#pid_4">锚点定位 ></a></td></tr>
+  <tr><td>anchor_to</td><td>子锚点</td><td>字符串</td><td>center</td><td>规定该控件的子锚点。<br><br>详见 <a class="link" href="#pid_4">锚点定位 ></a></td></tr></tbody>
 </table>
 <h2>控件大小</h2>
 接下来我们讲下 <lc>size</lc> 属性吧。<br>
@@ -118,12 +123,20 @@ X轴百分比，Y轴百分比不能同时在同个属性中使用！<br>
 错误示例: ["100%y","100%x"]
 </warn>
 
-同时，
+同时，数组中的坐标值可以进行简单的加减运算。
+<br>运算时，数组中的坐标值必须使用字符串进行运算。
+<p>例如："100%-20px" "100%+100%c"</p>
+
+<tip><b>提示</b>
+<br>像素大小在运算中必须带 "px" ！</tip>
+
 <h2>偏移量</h2>
 偏移基于父元素的左上角，因此正方向为右下方(即负-y正+x，第四象限)。
 <br>接下来我们讲下 <lc>offset</lc> 属性数字值吧。
 
-<br><br>其中，矢量的坐标轴（X/Y轴）值与 size 属性一致，详见 <a class="link" href="#anchor_1">坐标值类型表格 ></a>
+<br><br>其中，数组中的坐标值与 size 属性一致，详见 <a class="link" href="#anchor_1">坐标值类型表格 ></a>
+
+<h2>锚点定位</h2>
   </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>
