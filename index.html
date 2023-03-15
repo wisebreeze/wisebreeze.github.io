@@ -36,14 +36,14 @@
 </head>
 <body id="root" data-theme="light">
     <!--正文-->
-    <div id="content" class="no-user-select">
+    <div id="content">
         <div class="left_content" hide_bq="true">
-        <br><span id="p1" class="top-title wow fadeInLeftBig" data-wow-delay="0.5s">首页</span>
+        <br><span id="p1" class="top-title">首页</span>
         <!--标题1-->
-        <div class="wow bounceInUp" data-wow-delay="0.6s"><p>本网站用于 MCBE 开发者创作 UI，可以参考文档内容来制作您的 UI。
+        <div><p>本网站用于 MCBE 开发者创作 UI，可以参考文档内容来制作您的 UI。
         <br><span style="font-size: medium;font-weight: bold;">文档持续更新，如果觉得不错的话可以<span style="color: #da9500;">收藏</span>本网站哦</span></p>
         <p>
-        <div class="info-panel">
+        <div class="info-panel ns">
           <a style="font-weight: bold;">文档作者：MC_spruce</a>
           <div class="info-div"><a href="https://b23.tv/FFwBDKM">B站主页</a><div style="width: 10px;"></div><a href="./group.html">交流群</a></div></div></p>
         <tip>
@@ -53,38 +53,69 @@
           <!--<p><div style="border-radius: 10px;padding: 5px 15px 15px 15px;" class="panel">
           <label>觉得教程文档满意吗？</label><a style="float: right;" class="home-btn" href="https://shimo.im/forms/m4kMLLBMyLTQNEqD/fill?channel=bilibili">填写问卷</a></div></p>--></div>
         <!--标题2-->
-        <div id="p2" class="title wow fadeInLeftBig" data-wow-delay="0.5s">目录</div>
-        <hr class="title-hr wow fadeInLeftBig" data-wow-delay="0.5s"></hr>
+        <div id="p2" class="title" data-wow-delay="0.5s">目录</div>
+        <hr class="title-hr" data-wow-delay="0.5s"></hr>
         <!--<tip>
             <span style="font-size: medium;">你好，欢迎您为JSON UI文档进行完善！
             <p><div style="display: inline;"><a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a> <a class="edit-btn" data-wow-delay="0.5s" href="./thanks.html">贡献名单</a></div></p></span>
         </tip>-->
-        <div class="wow bounceInUp" data-wow-delay="0.8s">* 点击蓝色文字阅读文档
+        <div>
             <div class="category_div" icon="fa fa-book" title="入门">
               <div class="category_content">
               <a href="started/1.html">准备开发环境</a><br>
-              <a href="started/2.html">JSON基础语法</a><br>
-              <a href="started/3.html">认识JSON-UI</a><br>
+              <a href="started/2.html">JSON 基础语法</a><br>
+              <a href="started/3.html">认识 JSON UI</a><br>
               <a href="started/4.html">创建控件</a><br>
-              <a href="started/5.html">添加控件到Hud屏幕</a>
+              <a href="started/5.html">添加控件到 Hud 屏幕</a>
             </div></div>
             <div class="category_div" icon="fa fa-file-text-o" title="控件">
               <div class="category_content">
-              <a href="document/label.html">文本控件</a><br>
-              <a href="document/image.html">图片控件</a><br>
-              <a href="document/panel.html">面板控件</a><br>
-              <a href="document/button.html">按钮控件</a>
+              <table><tbody>
+              <tr>
+                <td><b>label (文本)</b></td>
+                <td>
+                  <a href="document/label.html">文本属性</a><br>
+                  <a href="document/layout.html">布局属性</a><br>
+                  <a href="document/index.html">共同属性</a><br>
+                  <a href="document/bindings.html">绑定属性</a>
+                </td>
+              </tr>
+              <tr>
+                <td><b>image (图片)</b></td>
+                <td>
+                  <a href="document/image.html">图片属性</a><br>
+                  <a href="document/layout.html">布局属性</a><br>
+                  <a href="document/index.html">共同属性</a><br>
+                  <a href="document/bindings.html">绑定属性</a>
+                </td>
+              </tr>
+              <tr>
+                <td><b>panel (面板)</b></td>
+                <td>
+                  <a href="document/panel.html">面板属性</a><br>
+                  <a href="document/layout.html">布局属性</a><br>
+                  <a href="document/index.html">共同属性</a><br>
+                  <a href="document/bindings.html">绑定属性</a>
+                </td>
+              </tr>
+              <tr>
+                <td><b>button (按钮)</b></td>
+                <td>
+                  <a href="document/button.html">按钮属性</a><br>
+                  <a href="document/layout.html">布局属性</a><br>
+                  <a href="document/index.html">共同属性</a><br>
+                  <a href="document/bindings.html">绑定属性</a>
+                </td>
+              </tr>
+              </tbody></table>
             </div></div>
             <div class="category_div" icon="fa fa-file-picture-o" title="参考文档">
               <div class="category_content">
-              <a class="list-link doc-link" href="document/index.html">控件共同属性</a><br>
-              <a class="list-link doc-link" href="document/layout.html">布局类属性</a><br>
               <a class="list-link doc-link" href="document/quote.html">引用</a><br>
               <a class="list-link doc-link" href="document/var.html">变量</a><br>
-              <a class="list-link doc-link" href="document/bindings.html">绑定</a><br>
               <a class="list-link doc-link" href="document/anim.html">动画</a>
             </div></div>
-            <div class="category_div" icon="fa fa-file-code-o" title="教程">
+            <div class="category_div" icon="fa fa-file-code-o" title="实践操作">
               <div class="category_content">
               <a class="list-link doc-link" href="tutorial/bg.html">修改界面背景</a><br>
               <a class="list-link doc-link" href="tutorial/mask.html">蒙版剪辑</a><br>
