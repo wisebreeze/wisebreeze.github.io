@@ -38,7 +38,7 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>认识JSON-UI</h1></div>
+    <div class="left_title"><h1>认识 JSON UI</h1></div>
     <div class="right_content animated bounceInRight">
       <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
         阅读进度 - <a id="number_progress"></a>
@@ -46,17 +46,17 @@
       </div>
     </div>
     <div class="left_content">
-    <p>.bb什么是JSON-UI？..bb</p>
+    <p>.bb什么是 JSON UI？..bb</p>
     <p>在Minecraft Bedrock Edition（即《我的世界》基岩版，以下简称MCBE）中的用户界面（以下简称UI）有两种：
       .hh<a class="c-red">一个是JSON UI，另外一个是Ore UI</a>
-      .hh本文档主要讲述JSON-UI。
-      .hh.hhJSON-UI就是由JSON文件构成的UI界面，它能允许我们通过修改JSON文件来改变UI，以及在<a class="c-red">一定的程度内</a>为UI添加一些行为和功能。
-      .hh首先，JSON-UI的JSON文件主要存放在<a class="panel">RP/ui/</a>文件夹内
+      .hh本文档主要讲述JSON UI。
+      .hh.hhJSON UI就是由JSON文件构成的UI界面，它能允许我们通过修改JSON文件来改变UI，以及在<a class="c-red">一定的程度内</a>为UI添加一些行为和功能。
+      .hh首先，JSON UI的JSON文件主要存放在<a class="panel">RP/ui/</a>文件夹内
     </p>
     <hr>
     <p>.bbui文件夹内有什么文件？..bb</p>
     <p>_global_variables.json | 全局变量，以后会详细讲解
-    .hh_ui_defs.json | 声明JSON-UI文件，以后会详细讲解
+    .hh_ui_defs.json | 声明JSON UI文件，以后会详细讲解
     .hhui_common.json | UI模板，存放常用的控件模板
     .hhxxx_screen.json | 某个屏幕文件，存放该屏幕的控件
     <hr>
@@ -84,17 +84,14 @@ hh它必须是<a class="c-red">唯一的</a>名称，一般用于跨文件引用
 .hh每个控件的控件名必须是<a class="c-red">唯一的</a>名称。
 
 .hh.hh"text": "Hello World" 就是这个控件中的某个.bb元素..bb，用于完善控件的外观、位置。
-.hh.hh整理一下，一个JSON-UI文件的结构是：
+.hh.hh整理一下，一个 JSON UI 文件的结构是：
 .hh命名空间 + （控件 -> {控件名 + 元素}）
 </p>
 <hr>
 <p>.bb什么是Ore UI？..bb</p>
-<p>上面提到了ore UI，现在简单了解一下。
-  .hh.hhOre UI就是由Web前端技术（Html5 + CSS + JavaScript）构成的UI界面，与JSON-UI不同的是，它可以运行JavaScript代码！
-  .hh.hh首先，将Ore UI与JSON-UI对比可以发现：
-  .hh* JSON-UI更利于阅读、修改。
-  .hh* Ore UI只能通过修改安装包实现美化，而且代码似乎被混淆了，修改难度大大上升。
-  .hh.hh毕竟Ore UI与渲染龙一样，目前还不能用资源包调用修改它们！
+<p>上面提到了 Ore UI，现在简单了解一下。
+  <br><br>Ore UI就是由Web前端技术（Html5 + CSS + JavaScript）构成的UI界面，与 JSON UI 不同的是，它可以运行JavaScript代码！
+  <br><br>目前 Ore UI 只能通过修改安装包实现美化，还不能通过资源包进行修改。
 </p>
 <hr>
 <p>接下来，我们<a class="list-link" href="../index.html">返回主页</a>打开“创建控件”入门教程，一起深入了解UI吧！
