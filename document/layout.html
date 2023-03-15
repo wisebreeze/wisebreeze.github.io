@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>布局类属性</title>
+  <title>布局属性</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport"
@@ -38,15 +38,92 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>布局类属性</h1></div>
+    <div class="left_title"><h1>布局属性</h1></div>
     <div class="right_content animated bounceInRight">
-      <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
-        阅读进度 - <a id="number_progress"></a>
-        <div class="progress-bg"><div id="progress"></div></div>
+      <div class="dropdown">
+        <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
+        <div class="dropdown-content" id="DropdownContent"></div>
       </div>
+      <p>
+        <div class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
+          阅读进度 - <a id="number_progress"></a>
+          <div class="progress-bg"><div id="progress"></div></div>
+        </div>
+      </p>
     </div>
     <div class="left_content">
-      敬请期待
+运用布局属性，我们可以改控件的大小、位置、动态位置。
+那么，我们开始讲布局属性吧！
+<h2>属性</h2>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
+  <tbody><tr><td>size</td><td>控件大小</td><td>数组：矢量[x,y]</td><td>["default","default"]</td><td>详见 <a class="link" href="#pid_2">控件大小 ><br></td></tr>
+  <tr><td>offset</td><td>偏移量</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>详见 <a class="link" href="#pid_3">偏移量 ></a></td></tr></tbody>
+</table>
+<h2>控件大小</h2>
+接下来我们讲下 <lc>size</lc> 属性吧。<br>
+其中，矢量的坐标（X/Y轴）值可以是：<p>
+像素<br>
+默认<br>
+百分比<br>
+子控件百分比<br>
+最大子控件百分比<br>
+最大兄弟控件百分比<br>
+填充<br>
+Y轴百分比<br>
+X轴百分比</p>
+
+为了方便新手了解父控件以及子控件，我们使用下例代码作为示例。
+控件的之间关系如下：
+<bcode><lcode>"header": {
+  // 我的控件名是 header
+  // 我的子控件是 text_panel
+  "type": "panel",
+  "controls": [
+    {"test": {}}
+    {
+      "text_panel": {
+        // 我的控件名是 text_panel
+        // 我的父控件是 header
+        // 我的子控件是 text
+        // 我的兄弟控件是 test
+        "type": "panel",
+        "controls": [
+          {
+            "text": {
+              // 我的控件名是 text
+              // 我的父控件是 text_panel
+              "type": "label"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}</lcode></bcode>
+<table id="anchor_1">
+  <thead><tr><th></th><th>值</th><th>示例</th><th>描述</th></tr></thead>
+  <tbody><tr><td>像素</td><td>数字 或 字符串</td><td>[2,2]<br>["2px","2px"]</td><td>像素大小。<br>通常情况可以忽略 "px"。</td></tr>
+  <tr><td>默认</td><td>字符串</td><td>["default","default"]</td><td>使用默认的控件大小。</td></tr>
+  <tr><td>百分比</td><td>字符串</td><td>["100%","50%"]</td><td>相对于父控件占比。</td></tr>
+  <tr><td>子控件百分比</td><td>字符串</td><td>["100%c","50%c"]</td><td>相对于子控件大小的百分比。<br><br>为 "100%c" 时，该控件大小 = 相对于子控件的大小；<br>为 "50%c" 时，该控件大小 = 50% 相对于子控件的大小。</td></tr></tbody>
+  <tr><td>最大子控件百分比</td><td>字符串</td><td>["100%cm","50%cm"]</td><td>相对于子控件大小的百分比。<br><br>为 "100%cm" 时，该控件大小 = 相对于最大子控件的大小；<br>为 "50%cm" 时，该控件大小 = 50% 相对于最大子控件的大小。</td></tr>
+  <tr><td>最大兄弟控件百分比</td><td>字符串</td><td>["100%sm","50%sm"]</td><td>相对于兄弟控件大小的百分比。<br><br>为 "100%sm" 时，该控件大小 = 相对于最大兄弟控件的大小；<br>为 "50%sm" 时，该控件大小 = 50% 相对于最大兄弟控件的大小。</td></tr></tbody>
+  <tr><td>填充</td><td>字符串</td><td>["fill","fill"]</td><td>填充至父控件剩余大小。<br><br>该类型常用于父控件类型为 stack_panel 的控件。</td></tr></tbody>
+  <tr><td>X轴百分比</td><td>字符串</td><td>[10,"100%x"]</td><td>相对于X轴大小的百分比。<br><br>仅 Y轴 可用！</td></tr>
+  <tr><td>Y轴百分比</td><td>字符串</td><td>["100%y",10]</td><td>相对于Y轴大小的百分比。<br><br>仅 X轴 可用！</td></tr></tbody>
+</table>
+<warn><b>警告</b><br>
+X轴百分比，Y轴百分比不能同时在同个属性中使用！<br>
+错误示例: ["100%y","100%x"]
+</warn>
+
+同时，
+<h2>偏移量</h2>
+偏移基于父元素的左上角，因此正方向为右下方(即负-y正+x，第四象限)。
+<br>接下来我们讲下 <lc>offset</lc> 属性数字值吧。
+
+<br><br>其中，矢量的坐标轴（X/Y轴）值与 size 属性一致，详见 <a class="link" href="#anchor_1">坐标值类型表格 ></a>
   </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>
