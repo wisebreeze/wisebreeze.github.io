@@ -142,6 +142,35 @@ X轴百分比，Y轴百分比不能同时在同个属性中使用！<br>
 <br><br>其中，数组中的坐标值与 size 属性一致，详见 <a class="link" href="#anchor_1">坐标值类型表格 ></a>
 
 <h2>锚点定位</h2>
+<p>锚点，能让控件对齐到某个方向点，在该点的基础上，偏移、动画会将以此作为原点。</p>
+<p>锚点有以下几种方向：</p>
+<table>
+<thead><tr><th>值</th><th>描述</th></tr></thead>
+<tbody><tr><td>top_left</td><td>左上角</td></tr>
+<tr><td>top_middle</td><td>正上方</td></tr>
+<tr><td>top_right</td><td>右上角</td></tr>
+<tr><td>left_middle</td><td>正左方</td></tr>
+<tr><td>center</td><td>正中间</td></tr>
+<tr><td>right_middle</td><td>正右方</td></tr>
+<tr><td>bottom_left</td><td>左下角</td></tr>
+<tr><td>bottom_middle</td><td>正下方</td></tr>
+<tr><td>bottom_right</td><td>右下角</td></tr></tbody>
+</table>
+<p>总得来说，锚点位置位置如下：</p>
+<table>
+<tbody><tr><td>top_left</td><td>top_middle</td><td>top_right</td></tr>
+<tr><td>left_middle</td><td>center</td><td>right_middle</td></tr>
+<tr><td>bottom_left</td><td>bottom_middle</td><td>bottom_right</td></tr></tbody>
+</table>
+<p>对于<lc>anchor_from anchor_to</lc>，他们都是相互配合的，在锚点定位中缺一不可。例如：</p>
+<bcode><lcode>"control": {
+  "anchor_from": "center",
+  "anchor_to": "center"
+}</lcode></bcode>
+
+<p>一般<lc>anchor_from</lc>、<lc>anchor_to</lc>都是使用相同的列举值，因为这样的锚点很简单。
+<br>那么<lc>"anchor_from":"bottom_middle",</lc>
+<lc>"anchor_to":"left_middle"</lc>，整体位置在下方，但偏向于左边。</p>
   </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>
