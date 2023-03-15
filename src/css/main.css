@@ -22,14 +22,14 @@ body[data-theme="light"] {
   background: #F7F7F7;
   color: #444;
   --tip-bg: #ffffff;
-  --warning-bg: #FF9191;
+  --warning-bg: #FFBFBF;
   --panel: #E8E8E8;
   --link: #0059e9;
   --link-hover: #003da0;
   --link-this-hover: #00d10a;
   --bq-b: rgb(212, 212, 212);
   --bq-bg: rgb(255, 255, 255);
-  --lc: rgb(202, 255, 247);
+  --lc: #D4D4D4;
   --image: brightness(100%);
   /*分类*/
   --category-bg: #ececec;
@@ -99,7 +99,7 @@ body[data-theme="light"] {
 /* 黑暗主题 */
 body[data-theme="dark"] {
   background: #242424;
-  color: #f3f3f3;
+  color: #e9e9e9;
   --tip-bg: #606060;
   --warning-bg: #811313;
   --panel: #424242;
@@ -108,7 +108,7 @@ body[data-theme="dark"] {
   --link-this-hover: #2dff5b;
   --bq-b: rgb(82, 82, 82);
   --bq-bg: rgb(58, 58, 58);
-  --lc: rgb(88, 88, 88);
+  --lc: #666666;
   --image: brightness(80%);
   /*分类*/
   --category-bg: #6060607c;
@@ -232,13 +232,13 @@ blockquote {
     padding: 8px 5px 8px 5px;
 }
 
-warning, tip {
+warn, warning, tip {
     display: block;
     padding: 3px 8px;
     margin: 0.8rem 0;
 }
 
-warning {
+warn, warning {
     border-left: #D00505 solid 3px;
     background: var(--warning-bg);
 }
@@ -666,6 +666,16 @@ legend {
     color: var(--link-hover);
 }
 
+.link {
+    font-size: 1.1em;
+    color: var(--link);
+    text-decoration: none;
+}
+
+.link:hover {
+    color: var(--link-hover);
+}
+
 /* 提示 */
 .tip {
     border-left: #415dff solid 3px;
@@ -881,7 +891,7 @@ ctitle {
 /* 表格 */
 table {
     border-collapse: collapse;
-    overflow-x: auto;
+    overflow: auto;
     width: 100%;
     border: none;
     outline: none;
