@@ -63,7 +63,12 @@
   <tr><td>min_size</td><td>最小大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>规定该控件最小的大小。如果 size < min_size ，则 size 使用 min_size 作为大小。<br><br>坐标轴详见 <a class="link" href="#pid_2">控件大小 ><br></td></tr>
   <tr><td>max_size</td><td>最大大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>规定该控件最大的大小。如果 size > max_size ，则 size 使用 max_size 作为大小。<br><br>坐标轴详见 <a class="link" href="#pid_2">控件大小 ><br></td></tr>
   <tr><td>anchor_from</td><td>父锚点</td><td>字符串</td><td>center</td><td>规定该控件的父锚点。<br><br>详见 <a class="link" href="#pid_4">锚点定位 ></a></td></tr>
-  <tr><td>anchor_to</td><td>子锚点</td><td>字符串</td><td>center</td><td>规定该控件的子锚点。<br><br>详见 <a class="link" href="#pid_4">锚点定位 ></a></td></tr></tbody>
+  <tr><td>anchor_to</td><td>子锚点</td><td>字符串</td><td>center</td><td>规定该控件的子锚点。<br><br>详见 <a class="link" href="#pid_4">锚点定位 ></a></td></tr>
+  <tr><td>inherit_max_sibling_width</td><td>使用最大的同胞控件的宽度</td><td>布尔值</td><td>false</td><td>是否使用最大的同胞控件的宽度。</td></tr>
+  <tr><td>inherit_max_sibling_height</td><td>使用最大的同胞控件的高度</td><td>布尔值</td><td>false</td><td>是否使用最大的同胞控件的高度。</td></tr>
+  <tr><td>use_anchored_offset</td><td>使用锚点</td><td>布尔值</td><td>false</td><td>是否让子控件使用该控件的锚点。</td></tr>
+  <tr><td>follows_cursor</td><td>跟随光标</td><td>布尔值</td><td>false</td><td>控件是否能跟随光标。</td></tr>
+  <tr><td>draggable</td><td>拖动</td><td>字符串：列举</td><td>not_draggable</td><td>是否能拖动控件。<sup>[1]</sup><br><a class="c-red">注意：拖动属性仅适用于互动性控件</a><br>列举的值可以是：<br><lc>not_draggable</lc> 不允许拖动<br><lc>vertical</lc> 垂直拖动<br><lc>horizontal</lc> 水平拖动<br><lc>both</lc> 任意方向拖动</td></tr></tbody>
 </table>
 <h2>控件大小</h2>
 接下来我们讲下 <lc>size</lc> 属性吧。<br>
