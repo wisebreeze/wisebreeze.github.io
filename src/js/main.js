@@ -42,6 +42,17 @@ if (typeof (Storage) !== "undefined") {
    console.log("main.js: 浏览器不支持储存，或没有储存权限！");
 }
 
+// 休眠循环
+function sleep(numberMillis) {
+  var now = new Date();
+  var exitTime = now.getTime() + numberMillis;
+  while (true) {
+    now = new Date();
+    if (now.getTime() > exitTime)
+      return;
+  }
+}
+
 // 滚动事件
 window.onscroll = function () {
   // 页面进度条
@@ -111,7 +122,7 @@ window.onload = function () {
 
     //插入内容
     if($("div.left_content").attr("hide_bq") == null){
-      $("div.left_content").append("<fieldset class=\"wow bounceInLeft\">\n    <legend>版权须知</legend>\n    1、除非另有说明，否则文档内容均采用<a class=\"list-link\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
+      $("div.left_content").append("<fieldset>\n    <legend>版权声明</legend>\n    1、除非另有说明，否则文档内容均采用<a class=\"list-link\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
     }
     const to_top_text = $("#root").attr("to_top_text") || "回顶部";
     $("div.left_content").append(`<div id="to_top">\n    <button class="to_top" onclick="to_top();">\n      <div>\n        <span>▲</span><div class="to-top-text">${to_top_text}</div>\n      </div>\n    </button>\n  </div>`);
@@ -124,22 +135,21 @@ window.onload = function () {
         const back_link = $(this).attr("back_link") || "https://jsonui.netlify.app/";
         const back_text = $(this).attr("back_text") || "返回首页";
         $(this).append("<div></div>");
-        $(this).find('div').addClass("wow bounceInUp");// 加载动画
-        $(this).find('div').attr("data-wow-delay","0.5s");// 加载动画延迟
+        //$(this).find('div').addClass("wow bounceInUp");// 加载动画
+        //$(this).find('div').attr("data-wow-delay","0.5s");// 加载动画延迟
         $(this).find('div').append(`<a class="home-btn" href="${back_link}">${back_text}</a>`);// 返回按钮
         //$(this).find('div').append("<a class=\"edit-btn\" href=\"https://github.com/MCspruce/MCspruce.github.io\">在 github 上编辑</a>");// 编辑按钮
         $(this).html("<br>" + $(this).html());
     });
     //加载目录
     $("h1").each(function(){
-        $(this).addClass("top-title wow fadeInLeftBig");// 加载动画
-        $(this).attr("data-wow-delay","0.5s");// 加载动画延迟
+        $(this).addClass("top-title");// 加载Class
     });
     $("h2,h3,h4,h5,h6").each(function(){
         headingLevel = this.tagName.toLowerCase();// 获取该遍历的小写标签名
         headingName = $(this).text();// 获取段落名
-        $(this).attr({"id": `pid_${pid}`,"data-wow-delay": "1.5s"});// 给该元素添加标签
-        $(this).addClass("title wow fadeInLeftBig");// 给该元素添加Class类名
+        $(this).attr({"id": `pid_${pid}`});// 给该元素添加标签
+        $(this).addClass("title");// 给该元素添加Class类名
         $("#DropdownContent").append(`<a class="menu-${headingLevel}" href="#pid_${pid}">${headingName}</a>`);// 写入到目录
         pid = pid + 1;// 为下一个遍历准备ID
     });
@@ -148,41 +158,29 @@ window.onload = function () {
 // 分类
 $(".category_div").each(function(){
   $(this).prepend(`<div class="category_head ns"><i class="${$(this).attr("icon")}"></i>&nbsp;${$(this).attr("title")}</div>`);
-  $(this).find(".category_content > a").addClass("list-link doc-link");
+  $(this).find(".category_content a").addClass("list-link doc-link");
 });
 // 控件说明
 $("ed").each(function(){
     // 改变样式
-    $(this).addClass("panel wow bounceInLeft");
-    $(this).attr("data-wow-delay", "0.8s");
+    $(this).addClass("panel");
     $(this).find("et").addClass('panel c1-yellow c-gray');
-});
-// 表格
-$("table").each(function(){
-    // 改变样式
-    $(this).addClass("wow bounceInLeft");
-    $(this).attr("data-wow-delay", "0.8s");
 });
 // 代码
 $("bcode").each(function(){
     // 自动分配复制ID
     //var copy_id = "copy_id_" + Math.trunc((Math.floor(Math.random() * ((new Date()).valueOf() - 32767 + 1)) + (new Date().getSeconds())) / 520);
     // 改变代码样式
-    $(this).find("lcode").html("<pre class=\"json wow bounceInUp\"><code id=\"" + copyPrefix + copy_id + "\">" + $(this).find("lcode").html() + "</code></pre>");
+    $(this).find("lcode").html("<pre class=\"json\"><code id=\"" + copyPrefix + copy_id + "\">" + $(this).find("lcode").html() + "</code></pre>");
     $(this).find("ctitle").addClass("code-title");
     // 准备复制按钮
-    $(this).find("ctitle").append("<button class=\"copy-btn wow shake\" onclick=copy_code('" + copyPrefix + copy_id + "')><svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 25 25\" wdith=\"22\" height=\"22\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z\"></path></svg><a>复制</a></button>")
-    $(this).html("<div class=\"code wow bounceInLeft\">\n" + $(this).html() + "\n</div>");
+    $(this).find("ctitle").append("<button class=\"copy-btn\" onclick=copy_code('" + copyPrefix + copy_id + "')><svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 25 25\" wdith=\"22\" height=\"22\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z\"></path></svg><a>复制</a></button>")
+    $(this).html("<div class=\"code\">\n" + $(this).html() + "\n</div>");
     copy_id++;
 });
 // 自动代码换行
 $("code").each(function(){
     $(this).html("<ul><li>" + $(this).html().replace(/\n/g,"</li><li>") +"</li></ul>");
-});
-// 提示
-$("tip, warning").each(function(){
-    $(this).addClass("wow bounceInLeft");
-    $(this).attr("data-wow-delay","0.5s");
 });
 
 // 开启侧边栏
