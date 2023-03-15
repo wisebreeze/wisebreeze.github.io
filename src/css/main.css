@@ -59,7 +59,7 @@ body[data-theme="light"] {
   /*表格*/
   --table-thead: #0a9dff;
   --tbody-even: rgb(230, 230, 230);
-  --tbody-hover: rgb(221, 221, 221);
+  --tbody-hover: rgb(232, 232, 232);
   --th-border: rgb(95, 95, 95);
   /*代码*/
   --copy-title: #313131;
