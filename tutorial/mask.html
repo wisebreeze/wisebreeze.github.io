@@ -47,27 +47,19 @@
 </div>
 <div class="left_content"><p>首先准备两张不同效果图片</p>
 
-<!--<br><img width="280" hight="auto" src="../src/image/default.PNG"></img>
-
-<img width="280" hight="auto" src="../src/image/blur.PNG"></img>-->
-
 <p>我们首先把第一张图片设为背景
 
 <br>代码示例</p>
-<bcode>
-      <ctitle>RP/ui/start_screen.json</ctitle>
-      <lcode>"default_image": {
+<c>"default_image": {
   "type": "image",
   "texture": "图片路径",
   "fill": true,
   "size": ["100%","100%"],
   "controls": []
-}</lcode></bcode>
+}</c>
 
 <p>在controls内添加亿点点控件：</p>
-<bcode>
-      <ctitle>RP/ui/start_screen.json</ctitle>
-      <lcode>"background": {
+<c>"background": {
   "type": "image",
   "texture": "textures/ui/background",
   "layer": -100,
@@ -94,7 +86,7 @@
       }
     }
   ]
-}</lcode></bcode>
+}</c>
 
 <p>其中运用了clips_children和offset属性来实现蒙版剪辑：</p>
 <table>
@@ -114,7 +106,6 @@
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
 
-  <link href="../src/css/hl.css" rel="stylesheet">
   <script src="../src/js/hl.js"></script>
 
   <link href="../src/css/animate.css" rel="stylesheet">

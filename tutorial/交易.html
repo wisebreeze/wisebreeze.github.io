@@ -45,7 +45,7 @@
       <div class="progress-bg"><div id="progress"></div></div>
     </div>
   </div>
-<div class="left_content">.hh我们打开村民交易的 UI
+<div class="left_content"><br>我们打开村民交易的 UI
 
 <p>只能看见村民当前等级交易的物品</p>
 
@@ -54,15 +54,13 @@
 <p>实际上，更高等级的交易项目被隐藏了</p>
 
 <p>这个界面文件是<a class="c-red">trade_2_screen.json</a>
-.hh(pocket UI档案的交易项目也在这个json文件)
+<br>(pocket UI档案的交易项目也在这个json文件)
 </p>
 
 <p>要做到样其实很简单
 
-.hh打开文件，找到tier_stack_panel控件</p>
-<bcode>
-      <ctitle>RP/ui/trade_2_screen.json</ctitle>
-      <lcode>"tier_stack_panel": {
+<br>打开文件，找到tier_stack_panel控件</p>
+<c>"tier_stack_panel": {
   "type": "stack_panel",
   "size": [ "100%", "100%c + 1px" ]，
   …
@@ -71,14 +69,12 @@
     …
     }
   ]
-}</lcode></bcode>
+}</c>
 
 <p>接着，将控件替换为：</p>
-<bcode>
-      <ctitle>RP/ui/trade_2_screen.json</ctitle>
-      <lcode>"tier_stack_panel": {
+<c>"tier_stack_panel": {
   "bindings": []
-}</lcode></bcode>
+}</c>
 
 <p>最后，保存并打开Minecraft</p>
 <img width="280" hight="auto" src="../src/image/unlock.png"></img>
@@ -88,7 +84,6 @@
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
 
-  <link href="../src/css/hl.css" rel="stylesheet">
   <script src="../src/js/hl.js"></script>
 
   <link href="../src/css/animate.css" rel="stylesheet">
