@@ -55,9 +55,7 @@
     <p>下面我们来探究一下什么是引用吧！</p>
     <p>首先~先看下面代码</p>
     
-    <p><bcode>
-      <ctitle>RP/ui/start_screen.json</ctitle>
-      <lcode>"text": {
+    <c>"text": {
   "type": "text",
   "size": [ "default", "100%" ],
   "text": "a"
@@ -67,21 +65,18 @@
   "type": "text",
   "size": [ "default", "100%" ],
   "text": "b"
-}</lcode></bcode>
-      那么，这些代码可以<strong>简化</strong>吗？</p>
+}</c>
+      <p>那么，这些代码可以<strong>简化</strong>吗？</p>
     
     <blockquote>
-      <p>Q：简化代码可以引用吗?可以那怎么引用?</p>
-    </blockquote>
-    
-    <p>首先上面代码可以看到有几个<strong>重复</strong>的值和变量
+      <b>Q: 简化代码可以引用吗?可以那怎么引用?</b>
+      <p>A: 首先上面代码可以看到有几个<strong>重复</strong>的值和变量
       <br>是可以使用引用的</p>
+    </blockquote>
     
     <p>使用引用后</p>
     
-    <p><bcode>
-      <ctitle>RP/ui/start_screen.json</ctitle>
-      <lcode>"text@text_common": {
+    <c>"text@text_common": {
   "text": "a"
 },
 
@@ -92,11 +87,11 @@
 "text_common": {
   "type": "text",
   "size": [ "default", "100%" ]
-}</lcode></bcode>
-      这样，<a class="panel">text、text_2</a>控件都能用到type和size的值
+}</c>
+      <p>这样，<lc>text、text_2</lc>控件都能用到type和size的值
       并且值是<strong>相同</strong>的</p>
     
-    <p>那么<strong>引用</strong>只需要在在<a class="c1-red">控件名</a>后加上<a class="panel">@控件名</a></p>
+    <p>那么<strong>引用</strong>只需要在在<a class="c1-red">控件名</a>后加上<lc>@控件名</lc></p>
     
     <p>这样就能在这个控件引用其他控件的属性值了！</p>
     
@@ -106,9 +101,7 @@
     
     <p>例如：</p>
     
-    <p><bcode>
-      <ctitle>RP/ui/start_screen.json</ctitle>
-      <lcode>"text@text_common": {
+    <c>"text@text_common": {
   "text": "a"
 },
 
@@ -120,7 +113,7 @@
   "type": "text",
   "size": [ "default", "100%" ],
   "text": "$a"
-}</lcode></bcode>
+}</c><p>
     这样就可以做到了
       <br><br><strong>引用</strong>和<b>继承</b>的共同和不同点
     </p>
@@ -132,10 +125,8 @@
     </ul>
     
     <h2>继承引用</h2>
-    <p>如下面代码所示，<a class="panel">@$变量名</a>就可以使用继承引用了
-    <bcode>
-      <ctitle>RP/ui/start_screen.json</ctitle>
-      <lcode>"panel": {
+    <p>如下面代码所示，<lc>@$变量</lc>就可以使用继承引用了</p>
+    <c>"panel": {
   "type": "panel",
   "$b": "控件名",
   "controls": [
@@ -143,13 +134,11 @@
       "a@$b": {}
     }
   ]
-}</lcode></bcode>
-      接着，给<a class="panel">$变量</a>赋值
+}</c>
+      <p>接着，给变量赋值
       <br>看到上方代码所示</p>
     
-    <p>赋值只需要</p>
-    
-    <p class="panel">"$变量": "控件名"</p>
+    <p>赋值只需要<lc>"$变量": "控件名"</lc></p>
     
     <p>引用和继承是UI进阶的重点</p>
     
@@ -159,7 +148,6 @@
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
 
-  <link href="../src/css/hl.css" rel="stylesheet">
   <script src="../src/js/hl.js"></script>
 
   <link href="../src/css/animate.css" rel="stylesheet">

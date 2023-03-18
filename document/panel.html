@@ -69,10 +69,8 @@
       <h2>controls</h2>
       controls属性，我们常常用于在当前控件添加子控件
       <br>所有控件都可以使用controls属性
-      <p>例如
-<bcode>
-  <ctitle>RP/ui/start_screen.json</ctitle>
-  <lcode>"image": {
+      <p>例如</p>
+<c>"image": {
   "type": "image",
   "texture": "textures/item/apple",
   "controls": [
@@ -84,9 +82,7 @@
     },
     {"empty@common.empty_panel": {}}
   ]
-}</lcode>
-</bcode>
-      </p>
+}</c>
       在controls属性中，子控件首尾都有{ }包裹，
       <br>由上可知，text,empty是子控件，image是text,empty的父控件。
       <br><br>父控件能改变子控件的锚点、大小范围，这都取决于父控件的大小；
@@ -99,10 +95,8 @@
       <br>例如改变面板控件的<a class="panel">layer</a>，该面板控件的子控件<a class="panel">layer</a>也在增加。
       <br>面板相当于HTML的<a class="panel">"div"</a>
       </p>
-      <p>例如：
-<bcode>
-<ctitle>RP/ui/start_screen.json</ctitle>
-<lcode>"panel": {
+      <p>例如：</p>
+<c>"panel": {
   "type": "panel",
   "size": [ 100, 100 ],
   "controls": [
@@ -123,8 +117,7 @@
       }
     }
   ]
-}</lcode>
-</bcode></p>
+}</c>
 <img src="../src/image/panel.png" width="100%"></img>
 效果如上图所示，白色边框是面板控件的大小；
 <br>面板可以改变 "label" 控件的锚点定位，因为锚点是基于父控件定位的。
@@ -132,10 +125,8 @@
 <h2>堆叠面板</h2>
 堆叠面板控件与普通的面板一样，也是看不见的。
 <p>堆叠面板能根据子控件的 "size" 属性堆叠子控件
-<br>例如：
-<bcode>
-  <ctitle>RP/ui/start_screen.json</ctitle>
-  <lcode>"panel": {
+<br>例如：</p>
+<c>"panel": {
   "type": "panel",
   "size": [ 100, 100 ],
   "controls": [
@@ -170,9 +161,7 @@
       }
     }
   ]
-}</lcode>
-</bcode>
-</p>
+}</c>
 <img src="../src/image/stack_panel.png" width="100%" />
 <p>在代码中“hello world”被拆成两个控件，图中的堆叠面板把它们堆叠一起。
 <br>所以看起来只是一个控件
@@ -184,9 +173,8 @@
 <p>但是，在堆叠面板中。子控件不能改变自身的位置。（改变锚点以及偏移）
 <br>因为子控件锚点基于父控件的左上方作为原点并排列堆叠，所以子控件总是在父控件的左上方。
 <br>如需修改，需要在子控件内在加上子控件
-<br>举个例子：
-<bcode>
-  <lcode>"stack_panel": {
+<br>举个例子：</p>
+<c>"stack_panel": {
   "type": "stack_panel",
   "controls": [
     {
@@ -207,9 +195,7 @@
       }
     }
   ]
-}</lcode>
-</bcode>
-</p>
+}</c>
 <p>"orientation"用于改变堆叠面板的堆叠方向
 <ed> <b>orientation</b> <et>堆叠方式</et>
 <br><br>值：字符串/列举
@@ -218,10 +204,8 @@
 <br>vertical - 垂直
 <br>horizontal - 水平
 </ed>
-<br>在"size"属性中，可以使用"fill"填充堆叠面板剩余空间。
-<bcode>
-  <ctitle>RP/ui/start_screen.json</ctitle>
-  <lcode>"panel": {
+<br>在"size"属性中，可以使用"fill"填充堆叠面板剩余空间。</p>
+<c>"panel": {
   "type": "panel",
   "size": [ 100, 100 ],
   "controls": [
@@ -257,9 +241,8 @@
       }
     }
   ]
-}</lcode>
-</bcode>
-这里不在展示"fill"大小效果，有兴趣可以自己尝试！
+}</c>
+<p>这里不在展示"fill"大小效果，有兴趣可以自己尝试！
 <br>在堆叠面板中的除 img 外，X轴剩余大小为 90%；
 <br>所以<a class="panel">img2</a>子控件大小为[ "90%", 16 ]。
 </p>
@@ -270,10 +253,8 @@
 <p>那操作面板有什么特别之处呢？
 <br>答：操作面板能控制以及限制操作方式，使得面板控件更有互动性。</p>
 
-<p>例：
-</p>
-
-<bcode><ctitle>RP/ui/start_screen.json</ctitle><lcode>"input_panel": {
+<p>例如：</p>
+<c>"input_panel": {
   "type": "input_panel",
   "size": [ 100, 100 ],
   "controls": [
@@ -293,13 +274,12 @@
       }
     }
   ]
-}</lcode></bcode>
-效果与普通的面板控件一致，不再展示。
+}</c>
+<p>效果与普通的面板控件一致，不再展示。
 
 <p>对于操作面板，它的属性你知道多少？</p>
 
 <tip>
-
 <b>提示</b>
 <br>button_mappings 按钮映射已在<a class="list-link" href="./button.html">按钮控件（点击跳转）</a>讲到，这里不再介绍。
 </tip>
@@ -387,9 +367,8 @@
 <br>所以使用它需要引用 ui_common.json 文件的 scrolling_panel 控件
 <br>即 <lc>@common.scrolling_panel</lc>
 </p>
-<p>首先展示下滚动面板的代码
-
-<bcode><ctitle>RP/ui/start_screen.json</ctitle><lcode>"scrolling_panel@common.scrolling_panel": {
+<p>首先展示下滚动面板的代码</p>
+<c>"scrolling_panel@common.scrolling_panel": {
   "$show_background": false,// 显示背景
   "$scrolling_content": "stack_panel",// 滚动面板内容
   "size": [ "100%", "100%" ]// 滚动面板大小
@@ -402,8 +381,7 @@
     {"label_1":{"type":"label","text":"hello world"}},
     {"label_2":{"type":"label","text":"hello world"}}
   ]
-}</lcode></bcode>
-</p>
+}</c>
 <p>
 接下来，我们先来讲下滚动面板的基本属性
 
@@ -440,7 +418,7 @@
 <br>需要 <lc>$show_background</lc> 为 true 显示背景，所做的背景才得以显示
 </tip>
 
-<bcode><ctitle>RP/ui/start_screen.json</ctitle><lcode>"scrolling_panel@common.scrolling_panel": {
+<c>"scrolling_panel@common.scrolling_panel": {
   "$show_background": false,// 显示背景
   "$scrolling_content": "stack_panel",// 滚动面板内容
   "size": [ "100%", "100%" ],// 滚动面板大小
@@ -460,7 +438,7 @@
     {"label_1":{"type":"label","text":"hello world"}},
     {"label_2":{"type":"label","text":"hello world"}}
   ]
-}</lcode></bcode>
+}</c>
 像上面，使用 <lc>$scroll_background_image_control</lc> 更改背景
 
 <ed>
@@ -524,7 +502,7 @@
 <br>只要加上这两个属性并引用控件即可: <lc>$scroll_box_mouse_image_control</lc> 
 <lc>$scroll_box_touch_image_control</lc>
 
-<bcode><ctitle>RP/ui/start_screen.json</ctitle><lcode>"scrolling_panel@common.scrolling_panel": {
+<c>"scrolling_panel@common.scrolling_panel": {
   "$show_background": false,// 显示背景
   "$scrolling_content": "stack_panel",// 滚动面板内容
   "size": [ "100%", "100%" ],// 滚动面板大小
@@ -545,7 +523,7 @@
     {"label_1":{"type":"label","text":"hello world"}},
     {"label_2":{"type":"label","text":"hello world"}}
   ]
-}</lcode></bcode>
+}</c>
 
 <tip>
 
@@ -566,7 +544,7 @@
 <br>在上方已经讲到 input_panel 所有关于屏蔽操作属性，那么也很简单。
 <br>只要屏蔽触控操作即可
 
-<bcode><ctitle>RP/ui/start_screen.json</ctitle><lcode>"input_panel": {
+<c>"input_panel": {
   "type": "input_panel",
   "prevent_touch_input": true,
   "size": [ 100, 100 ],
@@ -579,11 +557,11 @@
       }
     }
   ]
-}</lcode></bcode>
+}</c>
 
 <h2> 代码示例</h2>
 <h3> 面板控件</h3>
-<bcode><ctitle>RP/ui/start_screen.json</ctitle><lcode>"panel": {
+<c>"panel": {
   "type": "panel",
   "size": [ 100, 100 ],
   "controls": [
@@ -604,9 +582,9 @@
       }
     }
   ]
-}</lcode></bcode>
+}</c>
 <h3> 堆叠面板</h3>
-<bcode><ctitle>RP/ui/start_screen.json</ctitle><lcode>"stack_panel": {
+<c>"stack_panel": {
   "type": "stack_panel",
   "orientation": "horizontal",
   "size": [ 100, 100 ],
@@ -625,9 +603,9 @@
       }
     }
   ]
-}</lcode></bcode>
+}</c>
 <h3> 操作面板</h3>
-<bcode><ctitle>RP/ui/start_screen.json</ctitle><lcode>"input_panel": {
+<c>"input_panel": {
   "type": "input_panel",
   "size": [ 100, 100 ],
   "controls": [
@@ -647,9 +625,9 @@
       }
     }
   ]
-}</lcode></bcode>
+}</c>
 <h3> 滚动面板</h3>
-<bcode><ctitle>RP/ui/start_screen.json</ctitle><lcode>"scrolling_panel@common.scrolling_panel": {
+<c>"scrolling_panel@common.scrolling_panel": {
   "$show_background": false,// 显示背景
   "$scrolling_content": "stack_panel",// 滚动面板内容
   "size": [ "100%", "100%" ]// 滚动面板大小
@@ -662,7 +640,7 @@
     {"label_1":{"type":"label","text":"hello world"}},
     {"label_2":{"type":"label","text":"hello world"}}
   ]
-}</lcode></bcode>
+}</c>
 
 好了，文档就讲完面板控件了。
 <br>如果有什么问题可以在视频评论区提问哦 (～￣▽￣)～ 
@@ -672,7 +650,6 @@
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
 
-  <link href="../src/css/hl.css" rel="stylesheet">
   <script src="../src/js/hl.js"></script>
 
   <link href="../src/css/animate.css" rel="stylesheet">
