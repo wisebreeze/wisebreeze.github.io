@@ -103,13 +103,6 @@ window.onload = function () {
     }
     // 解析文本
     var body = document.getElementById("root").innerHTML;
-        // 标题
-        body = body.replace(/\.hr/g, "<hr class=\"title-hr wow fadeInLeftBig\" data-wow-delay=\"1.5s\"></hr>");
-        // 提示
-        body = body.replace(/\.{2}tip/g, "</div></div>");
-        body = body.replace(/\.tip/g, "<div class=\"tip wow bounceInLeft\" data-wow-delay=\"0.8s\"><div class=\"tip-text\">");
-        // 换行
-        body = body.replace(/\.hh/g, "<br>");
         // 控件
         body = body.replace(/\.{2}ep/g, "</div>");
         body = body.replace(/\.ep/g, "<div class=\"panel wow bounceInLeft\" data-wow-delay=\"0.8s\"><p>");
@@ -167,21 +160,29 @@ $("ed").each(function(){
     $(this).find("et").addClass('panel c1-yellow c-gray');
 });
 // 代码
-$("bcode").each(function(){
-    // 自动分配复制ID
-    //var copy_id = "copy_id_" + Math.trunc((Math.floor(Math.random() * ((new Date()).valueOf() - 32767 + 1)) + (new Date().getSeconds())) / 520);
-    // 改变代码样式
-    $(this).find("lcode").html("<pre class=\"json\"><code id=\"" + copyPrefix + copy_id + "\">" + $(this).find("lcode").html() + "</code></pre>");
-    $(this).find("ctitle").addClass("code-title");
-    // 准备复制按钮
-    $(this).find("ctitle").append("<button class=\"copy-btn\" onclick=copy_code('" + copyPrefix + copy_id + "')><svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 25 25\" wdith=\"22\" height=\"22\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z\"></path></svg><a>复制</a></button>")
-    $(this).html("<div class=\"code\">\n" + $(this).html() + "\n</div>");
+$("c").each(function(){
+    $(this).addClass("code");
+    let c_title = $(this).attr("title") || "RP/ui/start_screen.json";
+    let code = $(this).html();
+    $(this).empty();
+    $(this).prepend(`<div class="code-head">
+  <div class="code-head-title">${c_title}</div>
+<div>`);
+    $(this).find(".code-head").append(`<button class="copy-btn" onclick=copy_code('${copyPrefix}${copy_id}')><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 25 25" wdith="22" height="22" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg><a>复制</a></button>`);
+    $(this).append(`<div class="code-body">
+  <div class="code-line-number-div ns"></div>
+  <pre class="json"><code id="${copyPrefix}${copy_id}">${code}</code></pre>
+</div>`);
+    let line_number = (code.split('\n')).length;
+    for (i=0;i<line_number;i++) {
+      $(this).find(".code-body > .code-line-number-div").append(`<div>${i+1}</div>`);
+    }
+    $(this).find(".code-body > pre > code").html('<div class="code-line">'+$(this).find(".code-body > pre > code").html().replace(/\n/g,'</div><div class="code-line">')+"</div>");
     copy_id++;
 });
-// 自动代码换行
-$("code").each(function(){
+/*$("code").each(function(){
     $(this).html("<ul><li>" + $(this).html().replace(/\n/g,"</li><li>") +"</li></ul>");
-});
+});*/
 
 // 开启侧边栏
 function openNav() {
