@@ -28,13 +28,12 @@
 
 ### 链接
 ```
-<a class="list-link" href="这里写跳转的链接">链接文字</a>
+<a class="link" href="这里写跳转的链接">链接文字</a>
 ```
 
 ### 标题
 ```
-<br><span class="title wow fadeInLeftBig" data-wow-delay="1.5s">段落标题</span>
-<hr class="title-hr wow fadeInLeftBig" data-wow-delay="1.5s"></hr>
+<h2>段落标题</h2>
 ```
 
 ### 提示
@@ -47,46 +46,35 @@
 
 ### 警告
 ```
-<warning>
+<warn>
     <b>警告</b>
     <br>提示内容
-</warning>
+</warn>
 ```
 
 ### 表格
 ```
-<table border="1" class="wow bounceInLeft" data-wow-delay="0.8s">
-  <caption>表格标题</caption>
+<table>
   <thead><tr><th>属性名</th><th>值</th><th>介绍</th></tr></thead>
   <tbody><tr><td>XXX</td><td>字符串</td><td>...</td></tr>
   <tr><td>XXX</td><td>布尔值</td><td>...</td></tr>
 </table>
 ```
 
-### 控件属性解释框
-```
-.ep.bb 属性名称 ..bb .et属性简介..et
-    <p>值：字符串/布尔值/数字/数组/对象
-    <p>默认值：XXX
-        <br>属性的详细介绍
-    </p>
-..ep
-```
 
-### 仅带行号的高亮代码框
+### 代码块
 ```
-<pre class="json"><code>
-JSON代码内容
-</code></pre>
-```
-
-### 带行号和复制按钮的高亮代码框
-```
-<bcode>
-    <ctitle>RP/ui/start_screen.json</ctitle>
-    <lcode>"控件": {
+<c>"控件": {
   // 这个是示例代码，请自行更改
   "test": "aaa"
-}</lcode>
-</bcode>
+}</c>
+```
+
+
+### 代码块 [代码块顶部标题]
+```
+<c title="代码块顶部标题">"控件": {
+  // 这个是示例代码，请自行更改
+  "test": "aaa"
+}</c>
 ```
