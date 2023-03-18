@@ -49,18 +49,14 @@
 <p>HUD屏幕是游戏中最常打开的屏幕，因此我们需要添加控件到HUD屏幕。
 <br>当然，我们也经常使用HUD、开始屏幕测试控件。</p>
 <p>首先，我们先添加控件一个控件：</p>
-<bcode>
-<ctitle>RP/ui/hud_screen.json</ctitle>
-<lcode>"test": {
+<c title="RP/ui/hud_screen.json">"test": {
   "type": "label",
   "text": "hello world"
-}</lcode></bcode>
+}</c>
 <p>上面的控件只是举例，你可以换成其他类型的控件！</p>
 <p>添加一个控件就是如此简单，但是现在控件还不能在HUD屏幕上显示。</p>
 <p>所以我们接下来在 root_panel 控件使用 <lc>modification</lc> 属性添加控件到HUD屏幕上显示。</p>
-<bcode>
-  <ctitle>RP/ui/hud_screen.json</ctitle>
-  <lcode>
+<c title="RP/ui/hud_screen.json">{
 "test": {
   "type": "label",
   "text": "hello world"
@@ -76,8 +72,7 @@
       ]
     }
   ]
-}
-</lcode></bcode>
+}</c>
 <p>代码中，控件都在同一个文件，因此我们可以把 <lc>@hud.test</lc> 改成 <lc>@test</lc>。</p>
 <p>我们在 root_panel 执行修改操作，相当于在 controls 添加控件，不过这样也不会影响到其他HUD控件的使用。</p>
 <p>modifications 属性执行的修改操作为 insert_back，也就是添加控件到 controls 底部。</p>
@@ -87,7 +82,6 @@
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
 
-  <link href="../src/css/hl.css" rel="stylesheet">
   <script src="../src/js/hl.js"></script>
 
   <link href="../src/css/animate.css" rel="stylesheet">

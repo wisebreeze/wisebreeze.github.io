@@ -48,34 +48,18 @@
 <div class="left_content"><p>对于新手来说，不知道如何添加控件？
 hh这篇文章主要讲解如何添加控件。</p>
 <p>那么要如何添加控件呢？</p>
-<bcode>
-      <ctitle>RP/ui/start_screen.json</ctitle>
-      <lcode>{
+<c>{
   "namespace": "start",
 
   "test": {
     "type": "label",
     "text": "hello world"
   }
-}</lcode></bcode>
+}</c>
 <p>像这样，在json根添加新json对象(即控件)即可。</p>
-<p><a class="c-red">但是你不能像下面的代码这么做！</a></p>
-<bcode><lcode>{
-  "namespace": "start",
-  
-  // 这样做是错误的，请不要模仿！
-  {
-    "test": {
-      "type": "label",
-      "text": "hello world"
-    }
-  }
-}</lcode></bcode>
 <hr>
 <p>添加一个控件就是如此简单，那么如何让控件在屏幕上显示呢？</p>
-<bcode>
-      <ctitle>RP/ui/start_screen.json</ctitle>
-      <lcode>{
+<c>{
   "namespace": "start",
 
   "test": {
@@ -107,20 +91,19 @@ hh这篇文章主要讲解如何添加控件。</p>
       }
     ]
   }
-}</lcode></bcode>
+}</c>
 <p>在代码中，删掉了一些无关此教程的代码。</p>
 <p>你也可以像上面的代码这样做，因为属性已经在原版代码中声明，<a class="c-red">我们要做的就是重新声明"controls"！</a>重新声明"controls"可以覆盖原版的"controls"以达到显示控件的效果。</p>
 <hr>
 <p>那么要如何找到每个屏幕文件的XXX_screen_content？</p>
 <p>很简单！每个代码编辑器都有个搜索功能。在搜索框输入并搜索<a class="c1-gold">“_screen_content”</a>即可</p>
 <hr>
-<p>恭喜！你已经完成文档的所有新手教程。.hh现在你可以使用文档完善你的UI了。</p>
+<p>恭喜！你已经完成文档的所有新手教程。<br>现在你可以使用文档完善你的UI了。</p>
   </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
 
-  <link href="../src/css/hl.css" rel="stylesheet">
   <script src="../src/js/hl.js"></script>
 
   <link href="../src/css/animate.css" rel="stylesheet">

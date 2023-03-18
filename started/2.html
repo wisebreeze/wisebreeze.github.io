@@ -122,11 +122,11 @@
     <h2>JSON压缩和格式化</h2>
     > 无论是压缩还是格式化，只要语法正确都能解析
     <br>json压缩后文件体积更小，例如
-    <bcode><lcode>{"a":"b"}</lcode></bcode>
+    <c title="代码">{"a":"b"}</c>
     但是数据较多时很难阅读，格式化更能更好编辑json，例如
-    <bcode><lcode>{
+    <c title="代码">{
   "a":"b"
-}</lcode></bcode>
+}</c>
     但是这样做会<b class="c-red">增加文本字节</b>
     <h2>JSON注释</h2>
     一般所有编程语言都可以<b>注释代码</b>
@@ -134,13 +134,13 @@
     <br><b class="c-blue">单行注释</b>的符号是<a class="panel">//</a>，//后面的内容在这行不会被解析
     <br><b class="c-blue">段落注释</b>的符号分别为<a class="panel">/*</a>和<a class="panel">*/</a>，/*后面的内容将不会被解析，直到*/
     <br>例如
-    <bcode><lcode>{
+    <c title="代码">{
   //这行不会被解析
   "a": "b"
   /*
   这里不能被解析
   */
-}</lcode></bcode>
+}</c>
     <h2>JSON转义</h2>
     值为<b>字符串</b>时
     <br><a class="c-red">不能直接把</a><a class="panel">"</a><a class="c-red">填入字符串</a>
@@ -156,7 +156,6 @@
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
 
-  <link href="../src/css/hl.css" rel="stylesheet">
   <script src="../src/js/hl.js"></script>
 
   <link href="../src/css/animate.css" rel="stylesheet">
