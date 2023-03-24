@@ -51,245 +51,87 @@
         </div>
       </p>
     </div>
-    <div class="left_content"><p>在Json UI中，图片控件是每个屏幕界面必不可少的控件</p>
+    <div class="left_content">
     
-    <h2>常用属性</h2>
-    
-    <tip>
-    <b>提示：</b>
-      <br>size等常用属性被整理至另外一个文件
-    <p><a class="home-btn" href="./index.html">点击查看</a></p>
-    </tip>
-    
-    <p>图片的控件类型为<lc>image</lc></p>
-    
-    <c title="代码">"type": "image"</c>
-    <p>以下是图片一些常用属性：</p>
-    
-    .ep.bb texture ..bb .et图片的路径..et</p>
-      <p>值：字符串/路径
-        <br>* 值为空时图片以紫黑材质显示(代表该图片不存在或格式无法解析)
-        <br>例如：<a class="panel c1-blue">textures/ui/anvil_icon </a>
-        <br>根目录以RP（资源包）文件夹开始
-        <br>图片格式建议为.jpg .png .tga
-      </p>
-    ..ep
-    
-    .ep.bb alpha ..bb .et图片透明度..et</p>
-      <p>值：浮点数
-        <br>默认值：1
-        <br>改变图片的透明度，但不改变图片内的控件透明度
-        <p>值的范围为<a class="c-red">0 ~ 1</a></p>
-      </p>
-    ..ep
-    
-    <h2>其他属性</h2>
-    
-    <p>以下是附属的图片属性，一般用来完善图片控件</p>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>tiled</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">平铺贴图</a></p>
-      <p>值：布尔值 | 字符串
-        <br>默认值：false
-        <p>
-          <b>值为布尔值时</b>
-          <br>是否复制多个贴图并平铺至当前图片控件的大小
-        </p>
-        <p>
-          <b>值为字符串时</b>
-          <br>字符串只能为"x"和"y"
-          <br>平铺的方向可以是x轴或y轴方向平铺
-        </p>
-      </p>
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>tiled_scale</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">平铺比例</a></p>
-      <p>值：数组
-        <br>例如：<a class="panel c1-blue">[32,32]</a>
-        <br>如果原贴图大小为16x，将平铺比例设置为32x。平铺贴图时每张贴图大小为32x，而不是16x
-        <br>使用该属性必须设tiled的值为true
-      </p>
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>grayscale</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">黑白滤镜</a></p>
-      <p>值：布尔值
-        <br>默认值：false
-        <br>是否让图片以黑白方式显示
-      </p>
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>bilinear</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">使贴图双线性滤波</a></p>
-      <p>值：布尔值
-        <br>默认值：false
-        <br>是否让图片以双线性滤波显示
-      </p>
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>fill</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">填充贴图</a></p>
-      <p>值：布尔值
-        <br>默认值：false
-        <br>是否填充图片直到当前控件的大小
-      </p>
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>keep_ratio</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">保持贴图比例</a></p>
-      <p>值：布尔值
-        <br>默认值：false
-        <br>是否让图片保持原有的比例
-      </p>
-    </div>
-    
-    .ep.bb allow_debug_missing_texture ..bb .et 显示错误材质 ..et
-      <p>值：布尔值
-         <br>默认值：true
-         <br>当"textures"使用的路径不存在或图片不存在时，是否使用RP/textures/misc/missing_texture.png作为图片显示
-      </p>
-    ..ep
+    <h2>属性</h2>
 
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>nineslice_size</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">九宫格切片纹理</a></p>
-      <p>值：浮点数 | 数组
-        <br>默认值：0
-        <br>改变图片的九宫格切片
-        <br>九宫格切片即为图片在父控件的九宫格比例
-        <br>
-        <br>值作为浮点数时不能为负数
-        <p>九宫格切片有三种形式
-          <li>浮点数</li>
-          <li>[x,y]</li>
-          <li>[x¹,y¹,x²,y²]</li>
-        </p>
-        <p><a class="c-light-blue">以下“浮点数”简称为"?"</a>
-        <br>九宫格外的像素会保持原样，在九宫格切片以内的像素会按照九宫格比例放大
-        </p>
-        <b>当不使用九宫格时：</b>
-        <div style="margin-left: 15px;">图片保持1:1的九宫格切片</div>
-        <b>当九宫格为浮点数时：</b>
-        <div style="margin-left: 15px;">图片九宫格切片的X轴和Y轴<a class="c-red">都</a>会向内“?”格延伸</div>
-        <b>当九宫格为[x,y]时：</b>
-        <div style="margin-left: 15px;">图片九宫格切片的X轴和Y轴<a class="c-red">分别</a>会向内[ x, y ]格延伸
-        <br>例如：[20,12]
-        <br>九宫格X轴会向内20格延伸，九宫格X轴会向内12格延伸。
-        <br>九宫格外的像素会忽略，保持原样；
-        <br>九宫格内的像素会按照九宫格比例放大。</div>
-        <b>当九宫格为[x¹,y¹,x²,y²]时：</b>
-        <div style="margin-left: 15px;">图片九宫格切片的X轴和Y轴<a class="c-red">分别</a>会向内[ x¹, y¹, x², y² ]格延伸
-        <br>例如：[2,7,5,9]
-        <br>九宫格左上角的X轴和Y轴<a class="c-red">分别</a>会向内[ x¹, y¹ ]格延伸；
-        <br>九宫格右下角的X轴和Y轴<a class="c-red">分别</a>会向内[ x², y² ]格延伸。
-        <br>九宫格外的像素会忽略，保持原样；
-        <br>九宫格内的像素会按照九宫格比例放大。</div>
-      </p>
-    </div>
+    <table>
+      <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+      <tr><td>texture</td><td>纹理路径</td><td>字符串：路径</td><td></td><td>图片所在的路径<sup>[1]</sup><br>例如：<lc>textures/ui/anvil_icon</lc></td></tr>
+      <tr><td>fill</td><td>填充</td><td>布尔值</td><td>false</td><td>图片是否填满至控件大小</td></tr>
+      <tr><td>tiled</td><td>平铺</td><td>布尔值 或 字符串：列举</td><td>false</td>
+        <td>图片是否平铺或者图片平铺的方向。 <sup>[2]</sup>
+        <br><br>作为布尔值并且为 true 时：<br>图片将从控件左上角向右下方平铺。<br>（超出部分会被忽略隐藏）
+        <br><br>作为布尔值并且为 false 时：<br>图片不会平铺。
+        <br><br>作为字符串时：详见 <a href="#pid_2" class="link">平铺方向 ></a><br></td>
+      </tr>
+      <tr><td>tiled_scale</td><td>平铺缩放</td><td>数组：矢量[x,y]</td><td></td><td>图片的平铺的缩放大小。<sup>[3]</sup></td></tr>
+      <tr><td>nineslice_size</td><td>九宫格切片纹理</td><td>浮点数、数组：矢量[x,y]、数组：矢量[x1,y1,x2,y2]</td><td>0</td><td>详见 <a href="#pid_3" class="link">九宫格切片纹理 ></a></td></tr>
+      <tr><td>uv</td><td>UV</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>图片映射的初始位置，改变基于左上角的映射位置。<br><br>uv偏移方向如下：<br><img src="../src/image/uv.png" width="75px" height="75px" style="border-radius:0;" /></td></tr>
+      <tr><td>uv_size</td><td>UV大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>图片映射的大小。</td></tr>
+      <tr><td>base_size</td><td>基本大小</td><td>数组：矢量[x,y]</td><td></td><td>图片的基本大小。</td></tr>
+      <tr><td>bilinear</td><td>双线性</td><td>布尔值</td><td>false</td><td>是否使图片以双线性滤波形式显示。<br><br>双线性是一种非线性滤波器，它可以达到保持边缘、降噪平滑的效果。</td></tr>
+      <tr><td>grayscale</td><td>灰白滤镜</td><td>布尔值</td><td>false</td><td>图片是否使用灰白滤镜显示。</td></tr>
+      <tr><td>keep_ratio</td><td>保持比例</td><td>布尔值</td><td>true</td><td>图片是否保持比例。</td></tr>
+      <tr><td>allow_debug_missing_texture</td><td>允许调试丢失材质</td><td>布尔值</td><td>true</td><td>图片是否允许调试丢失材质。<br><br>当显示的图片不存在时，是否使用<lc>textures/misc/missing_texture.png</lc>作为显示。</td></tr>
+      <tr><td>force_texture_reload</td><td>更改路径重新加载</td><td>布尔值</td><td>false</td><td>是否在 <lc>zip_folder</lc> <lc>texture_file_system</lc> 更改时，强制重新加载图片。</td></tr>
+      <tr><td>zip_folder</td><td>压缩包路径</td><td>字符串：路径</td><td></td><td>图片在压缩包中的路径。<br>例如：<lc>xxx.zip/textures/ui/anvil_icon</lc></td></tr>
+      <tr><td>texture_file_system</td><td>系统路径</td><td>字符串：路径</td><td></td><td>图片在压缩包中的路径。<br>例如：<lc>/storage/emulated/0/.../anvil_icon</lc><br><a class="c-red">实际路径会因系统而异！</a></td></tr>
+    </table>
+    <ol>
+    <li>路径不存在或无法解析图片时会显示为紫黑材质</li>
+    <li>图片使用平铺时，<lc>fill</lc>属性没有作用。</li>
+    <li><lc>"tiled_scale": [32,32]</lc>，如果图片像素大小为 16 x 16 ，那么在图片平铺的情况下，图片像素缩放到 32 x 32。</li></ol>
     
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>uv</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">图片显示的原点</a></p>
-      <p>值：数组
-        <br>默认值：[ 0, 0 ]
-        <br>默认的图片原点默认为左上角的[0,0]位置
-        <br>建议配合下面的<b>uv_size</b>使用
-        <br><br>例如："uv": [ x, y ]
-        <br>参考坐标图
-        <br><img width="100" height="auto" src="../src/image/正方向.png"></img>
-        <tip>
-          <b>注意</b>
-          <br>&nbsp;&nbsp;如果第一个值超过贴图的长，那么图片将不会显示
-          <br>&nbsp;&nbsp;如果第二个值超过贴图的宽，那么图片将不会显示
-        </tip>
-        如果：
-        <br>texture指定的图片大小是2900*1080
-        <br>uv是[ 1, 3 ]
-      <br>将截取从贴图左上角<a class="c-red">向右1格，向下3格</a>的像素至右下角边缘的像素作为显示的目标
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>uv_size</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">图片最大显示区域</a></p>
-      <p>值：数组
-        <br>用于改变图片的显示区域
-        <br>方向如上图所示
-        <p>
-          如果：
-          <br>texture指定的图片大小是2900*1080
-          <br>uv_size是[ 2800, 1080 ]
-          <br>会从贴图左上角开始<b>向右2800格，向下1080格</b>的像素至原点的区域为显示的目标
-          <br>[原点可通过uv改变]
-        </p>
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>force_texture_reload</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">更改路径时是否重新加载图片</a></p>
-      <p>值：布尔值
-        <br>默认值：false
-        <br>用于重新加载图片
-    </div>
-    
-    .ep.bb zip_folder ..bb .et zip路径 ..et
-      <p>值：字符串/路径
-        <br>与<a class="c-red">texture</a>属性一致
-    ..ep
-    
-    .ep.bb texture_file_system ..bb .et 系统路径 ..et
-      <p>值：字符串/路径
-        <br>与<a class="c-red">texture</a>属性一致，但路径指的是系统路径（会因操作系统而异）
-    ..ep
-    
-    <h2>动图属性</h2>
-    
-    <tip>
-    <b>提示</b>
-    <br>如果第二个值超过贴图的宽，那么图片将不会显示
-    </tip>
+    <h2>平铺方向</h2>
+    <p>当<lc>tiled</lc>属性作为字符串时，因使用以下所列举的字符串改变平铺方向：</p>
+    <table><thead>
+    <tr><th>字符串</th><th>描述</th></tr></thead><tbody>
+    <tr><td>x</td><td>图片将从控件正左方 向 X轴右方平铺。（如果图片在Y轴有剩余部分，会把图片高度拉伸至控件高度）</td></tr>
+    <tr><td>y</td><td>图片将从控件正上方 向 Y轴下方平铺。（如果图片在X轴有剩余部分，会把图片宽度拉伸至控件宽度）</td></tr>
+    <tr><td>xy</td><td>图片将从控件左上方 向 控件右下方平铺。</td></tr>
+    <tr><td>yx</td><td>图片将从控件左上方 向 控件右下方平铺。</td></tr></tbody>
+    </table>
+    <h2>九宫格切片纹理</h2>
+    九宫格切片纹理即图片的九宫格切片，一种将图片分成 9 块的方法，因此称为九宫格切片纹理。
+    <br>使用九宫格切片纹理调整图片大小后，图片角落将保持同等大小，内部部分将用于拉伸。
+    <tip><b>提示</b><br>九宫格切片纹理的值不能为负数。</tip>
+    其中，九宫格切片有四种类型：<b>无九宫格切片纹理</b>、<b>九宫格切片纹理</b>、<b>矢量[x,y]九宫格切片纹理</b>、<b>矢量[x1,y1,x2,y2]九宫格切片纹理</b>
+    <br>接下来，我们仔细讲解九宫格切片的每种类型
+    <h3>无九宫格切片纹理</h3>
+    在没有"nineslice_size"属性的情况下，没有无九宫格切片。
+    <h3>九宫格切片纹理</h3>
+    <img src="../src/image/ns/1.png" width="300px" />
+    <br>格式：<lc>"nineslice_size": int</lc>
+    <br>示例：<lc>"nineslice_size": 1</lc>
+    <br>设图像X轴和Z轴九宫格切片的角落大小。【X轴 = Y轴】
+    <h3>矢量[x,y]九宫格切片纹理</h3>
+    <img src="../src/image/ns/2.png" width="300px" />
+    <br>格式：<lc>"nineslice_size": [ x, y ]</lc>
+    <br>示例：<lc>"nineslice_size": [ 2, 2 ]</lc>
+    <br>设图像X轴和Z轴九宫格切片的角落大小。【 X轴 和 Y轴 不关联（影响） 】
+    <h3>矢量[x1,y1,x2,y2]九宫格切片纹理</h3>
+    <img src="../src/image/ns/2.png" width="300px" />
+    <br>格式：<lc>"nineslice_size": [ x1, y1, x2, y2 ]</lc>
+    <br>示例：<lc>"nineslice_size": [ 2, 2, 2, 2 ]</lc>
+    <br>设图像两角的X轴和Z轴九宫格切片的角落大小
+    <br>【 左上角：X1 和 Y1；右下角：X2 和 Y2 】
+
+    <h2>制作动图</h2>
     
     <p>那么如何制作动图？</p>
     
-    <p>1.首先，图片如果是Gif图片需要折分并转换为其它图片格式</p>
+    <p>1. 首先，图片如果是Gif图片需要折分并转换为其它图片格式</p>
     
-    <p>2.然后再将每张图片合并为一张图片（水平拼接），例如下方图片</p>
-    
-    <tip>
-      <b>注意</b>
-      <br>每张图片的长度和宽度要相等
-    </tip>
+    <p>2. 然后再将每张图片合并为一张图片（水平拼接），例如下方图片</p>
 
     <p><img src="data:image/PNG;base64,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" alt="图片" title="" />
     </p><p>将图片存储到资源包内的一个位置</p>
-    
-    
-      3.然后回到你要添加动图的文件，并添加基础的图片控件和属性
-      <br><a class="c-red">* 下面以下文代码作演示(texture的值填你刚存放图片的资源包路径)</a></p>
-    
-<c>"test_image": {
-  "type":"image",
-  "texture":"textures/ui/auto_save",
-  "size":[16,16]
-}</c>
-      4.在控件内部添加变量
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>disable_anim_fast_forward</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">禁用动画快进</a>
-      </p>
-      <p>值：布尔值
-        <br>默认值：false
-        <br>一般使用动图时用true
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>uv_size</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">贴图最大显示区域</a>
-      </p>
-      <p>上面讲过了,但要在这强调一次
-        <br>作为动图时，uv_size表示的是一帧图片的大小
-        <br>如果是128*16的图片，拼接的图片有8张
-        <br>那么uv_size就是[ 长÷<b>拼接图片数量</b>, 图片的宽 ]
-    </div>
 
-    <p>填完后…</p>
+      3. 在控件内部添加属性
     
-    <p>＊不要照抄，这里仅做示范，可能会与你的代码不同</p>
+    <tip><b>提示</b><br>1. 不要照抄，这里仅做示范，可能会与你的代码不同
+<br>2. <a class="c-red">texture中填你刚存放图片的资源包路径</a></tip>
     
     <c>"auto_save": {
   "type": "image",
@@ -299,7 +141,7 @@
   "disable_anim_fast_forward": true
 }</c>
       <p>并没有这么简单，<strong>上面只是一个<em></strong>静态<strong></em>图片控件</strong></p>
-    5.写个新的动画控件
+    4. 写个动画控件
     
     <p>在动画控件填入</p>
     
@@ -307,60 +149,16 @@
   "anim_type": "flip_book",
   "easing": "linear"
 }</c>
-    <p>注意：动画控件无需<lc>"type"</lc>键值，并且动画控件最好与图片控件在同一文件中</p>
-    6.在动画控件添加变量
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>initial_uv</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动图播放的起点</a>
-      </p>
-      <p>值：数组
-        <br>默认值：[ 0, 0 ]
-        <br>值跟上面uv一样
-    </div>
+    <tip><b>注意</b><br>动画控件无需使用<lc>"type"</lc>，并且动画控件最好与图片控件在同一文件中</tip>
+    5. 完善动画控件
+    <p>我们逐次填入下列属性：<br>
+    <b>initial_uv</b>：直接填 <lc>"initial_uv": [0,0]</lc>，可以忽略。<br>
+    <b>easing</b>：直接填 <lc>"easing": "linear"</lc>，可以忽略。<br>
+    <b>frame_count</b>：拼接的图片有多少张就填多少，例如<lc>frame_count</lc>。<br>
+    <b>fps</b>：数字越大，播放越快，例如<lc>"fps": 60</lc>。<br>
+    <b>frame_step</b>：拼接的每张图片有多长，就填多少，例如<lc>"frame_step": 18</lc>。</p>
 
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>easing</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画样式</a>
-      </p>
-      <p>值：字符串/列举
-        <br>以后讲控件动画会详细讲到
-        <br>作动图时建议为"easing": "linear"
-    </div>
-
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>reversible</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">重复播放</a>
-      </p>
-      <p>值：布尔值
-        <br>默认值：false
-        <br>为true时，动图将重复播放
-    </div>
-
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>frame_count</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">图片数量（帧数数量）</a>
-      </p>
-      <p>值：整数
-        <br>默认值：1
-        <br>拼接的图片有多少张就填多少
-    </div>
-
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>fps</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">帧数</a>
-      </p>
-      <p>值：浮点数
-        <br>默认值：1
-        <br>数字越大，播放越快
-    </div>
-
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>frame_step</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">单张图片的长度</a>
-      </p>
-      <p>值：整数
-        <br>默认值：1
-        <br>拼接的每张图片有多长，整数就填多少
-    </div>
-
-    <p>动画控件的属性就这么多了</p>
-    
-    <p>填完的效果可能这样的</p>
+    <p>填完的效果可能这样的。</p>
     
     <c>"image_anim": {
   "anim_type": "flip_book",
@@ -371,7 +169,7 @@
   "reversible": true,
   "easing": "linear"
 }</c>
-      7.回到图片控件添加uv变量
+      6. 回到图片控件添加uv属性
       <p>例如：</p>
     
     <c>"auto_save": {
@@ -385,7 +183,7 @@
       <p>在这里，uv的值是<b>字符串</b>
       <br>并且值必须是<a class="panel">"@动画控件名称"</a></p>
     
-    <p>8.检查代码格式是否正确</p>
+    <p>7. 检查代码格式是否正确</p>
     
     <p>好了，<strong>动图控件</strong>已经完成，记得引用控件才能显示在屏幕上哦
       <br>下面是完整的示例代码</p>
@@ -400,6 +198,39 @@
   "easing": "linear"
 },
 
+"test_image": {
+  "type": "image",
+  "texture": "textures/ui/auto_save",
+  "size": [ 18, 30 ],
+  "uv_size": [ 18, 30 ],
+  "uv": "@image_anim",
+  "disable_anim_fast_forward": true
+}</c>
+<h2>外部 JSON 文件属性</h2>
+在 <lc>textures/ui/</lc> 文件夹中，有些图片旁边有同名的文件。
+<br>这些文件打开一看，却装着 JSON UI 的属性，到底是怎么回事呢？我们来研究下吧！
+<br><br>在外部 JSON 文件声明属性能直接定义图片的属性，无需多次在 JSON UI 文件中声明属性！
+<br>打开文件，内部代码格式为
+<c title="代码">{"base_size":[8,8],"nineslice_size":[2,2]}</c>
+
+里面那些属性通常为 <lc>"base_size"</lc> <lc>"nineslice_size"</lc>。
+<br>那要如何创建一个图像文件呢？
+<br>只要在创建一个与图像重名的 .json 文件即可，
+<br>例如：<lc>test.png</lc> -> <lc>test.json</lc>
+<h2>代码示例</h2>
+<c title="普通的图像控件">"image": {
+  "type": "image",
+  "textures": "textures/items/apple"
+}</c>
+
+<c title="动图">"image_anim": {
+  "anim_type": "flip_book",
+  "initial_uv": [ 0, 0 ],
+  "frame_count": 9,
+  "frame_step": 18,
+  "fps": 10,
+  "easing": "linear"
+},
 "test_image": {
   "type": "image",
   "texture": "textures/ui/auto_save",
