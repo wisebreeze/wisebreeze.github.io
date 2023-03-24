@@ -55,11 +55,11 @@
               <textarea readonly id="result_output" rows="6"></textarea>
             </div></div>
             <div class="btn_div">
-            <button class="home-btn" onclick="copy_output()">复制输出内容</button>
-            <button class="home-btn" onclick="str_to_base64()">转为 base64</button>
-            <button class="home-btn" onclick="base64_to_str()">解密 base64</button>
-            <button class="home-btn" onclick="str_to_morse()">转为 摩斯电码</button>
-            <button class="home-btn" onclick="morse_to_str()">解密 摩斯电码</button></div>
+            <button class="btn" onclick="copy_output()">复制输出内容</button>
+            <button class="btn" onclick="str_to_base64()">转为 base64</button>
+            <button class="btn" onclick="base64_to_str()">解密 base64</button>
+            <button class="btn" onclick="str_to_morse()">转为 摩斯电码</button>
+            <button class="btn" onclick="morse_to_str()">解密 摩斯电码</button></div>
         </div>
 <style>
 .category_content {
@@ -77,12 +77,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.btn_div > .home-btn {
-  display: block;
-  width: 100%;
-  height: 2.2rem;
-  margin: 4px;
 }
 </style>
 <script>
