@@ -131,7 +131,6 @@ window.onload = function () {
         //$(this).find('div').addClass("wow bounceInUp");// 加载动画
         //$(this).find('div').attr("data-wow-delay","0.5s");// 加载动画延迟
         $(this).find('div').append(`<a class="home-btn" href="${back_link}">${back_text}</a>`);// 返回按钮
-        //$(this).find('div').append("<a class=\"edit-btn\" href=\"https://github.com/MCspruce/MCspruce.github.io\">在 github 上编辑</a>");// 编辑按钮
         $(this).html("<br>" + $(this).html());
     });
     //加载目录
@@ -336,4 +335,9 @@ function changeMode() {
     } else {
         console.log("main.js: 浏览器不支持储存，或没有储存权限！");
     }
+}
+
+// open_url
+function open_url(url) {
+  window.location.href = url;
 }
