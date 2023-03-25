@@ -23,12 +23,7 @@
     <script src="./src/js/jQuery.js"></script>
     <div class="top_header">
         <ul>
-            <li class="animated rollIn">
-              <div>
-                <a id="open-btn" style="top: -2px;padding: 1px;cursor:pointer;font-size: 20px" onclick="openNav()">&#9776;</a>
-                <a id="close-btn" style="top: -30px;font-size: 20px" href="javascript:void(0)" onclick="closeNav()">◄</a>
-              </div>
-            </li>
+            <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
             <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
             <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
         </ul>
@@ -50,15 +45,8 @@
             <b>提示</b>
             <br>未来部分 JSON UI 屏幕可能会被 Ore UI 代替，不过要小心点，可能会导致 JSON UI 资源包部分屏幕失效！
         </tip>
-          <!--<p><div style="border-radius: 10px;padding: 5px 15px 15px 15px;" class="panel">
-          <label>觉得教程文档满意吗？</label><a style="float: right;" class="home-btn" href="https://shimo.im/forms/m4kMLLBMyLTQNEqD/fill?channel=bilibili">填写问卷</a></div></p>--></div>
-        <!--标题2-->
-        <div id="p2" class="title" data-wow-delay="0.5s">目录</div>
-        <hr class="title-hr" data-wow-delay="0.5s"></hr>
-        <!--<tip>
-            <span style="font-size: medium;">你好，欢迎您为JSON UI文档进行完善！
-            <p><div style="display: inline;"><a class="edit-btn" data-wow-delay="0.5s" href="https://github.com/MCspruce/MCspruce.github.io">在 github 上编辑</a> <a class="edit-btn" data-wow-delay="0.5s" href="./thanks.html">贡献名单</a></div></p></span>
-        </tip>-->
+        <div id="p2" class="title">目录</div>
+        <hr class="title-hr"></hr>
         <div>
             <div class="category_div" icon="fa fa-book" title="入门">
               <div class="category_content">
@@ -128,12 +116,6 @@
               <a class="list-link doc-link" href="./tool/uuid.html">生成 UUID</a><br>
               <a class="list-link doc-link" href="./tool/encode.html">加密 / 解密</a>
             </div></div>
-        </div>
-        <div class="right_content animated bounceInRight">
-        <div style="width: 20vw;" class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
-            阅读进度 - <a id="number_progress"></a>
-            <div class="progress-bg"><div id="progress"></div></div>
-        </div>
         </div>
     </div></div>
     <!--正文-->
