@@ -23,12 +23,7 @@
   <script src="../src/js/jQuery.js"></script>
   <div class="top_header">
     <ul>
-      <li class="wow rollIn">
-        <div>
-          <a id="open-btn" onclick="openNav()">&#9776;</a>
-          <a id="close-btn" onclick="closeNav()">◄</a>
-        </div>
-      </li>
+      <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
       <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
       <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
     </ul>
@@ -39,18 +34,6 @@
   <!--正文-->
   <div id="content">
     <div class="left_title"><h1>引用</h1></div>
-    <div class="right_content animated bounceInRight">
-      <div class="dropdown">
-        <button class="drop_btn" onclick="dropdown()"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;目录</button>
-        <div class="dropdown-content" id="DropdownContent"></div>
-      </div>
-      <p>
-        <div class="info-panel pc animated bounceInRight" data-wow-delay="0.65s">
-          阅读进度 - <a id="number_progress"></a>
-          <div class="progress-bg"><div id="progress"></div></div>
-        </div>
-      </p>
-    </div>
     <div class="left_content"><p>简单来说，引用就是使用其他控件的属性和变量。</p>
     <p>下面我们来探究一下什么是引用吧！</p>
     <p>首先~先看下面代码</p>
