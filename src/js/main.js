@@ -145,14 +145,10 @@ window.onload = ()=>{
     $(this).html("<br>" + $(this).html());
   });
   //加载目录
-  $("h1").each(function(){
-    $(this).addClass("top-title");// 加载Class
-  });
   $("h2,h3,h4,h5,h6").each(function(){
     headingLevel = this.tagName.toLowerCase();// 获取该遍历的小写标签名
     headingName = $(this).text();// 获取段落名
     $(this).attr({"id": `pid_${pid}`});// 给该元素添加标签
-    $(this).addClass("title");// 给该元素添加Class类名
     $("#guide > .guide_content > hr").before(`<a class="menu-${headingLevel} data-mu6jn" href="#pid_${pid}">${headingName}</a>`);// 写入到目录
     pid++;// 为下一个遍历准备ID
   });
