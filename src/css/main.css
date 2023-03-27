@@ -1068,8 +1068,7 @@ textarea:focus, .input:focus {
 }
 
 #guide > .guide_head {
-  display: block;
-  height: 24px;
+  display: flex;
   padding: 8px 5px 8px 5px;
   font-weight: bold;
   background: var(--category-head);
