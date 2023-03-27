@@ -23,7 +23,7 @@ else if ((document.body) && (document.body.clientWidth)) winWidth = document.bod
 
 // 目录
 $("#root").append(`<div id="guide_div"><div id="guide" class="ns">
-  <div class="guide_head">导航＆目录</div>
+  <div class="guide_head"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;导航＆目录</div>
   <div class="guide_content"></div>
 </div></div>`);
 $("#guide_div").addClass("close");
