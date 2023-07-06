@@ -2,129 +2,128 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <title home="true">我的世界基岩版 UI 文档</title>
-    <link rel="shortcut icon" href="./favicon.ico">
-    <link rel="icon" sizes="100x100" href="./favicon.ico">
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
-    <meta name="apple-touch-icon-precomposed" size="57x57" href="./web_icon.png">
-    <meta name="apple-touch-icon-precomposed" size="114x114" href="./web_icon.png">
-    <meta name="apple-touch-icon-precomposed" size="152x152" href="./web_icon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
-    <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
-    <meta name="author" content="MC_spruce">
+  <meta charset="UTF-8">
+  <title home="true">我的世界基岩版 UI 文档</title>
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="icon" sizes="100x100" href="./favicon.ico">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="./web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="./web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="./web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
 
-    <link href="./src/css/main.css" rel="stylesheet">
-    <script src="./src/js/jQuery.js"></script>
-    <div class="top_header">
-        <ul>
-            <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
-            <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
-            <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
-        </ul>
-    </div>
+  <link href="./src/css/main.css" rel="stylesheet">
+  <script src="./src/js/jQuery.js"></script>
+  <div class="top_header">
+    <ul>
+      <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
+      <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
+      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
+    </ul>
+  </div>
 </head>
 <body id="root" data-theme="light">
-    <!--正文-->
-    <div id="content">
-        <div class="left_content" hide_bq="true">
-        <h1 style="margin-top: 1rem;">首页</h1>
-        <!--标题1-->
-        <div><p>本文档适用于 MCBE 开发者创作 UI，可以参考文档内容来制作您的 UI。</p>
-        <p>
-        <div class="info-panel ns">
-          <a style="font-weight: bold;">文档作者：云杉Yunshan</a>
-          <div class="info-div"><a href="https://b23.tv/FFwBDKM">B站主页</a><div style="width: 10px;"></div><a href="./group.html">交流群</a></div></div></p>
-        <h2>目录</h2>
-        <div>
-            <div class="category_div" icon="fa fa-book" title="入门">
-              <div class="category_content">
-              <a href="started/1.html">准备开发环境</a><br>
-              <a href="started/2.html">JSON 基础语法</a><br>
-              <a href="started/3.html">认识 JSON UI</a><br>
-              <a href="started/4.html">创建控件</a><br>
-              <a href="started/5.html">添加控件到 Hud 屏幕</a>
-            </div></div>
-            <div class="category_div" icon="fa fa-file-text-o" title="控件">
-              <div class="category_content">
-              <table><tbody>
-              <tr>
-                <td><b>label (文本)</b></td>
-                <td>
-                  <a href="document/label.html">文本属性</a><br>
-                  <a href="document/layout.html">布局属性</a><br>
-                  <a href="document/index.html">共同属性</a><br>
-                  <a href="document/bindings.html">绑定属性</a>
-                </td>
-              </tr>
-              <tr>
-                <td><b>image (图片)</b></td>
-                <td>
-                  <a href="document/image.html">图片属性</a><br>
-                  <a href="document/layout.html">布局属性</a><br>
-                  <a href="document/index.html">共同属性</a><br>
-                  <a href="document/bindings.html">绑定属性</a>
-                </td>
-              </tr>
-              <tr>
-                <td><b>panel (面板)</b></td>
-                <td>
-                  <a href="document/panel.html">面板属性</a><br>
-                  <a href="document/layout.html">布局属性</a><br>
-                  <a href="document/index.html">共同属性</a><br>
-                  <a href="document/bindings.html">绑定属性</a>
-                </td>
-              </tr>
-              <tr>
-                <td><b>button (按钮)</b></td>
-                <td>
-                  <a href="document/button.html">按钮属性</a><br>
-                  <a href="document/layout.html">布局属性</a><br>
-                  <a href="document/index.html">共同属性</a><br>
-                  <a href="document/bindings.html">绑定属性</a>
-                </td>
-              </tr>
-              </tbody></table>
-            </div></div>
-            <div class="category_div" icon="fa fa-file-picture-o" title="参考文档">
-              <div class="category_content">
-              <a class="list-link doc-link" href="document/quote.html">引用</a><br>
-              <a class="list-link doc-link" href="document/var.html">变量</a><br>
-              <a class="list-link doc-link" href="document/anim.html">动画</a>
-            </div></div>
-            <div class="category_div" icon="fa fa-file-code-o" title="实践操作">
-              <div class="category_content">
-              <a class="list-link doc-link" href="tutorial/bg.html">修改界面背景</a><br>
-              <a class="list-link doc-link" href="tutorial/mask.html">蒙版剪辑</a><br>
-              <a class="list-link doc-link" href="tutorial/交易.html">查看所有交易物品</a>
-            </div></div>
-            <div class="category_div" icon="fa fa-briefcase" title="工具箱">
-              <div class="category_content">
-              <a class="list-link doc-link" href="./tool/color.html">Color 转换器</a><br>
-              <a class="list-link doc-link" href="./tool/random.html">生成随机字符</a><br>
-              <a class="list-link doc-link" href="./tool/uuid.html">生成 UUID</a><br>
-              <a class="list-link doc-link" href="./tool/encode.html">加密 / 解密</a>
-            </div></div>
-        </div>
-    </div></div>
-    <!--正文-->
-    <script src="./src/js/main.js"></script>
-    <link href="./src/css/color.css" rel="stylesheet">
+  <!--正文-->
+  <div id="content">
+    <div class="left_content" hide_bq="true">
+    <h1 style="margin-top: 1rem;">首页</h1>
+    <!--标题1-->
+    <div><p>本文档适用于 MCBE 开发者创作 UI，可以参考文档内容来制作您的 UI。</p>
+    <p class="start-menu-tip">提示：阅读文章时，点击左上角打开目录。</p>
+    <p>
+    <div class="info-panel ns">
+      <a style="font-weight: bold;">文档作者：云杉Yunshan</a>
+      <div class="info-div"><a href="https://b23.tv/FFwBDKM">B站主页</a><div style="width: 10px;"></div><a href="./group.html">交流群</a></div></div></p>
+    <h2>目录</h2>
+    <div>
+      <div class="category_div" icon="fa fa-book" title="入门">
+        <div class="category_content">
+        <a href="started/1.html">准备开发环境</a><br>
+        <a href="started/2.html">JSON 基础语法</a><br>
+        <a href="started/3.html">认识 JSON UI</a><br>
+        <a href="started/4.html">创建控件</a><br>
+        <a href="started/5.html">添加控件到 Hud 屏幕</a>
+      </div></div>
+      <div class="category_div" icon="fa fa-file-text-o" title="控件">
+        <div class="category_content">
+        <table><tbody>
+        <tr>
+          <td><b>label (文本)</b></td>
+          <td>
+            <a href="document/label.html">文本属性</a><br>
+            <a href="document/layout.html">布局属性</a><br>
+            <a href="document/index.html">共同属性</a><br>
+            <a href="document/bindings.html">绑定属性</a>
+          </td>
+        </tr>
+        <tr>
+          <td><b>image (图片)</b></td>
+          <td>
+            <a href="document/image.html">图片属性</a><br>
+            <a href="document/layout.html">布局属性</a><br>
+            <a href="document/index.html">共同属性</a><br>
+            <a href="document/bindings.html">绑定属性</a>
+          </td>
+        </tr>
+        <tr>
+          <td><b>panel (面板)</b></td>
+          <td>
+            <a href="document/panel.html">面板属性</a><br>
+            <a href="document/layout.html">布局属性</a><br>
+            <a href="document/index.html">共同属性</a><br>
+            <a href="document/bindings.html">绑定属性</a>
+          </td>
+        </tr>
+        <tr>
+          <td><b>button (按钮)</b></td>
+          <td>
+            <a href="document/button.html">按钮属性</a><br>
+            <a href="document/layout.html">布局属性</a><br>
+            <a href="document/index.html">共同属性</a><br>
+            <a href="document/bindings.html">绑定属性</a>
+          </td>
+        </tr>
+        </tbody></table>
+      </div></div>
+      <div class="category_div" icon="fa fa-file-picture-o" title="参考文档">
+        <div class="category_content">
+        <a class="list-link doc-link" href="document/quote.html">引用</a><br>
+        <a class="list-link doc-link" href="document/var.html">变量</a><br>
+        <a class="list-link doc-link" href="document/anim.html">动画</a>
+      </div></div>
+      <div class="category_div" icon="fa fa-file-code-o" title="实践操作">
+        <div class="category_content">
+        <a class="list-link doc-link" href="tutorial/bg.html">修改界面背景</a><br>
+        <a class="list-link doc-link" href="tutorial/mask.html">蒙版剪辑</a><br>
+        <a class="list-link doc-link" href="tutorial/交易.html">查看所有交易物品</a>
+      </div></div>
+      <div class="category_div" icon="fa fa-briefcase" title="工具箱">
+        <div class="category_content">
+        <a class="list-link doc-link" href="./tool/color.html">Color 转换器</a><br>
+        <a class="list-link doc-link" href="./tool/random.html">生成随机字符</a><br>
+        <a class="list-link doc-link" href="./tool/uuid.html">生成 UUID</a><br>
+        <a class="list-link doc-link" href="./tool/encode.html">加密 / 解密</a>
+      </div></div>
+    </div>
+  </div></div>
+  <!--正文-->
+  <script src="./src/js/main.js"></script>
+  <link href="./src/css/color.css" rel="stylesheet">
 
-    <script src="./src/js/hl.js"></script>
+  <script src="./src/js/hl.js"></script>
 
-    <link href="./src/css/font-awesome.css" rel="stylesheet">
-    <link href="./src/css/animate.css" rel="stylesheet">
-    <script src="./src/js/WOW.js"></script>
-    <script>
-    new WOW().init();
-    hljs.initHighlightingOnLoad();
-    </script>
-</body>
-
-</html>
+  <link href="./src/css/font-awesome.css" rel="stylesheet">
+  <link href="./src/css/animate.css" rel="stylesheet">
+  <script src="./src/js/WOW.js"></script>
+  <script>
+  new WOW().init();
+  hljs.initHighlightingOnLoad();
+  </script>
+</body></html>
