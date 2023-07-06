@@ -39,17 +39,9 @@
     <p>什么是按钮？
     <br>它能让你打开其他的界面，还会根据四种状态<a class="panel c1-gold">默认，悬停，按下，锁定</a>来改变按钮本身的纹理</p>
     
-    <p>你可以<a class="panel c1-light-green">@common.button</a>来引用原版的按钮控件</p>
-    <p>也可以使用type定义button控件</p>
-    <c title="示例">"button": {
-  "type": "button"
-}</c>
+    <p>你可以在控件引用<a class="panel c1-light-green">@common.button</a>来使用按钮控件，因为这样能更方便一些。</p>
+    <p>提示：以下属性仅适用于 button 控件类型。</p>
     <h2>定义按钮属性</h2>
-    <tip>
-    <b>提示：</b>
-      <br>size等常用属性被整理至另外一个文件
-    <p><a class="home-btn" href="./index.html">点击查看</a></p>
-    </tip>
     <p>这些属性可以不用写，因为@commom.button时就已经默认了</p>
     
     <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
@@ -117,7 +109,7 @@
     <h2>按钮映射</h2>
     
     <p>直接添加按钮只会改变自身材质，如果需要按钮有实际作用，
-    <br>需要使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a class="list-link" href="./anim.html">动画控件</a>)</p>
+    <br>需要使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a href="./anim.html">动画控件</a>)</p>
     <a class="c-red">触发映射条件时而且from_button_id指定按键按下并松手仅触发一次to_button_id事件</a>
     <br>下面我们来认识一下如何添加按钮映射吧！
 

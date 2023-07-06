@@ -35,42 +35,14 @@
   <div id="content">
     <div class="left_title"><h1>面板控件</h1></div>
     <div class="left_content">
-      <br>面板控件，在HTML网页中是一个必不可少的元素，
-      <br>它可以改变部分子元素的布局！
-      <p>当然，在JSON UI中也可以改变页面的布局。</p>
+      面板控件，在屏幕中也是一个必不可少的元素，
+      <br>它可以合理规划屏幕的布局！
       <p>接下来，我们会讲以下关于面板的控件：
       <br>&nbsp;&nbsp;panel（面板）
       <br>&nbsp;&nbsp;stack_panel（堆叠面板）
       <br>&nbsp;&nbsp;input_panel（输入面板）
       <br>&nbsp;&nbsp;滚动面板
       </p>
-      <tip>
-      <b>提示：</b>
-        <br>size等常用属性被整理至另外一个文件
-      <p><a class="home-btn" href="./index.html">点击查看</a></p>
-      </tip>
-      <h2>controls</h2>
-      controls属性，我们常常用于在当前控件添加子控件
-      <br>所有控件都可以使用controls属性
-      <p>例如</p>
-<c>"image": {
-  "type": "image",
-  "texture": "textures/item/apple",
-  "controls": [
-    {
-      "text": {
-        "type": "label",
-        "text": "test"
-      }
-    },
-    {"empty@common.empty_panel": {}}
-  ]
-}</c>
-      在controls属性中，子控件首尾都有{ }包裹，
-      <br>由上可知，text,empty是子控件，image是text,empty的父控件。
-      <br><br>父控件能改变子控件的锚点、大小范围，这都取决于父控件的大小；
-      <br>在controls属性中，你可以添加无数个子控件，
-      <br>子控件中，可以继续使用controls为当前的子控件添加子控件。
       <h2>面板</h2>
       在JSON UI中，有一个叫面板(panel)的控件，TA与按钮、图片不同，它是一种无色<s>无味</s>的透明控件。
       <br>虽然控件看不见，但它在每个JSON UI必不可缺，起着重大作用。
@@ -264,7 +236,7 @@
 
 <tip>
 <b>提示</b>
-<br>button_mappings 按钮映射已在<a class="list-link" href="./button.html">按钮控件（点击跳转）</a>讲到，这里不再介绍。
+<br>button_mappings 按钮映射已在<a href="./button.html">按钮控件（点击跳转）</a>讲到，这里不再介绍。
 </tip>
 
 <ed>
