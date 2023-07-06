@@ -19,7 +19,7 @@
   <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
   <meta name="author" content="MC_spruce">
   
-  <link href="https://jsonui.netlify.app/src/css/main.css" rel="stylesheet">
+  <link href="./main.css" rel="stylesheet">
   <script src="https://jsonui.netlify.app/src/js/jQuery.js"></script>
   <div class="top_header">
     <ul>
@@ -35,33 +35,13 @@
   <div id="content">
     <div class="left_title"><h1>控件常用属性</h1></div>
     <div class="left_content">
-      <ed>
-        <p><b>type</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">控件类型</a></p>
-        <p>值：字符串
-            <br>定义这个控件的类型
-            <br>字符串的值可能为
-            <ul>
-              <li>screen</li>
-              <li>panel</li>
-              <li>stack_panel</li>
-              <li>input_panel</li>
-              <li>label</li>
-              <li>image</li>
-              <li>button</li>
-              <li>toggle</li>
-              <li>dropdown</li>
-              <li>grid</li>
-              <li>slider</li>
-              <li>edit_box</li>
-              <li>custom</li>
-              <li>factory</li>
-              <li>scroll_view</li>
-              <li>scroll_track</li>
-              <li>scrollbar_box</li>
-              <li>selection_wheel</li>
-            </ul>
-        </p>
-    </ed>
+      <table>
+      <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+      <tr><td>type</td><td>控件类型</td><td>字符串：列举</td><td></td><td>定义该控件的类型。<br>列举的值有：<br>screen、panel、stack_panel、input_panel、label、image、button、toggle、dropdown、slider、edit_box、custom、factory、scroll_view、scroll_track、scrollbar_box、selection_wheel</td></tr>
+      <tr><td>controls</td><td>子控件</td><td>数组：控件数组</td><td></td><td>添加子控件。<br>添加子控件示例：<c>"test": {
+  "controls": [{"hi":{"type":"label","text":"hello world"}}]
+}</c>子控件允许继承和引用，因此并不需要把子控件所有属性写在controls中。</td></tr>
+      </table>
     <ed>
     <b> color </b> <et class="panel c1-yellow c-gray">控件颜色</et>
     <p>值：数组 | 字符串
@@ -156,17 +136,17 @@
     ..ep
     <ed>
         <p><b>anims</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画</a></p>
-        <p>在其他文件中详细介绍，<a class="list-link" href="./anim.html">点我跳转</a>
+        <p>在其他文件中详细介绍，<a href="./anim.html">点我跳转</a>
         </p>
     </ed>
     <ed>
         <p><b>animation_reset_name</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画重置名称</a></p>
-        <p>在其他文件中详细介绍，<a class="list-link" href="./anim.html">点我跳转</a>
+        <p>在其他文件中详细介绍，<a href="./anim.html">点我跳转</a>
         </p>
     </ed>
     <ed>
         <p><b>controls</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">嵌套控件</a></p>
-        <p>在其他文件中详细介绍，<a class="list-link" href="./panel.html">点我跳转</a>
+        <p>在其他文件中详细介绍，<a href="./panel.html">点我跳转</a>
         </p>
     </ed>
     <ed>
