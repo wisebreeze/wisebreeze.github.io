@@ -116,7 +116,7 @@ function to_html() {
             now_result = split_content[i]
 .replace(/^\>(.*)/g, '<blockquote>$1</blockquote>')//引用 (> )
 .replace(/\!\[(.*?)\]\((.*?)\)/g,'<img width="100%" title="$1" src="$2" />')//图片 (![test](/xxx.png))
-.replace(/\[(.*?)\]\((.*?)\)/g,'<a class="list-link" href="$2">$1</a>')//链接 ([test](https://www.google.com))
+.replace(/\[(.*?)\]\((.*?)\)/g,'<a href="$2">$1</a>')//链接 ([test](https://www.google.com))
 .replace(/^```json/g,"<c>")//代码头 (```json)
 .replace(/```/g,"</c>")//代码尾 (```)
 .replace(/`(.*)`/g,"<lc>$1</lc>")//行内代码 (`xxx`)
