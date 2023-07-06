@@ -132,7 +132,7 @@ window.onload = ()=>{
       document.getElementById("root").innerHTML = body;
 
   //插入内容
-  if($("div.left_content").attr("hide_bq") == null) $("div.left_content").append("<fieldset>\n    <legend>版权声明</legend>\n    1、除非另有说明，否则文档内容均采用<a class=\"list-link\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
+  if($("div.left_content").attr("hide_bq") == null) $("div.left_content").append("<fieldset>\n    <legend>版权声明</legend>\n    1、除非另有说明，否则文档内容均采用<a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
   const to_top_text = $("#root").attr("to_top_text") || "回顶部";
   $("div.left_content").append(`<div id="to_top">\n    <button class="to_top" onclick="to_top();">\n      <div>\n        <span>▲</span><div class="to-top-text">${to_top_text}</div>\n      </div>\n    </button>\n  </div>`);
   if ($("title").attr("home") == null && $("title")) for (var linkTarget in guide_link.link) $("#guide > .guide_content").append(`<a class="link-button" href="${guide_link.link[linkTarget].link}">${guide_link.link[linkTarget].title}</a>`);
@@ -157,7 +157,6 @@ window.onload = ()=>{
 // 分类
 $(".category_div").each(function(){
   $(this).prepend(`<div class="category_head ns"><i class="${$(this).attr("icon")}"></i>&nbsp;${$(this).attr("title")}</div>`);
-  $(this).find(".category_content a").addClass("list-link doc-link");
 });
 // 控件说明
 $("ed").each(function(){
