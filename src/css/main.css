@@ -302,17 +302,17 @@ h6 {font-size: 0.8rem !important;}
 
 .menu-h2, .menu-h3, .menu-h4, .menu-h5, .menu-h6 {
   display: block;
-  color: var(--sidebar-btn-t);
+  color: var(--sidebar-btn-t) !important;
   text-decoration: none;
   margin: 0.5em 3px 0.5em 3px;
 }
 .menu-h2:hover, .menu-h3:hover, .menu-h4:hover, .menu-h5:hover, .menu-h6:hover {
-  color: var(--link);
+  color: var(--link) !important;
   border-left: solid 3px var(--link-hover);
   padding-left: 0.3em;
 }
 .menu-this {
-  color: var(--link);
+  color: var(--link) !important;
   border-left: solid 3px var(--link-this-hover) !important;
   padding-left: 0.3em;
 }
@@ -526,26 +526,19 @@ legend {
 }
 
 /* 链接 */
-.doc-link {
+.category_content a[href] {
+  font-size: 1.1em;
+}
+a.big-link {
   font-size: 1.1em;
 }
 
-.list-link {
+a[href] {
   color: var(--link);
   text-decoration: none;
 }
 
-.list-link:hover {
-  color: var(--link-hover);
-}
-
-.link {
-  font-size: 1.1em;
-  color: var(--link);
-  text-decoration: none;
-}
-
-.link:hover {
+a[href]:hover {
   color: var(--link-hover);
 }
 
@@ -630,7 +623,7 @@ legend {
 .home-btn {
   text-decoration: none;
   background: var(--btn-bg);
-  color: #fff;
+  color: #fff !important;
   padding: 3px 8px 3px 8px;
   border: none;
   border-radius: 5px;
@@ -705,6 +698,10 @@ th, td {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   text-align: left;
+}
+
+table>tbody c{
+  width: 320px;
 }
 
 th {border: 1px solid var(--th-border);}
