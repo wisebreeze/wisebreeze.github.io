@@ -21,13 +21,6 @@
 
   <link href="./src/css/main.css" rel="stylesheet">
   <script src="./src/js/jQuery.js"></script>
-  <div class="top_header">
-    <ul>
-      <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
-      <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
-      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
-    </ul>
-  </div>
 </head>
 <body id="root" data-theme="light">
   <!--正文-->
@@ -36,83 +29,80 @@
     <h1 style="margin-top: 1rem;">首页</h1>
     <!--标题1-->
     <div><p>本文档适用于 MCBE 开发者创作 UI，可以参考文档内容来制作您的 UI。</p>
-    <p class="start-menu-tip">提示：阅读文章时，点击左上角打开目录。</p>
+    <p class="start-menu-tip">阅读文章时，点击左上角打开目录。</p>
     <p>
     <div class="info-panel ns">
       <a style="font-weight: bold;">文档作者：云杉Yunshan</a>
       <div class="info-div"><a href="https://b23.tv/FFwBDKM">B站主页</a><div style="width: 10px;"></div><a href="./group.html">交流群</a></div></div></p>
-    <h2>目录</h2>
-    <div>
-      <div class="category_div" icon="fa fa-book" title="入门">
-        <div class="category_content">
-        <a href="started/1.html">准备开发环境</a><br>
-        <a href="started/2.html">JSON 基础语法</a><br>
-        <a href="started/3.html">认识 JSON UI</a><br>
-        <a href="started/4.html">创建控件</a><br>
-        <a href="started/5.html">添加控件到 Hud 屏幕</a>
-      </div></div>
-      <div class="category_div" icon="fa fa-file-text-o" title="控件">
-        <div class="category_content">
-        <table><tbody>
-        <tr>
-          <td><b>label (文本)</b></td>
-          <td>
-            <a href="document/label.html">文本属性</a><br>
-            <a href="document/attr/layout.html">布局属性</a><br>
-            <a href="document/attr/index.html">共同属性</a><br>
-            <a href="document/attr/bindings.html">绑定属性</a>
-          </td>
-        </tr>
-        <tr>
-          <td><b>image (图片)</b></td>
-          <td>
-            <a href="document/image.html">图片属性</a><br>
-            <a href="document/attr/layout.html">布局属性</a><br>
-            <a href="document/attr/index.html">共同属性</a><br>
-            <a href="document/attr/bindings.html">绑定属性</a>
-          </td>
-        </tr>
-        <tr>
-          <td><b>panel (面板)</b></td>
-          <td>
-            <a href="document/panel.html">面板属性</a><br>
-            <a href="document/attr/layout.html">布局属性</a><br>
-            <a href="document/attr/index.html">共同属性</a><br>
-            <a href="document/attr/bindings.html">绑定属性</a>
-          </td>
-        </tr>
-        <tr>
-          <td><b>button (按钮)</b></td>
-          <td>
-            <a href="document/button.html">按钮属性</a><br>
-            <a href="document/attr/layout.html">布局属性</a><br>
-            <a href="document/attr/index.html">共同属性</a><br>
-            <a href="document/attr/bindings.html">绑定属性</a>
-          </td>
-        </tr>
-        </tbody></table>
-      </div></div>
-      <div class="category_div" icon="fa fa-file-picture-o" title="文档">
-        <div class="category_content">
-        <a href="document/quote.html">引用</a><br>
-        <a href="document/var.html">变量</a><br>
-        <a href="document/attr/anim.html">动画</a><br>
-        <a href="document/attr/modify.html">修改</a>
-      </div></div>
-      <div class="category_div" icon="fa fa-file-code-o" title="教程">
-        <div class="category_content">
-        <a href="tutorial/bg.html">修改界面背景</a><br>
-        <a href="tutorial/mask.html">蒙版剪辑</a><br>
-        <a href="tutorial/交易.html">查看所有交易物品</a>
-      </div></div>
-      <div class="category_div" icon="fa fa-briefcase" title="工具箱">
-        <div class="category_content">
-        <a href="./tool/color.html">Color 转换器</a><br>
-        <a href="./tool/random.html">生成随机字符</a><br>
-        <a href="./tool/uuid.html">生成 UUID</a><br>
-        <a href="./tool/encode.html">加密 / 解密</a>
-      </div></div>
-    </div>
+    <div class="category_div" icon="fa fa-book" title="入门">
+      <div class="category_content">
+      <a href="started/1.html">准备开发环境</a><br>
+      <a href="started/2.html">JSON 基础语法</a><br>
+      <a href="started/3.html">认识 JSON UI</a><br>
+      <a href="started/4.html">创建控件</a><br>
+      <a href="started/5.html">添加控件到 Hud 屏幕</a>
+    </div></div>
+    <div class="category_div" icon="fa fa-file-text-o" title="控件">
+      <div class="category_content">
+      <table><tbody>
+      <tr>
+        <td><b>label (文本)</b></td>
+        <td>
+          <a href="document/label.html">文本属性</a><br>
+          <a href="document/attr/layout.html">布局属性</a><br>
+          <a href="document/attr/index.html">共同属性</a><br>
+          <a href="document/attr/bindings.html">绑定属性</a>
+        </td>
+      </tr>
+      <tr>
+        <td><b>image (图片)</b></td>
+        <td>
+          <a href="document/image.html">图片属性</a><br>
+          <a href="document/attr/layout.html">布局属性</a><br>
+          <a href="document/attr/index.html">共同属性</a><br>
+          <a href="document/attr/bindings.html">绑定属性</a>
+        </td>
+      </tr>
+      <tr>
+        <td><b>panel (面板)</b></td>
+        <td>
+          <a href="document/panel.html">面板属性</a><br>
+          <a href="document/attr/layout.html">布局属性</a><br>
+          <a href="document/attr/index.html">共同属性</a><br>
+          <a href="document/attr/bindings.html">绑定属性</a>
+        </td>
+      </tr>
+      <tr>
+        <td><b>button (按钮)</b></td>
+        <td>
+          <a href="document/button.html">按钮属性</a><br>
+          <a href="document/attr/layout.html">布局属性</a><br>
+          <a href="document/attr/index.html">共同属性</a><br>
+          <a href="document/attr/bindings.html">绑定属性</a>
+        </td>
+      </tr>
+      </tbody></table>
+    </div></div>
+    <div class="category_div" icon="fa fa-file-picture-o" title="文档">
+      <div class="category_content">
+      <a href="document/quote.html">引用</a><br>
+      <a href="document/var.html">变量</a><br>
+      <a href="document/attr/anim.html">动画</a><br>
+      <a href="document/attr/modify.html">修改</a>
+    </div></div>
+    <div class="category_div" icon="fa fa-file-code-o" title="教程">
+      <div class="category_content">
+      <a href="tutorial/bg.html">修改界面背景</a><br>
+      <a href="tutorial/mask.html">蒙版剪辑</a><br>
+      <a href="tutorial/交易.html">查看所有交易物品</a>
+    </div></div>
+    <div class="category_div" icon="fa fa-briefcase" title="工具箱">
+      <div class="category_content">
+      <a href="./tool/color.html">Color 转换器</a><br>
+      <a href="./tool/random.html">生成随机字符</a><br>
+      <a href="./tool/uuid.html">生成 UUID</a><br>
+      <a href="./tool/encode.html">加密 / 解密</a>
+    </div></div>
   </div></div>
   <!--正文-->
   <script src="./src/js/main.js"></script>
