@@ -21,13 +21,6 @@
   
   <link href="https://jsonui.netlify.app/src/css/main.css" rel="stylesheet">
   <script src="https://jsonui.netlify.app/src/js/jQuery.js"></script>
-  <div class="top_header">
-    <ul>
-      <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
-      <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
-      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
-    </ul>
-  </div>
 </head>
 
 <body id="root" data-theme="light">
@@ -42,7 +35,7 @@
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
   <tbody><tr><td>size</td><td>大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>详见 <a href="#pid_2">控件大小 ><br></td></tr>
   <tr><td>offset</td><td>偏移量</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>详见 <a href="#pid_3">偏移量 ></a></td></tr>
-  <tr><td>layer</td><td>层级</td><td>数字</td><td>0</td><td>改变该控件的层级。<br><br>提高层级有利于防止被其他控件覆盖。</td></tr>
+  <tr><td>layer</td><td>层级</td><td>整数</td><td>0</td><td>控件的层级，相对于父控件。层级高的控件会显示在前方，同时也允许负数层级。</td></tr>
   <tr><td>min_size</td><td>最小大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>规定该控件最小的大小。如果 size < min_size ，则 size 使用 min_size 作为大小。<br><br>坐标轴详见 <a href="#pid_2">控件大小 ><br></td></tr>
   <tr><td>max_size</td><td>最大大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>规定该控件最大的大小。如果 size > max_size ，则 size 使用 max_size 作为大小。<br><br>坐标轴详见 <a href="#pid_2">控件大小 ><br></td></tr>
   <tr><td>anchor_from</td><td>父锚点</td><td>字符串</td><td>center</td><td>规定该控件的父锚点。<br><br>详见 <a href="#pid_4">锚点定位 ></a></td></tr>
@@ -66,34 +59,6 @@
 Y轴百分比<br>
 X轴百分比</p>
 
-为了方便新手了解父控件以及子控件，我们使用下例代码作为示例。
-控件的之间关系如下：
-<c>"header": {
-  // 我的控件名是 header
-  // 我的子控件是 text_panel
-  "type": "panel",
-  "controls": [
-    {"test": {}}
-    {
-      "text_panel": {
-        // 我的控件名是 text_panel
-        // 我的父控件是 header
-        // 我的子控件是 text
-        // 我的兄弟控件是 test
-        "type": "panel",
-        "controls": [
-          {
-            "text": {
-              // 我的控件名是 text
-              // 我的父控件是 text_panel
-              "type": "label"
-            }
-          }
-        ]
-      }
-    }
-  ]
-}</c>
 <table id="anchor_1">
   <thead><tr><th></th><th>值</th><th>示例</th><th>描述</th></tr></thead>
   <tbody><tr><td>像素</td><td>数字 或 字符串</td><td>[2,2]<br>["2px","2px"]</td><td>像素大小。<br>通常情况可以忽略 "px"。</td></tr>
