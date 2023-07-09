@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>继承</title>
+  <title>变量</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport"
@@ -26,172 +26,138 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>继承</h1></div>
-    <div class="left_content"><p>继承定义：变量继承到某个的控件的属性</p>
-    
-    <p>在原版资源包UI文件夹中
-        <br>里面存放一个叫<lc>_global_variables.json</lc>的文件
-        <br>这是文件里面的内容</p>
-    
-    <c title="RP/ui/_global_variables.json">{
-  //////// Text colors ////////
-  "$generic_button_text_color": [ 1.0, 1.0, 1.0 ],
-  "$light_button_default_text_color": [ 0.3, 0.3, 0.3 ],
-  "$light_button_hover_text_color": [ 1.0, 1.0, 1.0 ],
-  "$light_button_pressed_text_color": [ 1.0, 1.0, 1.0 ],
-  "$light_button_locked_text_color": [ 0.7, 0.7, 0.7 ],
-  …还有很多
-}</c>
-    <p>可以发现，代码都是<lc>"$变量": "值"</lc>
-    
-    <p><b>那么要如何在控件中使用变量呢？</b></p>
-    
-    <c>"test_panel": {
-  "type": "panel",
-  "size": [ "100%", "100%" ],
+    <div class="left_title"><h1>变量</h1></div>
+    <div class="left_content">
+<p>变量在 JSON UI 开发中扮演着重要的角色，他们不仅可以在全局当中存储数据，也可以从一个控件中到另外一个控件中继承数据。也可以说变量是一种数据，它存储着字符串、布尔值、数字、数组和对象。</p>
+
+<h2>创建变量</h2>
+我们应该要如何正确创建变量呢？很简单，只需把属性的值写成 “$ + 变量名”，也就是字符串开头加上“$”，例如<lc>"text": "$example"</lc>。
+<c>"test": {
+  "size": "$example_size",
+  "ignored": "$example_ignored",
+
+  "$example_size": ["100%","100%"],
+  "$example_ignored": true,
+  "$example_controls": "common.empty_panel",
   "controls": [
-    {
-      "test_image": {
-        "type": "image",
-        "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
-        "size": [ 32, 32 ],
-        "layer": 10
-      }
-    },
-    {
-      "text": {
-        "type": "label",
-        "size": [ "100%", "default" ],
-        "text": "设置",
-        "color": [ 0.8, 0.8, 0.8 ],
-        "offset": [ 0, 32 ],
-        "layer": 10
-      }
-    }
+    {"test@$example_controls":{}}
   ]
 }</c>
-      <strong>使用继承（变量）效果 ▼</strong>
-      <c>"test_panel": {
-  "type": "panel",
-  "size": [ "100%", "100%" ],
-  "$layer": 10,
+<p>在示例中，我们创建了变量，甚至引用的控件也能作为变量。</p>
+<p>当然，变量远不如此，我们还可以用于继承或其他用途。</p>
+<h2>声明变量</h2>
+<p>当一个变量没有声明它所储存的数据，属性就会将他认为 null 或 变量名。</p>
+<p>所以声明一个变量是很有必要的，声明变量就像上方的示例一样，将变量视为属性，直接赋值给他。</p>
+<h2>默认变量</h2>
+<p>为了尽可能减少变量带来的错误，我们需要给变量赋予一个默认值。（即使你不赋予一个默认值也没有关系，只要变量被声明就行）</p>
+<p>我们只需像声明变量那样，在变量名后方加上 |default ，并给这个变量声明一个默认值。</p>
+<p>但也不必要一直使用默认变量声明一个变量，因为默认变量的权重低，会被新的值覆盖。</p>
+<c>// 仅引用 example1 会显示 abc
+"example1": {
+  "text": "$example",
+  "$example|default": "abc"
+},
+// 引用 example2 会显示 def
+"example2": {
+  "$example": "def"
+}</c>
+<h2>作用域</h2>
+<p>上述所提到的变量，声明变量所在的控件就是一个作用域，该作用域的范围为该控件以及所有后代控件。</p>
+<c>"example1": {
+  "$example": "abc",
+  "controls": [{"e@example2":{}}]
+},
+
+"example2": {
+  "$example": "def",
+  "controls": [{"e@example3":{}}]
+},
+
+"example3": {
+  "type": "label",
+  "text": "$example"
+}</c>
+<p>上述的示例中，example3 控件会显示 def 文字。说明变量会优先使用最近的作用域作为变量的值。</p>
+<h2>全局变量</h2>
+<p>如上所述，变量有一定的作用域，并不能在其他控件共享。我们可以使用全局变量弥补这些问题。</p>
+<p>全局变量可以在 RP/ui/_global_variables.json 文件中声明，在文件内部声明的变量具有全局性，任何文件都能使用全局变量。</p>
+<c title="RP/ui/_global_variables.json">{"$text": "abc"}</c>
+<c>"test": {
+  "type": "label",
+  "text": "$text"
+}</c>
+<h2>继承变量</h2>
+<p>就像下面那样，使用其他控件的变量：</p>
+<c>"example1": {
+  "$test1": 123,
+  "$test2": true
+},
+"example2@example1": {
+  // $test1 变量被修改为 456，$test2 保持不变
+  "$test1": 456
+}</c>
+<p>当我们引用其他控件时，变量也同时继承了过来。当前控件的变量名如果与其他控件的变量名一致的话，其他控件的变量就会被覆盖。</p>
+<h2>批量属性</h2>
+<p>一般我们都需要重复使用某个控件，我们可以选择引用、使用变量可以使同一个控件呈现出不同的可能。（也可以用于穷举同一个控件…）</p>
+<p>就例如定义一个按钮的外观，不可能总是为按钮的三种状态分别写三个不同的控件。我们这时就可以给这三种状态引用同一个控件，使用一个变量定义三种状态不同的按钮背景。这样我们就省下了重复的属性，与此同时也可以多使用几个变量完善按钮的样式。</p>
+<c>"button@common.button": {
   "controls": [
-    {
-      "test_image": {
-        "type": "image",
-        "texture": "cube_ui/textures/common/icons/shortcut_setting_glyph_color",
-        "size": [ 32, 32 ],
-        "layer": "$layer"
-      }
-    },
-    {
-      "text": {
-        "type": "label",
-        "size": [ "100%", "default" ],
-        "text": "设置",
-         "color": [ 0.8, 0.8, 0.8 ],
-        "offset": [ 0, 32 ],
-        "layer": "$layer"
-      }
-    }
+    {"default@image":{"$btn_bg":"textures/ui/default"}},
+    {"default@image":{"$btn_bg":"textures/ui/hover"}},
+    {"default@image":{"$btn_bg":"textures/ui/pressed"}}
+  ]
+},
+"image": {
+  "type": "image",
+  "texture": "$btn_bg"
+}</c>
+<h2>变量运算</h2>
+<p>有些时候，变量需要使用参与运算，特别是使用 variables 属性时。</p>
+<p>变量参与运算时需要带上括号，例如 <lc>"alpha": "($alpha / 100)"</lc> 。变量能够参与的运算有：</p>
+<table>
+<thead><tr><th>操作名</th><th>操作符号</th><th>示例</th><th>备注</th></tr></thead><tbody>
+<tr><td>加</td><td>+</td><td>($test + 1)<br>($test + 'string')</td><td>字符串参加运算时并且变量数据类型是字符串，就等于在变量数据末尾追加字符串。</td></tr>
+<tr><td>减</td><td>-</td><td>($test - 1)<br>($test - 'string')</td><td>字符串参加运算时并且变量数据类型是字符串，就等于在变量数据去除字符串。</td></tr>
+<tr><td>乘</td><td>*</td><td>($test * 1)</td><td></td></tr>
+<tr><td>除</td><td>/</td><td>($test / 1)</td><td></td></tr>
+<tr><td>等于</td><td>=</td><td>($test = 1)</td><td>若等于返回 true，反之 false。</td></tr>
+<tr><td>不等于</td><td></td><td>(not ($test = 1))</td><td>若不等于返回 true，反之 false。</td></tr>
+<tr><td>大于</td><td>></td><td>($test > 1)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>小于</td><td><</td><td>($test < 1)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>大于或等于</td><td></td><td>($test > 1 or $test = 1)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>小于或等于</td><td></td><td>($test < 1 or $test = 1)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>开头含有</td><td>></td><td>($test > 'test')</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>末尾含有</td><td><</td><td>($test < 'test')</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>或</td><td>or</td><td>($test = 1 or $test = 2)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>和</td><td>and</td><td>($test = 1 and $test < 2)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>非</td><td>not</td><td>(not $test = 1)</td><td>若符合返回 true，反之 false。</td></tr></tbody>
+</table>
+<h2>variables 属性</h2>
+<p>使用 variables 属性，通过不同的条件来反映不同的变量。使用变量的运算以及条件判定大大提升了变量的使用性。</p>
+<p>即使属性可以使用变量的运算，但更推荐使用 variables 属性判定某个条件下改变变量的数据。特别是做经典UI样式和携带版UI样式的时候，就可以使用 variables 属性来给屏幕在不同的UI样式下呈现不同的内容。</p>
+<p>当你只需要一个判定式去处理，可以直接使用 <lc>"variables": {}</lc>；
+当你只需要多个判定式去处理，可以直接使用 <lc>"variables": []</lc>。</p>
+<p>下方是一个判定经典UI样式和携带版UI样式的示例：</p>
+<c>"test": {
+  "variables": [
+    {"requires":"$desktop_screen","$test":"desktop"},
+    {"requires":"$pocket_screen","$test":"pocket"}
   ]
 }</c>
-      <p>可以看到继承需要在控件属性的值修改为<lc>"$变量名称"</lc>
-    </p>
-    
-    <p>例如 <lc>"layer": "$变量"</lc></p>
-    
-    <p>接着给变量赋值</p>
-    
-    <p>例如 <lc>"$变量": 5</lc></p>
-    
-    <tip>
-      <b>提示</b>
-      <br>如果变量没有赋值，变量的值默认设为<a class="c1-gold">默认值</a>
-    </tip>
-    
-    <h2>注意事项</h2>
-    
-    <a class="panel c1-red">错误示范</a>
-    
-    <p>错误原因：继承的赋予的值一致，并且text变量不支持数组</p>
-    
-    <c title="错误示范">"test": {
-  "$a": [ 0.1, 1, 1 ],
-  "color": "$a",
-  "text": "$a"
-}</c>
-      <a class="panel c1-light-green">正确示范</a>
-      <c title="正确示范">"test": {
-  "$a": [ 0.1, 1, 1 ],
-  "$b": "文字",
-  "color": "$a",
-  "text": "$b"
-}</c>
-    
-    <h2>变量默认值</h2>
-    
-    <p>在<lc>RP/ui/start_screen.json</lc>文件的start_screen_content控件</p>
-    
-    <c>"start_screen_content": {
-  "type": "panel",
-  "$achievements_ignored|default": false,
-  "$feedback_ignored|default": false,
-  "$store_ignored|default": false,
-  "$is_toolbox_ignored|default": false
-  // … 还有更多
-}</c>
-    <p>面板中有个变量</p>
-    
-    <p><lc>"$achievements_ignored|default": false</lc>
-      <strong>这是什么意思呢?</strong>
-    </p>
-    
-    <p>你可以在变量赋值时，在变量后面填加<lc>|default</lc>将变量设为默认值</p>
-    <p>这个意思是说<lc>$achievements_ignored</lc>的<b>默认值</b>为false</p>
-    
-    <p><strong>下面举个例子</strong></p>
-    
-    <c>"test": {
-  "$test": "a",
-  "$test|default": "b",
-  "text": "$test"
-}</c>
-      <p>这样情况下
-      <lc>text</lc>的值为<lc>"b"</lc>
-    </p>
-    
-    <p>因为<lc>"$test": "a"</lc>覆盖了<lc>"$test|default": "b"</lc>
-      <br>这样可以说明
-      <br>在同一个变量下，没带<lc>|default</lc>的变量会覆盖原有的默认变量
-    </p>
-    
-    <h2>全局变量</h2>
-    
-    <p>在前面的<lc>_global_variables.json</lc>文件中有很多继承变量</p>
-    
-    <p>当然赋值也可以在这个文件里面进行，这样<a class="c1-gold">所有文件都可以使用</a>这个变量</p>
-    
-    <p>赋值示范</p>
-    
-    <c title="RP/ui/_global_variables.json">{
-  "$text": "a"
-  // 可以添加多个变量
-}</c>
+<p>requires 是条件，他的介绍如下：</p>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead>
+  <tbody><tr><td>requires</td><td>需求</td><td>字符串</td><td>requires 的条件为 true 时，才会应用该对象内所有的变量。</td></tr></tbody>
+</table>
+<p>使用 variables 时，建议给变量赋予默认值，当条件都不符合时变量就会采取默认值。</p>
   </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>
   <link href="../src/css/color.css" rel="stylesheet">
 
   <script src="../src/js/hl.js"></script>
-
   <link href="../src/css/font-awesome.css" rel="stylesheet">
   <link href="../src/css/animate.css" rel="stylesheet">
   <script src="../src/js/WOW.js"></script>
-  <script>
-  new WOW().init();
-  hljs.initHighlightingOnLoad();
-  </script>
-</body>
-
-</html>
+  <script>new WOW().init();hljs.initHighlightingOnLoad();</script>
+</body></html>
