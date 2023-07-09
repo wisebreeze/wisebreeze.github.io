@@ -77,16 +77,10 @@ body[data-theme="light"] {
   --link-btn-t: #4d4d4d;
   --link-btn-s: 0 5px 4px 0 rgba(113, 113, 124, 0.3);
   --link-btn-h-bg: #ffffff;
-  /*返回顶部*/
-  --to-top-bg: rgb(225, 225, 225);
-  --to-top-hover-bg: #F2F2F2;
-  --to-top-s: 5px 5px 5px #c4c4c4,
-    -3px -3px 6px #ffffff;
-  --to-top-text: #000000;
   /*顶栏*/
   --header-color: #ededede1;
   --header-b: #c4c4c4;
-  --header-t: #000;
+  --header-t: #1f2328;
   --header-th: #444;
   --header-btn: #dddddd;
   --header-btnt: #505050;
@@ -170,12 +164,6 @@ body[data-theme="dark"] {
   --link-btn-t: #ffffff;
   --link-btn-s: 0 5px 8px 0 rgba(230, 230, 230, 0.4);
   --link-btn-h-bg: #ebebeb;
-  /*返回顶部*/
-  --to-top-bg: rgb(130, 130, 130);
-  --to-top-hover-bg: rgb(184, 184, 184);
-  --to-top-s: 5px 5px 5px #000000,
-    -3px -3px 6px #515151;
-  --to-top-text: #ffffff;
   /*顶栏*/
   --header-color: #3c3c3ce1;
   --header-b: #4d4d4d;
@@ -736,69 +724,6 @@ table thead tr {
 
 table tbody tr:hover {
   background: var(--tbody-hover);
-}
-
-/* 返回顶部 */
-#to_top {
-  display: none;
-  position: fixed;
-  bottom: 3%;
-  right: 3%;
-  padding: 3px;
-  animation-name: to-top-anim;
-  animation-duration: 0.5s;
-}
-
-#to_top button div {
-  text-align: center;
-}
-
-#to_top button div span {
-  color: #619dff;
-  font-size: 20px;
-}
-
-.to_top {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -khtml-user-select: none;
-  user-select: none;
-  background-color: var(--to-top-bg);
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  cursor: hand;
-  height: 50px;
-  width: 55px;
-  opacity: 0.9;
-  -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
-  transition: all 0.3s cubic-bezier(.02, .01, .47, 1);
-}
-
-.to_top:hover {
-  opacity: 1 !important;
-  -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
-  transition: all 0.3s cubic-bezier(.02, .01, .47, 1);
-  box-shadow: var(--to-top-s);
-  background-color: var(--to-top-hover-bg);
-}
-
-.to-top-text {color: var(--to-top-text);}
-
-@keyframes to-top-anim {
-  0% {
-    transform: translate(130%, 0);
-    opacity: 0.1;
-  }
-  80% {
-    transform: translate(-5%, 0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
 }
 
 /* 文本框 */
