@@ -84,7 +84,13 @@ body[data-theme="light"] {
     -3px -3px 6px #ffffff;
   --to-top-text: #000000;
   /*顶栏*/
-  --header-color: linear-gradient(to right, rgb(16, 244, 252), rgb(0, 102, 236));
+  --header-color: #ededede1;
+  --header-b: #c4c4c4;
+  --header-t: #000;
+  --header-th: #444;
+  --header-btn: #dddddd;
+  --header-btnt: #505050;
+  --header-btnb: #c3c3c3;
   /*代码*/
   --code-copy-title: #313131;
   --code-copy-btn: #e4e4e4;
@@ -171,7 +177,13 @@ body[data-theme="dark"] {
     -3px -3px 6px #515151;
   --to-top-text: #ffffff;
   /*顶栏*/
-  --header-color: linear-gradient(to right, rgb(32, 114, 255), rgb(89, 36, 233));
+  --header-color: #3c3c3ce1;
+  --header-b: #4d4d4d;
+  --header-t: #fff;
+  --header-th: #f0f0f0;
+  --header-btn: #4f4f4f;
+  --header-btnt: #fff;
+  --header-btnb: #707070;
   /*代码*/
   --code-copy-title: #fdfdfd;
   --code-copy-btn: #9e9e9e;
@@ -426,7 +438,10 @@ h6 {font-size: 0.8rem !important;}
   z-index: 114514;
   height: 60px;
   width: 100%;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   background: var(--header-color);
+  border-bottom: 1px solid var(--header-b);
   position: fixed;
   top: 0;
 }
@@ -449,7 +464,7 @@ h6 {font-size: 0.8rem !important;}
 
 .top_header li a {
   display: block;
-  color: #ffffff;
+  color: var(--header-t);
   text-align: center;
   padding: 3px;
   font-weight: bold;
@@ -458,12 +473,12 @@ h6 {font-size: 0.8rem !important;}
 }
 
 .top_header li a:hover {
-  color: #cbfff4;
+  color: var(--header-th);
 }
 
 .top_header li div a {
   position: relative;
-  color: #ffffff;
+  color: var(--header-t);
   text-align: center;
   padding: 3px;
   font-weight: bold;
@@ -472,7 +487,7 @@ h6 {font-size: 0.8rem !important;}
 }
 
 .top_header li div a:hover {
-  color: #cbfff4;
+  color: var(--header-th);
 }
 
 #open-btn {
@@ -643,16 +658,19 @@ a[href]:hover {
 .theme-btn {
   cursor: hand;
   text-decoration: none;
-  background: #4F99FF;
-  color: aliceblue;
+  background: var(--header-btn);
+  color: var(--header-btnt);
   outline: none;
   padding: 3px 8px 3px 8px;
-  border: #1253AF solid 1px;
-  border-radius: 10px;
+  border: var(--header-btnb) solid 1px;
+  border-radius: 4px;
 }
 
 .theme-btn:hover {
-  background: #4E57FF;
+  background: #0091ff;
+  color: #fff;
+  box-shadow: 3px 3px 8px #1890ffb3;
+  border: #0091ff solid 1px;
 }
 
 .btn {
