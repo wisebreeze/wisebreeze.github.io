@@ -35,125 +35,32 @@
   <div id="content">
     <div class="left_title"><h1>控件常用属性</h1></div>
     <div class="left_content">
-      <table>
-      <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-      <tr><td>type</td><td>控件类型</td><td>字符串：列举</td><td></td><td>定义该控件的类型。<br>列举的值有：<br>screen、panel、stack_panel、input_panel、label、image、button、toggle、dropdown、slider、edit_box、custom、factory、scroll_view、scroll_track、scrollbar_box、selection_wheel</td></tr>
-      <tr><td>controls</td><td>子控件</td><td>数组：控件数组</td><td></td><td>添加子控件。<br>添加子控件示例：<c>"test": {
+    <table>
+    <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+    <tr><td>type</td><td>控件类型</td><td>字符串：列举</td><td></td><td>定义该控件的类型。<br>列举的值有：<br>screen、panel、stack_panel、input_panel、label、image、button、toggle、dropdown、slider、edit_box、custom、factory、scroll_view、scroll_track、scrollbar_box、selection_wheel</td></tr>
+    <tr><td>controls</td><td>子控件</td><td>数组：控件数组</td><td></td><td>添加子控件。<br>添加子控件示例：<c>"test": {
   "controls": [{"hi":{"type":"label","text":"hello world"}}]
 }</c>子控件允许继承和引用，因此并不需要把子控件所有属性写在controls中。</td></tr>
-      </table>
-    <ed>
-    <b> color </b> <et class="panel c1-yellow c-gray">控件颜色</et>
-    <p>值：数组 | 字符串
-       <br>默认值：[ 1, 1, 1 ]
-       <br>能使用RGB或列举的颜色改变控件颜色</p>
-       <p>.bb值作为字符串时..bb
-       <br>可以填写以下的颜色
-       <br>白色 white
-       <br>淡灰色 silver
-       <br>灰色 gray
-       <br>黑色 black
-       <br>红色 red
-       <br>绿色 green
-       <br>黄色 yellow
-       <br>棕色 brown
-       <br>黄绿色 greenyellow
-       <br>淡蓝色 cyan
-       <br>蓝色 blue
-       <br>橙色 orange
-       <br>...
-       <br>
-       <br>.bb值作为数组时..bb
-       <br>可以作为为RGB格式
-       <br>数组的值必须为整数且范围在0到1之间
-       <br><br><a class="c-red">.bb如何将（255色）转换为0到1的数？..bb
-       <br>R、G、B分别除于255
-       <br>例如：[ 11, 45, 14 ] ÷ 255
-       <br>≈ [ 0.0431, 0.1764, 0.0549 ] （保留4位小数）
-       </a>
-      </p>
-    </ed>
-    <ed>
-        <p><b>enabled</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否启用控件</a></p>
-        <p>值：布尔值
-            <br>默认值：true
-            <br>为true时启用显示，为false时锁定控件
-            <br>仅限于可互动类控件
-            <br>锁定时，无法改变控件状态
-        </p>
-      </ed>
-    <ed>
-        <p><b>visible</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否显示控件</a></p>
-        <p>值：布尔值
-            <br>默认值：true
-            <br>为true时控件显示，为false时隐藏控件
-            <br>可与ignored配合使用
-        </p>
-    </ed>
-    <ed>
-        <p><b>ignored</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">是否隐藏控件</a></p>
-        <p>值：布尔值
-            <br>默认值：false
-            <br>为true时隐藏显示，为false时显示控件
-            <br>可与visible配合使用
-        </p>
-      </ed>
-    <ed>.bb alpha ..bb .et 透明度 ..et
-      <p>
-        值：数字/浮点数
-        <br>默认值：1
-        <br>改变这个控件的透明度，但不影响子控件的透明度
-        <br>浮点数的范围在0~1之间
-      </p>
-    </ed>
-    .ep.bb propagate_alpha ..bb .et 传播透明度 ..et
-      <p>
-        值：数字/浮点数
-        <br>默认值：1
-        <br>改变子控件以及当前控件的透明度
-        <br>浮点数的范围在0~1之间
-      </p>
-    ..ep
-    .ep.bb clips_children ..bb .et 剪辑子控件 ..et
-      <p>
-        值：布尔值
-        <br>默认值：false
-        <br>为true时，如果子控件超出当前控件的大小会被剪辑
-        <br>除非子控件"allow_clipping": true
-      </p>
-    ..ep
-    .ep.bb allow_clipping ..bb .et 允许剪辑 ..et
-      <p>
-        值：布尔值
-        <br>默认值：true
-        <br>为true时，如果子控件超出某个剪辑控件的大小不会被剪辑
-      </p>
-    ..ep
-    .ep.bb clip_state_change_event ..bb .et 改变剪辑状态的事件 ..et
-      <p>
-        值：字符串
-      </p>
-    ..ep
-    <ed>
-        <p><b>anims</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画</a></p>
-        <p>在其他文件中详细介绍，<a href="./anim.html">点我跳转</a>
-        </p>
-    </ed>
-    <ed>
-        <p><b>animation_reset_name</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">动画重置名称</a></p>
-        <p>在其他文件中详细介绍，<a href="./anim.html">点我跳转</a>
-        </p>
-    </ed>
-    <ed>
-        <p><b>variables</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">变量</a></p>
-        <p>文件还在编写中，敬请期待～
-        </p>
-    </ed>
-    <ed>
-        <p><b>modifications</b> <a class="panel c1-yellow c-gray" style="font-size: 10px;">修改</a></p>
-        <p>文件还在编写中，敬请期待～
-        </p>
-    </ed>
+    <tr><td>visible</td><td>可见</td><td>布尔值</td><td>true</td><td>控件是否可见。</td></tr>
+    <tr><td>enabled</td><td>启用</td><td>布尔值</td><td>true</td><td>控件是否启用。<br>禁用后，控件本身以及时控件都会受到影响，并且无法进行交互。</td></tr>
+    <tr><td>ignored</td><td>隐藏</td><td>布尔值</td><td>false</td><td>控件是否隐藏。</td></tr>
+    <tr><td>alpha</td><td>不透明度</td><td>浮点数</td><td>1</td><td>控件的不透明度。<br>取值范围在 0~1 之间。不透明度默认不会传播到子控件，你可以通过 <lc>propagate_alpha</lc> 属性允许传播不透明度。</td></tr>
+    <tr><td>propagate_alpha</td><td>传播不透明度</td><td>布尔值</td><td>false</td><td>控件是否允许传播不透明度到所有子控件。</td></tr>
+    <tr><td>clips_children</td><td>裁剪子控件</td><td>布尔值</td><td>false</td><td>控件是否允许裁剪溢出的子控件，子控件溢出该控件的大小才会被裁剪。<br>子控件被裁剪的某个部分，交互以及图形因此都会受到影响；<br>子控件使用 <lc>"allow_clipping": false</lc> 不会被剪辑。</td></tr>
+    <tr><td>allow_clipping</td><td>允许裁剪</td><td>布尔值</td><td>true</td><td>控件是否允许裁剪。</td></tr>
+    <tr><td>clip_offset</td><td>裁剪偏移量</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>控件的裁剪开始点的偏移量。</td></tr>
+    <tr><td>clip_state_change_event</td><td>改变裁剪状态的事件</td><td>字符串</td><td></td><td>改变控件裁剪状态的事件。</td></tr>
+    <tr><td>enable_scissor_test</td><td>启用剪刀测试</td><td>布尔值</td><td>false</td><td>控件是否启用剪刀测试。<br>剪刀测试用于限制绘制区域。指定一个矩形的剪裁窗口，当启用剪裁测试后，只有在这个窗口之内的像素才能被绘制，其它像素则会被丢弃。换句话说，无论怎么绘制，剪裁窗口以外的像素将不会被修改。详见 <a href="https://www.khronos.org/opengl/wiki/Scissor_Test">剪刀测试 ></a></td></tr>
+    <tr><td>selected</td><td>选中</td><td>布尔值</td><td>false</td><td>控件是否选中。</td></tr>
+    <tr><td>anims</td><td>动画</td><td>数组</td><td></td><td>详见 <a href="./anim.html">动画 ></a></td></tr>
+    <tr><td>animation_reset_name</td><td>动画重置事件</td><td>字符串</td><td></td><td>用于重置动画状态的事件。<br>详见 <a href="./anim.html">动画 ></a></td></tr>
+    <tr><td>disable_anim_fast_forward</td><td>禁用动画快进</td><td>布尔值</td><td>false</td><td>控件是否禁用动画快进。</td></tr>
+    <tr><td>grid_position</td><td>网格位置</td><td>数组：矢量[row, col]</td><td></td><td>定义控件在网格中的位置，同时影响该控件的网格绑定。</td></tr>
+    <tr><td>collection_index</td><td>项目索引</td><td>整数</td><td></td><td>定义控件在项目中的位置。</td></tr>
+    <tr><td>variables</td><td>变量</td><td>数组 或 对象</td><td></td><td>在达成某个条件下，改变变量的值。<br>详见 <a href="https://jsonui.netlify.app/document/var.html">变量 ></a></td></tr>
+    <tr><td>modifications</td><td>修改</td><td>数组</td><td></td><td>用于修改数组中的对象。<br>仅用于修改低于当前资源包排序的资源包，一般我们只对 vanilla 进行处理。<br>（资源包排序为：世界资源包 > 全局资源 > 游戏安装包资源包 > treatment，其中他们还可以细分为许多部分，游戏安装包资源包排序又能分为 vanilla版本包 > vanilla > vanilla_base。）<br>详见 <a href="./modify.html">修改 ></a></td></tr>
+    <tr><td>property_bag</td><td>属性包</td><td>对象</td><td></td><td>属性包用于储存硬编码的数据。</td></tr></tbody>
+    </table>
   </div></div>
   <!--正文-->
   <script src="https://jsonui.netlify.app/src/js/main.js"></script>
