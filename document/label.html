@@ -21,13 +21,6 @@
   
   <link href="../src/css/main.css" rel="stylesheet">
   <script src="../src/js/jQuery.js"></script>
-  <div class="top_header">
-    <ul>
-      <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
-      <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
-      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
-    </ul>
-  </div>
 </head>
 
 <body id="root" data-theme="light">
@@ -38,16 +31,20 @@
       <br>文本在界面中更是缺少不了的元素！
     </p>
     <p>提示：以下属性仅适用于 label 控件类型。</p>
-    <h2>常用属性</h2>
-    <table>
-      <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead>
-      <tbody><tr><td>text</td><td>文字</td><td>字符串</td><td>定义文本控件显示的文字<br>可以使用 § 符号进行改变颜色<br><lc>\n</lc> 可以使文本换行<br>同时可以使用.lang文件翻译来改变文本语言。 <sup>[1]</sup></td></tr></tbody>
-    </table>
-    <ol><li>如果<lc>"localize": true</lc>，那么 <lc>"text"</lc> 文字不会被 .lang 文件翻译。</li></ol>
-    <h2>其他属性</h2>
+    <h2>属性</h2>
     <table>
       <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
-      <tbody><tr><td>locked_color</td><td>锁定时的文本颜色</td><td>数组 或 字符串</td><td></td><td>与"color"的值相同，不再介绍。<sup>[1]</sup></td></tr>
+      <tr><td>text</td><td>文字</td><td>字符串</td><td></td><td>定义文本控件显示的文字<br>可以使用 § 符号进行改变颜色<br><lc>\n</lc> 可以使文本换行<br>同时可以使用.lang文件翻译来改变文本语言。 <sup>[1]</sup></td></tr>
+      <tr><td>color</td><td>控件颜色</td><td>字符串：列举 或 数组：RGB数组</td><td>"white"</td><td>改变该控件颜色。颜色不会传递到子控件。
+<p><b>值作为字符串时，可能为：</b>
+<br>白色 white、淡灰色 silver、灰色 gray grey、黑色 black、红色 red、绿色 green、黄色 yellow、棕色 brown、青色 cyan、蓝色 blue、橙色 orange、紫色 purple、无色 nil</p>
+<p><b>值作为“[R,G,B,A]”数组时，可能为：</b>
+<br>R通道，浮点数，取值范围在 0~1 之间，默认为 1；
+<br>G通道，浮点数，取值范围在 0~1 之间，默认为 1；
+<br>B通道，浮点数，取值范围在 0~1 之间，默认为 1；
+<br>A通道，浮点数，取值范围在 0~1 之间，默认为 1。</p>
+<p><b>RGB转为RGB数组</b><br>可以使用本站的<a href="https://jsonui.netlify.app/tool/color.html">颜色转换工具</a>，或将RGB各值除于255并保留3位小数。</p></td></tr>
+      <tbody><tr><td>locked_color</td><td>锁定时的文本颜色</td><td>数组 或 字符串</td><td></td><td>控件在禁用时，所显示的颜色。<br>与"color"的性质相同，不再详细介绍。</td></tr>
       <tr><td>shadow</td><td>文本阴影</td><td>布尔值</td><td>false</td><td>是否显示文本阴影。</td></tr>
       <tr><td>hide_hyphen</td><td>是否隐藏文本中的连字符</td><td>布尔值</td><td>false</td><td>是否隐藏文本中的连字符（既 “-” 字符）。</td></tr>
       <tr><td>notify_on_ellipses</td><td>遇到省略号时改变的文本</td><td>数组</td><td></td><td>如果文本遇到省略号时，将要改变的文本<br>例如：<br><lc>"notify_on_ellipses": ["text"]</lc></td></tr>
@@ -62,7 +59,7 @@
       <tr><td>text_tts</td><td>文本空间文本转语音</td><td>字符串</td><td></td><td>规定该控件文本转语音的文本。</td></tr>
     </table>
     <ol>
-    <li>需要父控件 <lc>"enabled": false</lc> 以使用锁定颜色为文本颜色</li>
+    <li>如果<lc>"localize": true</lc>，那么 <lc>"text"</lc> 文字不会被 .lang 文件翻译。</li>
     <li>目前暂不支持简体中文的敏感词。 [仅国际版]</li>
     <li>如果 "text" 文字包含中文字符则会强制unicode。</li>
     </ol>

@@ -21,13 +21,6 @@
   
   <link href="../src/css/main.css" rel="stylesheet">
   <script src="../src/js/jQuery.js"></script>
-  <div class="top_header">
-    <ul>
-      <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
-      <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
-      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
-    </ul>
-  </div>
 </head>
 
 <body id="root" data-theme="light">
@@ -41,6 +34,15 @@
     <table>
       <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
       <tr><td>texture</td><td>纹理路径</td><td>字符串：路径</td><td></td><td>图片所在的路径<sup>[1]</sup><br>例如：<lc>textures/ui/anvil_icon</lc></td></tr>
+      <tr><td>color</td><td>控件颜色</td><td>字符串：列举 或 数组：RGB数组</td><td>"white"</td><td>改变该控件颜色。颜色不会传递到子控件。
+<p><b>值作为字符串时，可能为：</b>
+<br>白色 white、淡灰色 silver、灰色 gray grey、黑色 black、红色 red、绿色 green、黄色 yellow、棕色 brown、青色 cyan、蓝色 blue、橙色 orange、紫色 purple、无色 nil</p>
+<p><b>值作为“[R,G,B,A]”数组时，可能为：</b>
+<br>R通道，浮点数，取值范围在 0~1 之间，默认为 1；
+<br>G通道，浮点数，取值范围在 0~1 之间，默认为 1；
+<br>B通道，浮点数，取值范围在 0~1 之间，默认为 1；
+<br>A通道，浮点数，取值范围在 0~1 之间，默认为 1。</p>
+<p><b>RGB转为RGB数组</b><br>可以使用本站的<a href="https://jsonui.netlify.app/tool/color.html">颜色转换工具</a>，或将RGB各值除于255并保留3位小数。</p></td></tr>
       <tr><td>fill</td><td>填充</td><td>布尔值</td><td>false</td><td>图片是否填满至控件大小</td></tr>
       <tr><td>tiled</td><td>平铺</td><td>布尔值 或 字符串：列举</td><td>false</td>
         <td>图片是否平铺或者图片平铺的方向。 <sup>[2]</sup>
