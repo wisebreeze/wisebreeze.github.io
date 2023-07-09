@@ -65,17 +65,6 @@ if (typeof (Storage) !== "undefined") {
   }
 } else console.log("main.js: 浏览器不支持储存，或没有储存权限！");
 
-// 休眠循环
-function sleep(numberMillis) {
-  var now = new Date();
-  var exitTime = now.getTime() + numberMillis;
-  while (true) {
-    now = new Date();
-    if (now.getTime() > exitTime)
-      return;
-  }
-}
-
 // 滚动事件
 window.onscroll = ()=>{
   // 页面进度条
@@ -107,15 +96,13 @@ window.onscroll = ()=>{
       }
     }
   });
-
-  // 改变
-  if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) $("#to_top").css("display","block");
-  else $("#to_top").css("display","none");
+  /*if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) $("#to_top").css("display","block");
+  else $("#to_top").css("display","none");*/
 };
 
-function to_top() {
+/*function to_top() {
   document.body.scrollIntoView({behavior: "smooth"});
-}
+}*/
 
 window.onload = ()=>{
   if (document.getElementById("number_progress")) document.getElementById("number_progress").innerText = "0%";
@@ -133,8 +120,8 @@ window.onload = ()=>{
 
   //插入内容
   if($("div.left_content").attr("hide_bq") == null) $("div.left_content").append("<fieldset>\n    <legend>版权声明</legend>\n    1、除非另有说明，否则文档内容均采用<a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
-  const to_top_text = $("#root").attr("to_top_text") || "回顶部";
-  $("div.left_content").append(`<div id="to_top">\n    <button class="to_top" onclick="to_top();">\n      <div>\n        <span>▲</span><div class="to-top-text">${to_top_text}</div>\n      </div>\n    </button>\n  </div>`);
+  //const to_top_text = $("#root").attr("to_top_text") || "回顶部";
+  //$("div.left_content").append(`<div id="to_top">\n    <button class="to_top" onclick="to_top();">\n      <div>\n        <span>▲</span><div class="to-top-text">${to_top_text}</div>\n      </div>\n    </button>\n  </div>`);
   for(var linkTarget in guide_link.link)$("#guide > .guide_content").append(`<a class="link-button" href="${guide_link.link[linkTarget].link}">${guide_link.link[linkTarget].title}</a>`);
   //加载顶部按钮
   $(".left_title").each(function(){
@@ -207,13 +194,13 @@ function copy_code(text,tip) {
 // 快捷键
 document.addEventListener('keyup', function (key) {
   // 返回顶部 - 1
-  if(key.keyCode == 49) {
+  /*if(key.keyCode == 49) {
     document.body.scrollIntoView({
       behavior: "smooth",
     });
-  }
-  // 全屏 - 2
-  if(key.keyCode == 50) {
+  }*/
+  // 全屏 - 1
+  if(key.keyCode == 49) {
     if(sessionStorage.getItem("full")) {
       if (document.exitFullscreen) document.exitFullscreen();
       else if (document.msExitFullscreen) document.msExitFullscreen();
@@ -230,8 +217,8 @@ document.addEventListener('keyup', function (key) {
       sessionStorage.setItem("full", true);
     }
   }
-  // 目录 - 3
-  if(key.keyCode == 51) {
+  // 目录 - 2
+  if(key.keyCode == 50) {
     if(sessionStorage.getItem("guide")) {
       if (document.getElementById("open-btn")) closeNav();
       else {
@@ -247,8 +234,8 @@ document.addEventListener('keyup', function (key) {
       }
     }
   }
-  // 切换主题 - 4
-  if(key.keyCode == 52) {
+  // 切换主题 - 3
+  if(key.keyCode == 51) {
     if (typeof (Storage) !== "undefined") {
       var darkTheme = localStorage.getItem("themeType");
       if (darkTheme == "dark") {
