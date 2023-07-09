@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>修改</title>
+  <link rel="shortcut icon" href="https://jsonui.netlify.app/favicon.ico">
+  <link rel="icon" sizes="100x100" href="https://jsonui.netlify.app/favicon.ico">
+  <meta name="viewport"
+      content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="https://jsonui.netlify.app/src/css/main.css" rel="stylesheet">
+  <script src="https://jsonui.netlify.app/src/js/jQuery.js"></script>
+  <div class="top_header">
+    <ul>
+      <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
+      <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
+      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
+    </ul>
+  </div>
+</head>
+
+<body id="root" data-theme="light">
+  <!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>修改</h1></div>
+    <div class="left_content">
+<h2>子控件属性修改</h2>
+<p>下面这种方法我们可以使用<a class="c-red">斜杠</a>区分子控件，这样就不需要使用 controls 去修改某个子控件了。同时去除一些不必要修改的属性：</p>
+<c title="原文件">"test": {
+  "controls": [
+    {
+      "test": {
+        "controls": [{"test": {"type": "label","text": "hello world"}}]
+      }
+    }
+  ]
+}</c>
+<p>接下来，我们只需要修改 text 属性的内容就可以这样做：</p>
+<c title="新文件">"test/test/test": {
+  "text": "test"
+}</c>
+<h2>引用修改</h2>
+<p>一般修改引用只需要在控件名后方"@xxx.xxx"或"@xxx"。另外，如果没有修改引用的需要，可以去除引用。这样不会对原来的引用影响。</p>
+<c>"start_screen": {}</c>
+<p>最值得注意的是，修改引用后并且没有任何属性的情况下，会对当前控件重置并仅使用引用控件的属性。</p>
+<c>// 这样就会闪退
+"start_screen@common.empty_panel": {}</c>
+<h2>数组修改</h2>
+<p>我们总是需要对其他资源包的 controls 进行增加控件或者删除控件。但是为了修改，我们就需要使用到 <lc>modifications</lc>。这样我们就不需要引用其他资源包的代码进行大面积的修改，也不会破坏其他资源包的内容。</p>
+<p>modifications 仅用于修改低于当前资源包排序的资源包，一般我们只对 vanilla 进行处理。<br>（资源包排序为：世界资源包 > 全局资源 > 游戏安装包资源包 > treatment，其中他们还可以细分为许多部分，游戏安装包资源包排序又能分为 vanilla版本包 > vanilla > vanilla_base。）</p>
+<p>每个控件中 modifications 属性可以同时执行多个修改操作，不过，当目标不存在时、未知的修改操作会报错。</p>
+<table>
+<thead><tr><th>数组对象属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+<tbody><tr><td>array_name</td><td>数组键名</td><td>字符串</td><td>定义要修改的目标数组。</td></tr>
+<tr><td>operation</td><td>修改操作</td><td>字符串：列举</td><td>执行的修改操作。列举的值详见下方内容。<br>该属性是必要的！</td></tr>
+<tr><td>where</td><td>执行操作的对象</td><td>对象</td><td>执行操作的对象，可模糊（指使用目标对象中的某个属性。控件无法模糊，必须是完整控件）选中某个对象。</td></tr>
+<tr><td>value</td><td>执行操作后的值</td><td>数组 或 对象</td><td>执行操作后的值。<br>单个对象时使用对象，多个对象时使用数组。</td></tr>
+<tr><td>target</td><td>被操作的对象</td><td>对象</td><td>被操作的对象。</td></tr></tbody>
+</table>
+<p>接下来我们将展示几种修改操作：</p>
+<h3>插入</h3>
+<b>insert_front</b>
+插入到数组的开始处。
+<c title="示例">"modifications": [
+  // value 目标插入到数组开始处
+  {
+    "array_name": "controls",
+    "operation": "insert_front",
+    "value": {"test":{}}
+  },
+  {
+    "array_name": "bindings",
+    "operation": "insert_front",
+    "value": {"binding_name":"#is_insert"}
+  }
+]</c>
+<b>insert_back</b>
+插入到数组的结尾处。
+<c title="示例">"modifications": [
+  // value 目标插入到数组结尾处
+  {
+    "array_name": "controls",
+    "operation": "insert_back",
+    "value": {"test":{}}
+  },
+  {
+    "array_name": "controls",
+    "operation": "insert_back",
+    "where": {"binding_name":"#is_insert"}
+  }
+]</c>
+<b>insert_before</b>
+插入到目标对象的前方。
+<c title="示例">"modifications": [
+  // value 目标插入到 test2 控件前方
+  {
+    "control_name": "test2",
+    "operation": "insert_before",
+    "value": {"test":{}}
+  },
+  // value 目标插入到 where 目标前方
+  {
+    "array_name": "bindings",
+    "where": {"binding_name":"#test"},
+    "operation": "insert_before",
+    "value": {"binding_name":"#is_insert"}
+  }
+]</c>
+<b>insert_after</b>
+插入到目标对象的后方。
+<c title="示例">"modifications": [
+  // value 目标插入到 test2 控件后方
+  {
+    "control_name": "test2",
+    "operation": "insert_after",
+    "value": {"test":{}}
+  },
+  // value 目标插入到 where 目标后方
+  {
+    "array_name": "bindings",
+    "where": {"binding_name":"#test"},
+    "operation": "insert_after",
+    "value": {"binding_name":"#is_insert"}
+  }
+]</c>
+<h3>删除</h3>
+<b>remove</b>
+移除目标对象。
+<c title="示例">"modifications": [
+  // 删除目标控件
+  {
+    "control_name": "test",
+    "operation": "remove"
+  },
+  // 删除目标绑定
+  {
+    "array_name": "bindings",
+    "where": {"binding_name":"#test"},
+    "operation": "remove"
+  }
+]</c>
+<h3>替换</h3>
+<b>replace</b>
+替换目标对象。
+<c title="示例">"modifications": [
+  // 控件替换为 value 目标
+  {
+    "control_name": "test",
+    "operation": "replace",
+    "value": {"replace":{}}
+  },
+  // where 目标替换为 value 目标
+  {
+    "array_name": "bindings",
+    "where": {"binding_name":"#test"},
+    "operation": "replace",
+    "value": {"binding_name":"#is_replace"}
+  }
+]</c>
+<h3>交换</h3>
+<b>swap</b>
+交换目标对象。
+<c title="示例">"modifications": [
+  // 控件与目标交换
+  {
+    "control_name": "test",
+    "operation": "swap",
+    "target": {"replace":{}}
+  },
+  // where 目标与目标交换
+  {
+    "array_name": "bindings",
+    "where": {"binding_name":"#test"},
+    "operation": "swap",
+    "target": {"binding_name":"#is_replace"}
+  }
+]</c>
+<h3>移动</h3>
+<b>move_front</b>
+移动目标对象到数组开始处。
+<c title="示例">"modifications": [
+  // value 目标移动到数组开始处
+  {
+    "array_name": "controls",
+    "operation": "move_front",
+    "value": {"replace":{}}
+  },
+  {
+    "array_name": "bindings",
+    "operation": "move_front",
+    "where": {"binding_name":"#is_move"}
+  }
+]</c>
+<b>move_back</b>
+移动目标对象到数组结尾处。
+<c title="示例">"modifications": [
+  // value 目标移动到数组结尾处
+  {
+    "array_name": "controls",
+    "operation": "move_back",
+    "value": {"replace":{}}
+  },
+  {
+    "array_name": "bindings",
+    "operation": "move_back",
+    "where": {"binding_name":"#is_move"}
+  }
+]</c>
+<b>move_before</b>
+插入到目标对象的前方。
+<c title="示例">"modifications": [
+  // value 目标移动到控件前方
+  {
+    "control_name": "test2",
+    "operation": "move_before",
+    "value": {"test":{}}
+  },
+  // value 目标移动到 where 目标前方
+  {
+    "array_name": "bindings",
+    "where": {"binding_name":"#test"},
+    "operation": "move_before",
+    "value": {"binding_name":"#is_move"}
+  }
+]</c>
+<b>move_after</b>
+插入到目标对象的后方。
+<c title="示例">"modifications": [
+  // value 目标移动到控件后方
+  {
+    "control_name": "test2",
+    "operation": "move_after",
+    "value": {"test":{}}
+  },
+  // value 目标移动到 where 目标后方
+  {
+    "array_name": "bindings",
+    "where": {"binding_name":"#test"},
+    "operation": "move_after",
+    "value": {"binding_name":"#is_move"}
+  }
+]</c>
+  </div></div>
+  <!--正文-->
+  <script src="https://jsonui.netlify.app/src/js/main.js"></script>
+  <link href="https://jsonui.netlify.app/src/css/color.css" rel="stylesheet">
+
+  <script src="https://jsonui.netlify.app/src/js/hl.js"></script>
+
+  <link href="https://jsonui.netlify.app/src/css/font-awesome.css" rel="stylesheet">
+  <link href="https://jsonui.netlify.app/src/css/animate.css" rel="stylesheet">
+  <script src="https://jsonui.netlify.app/src/js/WOW.js"></script>
+  <script>
+  new WOW().init();
+  hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
