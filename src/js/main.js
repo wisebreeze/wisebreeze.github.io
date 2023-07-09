@@ -33,7 +33,9 @@ $("#guide > .guide_content").append(`阅读进度 - <a id="number_progress"></a>
 function openNav() {
   $("#guide_div").removeClass("close");
   $("#guide_div").addClass("open");
-  $("#open-btn").html("◄");
+  //$("#open-btn").html("");
+  $("#open-btn").addClass("fa-times");
+  $("#open-btn").removeClass("fa-bars");
   $("#open-btn").attr("onclick","closeNav()");
   sessionStorage.setItem("guide", true);
 }
@@ -43,7 +45,9 @@ function closeNav() {
   setTimeout(() => {
     $("#guide_div").removeClass("open ca");
     $("#guide_div").addClass("close");
-    $("#open-btn").html("&#9776;");
+    //$("#open-btn").html("&#9776;");
+    $("#open-btn").addClass("fa-bars");
+    $("#open-btn").removeClass("fa-times");
     $("#open-btn").attr("onclick","openNav()");
   }, 200);
   sessionStorage.removeItem("guide");
@@ -100,11 +104,7 @@ window.onscroll = ()=>{
   else $("#to_top").css("display","none");*/
 };
 
-/*function to_top() {
-  document.body.scrollIntoView({behavior: "smooth"});
-}*/
-
-window.onload = ()=>{
+document.addEventListener('DOMContentLoaded',function(){
   if (document.getElementById("number_progress")) document.getElementById("number_progress").innerText = "0%";
   // 解析文本
   var body = document.getElementById("root").innerHTML;
@@ -119,9 +119,9 @@ window.onload = ()=>{
       document.getElementById("root").innerHTML = body;
 
   //插入内容
-  if($("div.left_content").attr("hide_bq") == null) $("div.left_content").append("<fieldset>\n    <legend>版权声明</legend>\n    1、除非另有说明，否则文档内容均采用<a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
-  //const to_top_text = $("#root").attr("to_top_text") || "回顶部";
-  //$("div.left_content").append(`<div id="to_top">\n    <button class="to_top" onclick="to_top();">\n      <div>\n        <span>▲</span><div class="to-top-text">${to_top_text}</div>\n      </div>\n    </button>\n  </div>`);
+  if($("title").attr("cube")=='true')$("body").prepend(`<headbar><div class="headbar_left"><a href="https://jsonui.netlify.app/cube/">Cube UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></headbar>`);
+  else $("body").prepend(`<headbar><div class="headbar_left"><a class="fa fa-bars" id="open-btn" onclick="openNav()"></a><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></headbar>`);
+  if($("div.left_content").attr("hide_bq")==null) $("div.left_content").append("<fieldset>\n    <legend>版权声明</legend>\n    1、除非另有说明，否则文档内容均采用<a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
   for(var linkTarget in guide_link.link)$("#guide > .guide_content").append(`<a class="link-button" href="${guide_link.link[linkTarget].link}">${guide_link.link[linkTarget].title}</a>`);
   //加载顶部按钮
   $(".left_title").each(function(){
@@ -139,7 +139,7 @@ window.onload = ()=>{
     $("#guide > .guide_content > hr").before(`<a class="menu-${headingLevel} data-mu6jn" href="#pid_${pid}">${headingName}</a>`);// 写入到目录
     pid++;// 为下一个遍历准备ID
   });
-}
+});
 
 // 分类
 $(".category_div").each(function(){
