@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>控件常用属性</title>
+  <link rel="shortcut icon" href="https://jsonui.netlify.app/favicon.ico">
+  <link rel="icon" sizes="100x100" href="https://jsonui.netlify.app/favicon.ico">
+  <meta name="viewport"
+      content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="https://jsonui.netlify.app/src/css/main.css" rel="stylesheet">
+  <script src="https://jsonui.netlify.app/src/js/jQuery.js"></script>
+  <div class="top_header">
+    <ul>
+      <li><a id="open-btn" onclick="openNav()">&#9776;</a></li>
+      <li><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></li>
+      <li style="right:5px;float:right;"><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></li>
+    </ul>
+  </div>
+</head>
+
+<body id="root" data-theme="light">
+  <!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>控件常用属性</h1></div>
+    <div class="left_content">
+    <table>
+    <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+    <tr><td>type</td><td>控件类型</td><td>字符串：列举</td><td></td><td>定义该控件的类型。<br>列举的值有：<br>screen、panel、stack_panel、input_panel、label、image、button、toggle、dropdown、slider、edit_box、custom、factory、scroll_view、scroll_track、scrollbar_box、selection_wheel</td></tr>
+    <tr><td>controls</td><td>子控件</td><td>数组：控件数组</td><td></td><td>添加子控件。<br>添加子控件示例：<c>"test": {
+  "controls": [{"hi":{"type":"label","text":"hello world"}}]
+}</c>子控件允许继承和引用，因此并不需要把子控件所有属性写在controls中。</td></tr>
+    <tr><td>visible</td><td>可见</td><td>布尔值</td><td>true</td><td>控件是否可见。</td></tr>
+    <tr><td>enabled</td><td>启用</td><td>布尔值</td><td>true</td><td>控件是否启用。<br>禁用后，控件本身以及时控件都会受到影响，并且无法进行交互。</td></tr>
+    <tr><td>ignored</td><td>隐藏</td><td>布尔值</td><td>false</td><td>控件是否隐藏。</td></tr>
+    <tr><td>alpha</td><td>不透明度</td><td>浮点数</td><td>1</td><td>控件的不透明度。<br>取值范围在 0~1 之间。不透明度默认不会传播到子控件，你可以通过 <lc>propagate_alpha</lc> 属性允许传播不透明度。</td></tr>
+    <tr><td>propagate_alpha</td><td>传播不透明度</td><td>布尔值</td><td>false</td><td>控件是否允许传播不透明度到所有子控件。</td></tr>
+    <tr><td>clips_children</td><td>裁剪子控件</td><td>布尔值</td><td>false</td><td>控件是否允许裁剪溢出的子控件，子控件溢出该控件的大小才会被裁剪。<br>子控件被裁剪的某个部分，交互以及图形因此都会受到影响；<br>子控件使用 <lc>"allow_clipping": false</lc> 不会被剪辑。</td></tr>
+    <tr><td>allow_clipping</td><td>允许裁剪</td><td>布尔值</td><td>true</td><td>控件是否允许裁剪。</td></tr>
+    <tr><td>clip_offset</td><td>裁剪偏移量</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>控件的裁剪开始点的偏移量。</td></tr>
+    <tr><td>clip_state_change_event</td><td>改变裁剪状态的事件</td><td>字符串</td><td></td><td>改变控件裁剪状态的事件。</td></tr>
+    <tr><td>enable_scissor_test</td><td>启用剪刀测试</td><td>布尔值</td><td>false</td><td>控件是否启用剪刀测试。<br>剪刀测试用于限制绘制区域。指定一个矩形的剪裁窗口，当启用剪裁测试后，只有在这个窗口之内的像素才能被绘制，其它像素则会被丢弃。换句话说，无论怎么绘制，剪裁窗口以外的像素将不会被修改。详见 <a href="https://www.khronos.org/opengl/wiki/Scissor_Test">剪刀测试 ></a></td></tr>
+    <tr><td>selected</td><td>选中</td><td>布尔值</td><td>false</td><td>控件是否选中。</td></tr>
+    <tr><td>anims</td><td>动画</td><td>数组</td><td></td><td>详见 <a href="./anim.html">动画 ></a></td></tr>
+    <tr><td>animation_reset_name</td><td>动画重置事件</td><td>字符串</td><td></td><td>用于重置动画状态的事件。<br>详见 <a href="./anim.html">动画 ></a></td></tr>
+    <tr><td>disable_anim_fast_forward</td><td>禁用动画快进</td><td>布尔值</td><td>false</td><td>控件是否禁用动画快进。</td></tr>
+    <tr><td>grid_position</td><td>网格位置</td><td>数组：矢量[row, col]</td><td></td><td>定义控件在网格中的位置，同时影响该控件的网格绑定。</td></tr>
+    <tr><td>collection_index</td><td>项目索引</td><td>整数</td><td></td><td>定义控件在项目中的位置。</td></tr>
+    <tr><td>variables</td><td>变量</td><td>数组 或 对象</td><td></td><td>在达成某个条件下，改变变量的值。<br>详见 <a href="https://jsonui.netlify.app/document/var.html">变量 ></a></td></tr>
+    <tr><td>modifications</td><td>修改</td><td>数组</td><td></td><td>用于修改数组中的对象。<br>仅用于修改低于当前资源包排序的资源包，一般我们只对 vanilla 进行处理。<br>（资源包排序为：世界资源包 > 全局资源 > 游戏安装包资源包 > treatment，其中他们还可以细分为许多部分，游戏安装包资源包排序又能分为 vanilla版本包 > vanilla > vanilla_base。）<br>详见 <a href="./modify.html">修改 ></a></td></tr>
+    <tr><td>property_bag</td><td>属性包</td><td>对象</td><td></td><td>属性包用于储存硬编码的数据。</td></tr></tbody>
+    </table>
+  </div></div>
+  <!--正文-->
+  <script src="https://jsonui.netlify.app/src/js/main.js"></script>
+  <link href="https://jsonui.netlify.app/src/css/color.css" rel="stylesheet">
+
+  <script src="https://jsonui.netlify.app/src/js/hl.js"></script>
+
+  <link href="https://jsonui.netlify.app/src/css/font-awesome.css" rel="stylesheet">
+  <link href="https://jsonui.netlify.app/src/css/animate.css" rel="stylesheet">
+  <script src="https://jsonui.netlify.app/src/js/WOW.js"></script>
+  <script>
+  new WOW().init();
+  hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
