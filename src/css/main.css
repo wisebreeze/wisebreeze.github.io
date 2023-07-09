@@ -417,70 +417,52 @@ h6 {font-size: 0.8rem !important;}
 }
 
 /* 顶栏 */
-.top_header {
+headbar {
+  z-index: 114514;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  background: var(--header-color);
+  border-bottom: 1px solid var(--header-b);
+
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   -khtml-user-select: none;
   user-select: none;
-  z-index: 114514;
-  height: 60px;
-  width: 100%;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  background: var(--header-color);
-  border-bottom: 1px solid var(--header-b);
-  position: fixed;
-  top: 0;
 }
 
-.top_header > ul {
-  width: auto;
-  list-style-type: none;
-  white-space: nowrap;
-  overflow: hidden;
-  margin-left: 0.8rem;
-  padding: 0;
+headbar > .headbar_left {
+  display: flex;
+  align-items: center;
+  margin-left: 0.6em;
+  font-weight: bold;
+}
+headbar > .theme-btn {
+  margin-right: 0.6em;
 }
 
-.top_header li {
-  float: left;
-  margin-right: 0.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.top_header li a {
+headbar > .headbar_left > a {
+  color: var(--header-t);
   display: block;
-  color: var(--header-t);
   text-align: center;
-  padding: 3px;
-  font-weight: bold;
-  overflow: hidden;
   text-decoration: none;
 }
 
-.top_header li a:hover {
-  color: var(--header-th);
-}
-
-.top_header li div a {
-  position: relative;
-  color: var(--header-t);
-  text-align: center;
-  padding: 3px;
-  font-weight: bold;
-  overflow: hidden;
-  text-decoration: none;
-}
-
-.top_header li div a:hover {
-  color: var(--header-th);
-}
-
+headbar > .headbar_left > a:hover {color: var(--header-th);}
 #open-btn {
-  padding: 1px;
+  margin-right: 0.3em;
+  padding-top: 0.5em;
   width: 25px;
+  height: 25px;
   cursor:pointer;
   font-size: 20px;
 }
@@ -657,7 +639,7 @@ a[href]:hover {
 .theme-btn:hover {
   background: #0091ff;
   color: #fff;
-  box-shadow: 3px 3px 8px #1890ffb3;
+  box-shadow: 2px 2px 8px #1890ffb3;
   border: #0091ff solid 1px;
 }
 
