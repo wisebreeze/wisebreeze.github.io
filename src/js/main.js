@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded',function(){
   //插入内容
   if($("title").attr("cube")=='true')$("body").prepend(`<headbar><div class="headbar_left"><a href="https://jsonui.netlify.app/cube/">Cube UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></headbar>`);
   else $("body").prepend(`<headbar><div class="headbar_left"><a class="fa fa-bars" id="open-btn" onclick="openNav()"></a><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></headbar>`);
-  if($("div.left_content").attr("hide_bq")==null) $("div.left_content").append("<fieldset>\n    <legend>版权声明</legend>\n    1、除非另有说明，否则文档内容均采用<a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a>许可协议<br>\n    2、此网站与Mojang Studios以及微软无任何从属关系<br>\n    3、转载需要经过作者同意，并且标明文档来自于本网站\n  </fieldset>");
+  if($("div.left_content").attr("hide_bq")==null) $("div.left_content").append(`<fieldset class="ns"><fieldsetTitle>版权声明</fieldsetTitle>- 除非另有说明，否则文档内容均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可协议<br>- 此网站与 Mojang Studios 以及微软无任何从属关系<br>- 转载需要作者同意，并且标明内容来自于本网站</fieldset>`);
   for(var linkTarget in guide_link.link)$("#guide > .guide_content").append(`<a class="link-button" href="${guide_link.link[linkTarget].link}">${guide_link.link[linkTarget].title}</a>`);
   //加载顶部按钮
   $(".left_title").each(function(){
