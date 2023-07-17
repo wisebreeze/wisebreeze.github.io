@@ -929,22 +929,23 @@ textarea:focus, .input:focus {
 
 /* 取色器 */
 .color_input {
-  width: 100px;
-  height: 30px;
-  border: #5246ff solid 1px;
+  width: 50px;
+  height: 25px;
+  border: none;
   outline: none;
-  background: #4f93ff;
+  background: var(--btn-bg);
   border-radius: 5px;
-  padding: 4px 8px 4px 8px;;
+  padding: 2px 6px 2px 6px;
 }
 .color_input:hover {
-  background: #0062ff;
+  background: var(--btn-h-bg);
+  box-shadow: 2px 2px 8px var(--btn-s);
 }
 
 ::-webkit-color-swatch {
   border: none;
   outline: none;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 /*导航&目录*/
 #guide_div {
