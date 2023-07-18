@@ -87,14 +87,14 @@ window.onscroll = ()=>{
     var hp = this.getBoundingClientRect();
     var condition = $(this).offset().top - $(document).scrollTop();
     if((hp.top<wh && hp.top>-hp.height) && condition < 20){
-      HeadingName = $(this).attr("id");// 获取ID
+      var HeadingName = $(this).attr("id");// 获取ID
       if (HeadingName != null) {// 检测是否有ID
         $('.menu-this').removeClass('menu-this');// 重置Class类名
         $(`#guide > .guide_content > a.data-mu6jn[href="#${HeadingName}"]`).addClass('menu-this');// 给指定元素加类名
         linkHeight = document.querySelector(`#guide > .guide_content > a.data-mu6jn[href="#${HeadingName}"]`).getAttribute("href");// 获取ID
         linkHeight = (linkHeight.replace("#pid_",'') * menuHeight) - menuHeight;// 获取元素位置
         document.querySelector("#guide > .guide_content").scrollTo(0,linkHeight);// 滚动到指定位置
-      } else if (document.querySelector("#DropdownContent")) {
+      } else if (this.tagName.toLocaleLowerCase()==='h1') {
         $('.menu-this').removeClass('menu-this');// 重置Class类名
         document.querySelector("#guide > .guide_content").scrollTo(0,0);// 回到顶部
       }
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var body = document.getElementById("root").innerHTML;
       // 控件
       body = body.replace(/\.{2}ep/g, "</div>");
-      body = body.replace(/\.ep/g, "<div class=\"panel wow bounceInLeft\" data-wow-delay=\"0.8s\"><p>");
+      body = body.replace(/\.ep/g, "<div class=\"panel\"><p>");
       body = body.replace(/\.{2}et/g, "</a>");
       body = body.replace(/\.et/g, "<a class=\"panel c1-yellow c-gray\" style=\"font-size: 10px;\">");
       // 粗体
