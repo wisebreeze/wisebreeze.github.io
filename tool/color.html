@@ -27,7 +27,7 @@
   flex-direction: row;
 }
 .color_btn{
-  margin-top: -6px;
+  margin-top: 6px;
   display: flex;
   flex-direction: row;
 }
@@ -44,10 +44,10 @@
     <div class="left_title"><h1>颜色转换</h1></div>
     <div class="left_content" hide_bq="true">
       <h3>输入</h3>
-      <input class="input" id="color_text_input" style="width:180px;"/>
-      <input class="ns color_input" type="color" value="#000000" id="color_input" />
+      <input class="input" id="color_text_input" oninput="conversion('color_text_input')" placeholder="颜色空间，例如 #fff" style="width:180px;"/>
+      <input class="ns color_input" type="color" oninput="conversion('color_input')" value="#010101" id="color_input" />
       <h3>输出</h3><div class="color_text ns"><div>
-      预览：<a id="view" style="border-radius: 6px;"></a><br>
+      预览：<a id="view" style="border-radius: 6px;">（输入后自动转换）</a><br>
       hex：<a id="hex"></a><br>
       HSV：<a id="hsv"></a><br>
       HSL：<a id="hsl"></a><br>
@@ -60,19 +60,19 @@
       HSB：<a id="hsb"></a><br>
       xyz：<a id="xyz"></a><br>
       hcg：<a id="hcg"></a></div></div>
-      <button class="btn" onclick="conversion()">颜色转换</button><div class="color_btn"><div class="left">
-      <button class="btn" onclick="copy_code('hex','复制 hex 成功')">复制 hex</button>
-      <button class="btn" onclick="copy_code('hsv','复制 HSV 成功')">复制 HSV</button>
-      <button class="btn" onclick="copy_code('hsl','复制 HSL 成功')">复制 HSL</button>
-      <button class="btn" onclick="copy_code('hwb','复制 HWB 成功')">复制 HWB</button>
-      <button class="btn" onclick="copy_code('lab','复制 lab 成功')">复制 lab</button>
-      <button class="btn" onclick="copy_code('lch','复制 lch 成功')">复制 lch</button></div><div class="right">
-      <button class="btn" onclick="copy_code('rgb','复制 RGB 成功')">复制 RGB</button>
-      <button class="btn" onclick="copy_code('rgbArr','复制 RGB数组 成功')">复制 RGB数组</button>
-      <button class="btn" onclick="copy_code('cmyk','复制 CMYK 成功')">复制 CMYK</button>
-      <button class="btn" onclick="copy_code('hsb','复制 HSB 成功')">复制 HSB</button>
-      <button class="btn" onclick="copy_code('xyz','复制 xyz 成功')">复制 xyz</button>
-      <button class="btn" onclick="copy_code('hcg','复制 hcg 成功')">复制 hcg</button></div></div>
+      <div class="color_btn"><div class="left">
+      <button class="btn" onclick="copy_code('hex','复制 hex 成功','复制失败，请转换颜色再进行复制')">复制 hex</button>
+      <button class="btn" onclick="copy_code('hsv','复制 HSV 成功','复制失败，请转换颜色再进行复制')">复制 HSV</button>
+      <button class="btn" onclick="copy_code('hsl','复制 HSL 成功','复制失败，请转换颜色再进行复制')">复制 HSL</button>
+      <button class="btn" onclick="copy_code('hwb','复制 HWB 成功','复制失败，请转换颜色再进行复制')">复制 HWB</button>
+      <button class="btn" onclick="copy_code('lab','复制 lab 成功','复制失败，请转换颜色再进行复制')">复制 lab</button>
+      <button class="btn" onclick="copy_code('lch','复制 lch 成功','复制失败，请转换颜色再进行复制')">复制 lch</button></div><div class="right">
+      <button class="btn" onclick="copy_code('rgb','复制 RGB 成功','复制失败，请转换颜色再进行复制')">复制 RGB</button>
+      <button class="btn" onclick="copy_code('rgbArr','复制 RGB数组 成功','复制失败，请转换颜色再进行复制')">复制 RGB数组</button>
+      <button class="btn" onclick="copy_code('cmyk','复制 CMYK 成功','复制失败，请转换颜色再进行复制')">复制 CMYK</button>
+      <button class="btn" onclick="copy_code('hsb','复制 HSB 成功','复制失败，请转换颜色再进行复制')">复制 HSB</button>
+      <button class="btn" onclick="copy_code('xyz','复制 xyz 成功','复制失败，请转换颜色再进行复制')">复制 xyz</button>
+      <button class="btn" onclick="copy_code('hcg','复制 hcg 成功','复制失败，请转换颜色再进行复制')">复制 hcg</button></div></div>
     </div>
   </div>
   <!--正文-->
