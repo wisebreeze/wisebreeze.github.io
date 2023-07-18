@@ -1,7 +1,6 @@
 // \s([-+*!<>/]?==?=?|\?|[*/+%-]|=>|&&|\|\||<|>|:|,)\s
-function conversion() {
-  let colorVal=document.getElementById("color_text_input").value;
-  if(colorVal.trim()=='')colorVal=document.getElementById('color_input').value;
+function conversion(input_id) {
+  var colorVal=document.getElementById(input_id).value;
   ['hex','hsv','rgb','rgbArr','cmyk','hsl','hsb','hwb','xyz','lab','lch','hcg'].forEach(n=>document.getElementById(n).textContent=ccolor(colorVal)[n]().get());
   const view=document.querySelector("#view");
   view.innerHTML='加载中';

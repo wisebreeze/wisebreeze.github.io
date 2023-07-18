@@ -171,7 +171,7 @@ $("c").each(function(){
 });
 
 // 复制代码
-function copy_code(text,tip) {
+function copy_code(text,tip,error='复制失败') {
   // 创建 textarea
   var aux = document.createElement('textarea');
   // 为 textarea 设置制只读
@@ -180,15 +180,18 @@ function copy_code(text,tip) {
   aux.innerHTML = document.getElementById(text).innerText;
   // 在 body 写入 aux 的 textarea
   document.querySelector('#content').appendChild(aux);
-  // 选中 aux
-  aux.select();
-  // 复制选中的 aux
-  document.execCommand("copy");
-  // 提示
-  const tip_text = tip || '复制代码成功';
-  alert(tip_text);
+  if(aux.innerHTML.trim()==='')alert(error);
+  else{
+    // 选中 aux
+    aux.select();
+    // 复制选中的 aux
+    document.execCommand("copy");
+    // 提示
+    const tip_text = tip || '复制代码成功';
+    alert(tip_text);
+  }
   // 删除 textarea （不保留痕迹+取消选中）
-  document.querySelector('#content').removeChild(aux);
+  document.querySelector('#content').removeChild(aux)
 }
 
 // 快捷键
