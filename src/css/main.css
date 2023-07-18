@@ -176,7 +176,7 @@ body[data-theme="dark"] {
   /*文本框*/
   --textarea-bg: #131313;
   --textarea-t: rgb(255, 255, 255);
-  --textarea-ol: #0045c5;
+  --textarea-ol: #4460FF;
 }
 
 /* 全局 */
@@ -737,6 +737,7 @@ textarea, .input {
 textarea:focus, .input:focus {
   outline: var(--textarea-ol) solid 2px;
 }
+.input::placeholder {color: #A0A0A0;}
 
 /* 代码 */
 .code {
