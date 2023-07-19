@@ -26,9 +26,8 @@
   <!--正文-->
   <div id="content">
     <div class="left_title"><h1>引用</h1></div>
-    <div class="left_content"><p>简单来说，引用就是使用其他控件的属性和变量。</p>
+    <div class="left_content"><p>引用，就是使用其他控件的属性和变量。</p>
     <p>下面我们来探究一下什么是引用吧！</p>
-    <p>首先~先看下面代码</p>
     
     <c>"text": {
   "type": "text",
@@ -41,73 +40,42 @@
   "size": [ "default", "100%" ],
   "text": "b"
 }</c>
-      <p>那么，这些代码可以<strong>简化</strong>吗？</p>
+    <p>由上方的代码块可知，我们可以使用引用减少重复属性：</p>
     
-    <blockquote>
-      <b>Q: 简化代码可以引用吗?可以那怎么引用?</b>
-      <p>A: 首先上面代码可以看到有几个<strong>重复</strong>的值和变量
-      <br>是可以使用引用的</p>
-    </blockquote>
-    
-    <p>使用引用后</p>
-    
-    <c>"text@text_common": {
-  "text": "a"
-},
-
-"text_2@text_common": {
-  "text": "b"
-},
+    <c>"text@text_common": {"text": "a"},
+"text_2@text_common": {"text": "b"},
 
 "text_common": {
   "type": "text",
   "size": [ "default", "100%" ]
 }</c>
-      <p>这样，<lc>text、text_2</lc>控件都能用到type和size的值
-      并且值是<strong>相同</strong>的</p>
+    <p>这样，<lc>text、text_2</lc>控件都能用到type和size的值
+    并且值是<strong>相同</strong>的</p>
     
     <p>那么<strong>引用</strong>只需要在在<a class="c1-red">控件名</a>后加上<lc>@控件名</lc></p>
     
     <p>这样就能在这个控件引用其他控件的属性值了！</p>
     
-    <h2>引用时使用变量</h2>
+    <h2>引用变量</h2>
     
-    <p>那么<strong>引用的同时</strong>是否可以使用继承？</p>
+    <p>引用布仅可以使用其他控件的属性，也可以使用其他控件的变量：</p>
     
-    <p>例如：</p>
-    
-    <c>"text@text_common": {
-  "text": "a"
-},
-
-"text_2@text_common": {
-  "$a": "b"
-},
+    <c>"text@text_common": {"$a": "a"},
+"text_2@text_common": {"$a": "b"},
 
 "text_common": {
   "type": "text",
   "size": [ "default", "100%" ],
   "text": "$a"
-}</c><p>
-    这样就可以做到了
-      <br><br><strong>引用</strong>和<b>继承</b>的共同和不同点
-    </p>
-    
-    <ul>
-      <li>继承和引用的值一致</li>
-      <li>继承可以全局赋值，引用只能在当前控件使用
-      </li>
-    </ul>
+}</c>
     
     <h2>继承引用</h2>
-    <p>如下面代码所示，<lc>@$变量</lc>就可以使用继承引用了</p>
+    <p>如下面代码块所示，<lc>@$变量</lc>就可以使用继承引用了</p>
     <c>"panel": {
   "type": "panel",
   "$b": "控件名",
   "controls": [
-    {
-      "a@$b": {}
-    }
+    {"a@$b": {}}
   ]
 }</c>
       <p>接着，给变量赋值
@@ -115,9 +83,7 @@
     
     <p>赋值只需要<lc>"$变量": "控件名"</lc></p>
     
-    <p>引用和继承是UI进阶的重点</p>
-    
-    <p>那么你学会应用<strong>"引用"</strong>了吗?</p>
+    <p>你学会使用<b>引用</b>了吗?</p>
   </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>
