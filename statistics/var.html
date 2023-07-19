@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>环境变量</title>
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
+</head>
+
+<body id="root" data-theme="light">
+  <!--正文-->
+  <div id="content">
+<div class="left_title"><h1>环境变量</h1></div>
+<div class="left_content"><p>在 JSON UI 中，有一些全局变量可以根据环境而变化，因此将这个全局变量称作环境变量。环境变量通常以布尔值的形式呈现，在符合该环境条件下，变量就会为 true，不符合则为 false。</p>
+<p>变量已在另一个文件已说明，在此不多为此赘述。下方表格展示当前版本可用的环境变量：</p>
+<h2>常用</h2>
+<table>
+  <thead><tr><th>变量</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$desktop_screen</td><td>是否为经典UI档案</td></tr>
+  <tr><td>$pocket_screen</td><td>是否为携带版UI档案</td></tr>
+  <tr><td>$mouse</td><td>是否使用鼠标＆键盘操作</td></tr>
+  <tr><td>$touch</td><td>是否使用触屏操作</td></tr>
+  <tr><td>$game_pad</td><td>是否使用游戏手柄操作</td></tr>
+  <tr><td>$is_pregame</td><td>是否处于准备游戏状态（未进入世界时）</td></tr>
+  <tr><td>$is_on_3p_server</td><td>是否处于第三方服务器</td></tr></tbody>
+</table>
+<h2>操作系统＆操作设备</h2>
+<table>
+  <thead><tr><th>变量</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$win10_edition</td><td>是否为 Windows</td></tr>
+  <tr><td>$is_win10_arm</td><td>是否为 Windows ARM</td></tr>
+  <tr><td>$is_android</td><td>是否为 Android</td></tr>
+  <tr><td>$is_ios</td><td>是否为 IOS</td></tr>
+  <tr><td>$is_ps4</td><td>是否为 PS4</td></tr>
+  <tr><td>$is_windows_10_mobile</td><td>是否为 Windows Mobile</td></tr>
+  <tr><td>$xbox_one</td><td>是否为 Xbox One</td></tr>
+  <tr><td>$fire_tv</td><td>是否为 Fire TV</td></tr>
+  <tr><td>$is_mobile_vr</td><td>是否为 Mobile VR</td></tr>
+  <tr><td>$psvr</td><td>是否为 PS VR</td></tr>
+  <tr><td>$gear_vr</td><td>是否为 gear vr</td></tr>
+  <tr><td>$oculus_rift</td><td>是否为 oculus rift</td></tr>
+  <tr><td>$microsoft_os</td><td>是否为微软开发的系统</td></tr>
+  <tr><td>$google_os</td><td>是否为谷歌开发的系统</td></tr>
+  <tr><td>$apple_os</td><td>是否为苹果开发的系统</td></tr>
+  <tr><td>$nx_os</td><td>是否为任天堂开发的系统</td></tr></tbody>
+</table>
+<h2>Minecraft 版本</h2>
+<table>
+  <thead><tr><th>变量</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$is_publish</td><td>是否为已发布的版本（除开发版以外的版本）</td></tr>
+  <tr><td>$is_netease</td><td>是否为我的世界中国版 [仅我的世界中国版可用]</td></tr>
+  <tr><td>$trial</td><td>是否为试用版</td></tr>
+  <tr><td>$education_edition</td><td>是否为教育版</td></tr>
+  <tr><td>$education_edition_china</td><td>是否为中国教育版</td></tr>
+  <tr><td>$is_desktop</td><td>是否为桌面版</td></tr>
+  <tr><td>$pocket_edition</td><td>是否为携带版</td></tr>
+  <tr><td>$build_platform_UWP</td><td>是否为 UWP 版本</td></tr>
+  <tr><td>$osx_edition</td><td>是否为 osx 版本</td></tr>
+  <tr><td>$console_edition</td><td>是否为控制台版本</td></tr>
+  <tr><td>$pre_release</td><td>是否为预发布版本</td></tr></tbody>
+</table>
+<h2>功能支持</h2>
+<table>
+  <thead><tr><th>变量</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$store_disabled</td><td>商店是否禁用</td></tr>
+  <tr><td>$screen_transitions_enabled</td><td>屏幕过渡是否启用</td></tr>
+  <tr><td>$disable_gamertag_controls</td><td>玩家信息控制是否禁用</td></tr>
+  <tr><td>$can_quit</td><td>是否支持退出</td></tr>
+  <tr><td>$file_picking_supported</td><td>是否支持文件收集</td></tr>
+  <tr><td>$image_picking_not_supported</td><td>是否不支持图片收集</td></tr>
+  <tr><td>$supports_share</td><td>是否支持分享</td></tr>
+  <tr><td>$supports_clipboard</td><td>是否支持剪贴板</td></tr>
+  <tr><td>$supports_clipboard_set</td><td>是否支持设置剪贴板</td></tr>
+  <tr><td>$vibration_supported</td><td>是否支持震动</td></tr>
+  <tr><td>$world_archive_support</td><td>是否支持世界存档</td></tr>
+  <tr><td>$is_seeds_enabled</td><td>种子是否启用</td></tr>
+  <tr><td>$is_xboxlive_enabled</td><td>Xbox live 是否启用</td></tr>
+  <tr><td>$is_realms_enabled</td><td>Realms 是否启用</td></tr>
+  <tr><td>$realms_beta</td><td>Realms beta 是否启用</td></tr>
+  <tr><td>$ignore_3rd_party_servers</td><td>第三方服务器是否忽略</td></tr>
+  <tr><td>$ignore_add_servers</td><td>添加服务器是否忽略</td></tr>
+  <tr><td>$supports_add_friend</td><td>是否支持添加好友</td></tr>
+  <tr><td>$can_splitscreen</td><td>是否支持分屏</td></tr>
+  <tr><td>$test_infrastructure_disabled</td><td>测试基础设施是否禁用</td></tr></tbody>
+</table>
+<h2>安全角</h2>
+<table>
+  <thead><tr><th>变量</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$top_vertical_safezone_size</td><td>顶部安全角大小</td></tr>
+  <tr><td>$bottom_vertical_safezone_size</td><td>底部安全角大小</td></tr>
+  <tr><td>$left_horizontal_safezone_size</td><td>左侧安全角大小</td></tr>
+  <tr><td>$right_horizontal_safezone_size</td><td>右侧安全角大小</td></tr></tbody>
+</table>
+<h2>其他</h2>
+<table>
+  <thead><tr><th>变量</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$requires_xbl_signin_to_play</td><td>是否需要 Xbox live 登录去玩</td></tr>
+  <tr><td>$is_low_memory_device</td><td>是否为低内存设备</td></tr>
+  <tr><td>$is_holographic</td><td>是否为全息的</td></tr>
+  <tr><td>$is_living_room_mode</td><td>是否为客厅模式</td></tr>
+  <tr><td>$is_reality_mode</td><td>是否为现实模式</td></tr>
+  <tr><td>$is_secondary_client</td><td>是否为辅助客户端</td></tr>
+  <tr><td>$is_settopbox</td><td>是否为机顶盒</td></tr>
+  <tr><td>$is_console</td><td>是否为控制台</td></tr>
+  <tr><td>$thirdpartyconsole</td><td>是否为第三方控制台</td></tr>
+  <tr><td>$use_normalized_font_size</td><td>使用标准化字体大小</td></tr>
+  <tr><td>$device_must_be_removed_for_xbl_signin</td><td>设备是否必须移除才能 Xbox live 登录</td></tr>
+  <tr><td>$hide_xbox_live_icon</td><td>隐藏 Xbox live icon</td></tr></tbody>
+  <tr><td>$multiplayer_requires_live_gold</td><td>多人游戏是否需要 Live Gold</td></tr></tbody>
+</table>
+  </div></div>
+  <!--正文-->
+  <script src="../src/js/main.js"></script>
+  <script src="../src/js/hl.js"></script>
+  <link href="../src/css/font-awesome.css" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad()</script>
+</body></html>
