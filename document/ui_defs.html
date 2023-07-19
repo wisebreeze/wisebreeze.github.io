@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>UI 文件定义</title>
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
+</head>
+
+<body id="root" data-theme="light">
+  <!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>UI 文件定义</h1></div>
+    <div class="left_content">
+  在香草资源包中，ui/_ui_defs.json储存着全部定义的 UI 文件，只有定义这些文件，Minecraft 才会把这些文件认为是 UI 文件。
+  <p>接下来的知识应该你几分钟就能理解，那么，开始吧！</p>
+  <c title="RP/ui/_ui_defs.json">{
+  "ui_defs": [
+    "ui/test.json",
+    "test/test.json"
+  ]
+}</c>
+  <p>文件已经成功定义了。我们只需要在 ui_defs 数组中添加相对于资源包的路径即可，例如<lc>"ui/test.json"</lc>。</p>
+  <p>已经定义过的文件就不需要再次添加到 ui_defs 数组中了，因为这个定义文件会与其他资源包（包括香草资源包）的 UI 定义文件合并。</p>
+  <p>在定义新的 UI 文件时，请确保路径包含文件扩展名，文件夹和文件名之间使用斜杠 "/" 分隔。</p>
+  <p>同时，Minecraft 不要求必须使用 .json 后缀名，如下方示例。使用其他后缀名（或没有后缀名）也是可以的，但尽量使用 .json 后缀名，因为使用不恰当的后缀名可能导致其他软件误删 JSON UI 文件。</p>
+  <c title="RP/ui/_ui_defs.json">{"ui_defs": ["ui/test.png"]}</c>
+  </div></div>
+  <!--正文-->
+  <script src="../src/js/main.js"></script>
+  <script src="../src/js/hl.js"></script>
+  <link href="../src/css/font-awesome.css" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad()</script>
+</body></html>
