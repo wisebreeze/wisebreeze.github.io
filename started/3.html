@@ -27,7 +27,7 @@
   <div id="content">
     <div class="left_title"><h1>认识 JSON UI</h1></div>
     <div class="left_content">
-    <p>.bb什么是 JSON UI？..bb</p>
+    <p><b>什么是 JSON UI？</b></p>
     <p>在Minecraft Bedrock Edition（即《我的世界》基岩版，以下简称MCBE）中的用户界面（以下简称UI）有两种：
       <br><a class="c-red">一个是JSON UI，另外一个是Ore UI</a>
       <br>本文档主要讲述JSON UI。
@@ -35,7 +35,7 @@
       <br>首先，JSON UI的JSON文件主要存放在<a class="panel">RP/ui/</a>文件夹内
     </p>
     <hr>
-    <p>.bbui文件夹内有什么文件？..bb</p>
+    <p><b>ui文件夹内有什么文件？</b></p>
     <p>_global_variables.json | 全局变量，以后会详细讲解
     <br>_ui_defs.json | 声明JSON UI文件，以后会详细讲解
     <br>ui_common.json | UI模板，存放常用的控件模板
@@ -51,22 +51,22 @@
   }
 }</c><p>
 其中，"namespace"是这个UI文件的标识符。
-hh我们通常称它为.bb命名空间..bb
+hh我们通常称它为<b>命名空间</b>
 hh它必须是<a class="c-red">唯一的</a>名称，一般用于跨文件引用控件。
 </p>
 
 <p>
-文中的<a class="panel">"label": {}</a>是.bb控件..bb，你可以把它当作屏幕上某个元素。
+文中的<a class="panel">"label": {}</a>是<b>控件</b>，你可以把它当作屏幕上某个元素。
 
-<br><br>而控件开头的 "label" 是.bb控件名..bb，用于在其他控件引用这个控件的元素。
+<br><br>而控件开头的 "label" 是<b>控件名</b>，用于在其他控件引用这个控件的元素。
 <br>每个控件的控件名必须是<a class="c-red">唯一的</a>名称。
 
-<br><br>"text": "Hello World" 就是这个控件中的某个.bb元素..bb，用于完善控件的外观、位置。
+<br><br>"text": "Hello World" 就是这个控件中的某个<b>元素</b>，用于完善控件的外观、位置。
 <br><br>整理一下，一个 JSON UI 文件的结构是：
 <br>命名空间 + （控件 -> {控件名 + 元素}）
 </p>
 <hr>
-<p>.bb什么是Ore UI？..bb</p>
+<p><b>什么是Ore UI？</b></p>
 <p>上面提到了 Ore UI，现在简单了解一下。
   <br><br>Ore UI就是由Web前端技术（Html5 + CSS + JavaScript）构成的UI界面，与 JSON UI 不同的是，它可以运行JavaScript代码！
   <br><br>目前 Ore UI 只能通过修改安装包实现美化，还不能通过资源包进行修改。
