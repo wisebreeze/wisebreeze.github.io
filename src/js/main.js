@@ -106,18 +106,6 @@ window.onscroll = ()=>{
 
 document.addEventListener('DOMContentLoaded',function(){
   if (document.getElementById("number_progress")) document.getElementById("number_progress").innerText = "0%";
-  // 解析文本
-  var body = document.getElementById("root").innerHTML;
-      // 控件
-      body = body.replace(/\.{2}ep/g, "</div>");
-      body = body.replace(/\.ep/g, "<div class=\"panel\"><p>");
-      body = body.replace(/\.{2}et/g, "</a>");
-      body = body.replace(/\.et/g, "<a class=\"panel c1-yellow c-gray\" style=\"font-size: 10px;\">");
-      // 粗体
-      body = body.replace(/\.{2}bb/g, "</b>");
-      body = body.replace(/\.bb/g, "<b>");
-      document.getElementById("root").innerHTML = body;
-
   //插入内容
   if($("title").attr("cube")=='true')$("body").prepend(`<headbar><div class="headbar_left"><a href="https://jsonui.netlify.app/cube/">Cube UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></headbar>`);
   else $("body").prepend(`<headbar><div class="headbar_left"><a class="fa fa-bars" id="open-btn" onclick="openNav()"></a><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></headbar>`);
