@@ -52,8 +52,8 @@
     <p>这样，<lc>text、text_2</lc>控件都能用到type和size的值
     并且值是<strong>相同</strong>的</p>
     
-    <p>那么<strong>引用</strong>只需要在在<a class="c1-red">控件名</a>后加上<lc>@控件名</lc></p>
-    
+    <p>那么<strong>引用</strong>只需要在在<a class="c1-red">控件名</a>后加上<lc>@控件名</lc>，格式为 "controlName@namespace.otherControlName"。</p>
+    <p>controlName 为控件名，namespace 为引用控件所在的文件的命名空间，otherControlName 为引用控件的控件名。</p>
     <p>这样就能在这个控件引用其他控件的属性值了！</p>
     
     <h2>引用变量</h2>
@@ -83,7 +83,11 @@
     
     <p>赋值只需要<lc>"$变量": "控件名"</lc></p>
     
-    <p>你学会使用<b>引用</b>了吗?</p>
+  <h2>跨文件引用</h2>
+  跨文件引用它可以帮助我们整理控件，以免控件都在单独一个文件中，让文件杂乱无章。
+  <p>在了解跨文件引用之前，我们需要了解到 命名空间 以及 跨文件引用的格式：
+  <br><lc>"控件名@命名空间.控件名"</lc></p>
+  <p>如果你想新建一个文件储存某一些控件，你还需要了解 <a href="./ui_defs.html">UI文件定义</a>，并且还要给这个文件定义命名空间，之后引用这个命名空间中的控件就行了～</p>
   </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>
