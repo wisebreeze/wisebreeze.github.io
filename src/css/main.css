@@ -1,8 +1,8 @@
 /* margin: top right bottom left;*/
 /* 默认主题 */
 body[data-theme="light"] {
-  background: #F7F7F7;
-  color: #444;
+  background: #F5F5F7;
+  color: #1D1D1F;
   /*按钮*/
   --btn-bg: #8BABC0;
   --btn-h-bg: #0091ff;
@@ -91,8 +91,8 @@ body[data-theme="light"] {
 
 /* 黑暗主题 */
 body[data-theme="dark"] {
-  background: #242424;
-  color: #e9e9e9;
+  background: #1d1d1f;
+  color: #dcdcdc;
   /*按钮*/
   --btn-bg: #8799FF;
   --btn-h-bg: #4460FF;
@@ -118,7 +118,7 @@ body[data-theme="dark"] {
   /*信息栏*/
   --info-panel: #606060;
   --info-panel-s: #111111;
-  --info-btn: #304AE2;
+  --info-btn: #3b82f6;
   --info-btn-h: #5972ff;
   --info-btn-t: #fff;
   --info-btn-th: #fff;
@@ -220,15 +220,6 @@ body {
 }
 .category_content {padding: 8px;line-height:1.6rem;}
 
-/* 标题按钮 */
-.left_title div {
-  display: flex;
-  width: 230px;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
 /* 链接标题 */
 .link-header {
   display: block;
@@ -288,7 +279,7 @@ h1 {
   font-weight: bold;
   font-family: sans-serif;
   font-size: 35px;
-  margin-top: 0px;
+  margin-top: 0.4em;
   margin-bottom: 0.2em;
 }
 
@@ -653,6 +644,14 @@ a[href]:hover {
   color: #fff;
   box-shadow: 2px 2px 8px #1890ffb3;
   border: #0091ff solid 1px;
+}
+
+.left_title div {
+  display: flex;
+  width: 230px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -1078,4 +1077,4 @@ textarea:focus, .input:focus {
 .c1-brown{background:#9c6500;color:#fff;}
 .c1-yellow{background:#fff93c;color:#444;}
 .c1-dark-yellow{background:#c1be00;}
-.c1-red{background:#ff0000;color:#ffffff}
+.c1-red{background:#ff0000;color:#ffffff;}
