@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>查看所有交易物品</title>
+  <title>解锁所有交易物品</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -25,7 +25,7 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>查看所有交易物品</h1></div>
+    <div class="left_title"><h1>解锁所有交易物品</h1></div>
 <div class="left_content"><br>我们打开村民交易的 UI
 
 <p>只能看见村民当前等级交易的物品</p>
@@ -40,24 +40,16 @@
 
 <p>要做到样其实很简单
 
-<br>打开文件，找到tier_stack_panel控件</p>
-<c>"tier_stack_panel": {
-  "type": "stack_panel",
-  "size": [ "100%", "100%c + 1px" ]，
-  …
-  "bindings": [
-    {
-    …
-    }
-  ]
-}</c>
-
-<p>接着，将控件替换为：</p>
-<c>"tier_stack_panel": {
+<br>打开文件，复制下方代码替换整个文件。</p>
+<c title="RP/ui/trade_screen.json">"tier_stack_panel": {
   "bindings": []
+},
+"trade_toggle": {
+  "$toggle_enabled_binding_type": "none"
 }</c>
 
-<p>最后，保存并打开Minecraft</p>
+<p>最后，保存并打开Minecraft，这样就能解锁所有交易项目了。
+<br><a class="c-red">（代码修改过了，下方的图片与实际效果不符，这是之前做视频拍的）</a></p>
 <img width="280" hight="auto" src="../src/image/unlock.png"></img>
 <p>最后记得给UP点个关注吧(*^▽^*)</p>
   </div></div>
