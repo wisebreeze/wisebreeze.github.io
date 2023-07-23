@@ -26,54 +26,8 @@
   <!--正文-->
   <div id="content">
     <div class="left_title"><h1>绑定</h1></div>
-    <div class="left_content"><p>在UI的某个文件中，都会发现有<strong>bindings</strong>这个控件属性</p>
-    
-    <p>这里用start_screen.json作例子</p>
-    
-    <c>"bindings": [
-  {
-    "binding_name": "#sign_in_visible",
-    "binding_name_override": "#visible"
-  }
-]</c>
-    <p>简单来说，这个控件在登陆微软账号后显示，返之未登陆就隐藏</p>
-    
-    <h2>认识绑定</h2>
-    
-    <p>首先，我们先认识一下bindings吧！</p>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>bindings</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定</a></p>
-      <p>值：数组
-      </p>
-    </div>
-
-    <p>接下来，我将数组内的键和值一一列举并解释</p>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>binding_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定名</a></p>
-      <p>值：字符串
-        <br>* <b>不同的绑定名只能在当前屏幕使用！</b>
-        <br>绑定名可以Vanilla/ui/当前屏幕.json可找到
-      </p>
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>binding_name_override</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定覆盖</a></p>
-      <p>值：字符串
-        <br>该控件绑定有绑定名后，需要将绑定名的值赋予给该控件的某个变量属性(赋予的属性必须是普通属性，变量不行)</b>
-        <br>示例："binding_name_override": "#text"
-        <br>在这示例可以看到，值是<a class="c1-gold">#加上变量属性</a>
-      </p>
-    
-    
-    <p>那么，这样就知道下文的意思(用text属性显示当前的版本)：</p>
-    
-    <p>* text属性变量的值必须是<strong>绑定名</strong>才行</p>
-    
-    <c>"version": {
-  "type": "label",
-  "text": "#version",
+    <div class="left_content"><p>在UI的某个文件中，都会发现有<strong>bindings</strong>这个控件属性，它可以用于绑定硬编码到控件的属性上。这里以 start 屏幕为例：</p>  
+<c>"version": {
   "bindings": [
     {
       "binding_name": "#version",
@@ -81,87 +35,70 @@
     }
   ]
 }</c>
-    
-    <p>bindings的binding_name_override也可以忽略</p>
-    
-    <c>"version": {
-  "type": "label",
+<p>这个示例中用 #version 硬编码绑定到 text 属性上。然而，这只是个简单的绑定。我们还可以直接赋值到属性上：</p>
+<c>"version": {
   "text": "#version",
+  "bindings": [{"binding_name":"#version"}]
+}</c>
+<p>我们使用 Toggle 时，通常都会使用到 view 类型的绑定，因为这个类型允许从另一个控件读取硬编码。</p>
+<c>"panel": {
   "bindings": [
     {
-      "binding_name": "#version"
-    }
-  ]
-}</c></div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>binding_condition</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定条件</a></p>
-      <p>值：字符串
-        <br>默认值：always</b>
-        <br>值可以为visible或always
-      </p>
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>binding_type</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">绑定类型</a></p>
-      <p>值：字符串
-        <br>常用的有global、view和none
-      </p>
-    </div>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>ignored</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">隐藏绑定</a></p>
-      <p>值：布尔值
-      <br>默认值：false
-        <br><a class="c-purple">为true时，将隐藏该绑定</a>
-      </p>
-    </div>
-
-    <p>学会了吗？bindings可以有多个对象</p>
-    
-    <p>示例：</p>
-    
-    <c>"bindings": [
-  {
-    "binding_name": "$toggle_state_binding_name",
-    "binding_name_override": "#toggle_state"
-  },
-  {
-    "binding_type": "$toggle_enabled_binding_type",
-    "binding_condition": "$toggle_enabled_binding_condition",
-    "binding_collection_name": "$toggle_grid_collection_name",
-    "binding_name": "$toggle_enabled_binding_name",
-    "binding_name_override": "#enabled"
-  }
-]</c>
-    
-    <h2>绑定的相反值</h2>
-    
-    <p>还没有这么简单，binding_name的值可以作为<strong>相反值</strong>出现</p>
-    
-    <c>"test": {
-  "bindings": [
-    {
-      // 登陆时值为true
-      "binding_name": "#sign_in_visible"
-    }
-  ]
-},
-
-"not_test": {
-  "bindings": [
-    {
-      未登陆时值为true
-      "binding_name": "(not #sign_in_visible)"
+      "binding_type": "view",
+      "source_control_name": "test_toggle",
+      "source_property_name": "#toggle_state",
+      "target_property_name": "#visible"
     }
   ]
 }</c>
-    
-    <p><strong>＊ #sign_in_visible意思为登陆时可见</strong></p>
-    
-    <p>这样就可以知道，值改成(not 绑定名)就可以了，因为绑定名需要符合条件（整体为true）时才能输出true</p>
-    
-    <p>绑定差不多就教到这了</p>
+<p>在示例中，我们演示了跨控件读取绑定。他将 test_toggle 控件的属性包中的 #toggle_state 转为该控件的 visible 属性。每当改变开关状态时，panel 控件的显示状态就会改变。开关处于开启状态时，panel 控件就会显示，否则不显示。</p>
+<p>绑定还有一种情况，它可以读取 网格 或 工厂的绑定：</p>
+<c title="RP/ui/hud_screen.json">"panel": {
+  "bindings": [
+    {
+      "binding_type": "collection",
+      "binding_collection_name": "chat_text_grid",
+      "binding_name": "#chat_text"
+    }
+  ]
+}</c>
+<p>在示例中，我们使用了 collection 类型读取了 chat_text_grid 的聊天栏信息。</p>
+    <h2>绑定属性</h2>
+    <p>接下来，我将数组内的键和值一一列举并解释</p>
+
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>binding_type</td><td>绑定类型</td><td>字符串：列举</td><td></td><td>定义绑定的类型。<br>列举的值可以是：<br>none 无<br>global 全局<br>collection 合集<br>collection_details 合集详细<br>view 查看</td></tr>
+  <tr><td>ignored</td><td>忽略</td><td>布尔值</td><td>false</td><td>是否忽略该绑定。</td></tr>
+  <tr><td>binding_condition</td><td>绑定条件</td><td>字符串：列举</td><td></td><td>改变绑定数据的条件。<br>列举的值可以是：<br>none 无<br>once 仅一次<br>always 总是<br>visible 可见时<br>always_when_visible 总是在可见时<br>visibility_changed 可见性改变时</td></tr>
+  <tr><td>binding_name</td><td>绑定名</td><td>字符串</td><td></td><td>储存硬编码的绑定名。<br>绑定名可用于条件记算。</td></tr>
+  <tr><td>binding_name_override</td><td>绑定名覆盖</td><td>字符串</td><td></td><td>将 binding_name 中的值覆盖到另一个绑定名。<br>通常为控件中的属性，例如：<br>#text、#visible、#enabled</td></tr>
+  <tr><td>source_control_name</td><td>源控件名</td><td>字符串：控件名</td><td></td><td>用于读取属性值的控件的控件名。<br>该属性在绑定类型为 view 时可用。</td></tr>
+  <tr><td>source_property_name</td><td>源属性名</td><td>字符串</td><td></td><td>source_control_name 中引用的控件的属性包中的属性名。<br>属性名可用于条件计算。<br>该属性在绑定类型为 view 时可用。<p>提示：如果没有指定 source_control_name，则会视为该控件的属性名。</p></td></tr>
+  <tr><td>target_property_name</td><td>目标属性名</td><td>字符串</td><td></td><td>将 source_property_name 的值覆盖到另一个属性名中。<br>会把目标属性名储存在该控件的属性包中。<br>该属性在绑定类型为 view 时可用。</td></tr>
+  <tr><td>binding_collection_name</td><td>绑定合集名</td><td>字符串</td><td></td><td>要操作的合集的名称。<br>该属性在绑定类型为 collection 或 collection_details 时可用。<br></td></tr>
+  <tr><td>binding_collection_prefix</td><td>绑定合集前缀</td><td>字符串</td><td></td><td>要操作的合集的前缀。<br>该属性在绑定类型为 collection_details 时可用。<br></td></tr>
+</tbody></table>
+<h2>操作运算</h2>
+<p>硬编码参与运算时需要带上括号，例如 <lc>"source_property_name": "(#alpha / 100)"</lc> 。硬编码能够参与的运算有：</p>
+<table>
+<thead><tr><th>操作名</th><th>操作符号</th><th>示例</th><th>备注</th></tr></thead><tbody>
+<tr><td>加</td><td>+</td><td>(#test + 1)<br>(#test + 'string')</td><td>字符串参加运算时并且硬编码数据类型是字符串，就等于在硬编码数据末尾追加字符串。</td></tr>
+<tr><td>减</td><td>-</td><td>(#test - 1)<br>(#test - 'string')</td><td>字符串参加运算时并且硬编码数据类型是字符串，就等于在硬编码数据去除字符串。</td></tr>
+<tr><td>乘</td><td>*</td><td>(#test * 1)</td><td></td></tr>
+<tr><td>除</td><td>/</td><td>(#test / 1)</td><td></td></tr>
+<tr><td>等于</td><td>=</td><td>(#test = 1)</td><td>若等于返回 true，反之 false。</td></tr>
+<tr><td>不等于</td><td></td><td>(not (#test = 1))</td><td>若不等于返回 true，反之 false。</td></tr>
+<tr><td>大于</td><td>></td><td>(#test > 1)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>小于</td><td><</td><td>(#test < 1)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>大于或等于</td><td></td><td>(#test > 1 or #test = 1)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>小于或等于</td><td></td><td>(#test < 1 or #test = 1)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>开头含有</td><td>></td><td>(#test > 'test')</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>末尾含有</td><td><</td><td>(#test < 'test')</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>或</td><td>or</td><td>(#test = 1 or #test = 2)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>和</td><td>and</td><td>(#test = 1 and #test < 2)</td><td>若符合返回 true，反之 false。</td></tr>
+<tr><td>非</td><td>not</td><td>(not #test = 1)</td><td>若符合返回 true，反之 false。</td></tr></tbody>
+</table>
   </div></div>
   <!--正文-->
   <script src="https://jsonui.netlify.app/src/js/main.js"></script>
