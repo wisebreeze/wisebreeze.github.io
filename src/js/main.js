@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const back_text = $(this).attr("back_text") || "返回首页";
     $(this).append("<div></div>");
     $(this).find('div').append(`<a class="home-btn" href="${back_link}">${back_text}</a>`);// 返回按钮
-    $(this).html("<br>" + $(this).html());
+    $(this).html($(this).html());
   });
   //加载目录
   $("h2,h3,h4,h5,h6").each(function(){
