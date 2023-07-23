@@ -80,25 +80,7 @@
   <tr><td>binding_collection_prefix</td><td>绑定合集前缀</td><td>字符串</td><td></td><td>要操作的合集的前缀。<br>该属性在绑定类型为 collection_details 时可用。<br></td></tr>
 </tbody></table>
 <h2>操作运算</h2>
-<p>硬编码参与运算时需要带上括号，例如 <lc>"source_property_name": "(#alpha / 100)"</lc> 。硬编码能够参与的运算有：</p>
-<table>
-<thead><tr><th>操作名</th><th>操作符号</th><th>示例</th><th>备注</th></tr></thead><tbody>
-<tr><td>加</td><td>+</td><td>(#test + 1)<br>(#test + 'string')</td><td>字符串参加运算时并且硬编码数据类型是字符串，就等于在硬编码数据末尾追加字符串。</td></tr>
-<tr><td>减</td><td>-</td><td>(#test - 1)<br>(#test - 'string')</td><td>字符串参加运算时并且硬编码数据类型是字符串，就等于在硬编码数据去除字符串。</td></tr>
-<tr><td>乘</td><td>*</td><td>(#test * 1)</td><td></td></tr>
-<tr><td>除</td><td>/</td><td>(#test / 1)</td><td></td></tr>
-<tr><td>等于</td><td>=</td><td>(#test = 1)</td><td>若等于返回 true，反之 false。</td></tr>
-<tr><td>不等于</td><td></td><td>(not (#test = 1))</td><td>若不等于返回 true，反之 false。</td></tr>
-<tr><td>大于</td><td>></td><td>(#test > 1)</td><td>若符合返回 true，反之 false。</td></tr>
-<tr><td>小于</td><td><</td><td>(#test < 1)</td><td>若符合返回 true，反之 false。</td></tr>
-<tr><td>大于或等于</td><td></td><td>(#test > 1 or #test = 1)</td><td>若符合返回 true，反之 false。</td></tr>
-<tr><td>小于或等于</td><td></td><td>(#test < 1 or #test = 1)</td><td>若符合返回 true，反之 false。</td></tr>
-<tr><td>开头含有</td><td>></td><td>(#test > 'test')</td><td>若符合返回 true，反之 false。</td></tr>
-<tr><td>末尾含有</td><td><</td><td>(#test < 'test')</td><td>若符合返回 true，反之 false。</td></tr>
-<tr><td>或</td><td>or</td><td>(#test = 1 or #test = 2)</td><td>若符合返回 true，反之 false。</td></tr>
-<tr><td>和</td><td>and</td><td>(#test = 1 and #test < 2)</td><td>若符合返回 true，反之 false。</td></tr>
-<tr><td>非</td><td>not</td><td>(not #test = 1)</td><td>若符合返回 true，反之 false。</td></tr></tbody>
-</table>
+<p>内容详见 <a href="./operate.html">操作运算 ></a></p>
   </div></div>
   <!--正文-->
   <script src="https://jsonui.netlify.app/src/js/main.js"></script>
