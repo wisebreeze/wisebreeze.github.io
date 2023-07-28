@@ -34,13 +34,19 @@
         <div class="category_content">
         <textarea readonly id="result_output" rows="6"></textarea>
       </div></div>
-      <div class="btn_div">
-      <button class="btn" onclick="copy_output()">复制输出内容</button>
+      <button class="btn" onclick="copy_code('result_output','复制结果成功',undefined,true)" style="margin: 6px 0 4px 0;">复制结果</button>
+      <div class="btn_div"><div class="left">
       <button class="btn" onclick="str_to_base64()">转为 base64</button>
-      <button class="btn" onclick="base64_to_str()">解密 base64</button>
-      <button class="btn" onclick="str_to_hash()">转为 哈希函数</button>
       <button class="btn" onclick="str_to_morse()">转为 摩斯电码</button>
-      <button class="btn" onclick="morse_to_str()">解密 摩斯电码</button></div>
+      <button class="btn" onclick="str_to_hex()">转为 Hex</button>
+      <button class="btn" onclick="str_to_utf8()">转为 UTF-8 数组</button>
+      <button class="btn" onclick="str_to_unicode()">转为 unicode</button>
+      <button class="btn" onclick="str_to_hash()">转为 哈希函数</button></div><div class="right">
+      <button class="btn" onclick="base64_to_str()">解密 base64</button>
+      <button class="btn" onclick="morse_to_str()">解密 摩斯电码</button>
+      <button class="btn" onclick="hex_to_str()">解密 Hex</button>
+      <button class="btn" onclick="utf8_to_str()">解密 UTF-8 数组</button>
+      <button class="btn" onclick="utf8_to_unicode()">解密 unicode</button></div></div>
     </div>
 <style>
 .category_content {
@@ -56,75 +62,15 @@
 }
 .btn_div {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
+.btn_div > .left{padding-right: 4px;}
+.btn_div > .right{padding-left: 4px;}
+.btn_div div{flex: 1;display: flex;flex-direction: column;width: 50%;}
+.btn_div div button{margin: 4px 0 4px 0;}
 </style>
-<script>
-function str_to_base64() {
-  str = $("#original_text").val();
-  base64_var = encodeURI(str);
-  base64_var = btoa(base64_var);
-  $("#result_output").html(base64_var);
-}
-function base64_to_str() {
-  str = $("#original_text").val();
-  def_var = atob(str);
-  def_var = decodeURI(def_var);
-  $("#result_output").html(def_var);
-}
-// 摩斯电码
-function str_to_morse() {
-  str = $("#original_text").val();
-  $("#result_output").html(en_morse(str));
-}
-function morse_to_str() {
-  str = $("#original_text").val();
-  $("#result_output").html(de_morse(str));
-}
-function en_morse(str) {
-  const a = {'A': '.- ', 'B': '-... ', 'C': '-.-. ', 'D': '-.. ', 'E': '. ', 'F': '..-. ', 'G': '--. ', 'H': '.... ', 'I': '.. ', 'J': '.--- ', 'K': '-.- ', 'L': '.-.. ', 'M': '-- ', 'N': '-. ', 'O': '--- ', 'P': '.--. ', 'Q': '--.- ', 'R': '.-. ', 'S': '... ', 'T': '- ', 'U': '..- ', 'V': '...- ', 'W': '.-- ', 'X': '-..- ', 'Y': '-.-- ', 'Z': '--.. ', '1': '.---- ', '2': '..--- ', '3': '...-- ', '4': '....- ', '5': '..... ', '6': '-.... ', '7': '--... ', '8': '---.. ', '9': '----. ', '0': '----- ', ' ': '/'};
-  const b = str.toUpperCase().split('');
-  const c = b.map((d) => (a[d] || d));
-  return c.join('').trim();
-}
-function de_morse(code) {
-  const a = {'.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J', '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T', '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y', '--..': 'Z', '.----': '1', '..---': '2', '...--': '3', '....-': '4', '.....': '5', '-....': '6', '--...': '7', '---..': '8', '----.': '9', '-----': '0', '/': ' '};
-  const b = code.split(' ');
-  const c = b.map((char) => a[char] || char);
-  return c.join('');
-}
-// 哈希函数
-function str_to_hash() {
-  const str = $("#original_text").val();
-  hashString(str).then(hashedText => {
-    $("#result_output").html(hashedText);
-  });
-}
-function hashString(str) {
-  return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))
-    .then(digestBuffer => Array.from(new Uint8Array(digestBuffer)).map(byte => byte.toString(16).padStart(2, '0')).join(''));
-}
-// 复制
-function copy_output() {
-  // 创建 textarea
-  var aux = document.createElement('textarea');
-  // 为 textarea 设置制只读
-  aux.setAttribute('readonly', 'readonly');
-  // 为 textarea 写入代码框内容
-  aux.innerHTML = $("#result_output").val();
-  // 在 body 写入 aux 的 textarea
-  document.querySelector('#content').appendChild(aux);
-  // 选中 aux
-  aux.select();
-  // 复制选中的 aux
-  document.execCommand("copy");
-  // 删除 textarea （不保留痕迹+取消选中）
-  document.querySelector('#content').removeChild(aux);
-}
-</script>
   </div>
   <!--正文-->
   <link href="../src/css/font-awesome.css" rel="stylesheet">
   <script src="../src/js/main.js"></script>
+  <script src="../src/js/encode.js"></script>
 </body></html>
