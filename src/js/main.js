@@ -159,13 +159,13 @@ $("c").each(function(){
 });
 
 // 复制代码
-function copy_code(text,tip,error='复制失败') {
+function copy_code(text,tip,error='复制失败',isVal=false) {
   // 创建 textarea
   var aux = document.createElement('textarea');
   // 为 textarea 设置制只读
   aux.setAttribute('readonly', 'readonly');
   // 为 textarea 写入代码框内容
-  aux.innerHTML = document.getElementById(text).innerText;
+  aux.innerHTML = document.getElementById(text)[isVal?'value':'innerText'];
   // 在 body 写入 aux 的 textarea
   document.querySelector('#content').appendChild(aux);
   if(aux.innerHTML.trim()==='')alert(error);
