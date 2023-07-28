@@ -34,8 +34,8 @@
   "controls": [{"hi":{"type":"label","text":"hello world"}}]
 }</c>子控件允许继承和引用，因此并不需要把子控件所有属性写在controls中。</td></tr>
     <tr><td>visible</td><td>可见</td><td>布尔值</td><td>true</td><td>控件是否可见。</td></tr>
-    <tr><td>enabled</td><td>启用</td><td>布尔值</td><td>true</td><td>控件是否启用。<br>禁用后，控件本身以及时控件都会受到影响，并且无法进行交互。</td></tr>
-    <tr><td>ignored</td><td>隐藏</td><td>布尔值</td><td>false</td><td>控件是否隐藏。</td></tr>
+    <tr><td>enabled</td><td>启用</td><td>布尔值</td><td>true</td><td>控件是否启用。<br>禁用后，控件本身以及子控件都会受到影响，并且无法进行交互。</td></tr>
+    <tr><td>ignored</td><td>忽略</td><td>布尔值</td><td>false</td><td>控件是否忽略。</td></tr>
     <tr><td>alpha</td><td>不透明度</td><td>浮点数</td><td>1</td><td>控件的不透明度。<br>取值范围在 0~1 之间。不透明度默认不会传播到子控件，你可以通过 <lc>propagate_alpha</lc> 属性允许传播不透明度。</td></tr>
     <tr><td>propagate_alpha</td><td>传播不透明度</td><td>布尔值</td><td>false</td><td>控件是否允许传播不透明度到所有子控件。</td></tr>
     <tr><td>clips_children</td><td>裁剪子控件</td><td>布尔值</td><td>false</td><td>控件是否允许裁剪溢出的子控件，子控件溢出该控件的大小才会被裁剪。<br>子控件被裁剪的某个部分，交互以及图形因此都会受到影响；<br>子控件使用 <lc>"allow_clipping": false</lc> 不会被剪辑。</td></tr>
