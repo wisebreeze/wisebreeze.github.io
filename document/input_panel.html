@@ -29,6 +29,12 @@
     <div class="left_content">
 操作面板可以说是一个普通的面板控件。不像堆叠面板，无法直接改变子控件位置。
 
+<p>对于操作面板，它的属性你知道多少？<br>（操作面板主要使用的是<a href="./attr/input.html">输入类型的属性</a>，下方是输入面板特有的属性）</p>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>gesture_tracking_button</td><td>手势跟踪按钮</td><td>字符串：事件</td><td>追踪手势的按钮映射ID。<br>主要用于纸娃娃旋转<lc>button.true_doll</lc></td></tr>
+</tbody></table>
+
 <p>那操作面板有什么特别之处呢？
 <br>答：操作面板能控制以及限制操作方式，使得面板控件更有互动性。</p>
 
@@ -55,86 +61,6 @@
   ]
 }</c>
 <p>效果与普通的面板控件一致，不再展示。
-
-<p>对于操作面板，它的属性你知道多少？</p>
-
-<tip>
-<b>提示</b>
-<br>button_mappings 按钮映射已在<a href="./button.html">按钮控件（点击跳转）</a>讲到，这里不再介绍。
-</tip>
-
-<ed>
-
-<b>modal</b> <et>启用模态</et>
-<p>值：布尔值
-<br>默认值：false
-<br>值为 true 时，其他控件（除该操作面板及其操作面板子控件）阻止操作（点击、悬停、焦点操作）。
-</p></ed>
-<ed>
-
-<b>inline_modal</b> <et>启用线型模态</et>
-<p>值：布尔值
-<br>默认值：false
-<br>值为 true 时，该操作面板所在范围的控件（除该操作面板及其操作面板子控件）阻止操作（点击、悬停、焦点操作）。
-</p></ed>
-<ed>
-
-<b>prevent_touch_input</b> <et>阻止触摸输入</et>
-<p>值：布尔值
-<br>默认值：false
-<br>值为 true 时，该操作面板所在范围的控件（除该操作面板及其操作面板子控件）阻止触屏操作。
-</p></ed>
-<ed>
-
-<b>always_handle_pointer</b> <et>处理指针操作</et>
-<p>值：布尔值
-<br>默认值：true
-<br>值为 false 时，该操作面板所在范围的控件（除该操作面板及其操作面板子控件）阻止鼠标操作。
-</p></ed>
-<ed>
-
-<b>always_listen_to_input</b> <et>总是监听操作</et>
-<p>值：布尔值
-<br>默认值：true
-<br>值为 false 时，该操作面板所在范围的控件（除该操作面板及其操作面板子控件）阻止操作（点击、悬停、焦点操作）。
-<br>
-<br>[与 inline_modal 属性相反]
-</p></ed>
-<ed>
-
-<b>always_handle_controller_direction</b> <et>处理手柄操作</et>
-<p>值：布尔值
-<br>默认值：false
-<br>值为 false 时，该操作面板所在范围的控件（除该操作面板及其操作面板子控件）阻止手柄操作。
-</p></ed>
-<ed>
-
-<b>hover_enabled</b> <et>启用悬停</et>
-<p>值：布尔值
-<br>默认值：true
-<br>未知，用于base_screen的子控件
-</p></ed>
-<ed>
-
-<b>consume_event</b> <et>启用事件操作</et>
-<p>值：布尔值
-<br>默认值：true
-<br>值为 false 时，该操作面板所在范围的控件（除该操作面板及其操作面板子控件）阻止操作（点击、悬停、焦点操作）。
-</p></ed>
-<ed>
-
-<b>consume_hover_events</b> <et>启用悬停操作</et>
-<p>值：布尔值
-<br>默认值：true
-<br>未知
-</p></ed>
-<ed>
-
-<b>gesture_tracking_button</b> <et>手势跟踪按钮</et>
-<p>值：字符串
-<br>默认值：none
-<br>目前仅允许<lc>button.true_doll</lc>，用于旋转纸娃娃
-</p></ed>
 
 <h2> 扩展教程</h2>
 
