@@ -27,120 +27,26 @@
   <div id="content">
     <div class="left_title"><h1>按钮控件</h1></div>
     <div class="left_content"><p>接下来，让我们更深入一些吧！</p>
-    
-    <p>什么是按钮？
-    <br>它能让你打开其他的界面，还会根据四种状态<a class="panel c1-gold">默认，悬停，按下，锁定</a>来改变按钮本身的纹理</p>
-    
-    <p>你可以在控件引用<a class="panel c1-light-green">@common.button</a>来使用按钮控件，因为这样能更方便一些。</p>
-    <p>提示：以下属性仅适用于 button 控件类型。</p>
-    <h2>定义按钮属性</h2>
-    <p>这些属性可以不用写，因为@commom.button时就已经默认了</p>
-    
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>default_control</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">默认状态下子项目的名称</a></p>
-      <p>值：字符串/控件名
-      <br><a class="c1-red">建议不要更改该属性！</a>
-      <br>在改变按钮外观时，同时更改control/default控件名有效
-      <br>引用<a class="panel c1-light-green">@common.button</a>时默认为default</p>
-    </div>
 
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>hover_control</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">悬停状态下子项目的名称</a></p>
-      <p>值：字符串/控件名
-      <br><a class="c1-red">建议不要更改该属性！</a>
-      <br>在改变按钮外观时，同时更改control/hover控件名有效
-      <br>引用<a class="panel c1-light-green">@common.button</a>时默认为hover</p>
-    </div>
+<p>什么是按钮？
+<br>它能让你打开其他的界面，还会根据四种状态<a class="panel c1-gold">默认，悬停，按下，锁定</a>来改变按钮本身的纹理</p>
 
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>pressed_control</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按下状态下子项目的名称</a></p>
-      <p>值：字符串/控件名
-      <br><a class="c1-red">建议不要更改该属性！</a>
-      <br>在改变按钮外观时，同时更改control/pressed控件名有效
-      <br>引用<a class="panel c1-light-green">@common.button</a>时默认为pressed</p>
-    </div>
-
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>locked_control</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">锁定状态下子项目的名称</a></p>
-      <p>值：字符串/控件名
-      <br><a class="c1-red">建议将值设为"locked"！</a>
-      <br>在改变按钮外观时，同时更改control/locked控件名有效
-      <br>在引用<a class="panel c1-red">@common.button</a>时没有声明控件名！</p>
-    </div>
+<p>建议你在控件引用<lc>@common.button</lc>定义按钮，因为这样做能更方便一些。</p>
+<h2>按钮属性</h2>
+<tip><b>提示</b><br>默认、悬停、按下属性可以不用写，因为<lc>@commom.button</lc>时就已经默认了</tip>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>default_control</td><td>默认状态控件</td><td>字符串</td><td>默认状态下子控件的控件名，该子控件仅在默认状态显示。<br><br>引用<lc>@common.button</lc>时默认为<lc>default</lc>。</td></tr>
+  <tr><td>hover_control</td><td>悬停状态控件</td><td>字符串</td><td>悬停状态下子控件的控件名，该子控件仅在悬停状态显示。<br><br>引用<lc>@common.button</lc>时默认为<lc>hover</lc>。</td></tr>
+  <tr><td>pressed_control</td><td>按下状态控件</td><td>字符串</td><td>按下状态下子控件的控件名，该子控件仅在按下状态显示。<br><br>引用<lc>@common.button</lc>时默认为<lc>pressed</lc>。</td></tr>
+  <tr><td>locked_control</td><td>锁定状态控件</td><td>字符串</td><td>锁定状态下子控件的控件名，该子控件仅在锁定状态显示。</td></tr>
+</tbody></table>
     <h2>按钮映射</h2>
-    
     <p>直接添加按钮只会改变自身材质，如果需要按钮有实际作用，
-    <br>需要使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a href="./anim.html">动画控件</a>)</p>
-    <a class="c-red">触发映射条件时而且from_button_id指定按键按下并松手仅触发一次to_button_id事件</a>
-    <br>下面我们来认识一下如何添加按钮映射吧！
-
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>button_mappings</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射组</a></p>
-      <p>值：数组
-        <br>可用于：<a class="panel c-blue">button</a><a class="panel c-blue">input_panel</a><a class="panel c-blue">toggle</a><a class="panel c-blue">可互动控件···</a>
-        <br>用于定义按钮按下时触发的事件
-      </p>
-    </div>
-    
-    <c title="示例">"button_mappings": [
-  {
-    "from_button_id": "button.menu_select",
-    "to_button_id": "$pressed_button_name",
-    "mapping_type": "pressed",
-    "input_mode_condition": "gamepad_and_not_gaze"
-  }
-]</c>
-    
-    <table>
-      <caption>button_mappings 子属性</caption>
-      <thead><tr><th>属性名</th><th>值</th><th>介绍</th></tr></thead>
-      <tbody><tr><td>from_button_id</td><td>字符串</td><td>触发条件的按钮ID</td></tr>
-      <tr><td>to_button_id</td><td>字符串</td><td>执行操作的按钮ID</td></tr>
-      <tr><td>mapping_type</td><td>字符串</td><td>触发条件<br>（可能的值：下面有说明）</td></tr>
-      <tr><td>input_mode_condition</td><td>字符串</td><td>输入模式条件<br>（可能的值：下面有说明）</td></tr>
-      <tr><td>scope</td><td>字符串</td><td>范围<br>（可能的值：view,controller）</td></tr>
-      <tr><td>handle_select</td><td>布尔值</td><td>条件：手柄选择</td></tr>
-      <tr><td>handle_deselect</td><td>布尔值</td><td>条件：手柄不选择</td></tr></tbody>
-    </table>
-
-  <br><tip>> 当from_button_id触发时会将from_button_id转换为to_button_id
-    
-    <br>> to_button_id事件可当作动画的开始，重置，结束事件
-    
-    <br>> mapping_type值为global时，触发form_button_id会优先触发to_button_id事件
-  
-    <br>> 按钮映射的事件是单次执行的</tip>
-  <p>触发条件：
-    <ul style="list-style: square;"><li>pressed - 按下时</li>
-    <li>focused - 聚焦时</li>
-    <li>double_pressed - 双击时</li>
-    <li>global - 始终（触发from_button_id后）</li>
-  </ul></p>
-  <p>输入模式条件：
-    <ul style="list-style: square;"><li>not_gaze - 无条件</li>
-    <li>gamepad_and_not_gaze - 使用游戏手柄</li>
-  </ul></p>
-  <p>以下是一些常用的to_button_id：</p>
-    
-    <ul style="list-style: square;">
-      <li>button.menu_cancel（Esc键或返回键）</li>
-      <li>button.exit（退出屏幕）</li>
-      <li>button.menu_ok（确定键）</li>
-      <li>button.menu_select（单击/点击/Enter键）</li>
-      <li>button.hide_hud（隐藏/显示Hud - 仅用于Hud屏幕)</li>
-      <li>button.hide_paperdoll（隐藏/显示纸娃娃 - 仅用于Hud屏幕）</li>
-      <li>button.menu_up  ↑</li>
-      <li>button.menu_down  ↓</li>
-      <li>button.menu_left  ←</li>
-      <li>button.menu_right  →</li>
-      <li>button.menu_autocomplete（Tab键 - 常用于聊天屏幕）</li>
-      <li>button.menu_autocomplete_back（上个Tab键 - 常用于聊天屏幕）</li>
-      <li>button.menu_tab_left（左Tab键）</li>
-      <li>button.menu_tab_right（右Tab键）</li>
-    </ul>
-
-    <p>如果仅需按下按钮触发映射事件，可以先引用"commom.button"，然后使用$pressed_button_name
-      <br>提示：$pressed_button_name的值等于to_button_id
+    <br>需要使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a href="./attr/anim.html">动画控件</a>)</p>
+    <p>详见 <a href="./attr/input.html">输入属性 ></a></p>
+    <p>如果仅需按下按钮触发映射事件或者不想写按钮映射数组，可以先引用<lc>@commom.button</lc>并使用<lc>$pressed_button_name</lc>变量。
+      <tip><b>提示</b><br><lc>$pressed_button_name</lc>变量等于按钮映射数组中的to_button_id。</tip>
     </p>
     <h2>超链接按钮</h2>
 
