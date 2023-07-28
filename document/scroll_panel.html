@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>滚动面板</title>
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
+</head>
+
+<body id="root" data-theme="light">
+  <!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>滚动面板</h1></div>
+    <div class="left_content">
+<p>滚动面板是由多个控件组成的面板
+<br>因此滚动面板不能是一个单独的控件，不能像上面的面板直接使用 controls 加入子控件
+<br>所以使用它需要引用 ui_common.json 文件的 scrolling_panel 控件
+<br>即 <lc>@common.scrolling_panel</lc>
+</p>
+<p>首先展示下滚动面板的代码</p>
+<c>"scrolling_panel@common.scrolling_panel": {
+  "$show_background": false,// 显示背景
+  "$scrolling_content": "stack_panel",// 滚动面板内容
+  "size": [ "100%", "100%" ]// 滚动面板大小
+},
+
+"stack_panel": {
+  "type": "stack_panel",
+  "size": [ "100%", "100%c" ],
+  "controls": [
+    {"label_1":{"type":"label","text":"hello world"}},
+    {"label_2":{"type":"label","text":"hello world"}}
+  ]
+}</c>
+<p>
+接下来，我们先来讲下滚动面板的基本属性
+
+<h3> 基础属性</h3>
+<ed>
+
+<b>$scrolling_content</b> <et>面板内容</et>
+<p>
+
+值：字符串/控件
+<br>滚动面板的内容，例如上文的代码中的<lc>"stack_panel"</lc>
+<br>目前仅支持上下滚动内容
+</p></ed>
+<ed>
+
+<b>$show_background</b> <et>面板背景</et>
+<p>
+
+值：布尔值
+<br>默认值：true
+<br><b>建议为 false 隐藏背景。</b>
+<br>值为 ture 时，显示背景。主要用于 pocket UI 档案的可交互屏幕
+<br>如需修改背景，请另见其下。
+</p></ed>
+</p>
+
+<h3> 修改滚动面板背景</h3>
+在滚动面板中，默认的背景可能会不符合你的 UI 风格
+<br>那么要如何修改背景呢？
+
+<tip>
+
+<b>提示</b>
+<br>需要 <lc>$show_background</lc> 为 true 显示背景，所做的背景才得以显示
+</tip>
+
+<c>"scrolling_panel@common.scrolling_panel": {
+  "$show_background": false,// 显示背景
+  "$scrolling_content": "stack_panel",// 滚动面板内容
+  "size": [ "100%", "100%" ],// 滚动面板大小
+  "$scroll_background_image_control": "hud.scroll_bg"
+},
+
+"scroll_bg": {
+  "type": "image",
+  "texture": "textures/ui/lava",
+  "fill": true
+},
+
+"stack_panel": {
+  "type": "stack_panel",
+  "size": [ "100%", "100%c" ],
+  "controls": [
+    {"label_1":{"type":"label","text":"hello world"}},
+    {"label_2":{"type":"label","text":"hello world"}}
+  ]
+}</c>
+像上面，使用 <lc>$scroll_background_image_control</lc> 更改背景
+
+<ed>
+
+<b>$scroll_background_image_control</b> <et>面板背景</et>
+<p>
+
+值：字符串/控件
+<br>默认值：common.scroll_indent_image
+<br>更改滚动面板的背景，背景不会随面板的滚动而滚动
+</p></ed>
+
+<tip>
+
+<b>提示</b>
+<br>引用控件时，切记要在值的开头加上该文件的<b>命名空间</b>
+<br>例如在 "hud_screen.json" 的控件，命名空间就是 "hud."
+<br>在引用时就是 "hud.某个控件"
+</tip>
+
+改变背景在滚动面板内大小你还需要使用此属性
+
+<ed>
+
+<b>$background_size</b> <et>面板背景大小</et>
+<p>
+
+值：字符串/大小
+<br>默认值：[ "100%", "100%" ]
+<br>更改滚动面板的背景大小
+</p></ed>
+
+改变背景在滚动面板内偏移你还需要使用此属性
+<ed>
+
+<b>$background_offset</b> <et>面板背景偏移</et>
+<p>
+
+值：字符串/偏移
+<br>默认值：[ 0, 0 ]
+<br>更改滚动面板的背景偏移
+</p></ed>
+
+<h3> 修改滚动条样式</h3>
+如果，你想要改变原版的滚动条。
+那么接下来，我们将简单地讲下改变滚动条样式！
+
+当然，不想要显示滚动条可以使用 <lc>$scroll_box_visible</lc> 。
+
+<ed>
+
+<b>$scroll_box_visible</b> <et>滚动条是否可见</et>
+<p>
+
+值：布尔值
+<br>默认值：true
+<br>值为 false 时不可见
+</p></ed>
+
+例如这样更改滚动条
+<br>只要加上这两个属性并引用控件即可: <lc>$scroll_box_mouse_image_control</lc> 
+<lc>$scroll_box_touch_image_control</lc>
+
+<c>"scrolling_panel@common.scrolling_panel": {
+  "$show_background": false,// 显示背景
+  "$scrolling_content": "stack_panel",// 滚动面板内容
+  "size": [ "100%", "100%" ],// 滚动面板大小
+  "$scroll_box_mouse_image_control": "hud.scroll_box_image"
+},
+
+"scroll_box_image": {
+  "type": "image",
+  "texture": "textures/ui/button_borderless_lighthover",
+  "fill": true,
+  "alpha": "@common.anim_scrollbar_box_fadeout"
+},
+
+"stack_panel": {
+  "type": "stack_panel",
+  "size": [ "100%", "100%c" ],
+  "controls": [
+    {"label_1":{"type":"label","text":"hello world"}},
+    {"label_2":{"type":"label","text":"hello world"}}
+  ]
+}</c>
+
+<tip>
+
+<b>提示</b>
+<br>引用控件时，切记要在值的开头加上该文件的<b>命名空间</b>！
+<br>例如在 "hud_screen.json" 的控件，命名空间就是 <lc>"hud."</lc>。
+<br>在引用时就是 "hud.某个控件"。
+</tip>
+
+在代码中的 <lc>"alpha": "@common.anim_scrollbar_box_fadeout"</lc> ，就是让滚动条在<b>滚动面板静止不动的状态下</b>隐藏，建议加上去。
+
+滚动面板就讲到这里了！还有很多属性没讲，其中这里只挑了重要的来讲。
+
+<h2> 代码示例</h2>
+<c>"scrolling_panel@common.scrolling_panel": {
+  "$show_background": false,// 显示背景
+  "$scrolling_content": "stack_panel",// 滚动面板内容
+  "size": [ "100%", "100%" ]// 滚动面板大小
+},
+
+"stack_panel": {
+  "type": "stack_panel",
+  "size": [ "100%", "100%c" ],
+  "controls": [
+    {"label_1":{"type":"label","text":"hello world"}},
+    {"label_2":{"type":"label","text":"hello world"}}
+  ]
+}</c>
+
+好了，文档就讲完面板控件了。
+<br>如果有什么问题可以在视频评论区提问哦 (～￣▽￣)～ 
+    </div>
+  </div>
+  <!--正文-->
+  <script src="../src/js/main.js"></script>
+  <script src="../src/js/hl.js"></script>
+  <link href="../src/css/font-awesome.css" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad()</script>
+</body></html>
