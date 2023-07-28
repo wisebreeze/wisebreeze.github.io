@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>焦点属性</title>
+  <link rel="shortcut icon" href="https://jsonui.netlify.app/favicon.ico">
+  <link rel="icon" sizes="100x100" href="https://jsonui.netlify.app/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="https://jsonui.netlify.app/src/css/main.css" rel="stylesheet">
+  <script src="https://jsonui.netlify.app/src/js/jQuery.js"></script>
+</head>
+
+<body id="root" data-theme="light">
+  <!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>焦点属性</h1></div>
+    <div class="left_content">
+<p>焦点用于选中其他控件，仅游戏手柄和键盘能使用焦点。</p>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>focus_enabled</td><td>焦点启用</td><td>布尔值</td><td>false</td><td>是否允许该控件启用焦点。</td></tr>
+  <tr><td>focus_identifier</td><td>焦点标识符</td><td>字符串</td><td></td><td>定义该控件的焦点标识符，方便其他控件引导焦点到此控件。<p>焦点标识符是唯一的！</p></td></tr>
+  <tr><td>use_last_focus</td><td>使用上个焦点</td><td>布尔值</td><td>false</td><td>该控件是否使用上一个焦点。<br>当启用上一个焦点时，返回到该屏幕会保留上次焦点。</td></tr>
+  <tr><td>focus_container</td><td>焦点容器</td><td>布尔值</td><td>false</td><td>是否将该控件视为焦点容器，处理子控件的焦点的容器。</td></tr>
+  <tr><td>reset_on_focus_lost</td><td>失去焦点重置</td><td>布尔值</td><td>false</td><td>该控件是否在焦点消失时重置该控件的状态。</td></tr>
+  <tr><td>focus_wrap_enabled</td><td>启用焦点换行</td><td>布尔值</td><td>true</td><td>该控件是否启用焦点换行。<p>当启用焦点换行时，如果焦点达到控件或屏幕的边界，那么焦点就会自动跳转到合适的位置。<br>禁用会使焦点及时到达控件或屏幕的边界，也不会自动跳转。</p></td></tr>
+  <tr><td>focus_magnet_enabled</td><td>启用焦点吸附</td><td>布尔值</td><td>false</td><td>该控件是否启用焦点吸附。<p>当启用焦点吸附时，焦点吸附是指焦点接近某个可拖动元素时，控件会自动对齐到特定位置。</p></td></tr>
+  <tr><td>default_focus_precedence</td><td>默认焦点优先级</td><td>数字</td><td>0</td><td>该控件默认的焦点默认优先级。</td></tr>
+  <tr><td>focus_change_down</td><td>向下焦点覆盖</td><td>字符串</td><td></td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_down 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
+  <tr><td>focus_change_up</td><td>向上焦点覆盖</td><td>字符串</td><td></td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_up 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
+  <tr><td>focus_change_left</td><td>向左焦点覆盖</td><td>字符串</td><td></td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_left 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
+  <tr><td>focus_change_right</td><td>向右焦点覆盖</td><td>字符串</td><td></td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_right 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
+  <tr><td>focus_mapping</td><td>焦点映射</td><td>数组</td><td></td><td>详见 <a href="#pid_1">焦点映射 ></a></td></tr>
+  <tr><td>focus_navigation_mode_down</td><td>向下焦点导航模式</td><td>字符串：列举</td><td>none</td><td>列举的值可以是：<br>none 不导航焦点<br>contained 容器内部导航向下焦点<br>custom 自定义导航向下焦点</td></tr>
+  <tr><td>focus_navigation_mode_up</td><td>向上焦点导航模式</td><td>字符串：列举</td><td>none</td><td>列举的值可以是：<br>none 不导航焦点<br>contained 容器内部导航向上焦点<br>custom 自定义导航向上焦点</td></tr>
+  <tr><td>focus_navigation_mode_left</td><td>向左焦点导航模式</td><td>字符串：列举</td><td>none</td><td>列举的值可以是：<br>none 不导航焦点<br>contained 容器内部导航向左焦点<br>custom 自定义导航向左焦点</td></tr>
+  <tr><td>focus_navigation_mode_right</td><td>向右焦点导航模式</td><td>字符串：列举</td><td>none</td><td>列举的值可以是：<br>none 不导航焦点<br>contained 容器内部导航向右焦点<br>custom 自定义导航向右焦点</td></tr>
+  <tr><td>focus_container_custom_down</td><td>向下自定义焦点容器</td><td>数组</td><td></td><td>详见 <a href="#pid_2">自定义焦点容器 ></a></td></tr>
+  <tr><td>focus_container_custom_up</td><td>向上自定义焦点容器</td><td>数组</td><td></td><td>详见 <a href="#pid_2">自定义焦点容器 ></a></td></tr>
+  <tr><td>focus_container_custom_left</td><td>向左自定义焦点容器</td><td>数组</td><td></td><td>详见 <a href="#pid_2">自定义焦点容器 ></a></td></tr>
+  <tr><td>focus_container_custom_right</td><td>向右自定义焦点容器</td><td>数组</td><td></td><td>详见 <a href="#pid_2">自定义焦点容器 ></a></td></tr>
+</tbody></table>
+<ol><li>如果不想触发引导焦点，可以填写<lc>FOCUS_OVERRIDE_STOP</lc>，阻止引导该方向的焦点。</li></ol>
+<h2>焦点映射</h2>
+<p>以下为数组对象允许的属性：</p>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>focus_identifier</td><td>焦点标识符</td><td>字符串</td><td>定义该控件的焦点标识符，方便其他控件引导焦点到此控件。<p>焦点标识符是唯一的！</p></td></tr>
+  <tr><td>focus_change_down</td><td>下方焦点覆盖</td><td>字符串</td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_down 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
+  <tr><td>focus_change_up</td><td>上方焦点覆盖</td><td>字符串</td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_up 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
+  <tr><td>focus_change_left</td><td>左边焦点覆盖</td><td>字符串</td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_left 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
+  <tr><td>focus_change_right</td><td>右边焦点覆盖</td><td>字符串</td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_right 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
+</tbody></table>
+<ol><li>如果不想触发引导焦点，可以填写<lc>FOCUS_OVERRIDE_STOP</lc>，阻止引导该方向的焦点。</li></ol>
+<h2>自定义焦点容器</h2>
+<tip><b>提示</b><br>需要该方向的焦点导航模式为<lc>custom</lc>，才能使用该方向的自定义焦点容器。</tip>
+<p>当焦点在该控件中并触发 button.menu_(down/up/left/right) 事件，而且该方向的交点导航模式为 custom，就会引导到新的焦点容器。</p>
+<p>以下为自定义焦点容器数组对象的属性：</p>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>other_focus_container_name</td><td>其他焦点容器控件名</td><td>字符串</td><td>接收焦点的焦点容器的控件名。</td></tr>
+  <tr><td>focus_id_inside</td><td>内部交点标识符</td><td>字符串</td><td>接收焦点的焦点容器的可聚焦子控件的焦点标识符。</td></tr>
+</tbody></table>
+<c title="属性示例">"focus_container_custom_right": [
+  {
+    "other_focus_container_name": "控件名",
+    "focus_id_inside": "内部焦点名"
+  }
+]</c>
+<c title="代码示例">{
+  "test": {
+    "type": "panel",
+    "focus_container": true,
+    "controls": [
+      {
+        "none": {
+          "type":"input_panel",
+          "focus_enabled": true,
+          "focus_identifier": "none"
+        }
+      }
+    ]
+  },
+  
+  "focus_panel": {
+    "type": "input_panel",
+    "focus_container_custom_right": [
+      {
+        "other_focus_container_name": "test",
+        "focus_id_inside": "none"
+      }
+    ]
+  }
+}</c>
+  </div></div>
+  <!--正文-->
+  <script src="https://jsonui.netlify.app/src/js/main.js"></script>
+  <script src="https://jsonui.netlify.app/src/js/hl.js"></script>
+  <link href="https://jsonui.netlify.app/src/css/font-awesome.css" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad()</script>
+</body></html>

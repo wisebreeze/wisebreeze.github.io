@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>声音属性</title>
+  <link rel="shortcut icon" href="https://jsonui.netlify.app/favicon.ico">
+  <link rel="icon" sizes="100x100" href="https://jsonui.netlify.app/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="https://jsonui.netlify.app/src/css/main.css" rel="stylesheet">
+  <script src="https://jsonui.netlify.app/src/js/jQuery.js"></script>
+</head>
+
+<body id="root" data-theme="light">
+  <!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>声音属性</h1></div>
+    <div class="left_content">
+<p>运用声音属性，我们可以在点击互动性控件后播放音效，甚至音乐！</p>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>sound_name</td><td>声音名称</td><td>字符串</td><td></td><td>音效名称。<br>指存储在<lc>RP/sounds/sound_definitions.json</lc>文件中的音效名称。<br>例如<lc>random.screenshot</lc>。</td></tr>
+  <tr><td>sound_volume</td><td>声音音量</td><td>浮点数</td><td>1</td><td>音效音量。<br>音量为 1 时，不会改变音乐文件原有的音量。</td></tr>
+  <tr><td>sound_pitch</td><td>声音音调</td><td>浮点数</td><td>1</td><td>音效音调。<br>可以改变音调大小已调整音效播放倍数。</td></tr>
+  <tr><td>sounds</td><td>声音</td><td>数组</td><td></td><td>点击该控件后播放的声音数组（播放列表）。<br>详见 <a href="#pid_1">声音数组 ></a></td></tr>
+</tbody></table>
+<h2>声音数组</h2>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>sound_name</td><td>声音名称</td><td>字符串</td><td></td><td>音效名称。<br>指存储在<lc>RP/sounds/sound_definitions.json</lc>文件中的音效名称。<br>例如<lc>random.screenshot</lc>。</td></tr>
+  <tr><td>sound_volume</td><td>声音音量</td><td>浮点数</td><td>1</td><td>音效音量。<br>音量为 1 时，不会改变音乐文件原有的音量。</td></tr>
+  <tr><td>sound_pitch</td><td>声音音调</td><td>浮点数</td><td>1</td><td>音效音调。<br>可以改变音调大小已调整音效播放倍数。</td></tr>
+  <tr><td>min_seconds_between_plays</td><td>最少播放间隔秒</td><td>浮点数</td><td></td><td>播放下一首音乐，之间需要间隔多少秒，单位为秒。</td></tr>
+  <tr><td>event_type</td><td>事件类型</td><td>字符串</td><td>button_event</td><td>触发音效的事件。</td></tr>
+  <tr><td>button_name</td><td>按钮名</td><td>字符串</td><td></td><td>触发音效的目标按钮控件。</td></tr>
+</tbody></table>
+  </div></div>
+  <!--正文-->
+  <script src="https://jsonui.netlify.app/src/js/main.js"></script>
+  <script src="https://jsonui.netlify.app/src/js/hl.js"></script>
+  <link href="https://jsonui.netlify.app/src/css/font-awesome.css" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad()</script>
+</body></html>
