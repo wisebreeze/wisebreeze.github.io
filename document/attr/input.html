@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>输入属性</title>
+  <link rel="shortcut icon" href="https://jsonui.netlify.app/favicon.ico">
+  <link rel="icon" sizes="100x100" href="https://jsonui.netlify.app/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="https://jsonui.netlify.app/web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
+  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="https://jsonui.netlify.app/src/css/main.css" rel="stylesheet">
+  <script src="https://jsonui.netlify.app/src/js/jQuery.js"></script>
+</head>
+
+<body id="root" data-theme="light">
+  <!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>输入属性</h1></div>
+    <div class="left_content">
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>button_mappings</td><td>按钮映射</td><td>数组</td><td></td><td>按钮映射事件的处理。<br>详见 <a href="#pid_1">按钮映射 ></a></td></tr>
+  <tr><td>modal</td><td>模态</td><td>布尔值</td><td>false</td><td>控件是否启用模态。<br>启用后，控件会覆盖其他控件（除该控件及其子控件）的操作，阻止焦点和互动。</td></tr>
+  <tr><td>inline_modal</td><td>内联模态</td><td>布尔值</td><td>false</td><td>控件是否启用内联模态。<br>启用后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的所有类型操作，阻止焦点和互动。</td></tr>
+  <tr><td>always_listen_to_input</td><td>总是监听输入</td><td>布尔值</td><td>true</td><td>控件是否总是监听输入。<br>禁用后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的所有类型操作，阻止焦点和互动。</td></tr>
+  <tr><td>always_handle_pointer</td><td>总是处理指针</td><td>布尔值</td><td>true</td><td>控件是否总是处理指针输入。<br>禁用后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的指针操作，阻止焦点和互动。</td></tr>
+  <tr><td><a style="font-size: 0.8em;">always_handle_controller_direction</a></td><td>总是处理控制器方向</td><td>布尔值</td><td>true</td><td>控件是否总是处理控制器方向输入。<br>禁用后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的控制器方向操作，阻止焦点和互动。</td></tr>
+  <tr><td>prevent_touch_input</td><td>阻止触屏输入</td><td>布尔值</td><td>false</td><td>控件是否阻止触屏输入。<br>阻止后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的触屏操作，阻止焦点和互动。</td></tr>
+  <tr><td>consume_event</td><td>消耗事件</td><td>布尔值</td><td>false</td><td>控件是否消耗事件。<br>阻止后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的事件操作。</td></tr>
+  <tr><td>hover_enabled</td><td>启用悬停</td><td>布尔值</td><td>true</td><td>控件是否启用悬停。</td></tr>
+  <tr><td>consume_hover_events</td><td>消耗悬停事件</td><td>布尔值</td><td>false</td><td>控件是否消耗悬停事件。<br>阻止后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的悬停事件操作。</td></tr>
+</tbody></table>
+<h2>按钮映射</h2>
+<p>可以使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a href="./anim.html">动画控件</a>)</p>
+<a class="c-red">触发映射条件时而且from_button_id指定按键按下并松手仅触发一次to_button_id事件</a>
+<br>下面我们来认识一下如何添加按钮映射吧！
+<c title="示例">"button_mappings": [
+  {
+    "from_button_id": "button.menu_select",
+    "to_button_id": "$pressed_button_name",
+    "mapping_type": "pressed",
+    "input_mode_condition": "gamepad_and_not_gaze"
+  }
+]</c>
+    
+<table>
+  <thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead>
+  <tbody><tr><td>from_button_id</td><td>字符串</td><td>触发条件的按钮ID</td></tr>
+  <tr><td>to_button_id</td><td>字符串</td><td>执行操作的按钮ID</td></tr>
+  <tr><td>mapping_type</td><td>字符串</td><td>触发条件<br>（可能的值：下面有说明）</td></tr>
+  <tr><td>input_mode_condition</td><td>字符串</td><td>输入模式条件<br>（可能的值：下面有说明）</td></tr>
+  <tr><td>scope</td><td>字符串</td><td>范围<br>（可能的值：view,controller）</td></tr>
+  <tr><td>handle_select</td><td>布尔值</td><td>条件：手柄选择</td></tr>
+  <tr><td>handle_deselect</td><td>布尔值</td><td>条件：手柄不选择</td></tr></tbody>
+</table>
+
+<br><tip>> 当from_button_id触发时会将from_button_id转换为to_button_id
+
+<br>> to_button_id事件可当作动画的开始，重置，结束事件
+
+<br>> mapping_type值为global时，触发form_button_id会优先触发to_button_id事件
+
+<br>> 按钮映射的事件是单次执行的</tip>
+<p>触发条件：
+<ul style="list-style: square;"><li>pressed - 按下时</li>
+<li>focused - 聚焦时</li>
+<li>double_pressed - 双击时</li>
+<li>global - 始终（触发from_button_id后）</li>
+</ul></p>
+<p>输入模式条件：
+<ul style="list-style: square;"><li>not_gaze - 无条件</li>
+<li>gamepad_and_not_gaze - 使用游戏手柄</li>
+</ul></p>
+<p>以下是一些常用的to_button_id：</p>
+
+<ul style="list-style: square;">
+  <li>button.menu_cancel（Esc键或返回键）</li>
+  <li>button.exit（退出屏幕）</li>
+  <li>button.menu_ok（确定键）</li>
+  <li>button.menu_select（单击/点击/Enter键）</li>
+  <li>button.hide_hud（隐藏/显示Hud - 仅用于Hud屏幕)</li>
+  <li>button.hide_paperdoll（隐藏/显示纸娃娃 - 仅用于Hud屏幕）</li>
+  <li>button.menu_up  ↑</li>
+  <li>button.menu_down  ↓</li>
+  <li>button.menu_left  ←</li>
+  <li>button.menu_right  →</li>
+  <li>button.menu_autocomplete（Tab键 - 常用于聊天屏幕）</li>
+  <li>button.menu_autocomplete_back（上个Tab键 - 常用于聊天屏幕）</li>
+  <li>button.menu_tab_left（左Tab键）</li>
+  <li>button.menu_tab_right（右Tab键）</li>
+</ul>
+  </div></div>
+  <!--正文-->
+  <script src="https://jsonui.netlify.app/src/js/main.js"></script>
+  <script src="https://jsonui.netlify.app/src/js/hl.js"></script>
+  <link href="https://jsonui.netlify.app/src/css/font-awesome.css" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad()</script>
+</body></html>
