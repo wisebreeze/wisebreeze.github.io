@@ -48,6 +48,7 @@
     <tr><td>animation_reset_name</td><td>动画重置事件</td><td>字符串</td><td></td><td>用于重置动画状态的事件。<br>详见 <a href="./anim.html">动画 ></a></td></tr>
     <tr><td>disable_anim_fast_forward</td><td>禁用动画快进</td><td>布尔值</td><td>false</td><td>控件是否禁用动画快进。</td></tr>
     <tr><td>grid_position</td><td>网格位置</td><td>数组：矢量[row, col]</td><td></td><td>定义控件在网格中的位置，同时影响该控件的网格绑定。</td></tr>
+    <tr><td>collection_name</td><td>合集名</td><td>字符串</td><td></td><td>该控件的合集名称。<br><a class="c-red">该属性仅适用于 堆叠面板、合集面板、网格。</a><br>合集名称可查阅 <a href="https://jsonui.netlify.app/statistics/collection.html">绑定合集 ></a></td></tr>
     <tr><td>collection_index</td><td>项目索引</td><td>整数</td><td></td><td>定义控件在项目中的位置。</td></tr>
     <tr><td>variables</td><td>变量</td><td>数组 或 对象</td><td></td><td>在达成某个条件下，改变变量的值。<br>详见 <a href="https://jsonui.netlify.app/document/var.html">变量 ></a></td></tr>
     <tr><td>modifications</td><td>修改</td><td>数组</td><td></td><td>用于修改数组中的对象。<br>仅用于修改低于当前资源包排序的资源包，一般我们只对 vanilla 进行处理。<br>（资源包排序为：世界资源包 > 全局资源 > 游戏安装包资源包 > treatment，其中他们还可以细分为许多部分，游戏安装包资源包排序又能分为 vanilla版本包 > vanilla > vanilla_base。）<br>详见 <a href="./modify.html">修改 ></a></td></tr>
