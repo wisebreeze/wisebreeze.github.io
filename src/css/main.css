@@ -15,9 +15,11 @@ body[data-theme="light"] {
   --lc: #D4D4D4;
   /*图片*/
   --image: brightness(100%);
-  /*提醒与警告*/
+  /*提示*/
   --tip-bg: #ffffff;
-  --warning-bg: #FFBFBF;
+  --warning-bg: #fff2b2;
+  --success-bg: #e5ffcc;
+  --error-bg: #ffbfbf;
   /*链接*/
   --link: #0059e9;
   --link-hover: #003da0;
@@ -105,9 +107,11 @@ body[data-theme="dark"] {
   --lc: #666666;
   /*图片*/
   --image: brightness(80%);
-  /*提示与警告*/
+  /*提示*/
   --tip-bg: #606060;
-  --warning-bg: #811313;
+  --warning-bg: #8e7a18;
+  --success-bg: #41750e;
+  --error-bg: #811313;
   /*链接*/
   --link: #10CBFF;
   --link-hover: #A9ECFF;
@@ -246,21 +250,15 @@ blockquote {
 
 li {margin-top: 5px;margin-bottom: 5px;}
 
-warn, warning, tip {
+warn, tip, success, error {
   display: block;
   padding: 3px 8px;
   margin: 0.8rem 0;
 }
-
-warn, warning {
-  border-left: #D00505 solid 3px;
-  background: var(--warning-bg);
-}
-
-tip {
-  border-left: #415dff solid 3px;
-  background: var(--tip-bg);
-}
+warn{border-left: #ffd753 solid 3px;background: var(--warning-bg);}
+tip{border-left: #415dff solid 3px;background: var(--tip-bg);}
+success{border-left: #91e552 solid 3px;background: var(--success-bg);}
+error{border-left: #d00505 solid 3px;background: var(--error-bg);}
 
 ed {
   display: block;
@@ -681,6 +679,7 @@ table {
   border-collapse: collapse;
   overflow: auto;
   width: 100%;
+  margin: 8px 0 8px 0;
   border: none;
   outline: none;
   display: block;
@@ -715,6 +714,10 @@ table thead tr {
   background: var(--table-thead);
   color: #fff;
 }
+/*table thead tr th:first-child{border-start-start-radius: 8px;}
+table thead tr th:last-child{border-start-end-radius: 8px;}
+table tbody tr td:first-child{border-end-start-radius: 8px;}
+table tbody tr td:last-child{border-end-end-radius: 8px;}*/
 
 /*table tbody tr:nth-child(even) {
   background: var(--tbody-even);
