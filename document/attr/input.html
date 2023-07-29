@@ -42,8 +42,7 @@
 </tbody></table>
 <h2>按钮映射</h2>
 <p>可以使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a href="./anim.html">动画控件</a>)</p>
-<a class="c-red">触发映射条件时而且from_button_id指定按键按下并松手仅触发一次to_button_id事件</a>
-<br>下面我们来认识一下如何添加按钮映射吧！
+下面我们来认识一下如何添加按钮映射吧！
 <c title="示例">"button_mappings": [
   {
     "from_button_id": "button.menu_select",
@@ -52,38 +51,27 @@
     "input_mode_condition": "gamepad_and_not_gaze"
   }
 ]</c>
-    
+<p>以下是按钮映射数组对象的属性：</p>
 <table>
-  <thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead>
-  <tbody><tr><td>from_button_id</td><td>字符串</td><td>触发条件的按钮ID</td></tr>
-  <tr><td>to_button_id</td><td>字符串</td><td>执行操作的按钮ID</td></tr>
-  <tr><td>mapping_type</td><td>字符串</td><td>触发条件<br>（可能的值：下面有说明）</td></tr>
-  <tr><td>input_mode_condition</td><td>字符串</td><td>输入模式条件<br>（可能的值：下面有说明）</td></tr>
-  <tr><td>scope</td><td>字符串</td><td>范围<br>（可能的值：view,controller）</td></tr>
-  <tr><td>handle_select</td><td>布尔值</td><td>条件：手柄选择</td></tr>
-  <tr><td>handle_deselect</td><td>布尔值</td><td>条件：手柄不选择</td></tr></tbody>
-</table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>ignored</td><td>忽略</td><td>布尔值</td><td>false</td><td>是否忽略该按钮映射对象。</td></tr>
+  <tr><td>from_button_id</td><td>触发事件ID</td><td>字符串</td><td></td><td>触发事件的 ID。<br><br>填写<lc>any</lc>时，任何事件都可以用于触发该按钮映射对象。</td></tr>
+  <tr><td>to_button_id</td><td>执行事件ID</td><td>字符串</td><td></td><td>触发事件后执行的 ID。</td></tr>
+  <tr><td>mapping_type</td><td>映射类型</td><td>字符串：列举</td><td>pressed</td><td>映射类型。<br>列举的值可以是：<br>pressed 按下<br>double_pressed 双击<br>global 全局<br>focused 焦点</td></tr>
+  <tr><td>input_mode_condition</td><td>输入模式条件</td><td>字符串</td><td>any</td><td>输入模式条件。<br>列举的值可以是：<br>any 无条件<br>not_gaze 不是凝视<br>not_gamepad 不是游戏手柄<br>gamepad_and_not_gaze 游戏手柄但不是凝视</td></tr>
+  <tr><td>scope</td><td>作用域</td><td>字符串</td><td>controller</td><td>映射的作用域。<br>列举的值可以是：<br>view 视图<br>controller 控制器</td></tr>
+  <tr><td>handle_select</td><td>处理选择</td><td>布尔值</td><td>true</td><td>处理选择。</td></tr>
+  <tr><td>handle_deselect</td><td>处理不选择</td><td>布尔值</td><td>true</td><td>处理不选择。</td></tr>
+  <tr><td>ignore_input_scope</td><td>忽略输入作用域</td><td>布尔值</td><td>false</td><td>忽略输入作用域。</td></tr>
+  <tr><td>consume_event</td><td>消耗事件</td><td>布尔值</td><td>false</td><td>是否消耗事件。</td></tr>
+  <tr><td>alternate_input_scope</td><td>备用输入作用域</td><td>布尔值</td><td>false</td><td>启用备用输入作用域。</td></tr>
+  <tr><td>button_up_right_of_first_refusal</td><td></td><td>布尔值</td><td>false</td><td></td></tr>
+</tbody></table>
 
-<br><tip>> 当from_button_id触发时会将from_button_id转换为to_button_id
+<tip><b>提示</b><br>to_button_id事件可作为动画的开始、重置、结束事件。</tip>
+<p>详见 <a href="">按钮映射ID ></a></p>
 
-<br>> to_button_id事件可当作动画的开始，重置，结束事件
-
-<br>> mapping_type值为global时，触发form_button_id会优先触发to_button_id事件
-
-<br>> 按钮映射的事件是单次执行的</tip>
-<p>触发条件：
-<ul style="list-style: square;"><li>pressed - 按下时</li>
-<li>focused - 聚焦时</li>
-<li>double_pressed - 双击时</li>
-<li>global - 始终（触发from_button_id后）</li>
-</ul></p>
-<p>输入模式条件：
-<ul style="list-style: square;"><li>not_gaze - 无条件</li>
-<li>gamepad_and_not_gaze - 使用游戏手柄</li>
-</ul></p>
-<p>以下是一些常用的to_button_id：</p>
-
-<ul style="list-style: square;">
+<!--<ul style="list-style: square;">
   <li>button.menu_cancel（Esc键或返回键）</li>
   <li>button.exit（退出屏幕）</li>
   <li>button.menu_ok（确定键）</li>
@@ -98,7 +86,7 @@
   <li>button.menu_autocomplete_back（上个Tab键 - 常用于聊天屏幕）</li>
   <li>button.menu_tab_left（左Tab键）</li>
   <li>button.menu_tab_right（右Tab键）</li>
-</ul>
+</ul>-->
   </div></div>
   <!--正文-->
   <script src="https://jsonui.netlify.app/src/js/main.js"></script>
