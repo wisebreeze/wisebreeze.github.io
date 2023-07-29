@@ -33,7 +33,6 @@ $("#guide > .guide_content").append(`阅读进度 - <a id="number_progress"></a>
 function openNav() {
   $("#guide_div").removeClass("close");
   $("#guide_div").addClass("open");
-  //$("#open-btn").html("");
   $("#open-btn").addClass("fa-times");
   $("#open-btn").removeClass("fa-bars");
   $("#open-btn").attr("onclick","closeNav()");
@@ -45,7 +44,6 @@ function closeNav() {
   setTimeout(() => {
     $("#guide_div").removeClass("open ca");
     $("#guide_div").addClass("close");
-    //$("#open-btn").html("&#9776;");
     $("#open-btn").addClass("fa-bars");
     $("#open-btn").removeClass("fa-times");
     $("#open-btn").attr("onclick","openNav()");
@@ -53,31 +51,18 @@ function closeNav() {
   sessionStorage.removeItem("guide");
 }
 
-window.onclick = function(e) {
-  if (document.getElementById("open-btn") && winWidth < 768 && $(e.target).attr("id") == "guide_div") closeNav();
+window.onclick = function(e){
+  if(document.getElementById("open-btn")&&winWidth<768&&$(e.target).attr("id")=="guide_div")closeNav();
 }
-
-// 加载主题
-if (typeof (Storage) !== "undefined") {
-  if (localStorage.themeType) {
-      var darkTheme = localStorage.getItem("themeType");
-      if (darkTheme == "dark") document.getElementById('root').setAttribute("data-theme", "dark");
-      else document.getElementById('root').setAttribute("data-theme", "light");
-  } else {
-      localStorage.setItem("themeType", "light");
-      document.getElementById('root').setAttribute("data-theme", "light");
-  }
-} else console.log("main.js: 浏览器不支持储存，或没有储存权限！");
 
 // 滚动事件
 window.onscroll = ()=>{
   // 页面进度条
-  if (document.getElementById('progress') && document.getElementById("number_progress")) {// 检测元素是否存在
+  if(document.getElementById('progress')&&document.getElementById("number_progress")){// 检测元素是否存在
     max_scroll = document.documentElement.scrollHeight - window.innerHeight;// 获取界面最大滚动高度
     now_scroll = window.scrollY;// 获取当前滚动的位置
     scrollPercentage = Math.trunc((now_scroll / max_scroll) * 100) + "%";// 获取滚动的百分比
     document.getElementById("number_progress").innerText = scrollPercentage;// 显示百分比
-
     document.getElementById('progress').style.width = scrollPercentage;// 转为进度条并显示
   }
 
@@ -107,10 +92,22 @@ window.onscroll = ()=>{
 document.addEventListener('DOMContentLoaded',function(){
   if (document.getElementById("number_progress")) document.getElementById("number_progress").innerText = "0%";
   //插入内容
-  if($("title").attr("cube")=='true')$("body").prepend(`<headbar><div class="headbar_left"><a href="https://jsonui.netlify.app/cube/">Cube UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></headbar>`);
-  else $("body").prepend(`<headbar><div class="headbar_left"><a class="fa fa-bars" id="open-btn" onclick="openNav()"></a><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">切换主题</button></headbar>`);
+  if($("title").attr("cube")=='true')$("body").prepend(`<headbar><div class="headbar_left"><a href="https://jsonui.netlify.app/cube/">Cube UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">黑暗主题</button></headbar>`);
+  else $("body").prepend(`<headbar><div class="headbar_left"><a class="fa fa-bars" id="open-btn" onclick="openNav()"></a><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">默认主题</button></headbar>`);
   if($("div.left_content").attr("hide_bq")==null) $("div.left_content").append(`<fieldset class="ns"><fieldsetTitle>版权声明</fieldsetTitle>- 除非另有说明，否则文档内容均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可协议<br>- 此网站与 Mojang Studios 以及微软无任何从属关系<br>- 转载需要作者同意，并且标明内容来自于本网站</fieldset>`);
   for(var linkTarget in guide_link.link)$("#guide > .guide_content").append(`<a class="link-button" href="${guide_link.link[linkTarget].link}">${guide_link.link[linkTarget].title}</a>`);
+  $("#guide > .guide_content").append(`<a id="fullScreenBtn" class="link-button" onclick="fullScreen()">全屏</a>`);
+  // 加载主题
+  if(typeof Storage!=="undefined"){
+    if(localStorage.themeType){
+      var darkTheme=localStorage.getItem("themeType");
+      if(darkTheme=="dark"){document.querySelector(".theme-btn").innerText="黑暗主题";document.getElementById('root').setAttribute("data-theme","dark")}
+      else{document.querySelector(".theme-btn").innerText="默认主题";document.getElementById('root').setAttribute("data-theme","light")}
+    }else{
+      localStorage.setItem("themeType","light");
+      document.getElementById('root').setAttribute("data-theme","light");
+    }
+  }else console.log("main.js: 浏览器不支持储存，或没有储存权限！");
   //加载顶部按钮
   $(".left_title").each(function(){
     const back_link = $(this).attr("back_link") || "https://jsonui.netlify.app/";
@@ -141,8 +138,9 @@ $("ed").each(function(){
 // 代码
 $("c").each(function(){
   $(this).addClass("code");
-  let c_title = $(this).attr("title") || "RP/ui/start_screen.json";
-  let code = $(this).html();
+  let c_title = $(this).attr("title") || "RP/ui/start_screen.json",
+  c_language = $(this).attr("language") || "json",
+  code = $(this).html();
   $(this).empty();
   $(this).prepend(`<div class="code-head">
   <div class="code-head-title">${c_title}</div>
@@ -150,7 +148,7 @@ $("c").each(function(){
   $(this).find(".code-head").append(`<button class="copy-btn" onclick=copy_code('${copyPrefix}${copy_id}')><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 25 25" wdith="22" height="22" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg><a>复制</a></button>`);
   $(this).append(`<div class="code-body">
   <div class="code-line-number-div ns"></div>
-  <pre class="json"><code id="${copyPrefix}${copy_id}">${code}</code></pre>
+  <pre class="${c_language}"><code id="${copyPrefix}${copy_id}">${code}</code></pre>
 </div>`);
   let line_number = (code.split('\n')).length;
   for (i=0;i<line_number;i++) $(this).find(".code-body > .code-line-number-div").append(`<div>${i+1}</div>`);
@@ -185,79 +183,70 @@ function copy_code(text,tip,error='复制失败',isVal=false) {
 // 快捷键
 document.addEventListener('keyup', function (key) {
   // 返回顶部 - 1
-  /*if(key.keyCode == 49) {
+  /*if(key.keyCode==49){
     document.body.scrollIntoView({
       behavior: "smooth",
     });
   }*/
   // 全屏 - 1
-  if(key.keyCode == 49) {
-    if(sessionStorage.getItem("full")) {
-      if (document.exitFullscreen) document.exitFullscreen();
-      else if (document.msExitFullscreen) document.msExitFullscreen();
-      else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-      else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
-      sessionStorage.removeItem("full");
-    }
-    else {
-      var docElm = document.documentElement;
-      if (docElm.requestFullscreen) docElm.requestFullscreen();
-      else if (docElm.msRequestFullscreen) docElm.msRequestFullscreen();
-      else if (docElm.mozRequestFullScreen) docElm.mozRequestFullScreen();
-      else if (docElm.webkitRequestFullScreen) docElm.webkitRequestFullScreen();
-      sessionStorage.setItem("full", true);
-    }
-  }
+  if(key.keyCode==49)fullScreen();
   // 目录 - 2
-  if(key.keyCode == 50) {
-    if(sessionStorage.getItem("guide")) {
-      if (document.getElementById("open-btn")) closeNav();
-      else {
+  if(key.keyCode==50){
+    if(sessionStorage.getItem("guide")){
+      if(document.getElementById("open-btn"))closeNav();
+      else{
         console.log("提示：当前页面不允许使用目录！");
         sessionStorage.removeItem("guide");
       }
     }
     else {
-      if (document.getElementById("open-btn")) openNav();
-      else {
+      if(document.getElementById("open-btn"))openNav();
+      else{
         console.log("提示：当前页面不允许使用目录！");
-        sessionStorage.setItem("guide", true);
+        sessionStorage.setItem("guide",true);
       }
     }
   }
   // 切换主题 - 3
-  if(key.keyCode == 51) {
-    if (typeof (Storage) !== "undefined") {
-      var darkTheme = localStorage.getItem("themeType");
-      if (darkTheme == "dark") {
-        localStorage.setItem("themeType", "light");
-        document.getElementById('root').setAttribute("data-theme", "light");
-      }
-      else {
-        localStorage.setItem("themeType", "dark");
-        document.getElementById('root').setAttribute("data-theme", "dark");
-      }
-    } else console.log("main.js: 浏览器不支持储存，或没有储存权限！");
-  }
+  if(key.keyCode == 51)changeMode();
 });
 
 // 切换主题
-function changeMode() {
-  //var mode = document.getElementById('root').getAttribute("data-theme");
-  if (typeof(Storage) !== "undefined") {
-    var darkTheme = localStorage.getItem("themeType");
-    if (darkTheme == "dark") {
-      localStorage.setItem("themeType", "light");
-      document.getElementById('root').setAttribute("data-theme","light");
+function changeMode(){
+  if(typeof Storage!=="undefined"){
+    var darkTheme=localStorage.getItem("themeType");
+    if(darkTheme=="dark"){
+      localStorage.setItem("themeType","light");
+      document.querySelector(".theme-btn").innerText="默认主题";
+      document.getElementById('root').setAttribute("data-theme","light")
     }
-    else {
-      localStorage.setItem("themeType", "dark");
-      document.getElementById('root').setAttribute("data-theme","dark");
+    else{
+      localStorage.setItem("themeType","dark");
+      document.querySelector(".theme-btn").innerText="黑暗主题";
+      document.getElementById('root').setAttribute("data-theme","dark")
     }
-  } else console.log("main.js: 浏览器不支持储存，或没有储存权限！");
+  }else console.log("main.js: 浏览器不支持储存，或没有储存权限！")
+}
+
+// 全屏
+function fullScreen(){
+  if(sessionStorage.getItem("full")){
+    if(document.exitFullscreen)document.exitFullscreen();
+    else if(document.msExitFullscreen)document.msExitFullscreen();
+    else if(document.mozCancelFullScreen)document.mozCancelFullScreen();
+    else if(document.webkitCancelFullScreen)document.webkitCancelFullScreen();
+    document.querySelector("#fullScreenBtn").innerText="全屏";
+    sessionStorage.removeItem("full")
+  }else{
+    var doc=document.documentElement;
+    if(doc.requestFullscreen)doc.requestFullscreen();
+    else if(doc.msRequestFullscreen)doc.msRequestFullscreen();
+    else if(doc.mozRequestFullScreen)doc.mozRequestFullScreen();
+    else if(doc.webkitRequestFullScreen)doc.webkitRequestFullScreen();
+    document.querySelector("#fullScreenBtn").innerText="退出全屏";
+    sessionStorage.setItem("full",true)
+  }
 }
 
 // open_url
-function open_url(url) {
-  window.location.href = url;
-}
+function open_url(url){window.location.href = url}
