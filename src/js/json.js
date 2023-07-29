@@ -28,8 +28,8 @@ function unicodeToStr(){
   var str = $("#original_text").val();
   document.querySelector("#result_output").innerHTML=str.replace(/\\\\u/,'').replace(/\\(u[0-9a-fA-F]{4})/g,function(s){return de_unicode(s)}).replace(//,'\\u')
 }
-const jsonToUnicode = jsonString => {
-  const obj = JSON.parse(jsonString);
+const jsonToUnicode = str => {
+  const obj = JSON.parse(de_json(str));
   
   const convert = obj => {
     if (typeof obj === "string") {
