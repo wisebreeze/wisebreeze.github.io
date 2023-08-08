@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-touch-fullscreen" content="yes">
-  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
-  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI,Minecraft UI,Minecraft JSON UI,Minecraft BE JSON UI,Minecraft Bedrock Edition JSON UI">
+  <meta name="description" content="本文档适用于 MCBE UI 开发者，参考文档以制作您的 UI 资源。">
   <meta name="author" content="MC_spruce">
 
   <script src="../src/js/jQuery.js"></script>
@@ -31,74 +31,12 @@
         <span id="to_uuid" style="display: block;line-height: 1.6rem;height: 6rem;"></span>
       </div></div>
       <div class="btn_div">
-      <button class="btn" onclick="uuid(1)">生成1个 UUID</button>
-      <button class="btn" onclick="uuid(2)">生成2个 UUID</button>
-      <button class="btn" onclick="uuid(4)">生成4个 UUID</button>
-      <button class="btn" onclick="copy_uuid()">逐条复制</button></div>
+      <button class="btn" onclick="uuid(1)">生成并复制 1 个 UUID</button>
+      <button class="btn" onclick="uuid(2)">生成并复制 2 个 UUID</button>
+      <button class="btn" onclick="uuid(4)">生成并复制 4 个 UUID</button></div>
     </div>
-<style>
-.category_content {
-  overflow-y: auto;
-}
-.btn_div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
-<script>
-function get_uuid() {
-  var date = new Date().getTime();
-  if (window.performance && typeof window.performance.now === "function") {
-    date += performance.now(); 
-  }
-  var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-  var r = (date + Math.random() * 16) % 16 | 0;
-  date = Math.floor(date / 16);
-  return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-  });
-  return uuid;
-}
-function uuid(uuid_count) {
-  $("#to_uuid").empty();
-  for (i = 0; i < uuid_count; i++) {
-    let new_uuid = get_uuid();
-    $("#to_uuid").html($("#to_uuid").html() + '\n' + new_uuid);
-  }
-}
-function copy_uuid() {
-  var input_uuid = $("#to_uuid").html();
-  var arr_uuid = input_uuid.split("\n");
-  // uuid 1
-  setTimeout( function(){
-    copy(arr_uuid[1]);
-  }, 50 );
-  // uuid 2
-  setTimeout( function(){
-    copy(arr_uuid[2]);
-  }, 200 );
-  // uuid 3
-  setTimeout( function(){
-    copy(arr_uuid[3]);
-  }, 400 );
-  // uuid 4
-  setTimeout( function(){
-    copy(arr_uuid[4]);
-  }, 500 );
-}
-function copy(text) {
-  if (text == null) {
-    return false;
-  }
-  var aux = document.createElement('textarea');
-  aux.setAttribute('readonly', 'readonly');
-  aux.innerHTML = text;
-  document.querySelector('#content').appendChild(aux);
-  aux.select();
-  document.execCommand("copy");
-  document.querySelector('#content').removeChild(aux);
-}
-</script>
+<style>.category_content{overflow-y:auto;}.btn_div{display:flex;flex-direction:column;align-items:center;}</style>
+<script>function get_uuid(){var date=new Date().getTime();if(window.performance&&typeof window.performance.now==="function")date+=performance.now();return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){var r=(date+Math.random()*16)%16|0;date=Math.floor(date/16);return (c=='x'?r:(r&0x3|0x8)).toString(16)})}function uuid(c){document.getElementById("to_uuid").innerHTML='';for(i=0;i<c;i++){setTimeout(function(){var uuid=get_uuid();copy(uuid);document.getElementById("to_uuid").innerHTML+='\n'+uuid},i*20)}}function copy(text){if(text==null)return false;var aux=document.createElement('textarea');aux.setAttribute('readonly','readonly');aux.innerHTML=text;document.querySelector('#content').appendChild(aux);aux.select();document.execCommand("copy");document.querySelector('#content').removeChild(aux)}</script>
   </div>
   <!--正文-->
   <link href="../src/css/font-awesome.css" rel="stylesheet">

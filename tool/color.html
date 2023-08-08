@@ -14,65 +14,36 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-touch-fullscreen" content="yes">
-  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
-  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI,Minecraft UI,Minecraft JSON UI,Minecraft BE JSON UI,Minecraft Bedrock Edition JSON UI">
+  <meta name="description" content="本文档适用于 MCBE UI 开发者，参考文档以制作您的 UI 资源。">
   <meta name="author" content="MC_spruce">
 
   <script src="../src/js/jQuery.js"></script>
   <link href="../src/css/main.css" rel="stylesheet">
-<style>
-.color_text{
-  font-size: 0.7rem;
-  display: flex;
-  flex-direction: row;
-}
-.color_btn{
-  margin-top: 6px;
-  display: flex;
-  flex-direction: row;
-}
-.color_btn > .left{padding-right: 2px;}
-.color_btn > .right{padding-left: 2px;}
-.color_btn > *, .color_text > div{
-  width: 50%;
-}
-</style>
+<style>table tr td .btn{margin:0px;}</style>
 </head>
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
     <div class="left_title"><h1>颜色转换</h1></div>
     <div class="left_content" hide_bq="true">
-      <h3>输入</h3>
       <input class="input" id="color_text_input" oninput="conversion('color_text_input')" placeholder="颜色空间，例如 #fff" style="width:180px;"/>
       <input class="ns color_input" type="color" oninput="conversion('color_input')" value="#010101" id="color_input" />
-      <h3>输出</h3><div class="color_text ns"><div>
-      预览：<a id="view" style="border-radius: 6px;">（输入后自动转换）</a><br>
-      hex：<a id="hex"></a><br>
-      HSV：<a id="hsv"></a><br>
-      HSL：<a id="hsl"></a><br>
-      HWB：<a id="hwb"></a><br>
-      lab：<a id="lab"></a><br>
-      lch：<a id="lch"></a></div><div><br>
-      RGB：<a id="rgb"></a><br>
-      RGB数组：<a id="rgbArr"></a><br>
-      CMYK：<a id="cmyk"></a><br>
-      HSB：<a id="hsb"></a><br>
-      xyz：<a id="xyz"></a><br>
-      hcg：<a id="hcg"></a></div></div>
-      <div class="color_btn"><div class="left">
-      <button class="btn" onclick="copy_code('hex','复制 hex 成功','复制失败，请转换颜色再进行复制')">复制 hex</button>
-      <button class="btn" onclick="copy_code('hsv','复制 HSV 成功','复制失败，请转换颜色再进行复制')">复制 HSV</button>
-      <button class="btn" onclick="copy_code('hsl','复制 HSL 成功','复制失败，请转换颜色再进行复制')">复制 HSL</button>
-      <button class="btn" onclick="copy_code('hwb','复制 HWB 成功','复制失败，请转换颜色再进行复制')">复制 HWB</button>
-      <button class="btn" onclick="copy_code('lab','复制 lab 成功','复制失败，请转换颜色再进行复制')">复制 lab</button>
-      <button class="btn" onclick="copy_code('lch','复制 lch 成功','复制失败，请转换颜色再进行复制')">复制 lch</button></div><div class="right">
-      <button class="btn" onclick="copy_code('rgb','复制 RGB 成功','复制失败，请转换颜色再进行复制')">复制 RGB</button>
-      <button class="btn" onclick="copy_code('rgbArr','复制 RGB数组 成功','复制失败，请转换颜色再进行复制')">复制 RGB数组</button>
-      <button class="btn" onclick="copy_code('cmyk','复制 CMYK 成功','复制失败，请转换颜色再进行复制')">复制 CMYK</button>
-      <button class="btn" onclick="copy_code('hsb','复制 HSB 成功','复制失败，请转换颜色再进行复制')">复制 HSB</button>
-      <button class="btn" onclick="copy_code('xyz','复制 xyz 成功','复制失败，请转换颜色再进行复制')">复制 xyz</button>
-      <button class="btn" onclick="copy_code('hcg','复制 hcg 成功','复制失败，请转换颜色再进行复制')">复制 hcg</button></div></div>
+      <table style="font-size: 0.8rem;">
+      <tr><td>预览</td><td><a id="view" class="ns" style="border-radius: 6px;">（输入后自动转换）</a></td><td></td></tr>
+      <tr><td>hex</td><td><a id="hex"></a></td><td><button class="btn" onclick="copy_code('hex','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>rgb</td><td><a id="rgb"></a></td><td><button class="btn" onclick="copy_code('rgb','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>rgb数组</td><td><a id="rgbArr"></a></td><td><button class="btn" onclick="copy_code('rgbArr','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>hsv</td><td><a id="hsv"></a></td><td><button class="btn" onclick="copy_code('hsv','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>cmyk</td><td><a id="cmyk"></a></td><td><button class="btn" onclick="copy_code('cmyk','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>hsl</td><td><a id="hsl"></a></td><td><button class="btn" onclick="copy_code('hsl','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>hwb</td><td><a id="hwb"></a></td><td><button class="btn" onclick="copy_code('hwb','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>hsb</td><td><a id="hsb"></a></td><td><button class="btn" onclick="copy_code('hsb','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>hcg</td><td><a id="hcg"></a></td><td><button class="btn" onclick="copy_code('hcg','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>xyz</td><td><a id="xyz"></a></td><td><button class="btn" onclick="copy_code('xyz','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>lab</td><td><a id="lab"></a></td><td><button class="btn" onclick="copy_code('lab','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      <tr><td>lch</td><td><a id="lch"></a></td><td><button class="btn" onclick="copy_code('lch','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
+      </table>
     </div>
   </div>
   <!--正文-->

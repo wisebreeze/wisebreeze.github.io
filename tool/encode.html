@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>加密 / 解密</title>
+  <title>加密 / 解析</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-touch-fullscreen" content="yes">
-  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI">
-  <meta name="description" content="本网站用于帮助 MCBE 资源创作者创作 UI，您可以参考本文档的内容来制作您的 UI！">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI,Minecraft UI,Minecraft JSON UI,Minecraft BE JSON UI,Minecraft Bedrock Edition JSON UI">
+  <meta name="description" content="本文档适用于 MCBE UI 开发者，参考文档以制作您的 UI 资源。">
   <meta name="author" content="MC_spruce">
 
   <script src="../src/js/jQuery.js"></script>
@@ -24,7 +24,7 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>加密 / 解密</h1></div>
+    <div class="left_title"><h1>加密 / 解析</h1></div>
     <div class="left_content" hide_bq="true">
       <div class="category_div" icon="none" title="原文">
         <div class="category_content">
@@ -38,15 +38,21 @@
       <div class="btn_div"><div class="left">
       <button class="btn" onclick="str_to_base64()">转为 base64</button>
       <button class="btn" onclick="str_to_morse()">转为 摩斯电码</button>
-      <button class="btn" onclick="str_to_hex()">转为 Hex</button>
-      <button class="btn" onclick="str_to_utf8()">转为 UTF-8 数组</button>
       <button class="btn" onclick="str_to_unicode()">转为 unicode</button>
-      <button class="btn" onclick="str_to_hash()">转为 哈希函数</button></div><div class="right">
-      <button class="btn" onclick="base64_to_str()">解密 base64</button>
-      <button class="btn" onclick="morse_to_str()">解密 摩斯电码</button>
-      <button class="btn" onclick="hex_to_str()">解密 Hex</button>
-      <button class="btn" onclick="utf8_to_str()">解密 UTF-8 数组</button>
-      <button class="btn" onclick="utf8_to_unicode()">解密 unicode</button></div></div>
+      <button class="btn" onclick="str_to_ascii()">转为 Ascii</button>
+      <button class="btn" onclick="str_to_hex()">转为 十六进制</button>
+      <button class="btn" onclick="str_to_decimal()">转为 十进制</button>
+      <button class="btn" onclick="str_to_binary()">转为 二进制</button>
+      <button class="btn" onclick="str_to_utf8()">转为 UTF-8 数组</button>
+      <button class="btn" onclick="str_to_hash()">转为 MD5</button></div><div class="right">
+      <button class="btn" onclick="base64_to_str()">解析 base64</button>
+      <button class="btn" onclick="morse_to_str()">解析 摩斯电码</button>
+      <button class="btn" onclick="unicode_to_str()">解析 unicode</button>
+      <button class="btn" onclick="ascii_to_str()">解析 Ascii</button>
+      <button class="btn" onclick="hex_to_str()">解析 十六进制</button>
+      <button class="btn" onclick="decimal_to_str()">解析 十进制</button>
+      <button class="btn" onclick="binary_to_str()">解析 二进制</button>
+      <button class="btn" onclick="utf8_to_str()">解析 UTF-8 数组</button></div></div>
     </div>
 <style>
 .category_content {

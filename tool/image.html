@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>JSON 编辑</title>
+  <title>图像编辑</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -25,24 +25,27 @@
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>JSON 编辑</h1></div>
+    <div class="left_title"><h1>图像编辑</h1></div>
     <div class="left_content" hide_bq="true">
-<input type="file" name="file" id="file" onchange="inputJSON()"/>
-<div class="category_div" icon="none" title="JSON">
-  <div class="category_content">
-  <code class="category_code" id="edit_box" contenteditable="true"></code>
-</div></div>
-<button class="btn" onclick="exportJSON()" style="margin: 6px 0 4px 0;">导出 / 下载</button>
+<input type="file" name="file" id="file" onchange="inputImage()" accept="image/*"/>
+<canvas style="display: none;" id="canvas"></canvas>
+<img id="view" style="border-radius: 0;image-rendering: pixelated;" draggable="false" width="100%" height="auto"/>
+<button class="btn" onclick="download()" style="margin: 6px 0 4px 0;">下载图片</button>
 <div class="btn_div"><div class="left">
-<button class="btn" onclick="format()">格式化</button>
-<button class="btn" onclick="escapedStr()">转义</button>
-<button class="btn" onclick="toUnicode()">转为 unicode</button>
+<button class="btn" onclick="smooth()">圆角</button>
+<!--<button class="btn" onclick="colorReversal()">颜色反转</button>-->
+<button class="btn" onclick="rotate()">旋转</button>
 <button class="btn" onclick="undo()">撤销</button></div><div class="right">
-<button class="btn" onclick="compress()">压缩</button>
-<button class="btn" onclick="unescapedStr()">去转义</button>
-<button class="btn" onclick="unicodeToStr()">解析 unicode</button>
+<button class="btn" onclick="__blur()">模糊</button>
+<button class="btn" onclick="mirror()">镜像</button>
 <button class="btn" onclick="redo()">重做</button></div></div>
+<div class="category_div" icon="fa fa-history" title="历史记录"><div class="category_content" id="history"></div></div>
 </div><style>
+.category_content {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 120px;
+}
 #file {
   background: #fff;
   padding: 4px;
@@ -56,18 +59,12 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-.category_content > .category_code {
+.category_content > textarea {
   background: none;
   outline: none;
   border: none;
-  display: block;
-  height: 220px;
-  white-space: pre;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: auto;
-  line-height: 1.1em;
-  font-size: 0.92rem;
-  font: 16px/20px -apple-system,Arial,Helvetica,sans-serif;
 }
 .btn_div {
   display: flex;
@@ -81,7 +78,6 @@
   <!--正文-->
   <link href="../src/css/font-awesome.css" rel="stylesheet">
   <script src="../src/js/tileUI.js"></script>
-  <script src="../src/js/hl.js"></script>
   <script src="../src/js/main.js"></script>
-  <script src="../src/js/json.js"></script>
+  <script src="../src/js/image.js"></script>
 </body></html>
