@@ -8,6 +8,9 @@ function conversion(input_id) {
   view.style.color=ccolor(colorVal).hex().get();
 }
 
+// ccolor V1.0
+// Made by 云杉spruce
+// 未经允许，不能将文件用于其他网站，不能修改、衍生代码。
 (()=>{"use strict";
 function pc(j){let r=j.fn?j.fn[this.type]?j.fn[this.type]:undefined:undefined;if(r==undefined)return this;r=typeof r=='function'?r.call(this,this.val):typeof r=='string'?this[r]()[j.n]():r===1?this:r;return r.val?r.val:r}
 const ccolor=(c)=>{return new ccolor.prototype.init(c)},

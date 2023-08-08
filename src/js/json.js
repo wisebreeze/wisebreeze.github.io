@@ -1,98 +1,22 @@
-function format(){
-  var str = $("#original_text").val(),j;
-  try{j = JSON.stringify(JSON.parse(de_json(str)),null,2);
-  document.querySelector("#result_output").innerHTML=j
-  }catch(e){alert('错误信息\n'+e)}
-}
-function compress(){
-  var str = $("#original_text").val(),j;
-  try{j = JSON.stringify(JSON.parse(de_json(str)),null,0).replace(/\s/g,'');
-  document.querySelector("#result_output").innerHTML=j
-  }catch(e){alert('错误信息\n'+e)}
-}
-function escapedStr(){
-  var str = $("#original_text").val(),
-  j = JSON.stringify(de_json(str)).replace(/^"(.*)"$/,'$1');
-  document.querySelector("#result_output").innerHTML=j
-}
-function unescapedStr(){
-  var str = $("#original_text").val(),
-  j = str.replace(/\\"/g,'"').replace(/\\([bfnrtv\\/]|u[0-9a-fA-F]{4})/g,'$1');
-  document.querySelector("#result_output").innerHTML=j
-}
-function toUnicode(){
-  var str = $("#original_text").val();
-  document.querySelector("#result_output").innerHTML=jsonToUnicode(str)
-}
-function unicodeToStr(){
-  var str = $("#original_text").val();
-  document.querySelector("#result_output").innerHTML=str.replace(/\\\\u/,'').replace(/\\(u[0-9a-fA-F]{4})/g,function(s){return de_unicode(s)}).replace(//,'\\u')
-}
-const jsonToUnicode = str => {
-  const obj = JSON.parse(de_json(str));
-  
-  const convert = obj => {
-    if (typeof obj === "string") {
-      return en_unicode(obj);
-    } else if (Array.isArray(obj)) {
-      return obj.map(item => convert(item));
-    } else if (typeof obj === "object" && obj !== null) {
-      var newObj = {};
-      for (var key in obj) {
-        if (obj.hasOwnProperty(key)) {
-          var unicodeKey = en_unicode(key);
-          newObj[unicodeKey] = convert(obj[key]);
-        }
-      }
-      return newObj;
-    } else {
-      return obj;
-    }
-  }
-
-  return JSON.stringify(convert(obj)).replace(/\\([bfnrtv\\/]|u[0-9a-fA-F]{4})/g,'$1');
-}
-
-function de_json(str){
-  const startIndex = str.indexOf("{");
-  let bracketCount = 0;
-  let endIndex = 0;
-  for (let i = startIndex; i < str.length; i++) {
-    if (str[i] === "{") {
-      bracketCount++;
-    } else if (str[i] === "}") {
-      bracketCount--;
-    }
-    if (bracketCount === 0 && i > startIndex) {
-      endIndex = i;
-      break;
-    }
-  }
-  return str.substring(startIndex, endIndex + 1);
-}
-
-const en_unicode = str => {
-  var rs = "";
-  for (var i = 0; i < str.length; i++) {
-      //补零。不补有些库无法正常解析。保持4位
-      //slice负数参数，与其方向相反。start=-1为最后一个元素，end=-1为第一个元素。start必须
-      rs += "\\u" + ("0000" + str.charCodeAt(i).toString(16)).slice(-4);
-  }
-  return rs;
-}
-function de_unicode(str) {
-  var strArray = str.split("\\u");
-  //防止\u开头或结尾，导致解析空串产生的“□”的结果
-  if (str.startsWith("\\u")) {
-      strArray = strArray.slice(1, strArray.length);
-  }
-  if (str.endsWith("\\u")) {
-      strArray = strArray.slice(0, strArray.length - 1);
-  }
-
-  var rs = "";
-  for (var i = 0; i < strArray.length; i++) {
-      rs += String.fromCharCode(parseInt(strArray[i], 16));
-  }
-  return rs;
-}
+var jsonHistory={step:0,arr:[]};
+function inputJSON(){var {files}=document.getElementById('file'),c=document.getElementById('edit_box');if(files.length>0){const r=new FileReader();r.onload=(e)=>{c.textContent=e.target.result;jsonHistory={step:0,arr:[e.target.result]};hljs.highlightBlock(c)};r.readAsText(files[0])}}
+document.getElementById("edit_box").addEventListener('blur',function(){save(document.getElementById("edit_box").innerText)});
+function format(){var str=document.querySelector("#edit_box").innerText||'',j;try{j=JSON.stringify(JSON.parse(de_json(str)),null,2);document.querySelector("#edit_box").innerText=j;save(j)}catch(e){alert('错误信息\n'+e)}}
+function compress(){var str=document.querySelector("#edit_box").innerText||'',j;try{j=JSON.stringify(JSON.parse(de_json(str)),null,0).replace(/\s/g,'');document.querySelector("#edit_box").innerText=j;save(j)}catch(e){alert('错误信息\n'+e)}}
+function escapedStr(){var str=document.querySelector("#edit_box").innerText||'',j;try{j=JSON.stringify(de_json(str)).replace(/^"(.*)"$/,'$1');document.querySelector("#edit_box").innerText=j;save(j)}catch(e){alert('错误信息\n'+e)}}
+function unescapedStr(){var str=document.querySelector("#edit_box").innerText||'',j;j=str.replace(/\\"/g,'"').replace(/\\([bfnrtv\\/]|u[0-9a-fA-F]{4})/g,'$1');document.querySelector("#edit_box").innerText=j;save(j)}
+function toUnicode(){var str=document.querySelector("#edit_box").innerText||'';try{document.querySelector("#edit_box").innerText=jsonToUnicode(str);save(document.querySelector("#edit_box").innerText)}catch(e){alert('错误信息\n'+e)}}
+function unicodeToStr(){var str=document.querySelector("#edit_box").innerText||'';document.querySelector("#edit_box").innerText=str.replace(/\\\\u/,'').replace(/\\(u[0-9a-fA-F]{4})/g,function(s){return de_unicode(s)}).replace(//,'\\u');save(document.querySelector("#edit_box").innerText)}
+function exportJSON(){Tile.dialog({
+title:'导出',
+content:`导出方式<select style="margin-left: 2px;" class="input" id="dropdown"><option value="download">下载 json 文件</option><option value="copy">复制到剪贴板</option></select>`,
+height:'200px',
+confirm:function(){var dropdown=document.getElementById('dropdown').value,c=document.getElementById('edit_box').innerText,l,f=document.getElementById('file').files[0]?document.getElementById('file').files[0].name.split('.').slice(0,-1).join('.'):'';if(dropdown==='copy')copy_code('edit_box',undefined,undefined,false,false);else{l=Object.assign(document.createElement('a'),{href:URL.createObjectURL(new Blob([c],{type:'application/json'})),download:f});l.click();l.remove()}}
+})}
+const jsonToUnicode=str=>{const obj=JSON.parse(de_json(str)),convert=obj=>{if(typeof obj==="string")return en_unicode(obj);else if(Array.isArray(obj))return obj.map(item=>convert(item));else if(typeof obj==="object"&&obj!==null){var newObj={};for(var key in obj){if(obj.hasOwnProperty(key)){var unicodeKey=en_unicode(key);newObj[unicodeKey]=convert(obj[key])}}return newObj}else return obj};return JSON.stringify(convert(obj)).replace(/\\([bfnrtv\\/]|u[0-9a-fA-F]{4})/g,'$1')}
+function de_json(str){var s=str.indexOf("{"),b=0,e=0;for(var i=s;i<str.length;i++){if(str[i]==="{")b++;else if(str[i]==="}")b--;if(b===0&&i>s){e=i;break}}return str.substring(s,e+1)}
+const en_unicode=str=>{var rs="";for(var i=0;i<str.length;i++)/*补零。不补有些库无法正常解析。保持4位  slice负数参数，与其方向相反。start=-1为最后一个元素，end=-1为第一个元素。start必须*/rs+="\\u"+("0000"+str.charCodeAt(i).toString(16)).slice(-4);return rs}
+function de_unicode(str){var strArray=str.split("\\u");/*防止\u开头或结尾，导致解析空串产生的“□”的结果*/if(str.startsWith("\\u"))strArray=strArray.slice(1,strArray.length);if(str.endsWith("\\u"))strArray=strArray.slice(0,strArray.length-1);var rs="";for(var i=0;i<strArray.length;i++)rs+=String.fromCharCode(parseInt(strArray[i],16));return rs}
+function save(d){if(d===jsonHistory.arr[jsonHistory.step-1])return;if(jsonHistory.step<jsonHistory.arr.length-1)jsonHistory.arr.splice(jsonHistory.step+1,jsonHistory.arr.length-jsonHistory.step-1);jsonHistory.arr.push(d);jsonHistory.step++;document.querySelector("#edit_box").className="category_code";hljs.highlightBlock(document.querySelector("#edit_box"))}
+function undo(){if(jsonHistory.step-1<0)return;jsonHistory.step--;document.querySelector("#edit_box").innerText=jsonHistory.arr[jsonHistory.step];document.querySelector("#edit_box").className='category_code';hljs.highlightBlock(document.querySelector("#edit_box"))}
+function redo(){if(jsonHistory.step+1>=jsonHistory.arr.length)return;jsonHistory.step++;document.querySelector("#edit_box").innerText=jsonHistory.arr[jsonHistory.step];document.querySelector("#edit_box").className='category_code';hljs.highlightBlock(document.querySelector("#edit_box"))}
