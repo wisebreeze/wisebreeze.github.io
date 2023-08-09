@@ -110,9 +110,10 @@ document.addEventListener('DOMContentLoaded',function(){
   }else console.log("main.js: 浏览器不支持储存，或没有储存权限！");
   //加载顶部按钮
   $(".left_title").each(function(){
-    var back_link = $(this).attr("back_link") || "https://jsonui.netlify.app/",
-    back_text = $(this).attr("back_text") || "首页";
-    $(this).prepend(`<ol class="breadcrumb ns"><li><a href="${back_link}">< ${back_text}</a></li><li class="active">文本控件</li></ol>`);
+    var backLink = $(this).attr("back_link") || "https://jsonui.netlify.app/",
+    backText = $(this).attr("back_text") || "首页",
+    title = $(this).children()[0].innerText || "文档";
+    $(this).prepend(`<ol class="breadcrumb ns"><li><a href="${backLink}">< ${backText}</a></li><li class="active">${title}</li></ol>`);
   });
   //加载目录
   $("h2,h3,h4,h5,h6").each(function(){
