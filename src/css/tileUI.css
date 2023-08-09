@@ -1,0 +1,82 @@
+body[data-theme="light"]{
+  --tile-dialog:#fff;
+  --tile-dialog-t:#444;
+  --tile-dialogh:#bcbcbc;
+  --tile-dialogh-t:#444;
+  --tile-dialogb:#c5c5c5;
+  --tile-dialogb-t:#444;
+}
+body[data-theme="dark"]{
+  --tile-dialog:#222;
+  --tile-dialog-t:#ddd;
+  --tile-dialogh:#333;
+  --tile-dialogh-t:#ddd;
+  --tile-dialogb:#555;
+  --tile-dialogb-t:#fff;
+}
+.tile-dialog{
+  position:fixed;
+  z-index:1000001;
+  border-radius:8px;
+  overflow:hidden;
+  background:var(--tile-dialog);
+  color:var(--tile-dialog-t);
+}
+.tile-dialog-out{animation-name:tile-dialog-out;animation-duration:0.3s;}
+.tile-dialog-in{animation-name:tile-dialog-in;animation-duration:0.3s;}
+@keyframes tile-dialog-out{
+  0%{opacity:1;transform:scale(1);}
+  100%{opacity:0;transform:scale(0.8);}
+}
+@keyframes tile-dialog-in{
+  0%{opacity:0;transform:scale(0.8);}
+  100%{opacity:1;transform:scale(1);}
+}
+.tile-dialog-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  width:100%;
+  height:100%;
+  background-color:rgba(0, 0, 0, 0.4);
+  z-index:1000000;
+}
+.tile-dialog-overlay-out{animation-name:tile-dialog-overlay-out;animation-duration:0.3s;}
+.tile-dialog-overlay-in{animation-name:tile-dialog-overlay-in;animation-duration:0.3s;}
+@keyframes tile-dialog-overlay-out{
+  0%{opacity:1;}
+  100%{opacity:0;}
+}
+@keyframes tile-dialog-overlay-in{
+  0%{opacity:0;}
+  100%{opacity:1;}
+}
+.tile-dialog-title{
+  padding:6px;
+  color:var(--tile-dialogh-t);
+  background:var(--tile-dialogh);
+  font-weight:bold;
+}
+.tile-dialog-content{
+  margin:4px;
+}
+.tile-dialog-footer{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:flex-end;
+  background:#f4f4f4;
+}
+.tile-dialog-cancel-btn,.tile-dialog-confirm-btn{
+  flex-basis:50%;
+  padding:10px 10px;
+  border:none;
+  background:var(--tile-dialogb);
+  color:var(--tile-dialogb-t);
+  cursor:pointer;
+}
+.tile-dialog-cancel-btn:hover,.tile-dialog-confirm-btn:hover{background:#999;}

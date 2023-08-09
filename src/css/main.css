@@ -282,8 +282,8 @@ h1 {
   font-weight: bold;
   font-family: sans-serif;
   font-size: 35px;
-  margin-top: 0.4em;
-  margin-bottom: 0.2em;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
 }
 
 h2, h3, h4, h5, h6 {
@@ -602,27 +602,13 @@ a[href]:hover {
 }
 
 /* 按钮 */
-.home-btn, .theme-btn, .copy-btn, .btn {
+.theme-btn, .copy-btn, .btn {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   -khtml-user-select: none;
   user-select: none;
   outline: none;
-}
-
-.home-btn {
-  text-decoration: none;
-  background: var(--btn-bg);
-  color: #fff !important;
-  padding: 3px 8px 3px 8px;
-  border: none;
-  border-radius: 5px;
-}
-
-.home-btn:hover {
-  background: var(--btn-h-bg);
-  box-shadow: 2px 2px 8px var(--btn-s);
 }
 
 .group-btn {
@@ -647,14 +633,6 @@ a[href]:hover {
   color: #fff;
   box-shadow: 2px 2px 8px #1890ffb3;
   border: #0091ff solid 1px;
-}
-
-.left_title div {
-  display: flex;
-  width: 230px;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
 }
 
 .btn {
@@ -1049,6 +1027,35 @@ textarea:focus, .input:focus {
   background-color: var(--link-btn-h-bg);
   border-radius: 8px;
   color: #2339ff;
+}
+
+/*面包屑*/
+.breadcrumb{
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+}
+.breadcrumb li{
+  display: inline-block;
+}
+.breadcrumb li a{
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 4px;
+  color: #999;
+}
+.breadcrumb li a:hover{
+  color: #444;
+  background: #d7d7d7;
+}
+.breadcrumb li.active{
+  color: #999;
+  font-weight: bold;
+}
+.breadcrumb li:not(:last-child)::after{
+  content: "/";
+  margin: 0 5px;
+  color: #999;
 }
 
 /*文字颜色*/
