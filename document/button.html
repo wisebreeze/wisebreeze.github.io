@@ -60,7 +60,7 @@
       <p><strong>property_bag / #hyperlink</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按下后打开的链接</a></p>
       <p>值：字符串
         <br>按下后会打开浏览器并转到指定的链接
-        </p><tip><b>tip：</b>
+        </p><tip><b>提示</b>
         <br>仅对以下列举的链接有效</tip>
     </div>
 
@@ -102,30 +102,22 @@
   "$pressed_button_name": "$play_button_target",
   "$button_text": "menu.play"
 }</c>
-    <table border="1">
-      <thead><tr><th>属性名</th><th>值</th><th>介绍</th></tr></thead>
-      <tbody></tbody><tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
-      <tr><td>$button_text</td><td>字符串</td><td>按钮显示的文字（能被.lang文件翻译）</td></tr>
-      <tr><td>$border_visible</td><td>布尔值</td><td>显示按钮边框</td></tr>
-      <tr><td>$button_image</td><td>字符串/控件</td><td>按钮外观</td></tr>
-      <tr><td>$button_image_visible</td><td>布尔值</td><td>显示按钮外观</td></tr>
-      <tr><td>$button_image_size</td><td>数组/大小</td><td>按钮外观大小</td></tr>
-      <tr><td>$image_offset</td><td>数组/偏移</td><td>按钮外观偏移</td></tr>
-      <tr><td>$button_image_fill</td><td>布尔值</td><td>按钮外观填充</td></tr>
-      <tr><td>$image_anchor</td><td>字符串/列举</td><td>按钮外观偏移点</td></tr></tbody>
-    </table>
-    
-    <tip><b>tip：</b>
-    <br>@common_button.light_text_button改为@common_button.dark_text_button以黑暗外观呈现（没改$button_image情况下）</tip>
-    
-    <h3>图片按钮</h3>
-    
-    <img width="320" height="auto" src="../src/image/button/2.png"></img>
-    <p>类似于start界面左下角的按钮，这种按钮通常叫做图片按钮
-      <br>首先举个例子：
-    </p>
-    
-    <c>"icon": {
+<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+</tbody><tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
+<tr><td>$button_text</td><td>字符串</td><td>按钮显示的文字（能被.lang文件翻译）</td></tr>
+<tr><td>$border_visible</td><td>布尔值</td><td>显示按钮边框</td></tr>
+<tr><td>$button_image</td><td>字符串：控件</td><td>按钮外观</td></tr>
+<tr><td>$button_image_visible</td><td>布尔值</td><td>显示按钮外观</td></tr>
+<tr><td>$button_image_size</td><td>数组/大小</td><td>按钮外观大小</td></tr>
+<tr><td>$image_offset</td><td>数组：偏移</td><td>按钮外观偏移</td></tr>
+<tr><td>$button_image_fill</td><td>布尔值</td><td>按钮外观填充</td></tr>
+<tr><td>$image_anchor</td><td>字符串：列举</td><td>按钮外观偏移点</td></tr>
+</tbody></table>
+<tip><b>提示</b><br>@common_button.light_text_button改为@common_button.dark_text_button以黑暗外观呈现（没改$button_image情况下）</tip>
+<h3>图片按钮</h3>
+<img width="320" height="auto" src="../src/image/button/2.png"></img>
+<p>类似于start界面左下角的按钮，这种按钮通常叫做图片按钮<br>首先举个例子：</p> 
+<c>"icon": {
   "type": "image",
   "texture": "textures/ui/achievements",
   "layer": 3,
@@ -137,76 +129,24 @@
   "$button_content": "start.icon",
   "$pressed_button_name": "button.menu_achievements"
 }</c>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>属性名</th>
-        <th>值</th>
-        <th>介绍</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>$pressed_button_name</td>
-      <td>字符串</td>
-      <td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td>
-    </tr>
-    <tr>
-      <td>$button_content</td>
-      <td>字符串/控件</td>
-      <td>按钮主要内容</td>
-    </tr>
-    <tr>
-      <td>$border_visible</td>
-      <td>布尔值</td>
-      <td>显示按钮边框</td>
-    </tr>
-    <tr>
-      <td>$button_image</td>
-      <td>字符串/控件</td>
-      <td>按钮外观</td>
-    </tr>
-    <tr>
-      <td>$button_image_visible</td>
-      <td>布尔值</td>
-      <td>显示按钮外观</td>
-    </tr>
-    <tr>
-      <td>$button_image_size</td>
-      <td>数组/大小</td>
-      <td>按钮外观大小</td>
-    </tr>
-    <tr>
-      <td>$image_offset</td>
-      <td>数组/偏移</td>
-      <td>按钮外观偏移</td>
-    </tr>
-    <tr>
-      <td>$button_image_fill</td>
-      <td>布尔值</td>
-      <td>按钮外观填充</td>
-    </tr>
-    <tr>
-      <td>$image_anchor</td>
-      <td>字符串/列举</td>
-      <td>按钮外观偏移点</td>
-    </tr>
-    </tbody>
-  </table>
-  
-  <tip><b>tip：</b>
-      <br>> <b>$button_content</b>的值为命名空间.控件名，用于引用控件在按钮内部显示
-      <br>> @common_button.light_content_button改为@common_button.dark_content_button以黑暗外观呈现（没改$button_image情况下）
-    </tip>
-    
-    <h3>无背景内容按钮</h3>
-    
-    <p>上方演示的按钮都是有背景的，那么如何仅显示内容呢？
-    
-    <br>首先举个例子：
-    </p>
-    
-    <c>"icon": {
+<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+<tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
+<tr><td>$button_content</td><td>字符串：控件</td><td>按钮主要内容</td></tr>
+<tr><td>$border_visible</td><td>布尔值</td><td>显示按钮边框</td></tr>
+<tr><td>$button_image</td><td>字符串：控件</td><td>按钮外观</td></tr>
+<tr><td>$button_image_visible</td><td>布尔值</td><td>显示按钮外观</td></tr>
+<tr><td>$button_image_size</td><td>数组：大小</td><td>按钮外观大小</td></tr>
+<tr><td>$image_offset</td><td>数组：偏移</td><td>按钮外观偏移</td></tr>
+<tr><td>$button_image_fill</td><td>布尔值</td><td>按钮外观填充</td></tr>
+<tr><td>$image_anchor</td><td>字符串：列举</td><td>按钮外观偏移点</td></tr>
+</tbody></table>
+<tip><b>提示</b>
+  <br>1. <b>$button_content</b>的值为命名空间.控件名，用于引用控件在按钮内部显示
+  <br>2. @common_button.light_content_button改为@common_button.dark_content_button以黑暗外观呈现（没改$button_image情况下）
+</tip>
+<h3>无背景内容按钮</h3>
+<p>上方演示的按钮都是有背景的，那么如何仅显示内容呢？<br>首先举个例子：</p>
+<c>"icon": {
   "type": "image",
   "texture": "textures/ui/achievements",
   "layer": 3,
@@ -218,25 +158,12 @@
   "$button_content": "start.icon",
   "$pressed_button_name": "button.menu_achievements"
 }</c>
-     
-  <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-    <p><strong>$pressed_button_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射事件</a></p>
-    值：字符串
-    <br>值等于上面的to_button_id（按下就可以触发这个按钮事件）
-  </div>
-     
-  <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-    <p><strong>$button_content</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮主要内容</a></p>
-    值：字符串/控件
-    <br>值为"命名空间.控件名"，用于引用控件在按钮内部显示
-  </div>
-    <h3>个性化按钮</h3>
-    
-    <p>这种按钮通常用于定义新的外观
-    
-    <br>首先举个例子：
-    </p>
-    
+<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+<tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
+<tr><td>$button_content</td><td>字符串：控件</td><td>按钮主要内容</td></tr>
+</tbody></table>
+<h3>自定义外观按钮</h3>
+<p>这种按钮通常用于定义新的外观<br>首先举个例子：</p>    
   <c>"icon": {
   "type": "image",
   "texture": "textures/ui/achievements",
@@ -269,55 +196,40 @@
     }
   ]
 }</c>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>$pressed_button_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射事件</a></p>
-      <p>值：字符串/映射事件
-      <br>值等于上面的to_button_id（按下就可以触发这个按钮事件）
-    </div>
-  
-  <tip><b>tip：</b>
-      <br>> <a class="c-red">controls</a>的子控件名取决于
-      <br>  default_control,hover_control,pressed_control,
-      <br>  locked_control定义的控件名，locked_control状态需要自行定义为locked。
-      <br>> 注意：按钮无锁定状态可以不用locked子控件
-    </tip>
-    <h3>关闭按钮</h3>
-    
-    <p>这种按钮通常用于关闭当前屏幕</p>
-    
-    <c>"close_button@common.close_button": {
+<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+<tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
+</tbody></table>
+<tip><b>提示</b>
+  <br>1. <a class="c-red">controls</a>的子控件名取决于
+  <br>  default_control,hover_control,pressed_control,
+  <br>  locked_control定义的控件名，locked_control状态需要自行定义为locked。
+  <br>2. 注意：按钮无锁定状态可以不用locked子控件
+</tip>
+<h3>关闭按钮</h3>
+<p>这种按钮通常用于关闭当前屏幕</p>
+<c>"close_button@common.close_button": {
   "size": ["100%","100%"],
   "$close_button_to_button_id": "button.menu_exit"
 }</c>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>$close_button_to_button_id</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射事件</a></p>
-      <p>值：字符串/映射事件
-      <br>值等于上面的to_button_id（按下就可以触发这个按钮事件）
-    </div>
-    
-    <p>修改外观与个性化按钮类似，这里不多一一介绍</p>
-    
-    <h3>返回按钮</h3>
-    
-    <p>这种按钮通常用于返回上个屏幕</p>
-    
-    <c>"back_button@common.back_button": {
+<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+<tr><td>$close_button_to_button_id</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
+</tbody></table>
+<p>修改外观与个性化按钮类似，这里不多一一介绍</p>
+<h3>返回按钮</h3>
+<p>这种按钮通常用于返回上个屏幕</p>
+<c>"back_button@common.back_button": {
   "size": ["100%","100%"],
   "$back_button_pressed_button_name": "button.menu_exit"
 }</c>
-    <div class="panel wow bounceInLeft" data-wow-delay="1.2s">
-      <p><strong>$back_button_pressed_button_name</strong> <a class="panel c1-yellow c-gray" style="font-size: 10px;">按钮映射事件</a></p>
-      <p>值：字符串/映射事件
-      <br>值等于上面的to_button_id（按下就可以触发这个按钮事件）
-    </div>
-    
-    <p>修改外观与个性化按钮类似，这里不多一一介绍</p>
-    
-    <h2>代码示例</h2>
-    <p>是不是觉得上面的文档太乱？
-    <br>没事，我来教你写一个简单的按钮</p>
-    <p>跟着下面的注释改就行了</p>
-    <c>"content": {
+<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+<tr><td>$back_button_pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
+</tbody></table>
+<p>修改外观与个性化按钮类似，这里不多一一介绍</p>
+<h2>代码示例</h2>
+<p>是不是觉得上面的文档太乱？
+<br>没事，我来教你写一个简单的按钮</p>
+<p>跟着下面的注释改就行了</p>
+<c>"content": {
   // 这是按钮样式的按钮
   "type": "image",
   "texture": "$image"
