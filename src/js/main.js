@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded',function(){
     var backLink = $(this).attr("back_link") || "https://jsonui.netlify.app/",
     backText = $(this).attr("back_text") || "首页",
     title = $(this).children()[0].innerText || "文档";
-    $(this).prepend(`<ol class="breadcrumb ns"><li><a href="${backLink}">< ${backText}</a></li><li class="active">${title}</li></ol>`);
+    $(this).prepend(`<ol class="breadcrumb ns"><li><a href="${backLink}">< ${backText}</a></li><li class="active"><a>${title}</a></li></ol>`);
   });
   //加载目录
   $("h2,h3,h4,h5,h6").each(function(){
