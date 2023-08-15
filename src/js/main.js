@@ -22,10 +22,11 @@ if (window.innerWidth) winWidth = window.innerWidth;
 else if ((document.body) && (document.body.clientWidth)) winWidth = document.body.clientWidth;
 
 // 目录
-$("#root").append(`<div id="guide_div"><div id="guide" class="ns">
+$("body").append(`<div id="guide_div"><div id="guide" class="ns">
   <div class="guide_head"><svg class="w-6 h-6" style="width: 16px;height: auto;margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>&nbsp;导航＆目录</div>
   <div class="guide_content"></div>
-</div></div>`);
+</div></div>
+<div id="themeDrop" class="ns close"><button class="checked" onclick="changeTheme(0)">浅色主题</button><button onclick="changeTheme(1)">深色主题</button><button onclick="changeTheme(2)">定时切换</button></div>`);
 $("#guide_div").addClass("close");
 $("#guide > .guide_content").append(`阅读进度 - <a id="number_progress"></a><div class="progress-bg"><div id="progress"></div></div>
 <hr>`);
@@ -49,10 +50,6 @@ function closeNav() {
     $("#open-btn").attr("onclick","openNav()");
   }, 200);
   sessionStorage.removeItem("guide");
-}
-
-window.onclick = function(e){
-  if(document.getElementById("open-btn")&&winWidth<768&&$(e.target).attr("id")=="guide_div")closeNav();
 }
 
 // 滚动事件
@@ -89,26 +86,31 @@ window.onscroll = ()=>{
   else $("#to_top").css("display","none");*/
 };
 
+document.addEventListener('click',function(e){
+  if(!e.target.classList.contains("theme-btn")){$("#themeDrop").addClass("ca");
+  setTimeout(()=>{
+    $("#themeDrop").removeClass("open ca");
+    $("#themeDrop").addClass("close");
+  },200)}
+  if(document.getElementById("open-btn")&&winWidth<768&&$(e.target).attr("id")=="guide_div")closeNav();
+})
+
 document.addEventListener('DOMContentLoaded',function(){
   if (document.getElementById("number_progress")) document.getElementById("number_progress").innerText = "0%";
   //插入内容
-  if($("title").attr("cube")=='true')$("body").prepend(`<headbar><div class="headbar_left"><a href="https://jsonui.netlify.app/cube/">Cube UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">黑暗主题</button></headbar>`);
-  else $("body").prepend(`<headbar><div class="headbar_left"><a class="fa fa-bars" id="open-btn" onclick="openNav()"></a><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></div><button type="button" class="theme-btn" onclick="changeMode()">默认主题</button></headbar>`);
+  if($("title").attr("cube")=='true')$("body").prepend(`<headbar><div class="headbar_left"><a href="https://jsonui.netlify.app/cube/">Cube UI 文档</a></div><button type="button" class="theme-btn" onclick="themeSet()">主题设置</button></headbar>`);
+  else $("body").prepend(`<headbar><div class="headbar_left"><a class="fa fa-bars" id="open-btn" onclick="openNav()"></a><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></div><button type="button" class="theme-btn" onclick="themeSet()">主题设置</button></headbar>`);
   if($("div.left_content").attr("hide_bq")==null) $("div.left_content").append(`<fieldset class="ns"><fieldsetTitle>版权声明</fieldsetTitle>- 除非另有说明，否则文档内容均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可协议<br>- 此网站与 Mojang Studios 以及微软无任何从属关系<br>- 转载需要作者同意，并且标明内容来自于本网站</fieldset>`);
   for(var linkTarget in guide_link.link)$("#guide > .guide_content").append(`<a class="link-button" href="${guide_link.link[linkTarget].link}">${guide_link.link[linkTarget].title}</a>`);
   $("#guide > .guide_content").append(`<a id="fullScreenBtn" class="link-button" onclick="fullScreen()">全屏</a>`);
   // 加载主题
   if(typeof Storage!=="undefined"){
     if(localStorage.themeType){
-      var darkTheme=localStorage.getItem("themeType");
-      if(darkTheme=="dark"){document.querySelector(".theme-btn").innerText="黑暗主题";document.getElementById('root').setAttribute("data-theme","dark")}
-      else{document.querySelector(".theme-btn").innerText="默认主题";document.getElementById('root').setAttribute("data-theme","light")}
-    }else{
-      localStorage.setItem("themeType","light");
-      document.getElementById('root').setAttribute("data-theme","light");
-    }
+      var theme=localStorage.getItem("themeType");
+      changeTheme(theme==="dark"?1:theme==="auto"?2:0)
+    }else changeTheme(0);
   }else console.log("main.js: 浏览器不支持储存，或没有储存权限！");
-  //加载顶部按钮
+  //加载面包屑
   $(".left_title").each(function(){
     var backLink = $(this).attr("back_link") || "https://jsonui.netlify.app/",
     backText = $(this).attr("back_text") || "首页",
@@ -207,25 +209,40 @@ document.addEventListener('keyup', function (key) {
     }
   }
   // 切换主题 - 3
-  if(key.keyCode == 51)changeMode();
+  if(key.keyCode == 51)changeMode(3);
 });
 
 // 切换主题
-function changeMode(){
-  if(typeof Storage!=="undefined"){
-    var darkTheme=localStorage.getItem("themeType");
-    if(darkTheme=="dark"){
-      localStorage.setItem("themeType","light");
-      document.querySelector(".theme-btn").innerText="默认主题";
-      document.getElementById('root').setAttribute("data-theme","light")
-    }
-    else{
-      localStorage.setItem("themeType","dark");
-      document.querySelector(".theme-btn").innerText="黑暗主题";
-      document.getElementById('root').setAttribute("data-theme","dark")
-    }
-  }else console.log("main.js: 浏览器不支持储存，或没有储存权限！")
+function themeSet(){
+  $("#themeDrop").removeClass("close");
+  $("#themeDrop").addClass("open");
 }
+function changeTheme(type){
+  if(type===3&&typeof Storage!=="undefined")type=localStorage.getItem("themeType")==="dark"?0:1;
+  else if(typeof Storage==="undefined")console.log("main.js: 浏览器不支持储存，或没有储存权限！");
+  if(type===0){
+    localStorage.setItem("themeType","light");
+    document.querySelectorAll("#themeDrop button").forEach(function(e){e.classList.remove("checked")});
+    document.querySelectorAll("#themeDrop button")[0].classList.add("checked");
+    document.getElementsByTagName("html")[0].setAttribute("data-theme","light")
+  }else if(type===1){
+    localStorage.setItem("themeType","dark");
+    document.querySelectorAll("#themeDrop button").forEach(function(e){e.classList.remove("checked")});
+    document.querySelectorAll("#themeDrop button")[1].classList.add("checked");
+    document.getElementsByTagName("html")[0].setAttribute("data-theme","dark")
+  }else if(type===2){
+    localStorage.setItem("themeType","auto");
+    document.querySelectorAll("#themeDrop button").forEach(function(e){e.classList.remove("checked")});
+    document.querySelectorAll("#themeDrop button")[2].classList.add("checked")
+  }
+}
+setInterval(function(){
+  if(!window.localStorage)return false;
+  if(localStorage.getItem("themeType")!=="auto")return false;
+  var gh = new Date().getHours();
+  if(gh<6||gh>=19)document.getElementsByTagName("html")[0].setAttribute("data-theme","dark");
+  else document.getElementsByTagName("html")[0].setAttribute("data-theme","light")
+},5000)
 
 // 全屏
 function fullScreen(){

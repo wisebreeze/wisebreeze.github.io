@@ -23,6 +23,9 @@ function decimal_to_str(){document.getElementById("result_output").innerHTML=de_
 // 十六进制
 function str_to_hex(){document.getElementById("result_output").innerHTML=en_hex(document.getElementById("original_text").value,16)}
 function hex_to_str(){document.getElementById("result_output").innerHTML=de_hex(document.getElementById("original_text").value,16)}
+// 自定义进制
+function str_to_hex2(){Tile.dialog({title:'进制转换',height:'200px',content:`<input class="input" type="number" id="count" style="margin-left: 2px;width: 95%;" />`,confirm:function(){document.getElementById("result_output").innerHTML=en_hex(document.getElementById("original_text").value,Math.min(36,Math.max(2,Math.round(document.getElementById("count").value))))}})}
+function hex2_to_str(){Tile.dialog({title:'进制转换',height:'200px',content:`<input class="input" type="number" id="count" style="margin-left: 2px;width: 95%;" />`,confirm:function(){document.getElementById("result_output").innerHTML=de_hex(document.getElementById("original_text").value,Math.min(36,Math.max(2,Math.round(document.getElementById("count").value))))}})}
 // UTF-8
 function str_to_utf8(){document.getElementById("result_output").innerHTML=en_utf8(document.getElementById("original_text").value)}
 function utf8_to_str(){document.getElementById("result_output").innerHTML=de_utf8(document.getElementById("original_text").value)}
