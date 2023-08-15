@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>加密 / 解析</title>
+  <title>进制转换</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -20,11 +20,12 @@
 
   <script src="../src/js/jQuery.js"></script>
   <link href="../src/css/main.css" rel="stylesheet">
+  <link href="../src/css/tileUI.css" rel="stylesheet">
 </head>
 <body id="root" data-theme="light">
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>加密 / 解析</h1></div>
+    <div class="left_title"><h1>进制转换</h1></div>
     <div class="left_content" hide_bq="true">
       <div class="category_div" icon="none" title="原文">
         <div class="category_content">
@@ -36,17 +37,14 @@
       </div></div>
       <button class="btn" onclick="copy_code('result_output','复制结果成功',undefined,true)" style="margin: 6px 0 4px 0;">复制结果</button>
       <div class="btn_div"><div class="left">
-      <button class="btn" onclick="str_to_base64()">转为 base64</button>
-      <button class="btn" onclick="str_to_morse()">转为 摩斯电码</button>
-      <button class="btn" onclick="str_to_unicode()">转为 unicode</button>
-      <button class="btn" onclick="str_to_ascii()">转为 Ascii</button>
-      <button class="btn" onclick="str_to_utf8()">转为 UTF-8 数组</button>
-      <button class="btn" onclick="str_to_hash()">转为 MD5</button></div><div class="right">
-      <button class="btn" onclick="base64_to_str()">解析 base64</button>
-      <button class="btn" onclick="morse_to_str()">解析 摩斯电码</button>
-      <button class="btn" onclick="unicode_to_str()">解析 unicode</button>
-      <button class="btn" onclick="ascii_to_str()">解析 Ascii</button>
-      <button class="btn" onclick="utf8_to_str()">解析 UTF-8 数组</button></div></div>
+      <button class="btn" onclick="str_to_hex2()">转为 自定义进制</button>
+      <button class="btn" onclick="str_to_hex()">转为 十六进制</button>
+      <button class="btn" onclick="str_to_decimal()">转为 十进制</button>
+      <button class="btn" onclick="str_to_binary()">转为 二进制</button></div><div class="right">
+      <button class="btn" onclick="hex2_to_str()">解析 自定义进制</button>
+      <button class="btn" onclick="hex_to_str()">解析 十六进制</button>
+      <button class="btn" onclick="decimal_to_str()">解析 十进制</button>
+      <button class="btn" onclick="binary_to_str()">解析 二进制</button></div></div>
     </div>
 <style>
 .category_content {
