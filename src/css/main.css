@@ -1,6 +1,6 @@
 /* margin: top right bottom left;*/
 /* 默认主题 */
-body[data-theme="light"] {
+:root{
   background: #F5F5F7;
   color: #1D1D1F;
   /*按钮*/
@@ -92,7 +92,7 @@ body[data-theme="light"] {
 }
 
 /* 黑暗主题 */
-body[data-theme="dark"] {
+:root[data-theme="dark"]{
   background: #1d1d1f;
   color: #dcdcdc;
   /*按钮*/
@@ -1027,6 +1027,71 @@ textarea:focus, .input:focus {
   background-color: var(--link-btn-h-bg);
   border-radius: 8px;
   color: #2339ff;
+}
+
+/*theme dropdown*/
+#themeDrop{
+  position:fixed;
+  z-index:100000;
+  top:68px;
+  right:8px;
+  width:100px;
+  padding:4px;
+  border-radius: 4px;
+  background:var(--dropdown-bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+#themeDrop button{
+  padding: 4px 5px 4px 8px;
+  text-decoration: none;
+  font-size: 15px;
+  color: var(--link-btn-t);
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  -webkit-transition: all 0.6s cubic-bezier(0.02, 0.01, 0.47, 1);
+  transition: all 0.6s cubic-bezier(.02, .01, .47, 1);
+}
+#themeDrop button:hover{
+  box-shadow: var(--link-btn-s);
+  background-color: var(--link-btn-h-bg);
+  border-radius: 4px;
+  color: #2339ff;
+}
+#themeDrop button.checked{
+  font-weight: bold;
+}
+#themeDrop.open{
+  display:block;
+  animation-name: themeDrop-open-anim;
+  animation-duration: 0.2s;
+}
+#themeDrop.ca{
+  animation-name: themeDrop-close-anim;
+  animation-duration: 0.2s;
+}
+#themeDrop.close{display:none;}
+@keyframes themeDrop-open-anim{
+  0% {
+    opacity: 0;
+    transform: translate(0, -15%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes themeDrop-close-anim{
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -15%) scale(0.8);
+  }
 }
 
 /*面包屑*/
