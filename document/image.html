@@ -22,7 +22,7 @@
   <script src="../src/js/jQuery.js"></script>
 </head>
 
-<body id="root" data-theme="light">
+<body>
   <!--正文-->
   <div id="content">
     <div class="left_title"><h1>图片控件</h1></div>
@@ -56,9 +56,12 @@
       <tr><td>base_size</td><td>基本大小</td><td>数组：矢量[x,y]</td><td></td><td>图片的基本大小。</td></tr>
       <tr><td>bilinear</td><td>双线性</td><td>布尔值</td><td>false</td><td>是否使图片以双线性滤波形式显示。<br><br>双线性是一种非线性滤波器，它可以达到保持边缘、降噪平滑的效果。</td></tr>
       <tr><td>grayscale</td><td>灰白滤镜</td><td>布尔值</td><td>false</td><td>图片是否使用灰白滤镜显示。</td></tr>
+      <tr><td>clip_ratio</td><td>剪辑比例</td><td>浮点数</td><td>1</td><td>图片的剪辑比例。</td></tr>
+      <tr><td>clip_direction</td><td>剪辑方向</td><td>字符串：列举</td><td></td><td>图片开始剪辑的方向。<br>列举的值有：<br>center 中心<br>up 上<br>down 下<br>left 左<br>right 右</td></tr>
+      <tr><td>clip_pixelperfect</td><td>剪辑精准到像素</td><td>布尔值</td><td>true</td><td>图片剪辑是否精准到像素。</td></tr>
       <tr><td>keep_ratio</td><td>保持比例</td><td>布尔值</td><td>true</td><td>图片是否保持比例。</td></tr>
       <tr><td>allow_debug_missing_texture</td><td>允许调试丢失材质</td><td>布尔值</td><td>true</td><td>图片是否允许调试丢失材质。<br><br>当显示的图片不存在时，是否使用<lc>textures/misc/missing_texture.png</lc>作为显示。</td></tr>
-      <tr><td>force_texture_reload</td><td>更改路径重新加载</td><td>布尔值</td><td>false</td><td>是否在 <lc>zip_folder</lc> <lc>texture_file_system</lc> 更改时，强制重新加载图片。</td></tr>
+      <tr><td>force_texture_reload</td><td>强制重新加载纹理</td><td>布尔值</td><td>false</td><td>是否在强制加载纹理。</td></tr>
       <tr><td>zip_folder</td><td>压缩包路径</td><td>字符串：路径</td><td></td><td>图片在压缩包中的路径。<br>例如：<lc>xxx.zip/textures/ui/anvil_icon</lc></td></tr>
       <tr><td>texture_file_system</td><td>系统路径</td><td>字符串：路径</td><td></td><td>图片在压缩包中的路径。<br>例如：<lc>/storage/emulated/0/.../anvil_icon</lc><br><a class="c-red">实际路径会因系统而异！</a></td></tr>
     </table>
