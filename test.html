@@ -19,10 +19,11 @@
   <meta name="author" content="MC_spruce">
   
   <link href="./src/css/main.css" rel="stylesheet">
+  <link href="./src/css/tileUI.css" rel="stylesheet">
   <script src="./src/js/jQuery.js"></script>
 </head>
 
-<body id="root" data-theme="light">
+<body>
   <!--正文-->
   <div id="content">
     <div class="left_title"><h1>测试</h1></div>
@@ -72,8 +73,12 @@
   <tr><td rowspan="2"></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td></tr>
 </tbody></table>
+<h2>弹窗</h2>
+<button class="btn" onclick="Tile.dialog({title:'测试',height:'180px'})">打开模态窗</button>
+<h2>按钮</h2>
   </div></div>
   <!--正文-->
+  <script src="./src/js/tileUI.js"></script>
   <script src="./src/js/main.js"></script>
   <script src="./src/js/hl.js"></script>
   <link href="./src/css/font-awesome.css" rel="stylesheet">
