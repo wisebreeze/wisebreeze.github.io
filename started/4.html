@@ -41,43 +41,28 @@ hh这篇文章主要讲解如何添加控件。</p>
 <hr>
 <p>添加一个控件就是如此简单，那么如何让控件在屏幕上显示呢？</p>
 <c>{
-  "namespace": "start",
-
   "test": {
     "type": "label",
     "text": "hello world"
   },
 
   "start_screen_content": {
-    "controls": [
-      {"test@test": {}},
-      {"main_buttons_and_title_panel@start.main_buttons_stack_panel": {}},
+    "modifications": [
       {
-        "online_button_stack": {
-          "type": "stack_panel",
-          "orientation": "vertical",
-          "anchor_to": "bottom_left",
-          "anchor_from": "bottom_left",
-          "size": [ "50% - 75px", "100%c" ],
-          "offset": [ 0, "-10%" ],
-          "controls": [
-            {"gathering_panel@start.gathering_panel": {}},
-            {"upper_online_buttons_panel@start.upper_online_buttons_panel": {}},
-            {"lower_online_buttons_panel@start.lower_online_buttons_panel": {}}
-          ]
-        }
-      },
-      {"skin_panel@start.skin_panel": { "layer": 1 }},
-      {"text_panel@start.text_panel": {}}
+        "array_name": "controls",
+        "operation": "insert_back",
+        "value": [
+          {"test@test": {}}
+        ]
       }
     ]
   }
 }</c>
-<p>在代码中，删掉了一些无关此教程的代码。</p>
-<p>你也可以像上面的代码这样做，因为属性已经在原版代码中声明，<a class="c-red">我们要做的就是重新声明"controls"！</a>重新声明"controls"可以覆盖原版的"controls"以达到显示控件的效果。</p>
+<p>在代码中，删掉了一些无关的代码。</p>
+<p>你也可以像上面的代码这样做。我们使用了<lc>modifications</lc>属性添加控件，这样可以在添加控件的同时尽可能减少错误。</p>
 <hr>
 <p>那么要如何找到每个屏幕文件的XXX_screen_content？</p>
-<p>很简单！每个代码编辑器都有个搜索功能。在搜索框输入并搜索<a class="c1-gold">“_screen_content”</a>即可</p>
+<p>很简单！每个代码编辑器都有个搜索功能。在搜索框输入并搜索<a class="c1-gold">“_screen_content”</a>即可（仅对部分屏幕有效）</p>
 <hr>
 <p>恭喜！你已经完成文档的所有新手教程。<br>现在你可以使用文档完善你的UI了。</p>
   </div></div>
