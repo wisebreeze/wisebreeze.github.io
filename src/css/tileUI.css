@@ -1,4 +1,4 @@
-body[data-theme="light"]{
+:root{
   --tile-dialog:#fff;
   --tile-dialog-t:#444;
   --tile-dialogh:#bcbcbc;
@@ -6,7 +6,7 @@ body[data-theme="light"]{
   --tile-dialogb:#c5c5c5;
   --tile-dialogb-t:#444;
 }
-body[data-theme="dark"]{
+:root[data-theme="dark"]{
   --tile-dialog:#222;
   --tile-dialog-t:#ddd;
   --tile-dialogh:#333;
