@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>屏幕</title>
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI,Minecraft UI,Minecraft JSON UI,Minecraft BE JSON UI,Minecraft Bedrock Edition JSON UI">
+  <meta name="description" content="本文档适用于 MCBE UI 开发者，参考文档以制作您的 UI 资源。">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
+</head>
+
+<body>
+  <!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>屏幕</h1></div>
+    <div class="left_content"><h2>属性</h2>
+<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+<tr><td>is_modal</td><td>模态</td><td>布尔值</td><td>false</td><td>该屏幕是否是模态屏幕。</td></tr>
+<tr><td>vr_mode</td><td>VR 模式</td><td>布尔值</td><td>false</td><td>启用 VR 模式。</td></tr>
+<tr><td>render_only_when_topmost</td><td>仅在最顶部时渲染</td><td>布尔值</td><td>true</td><td>屏幕是否在屏幕栈最顶部时渲染。</td></tr>
+<tr><td>screen_not_flushable</td><td>屏幕不可清除</td><td>布尔值</td><td>false</td><td>屏幕是否不可清除。</td></tr>
+<tr><td>absorbs_input</td><td>吸收输入</td><td>布尔值</td><td>true</td><td>屏幕是否吸收输入。<br>为 true 时，该屏幕会吸收输入事件，不可向屏幕栈后方的屏幕传递。</td></tr>
+<tr><td>close_on_player_hurt</td><td>玩家受伤关闭</td><td>布尔值</td><td>false</td><td>屏幕是否在玩家受伤后关闭。</td></tr>
+<tr><td>always_accepts_input</td><td>始终接受输入</td><td>布尔值</td><td>false</td><td>屏幕是否在始终接受输入。<br>为 true 时，该屏幕在任何屏幕栈中，始终接受输入事件。<br>为 false 时，该屏幕只有处于屏幕栈最高层级才会接受输入事件。</td></tr>
+<tr><td>load_screen_immediately</td><td>立即加载屏幕</td><td>布尔值</td><td>false</td><td>是否立即加载该屏幕。</td></tr>
+<tr><td>cache_screen</td><td>缓存屏幕</td><td>布尔值</td><td>false</td><td>是否缓存该屏幕。<br>既缓存屏幕中的数据。</td></tr>
+<tr><td>send_telemetry</td><td>发送遥测数据</td><td>布尔值</td><td>false</td><td>该屏幕是否发送遥测数据。</td></tr>
+<tr><td>render_game_behind</td><td>渲染游戏后方</td><td>布尔值</td><td>true</td><td>该屏幕在渲染后，是否渲染后方的游戏。</td></tr>
+<tr><td>force_render_below</td><td>强制渲染后方屏幕</td><td>布尔值</td><td>false</td><td>该屏幕是否强制渲染屏幕栈后方屏幕。</td></tr>
+<tr><td>is_showing_menu</td><td>显示菜单</td><td>布尔值</td><td>true</td><td>该屏幕在渲染后，是否停止 HUD 的渲染。</td></tr>
+<tr><td>low_frequency_rendering</td><td>低频渲染</td><td>布尔值</td><td>false</td><td>该屏幕是否低频渲染。</td></tr>
+<tr><td>screen_draws_last</td><td>屏幕最后绘制</td><td>布尔值</td><td>false</td><td>该屏幕是否最后绘制。</td></tr>
+<tr><td>should_steal_mouse</td><td>隐藏鼠标指针</td><td>布尔值</td><td>false</td><td>该屏幕是否隐藏鼠标指针。</td></tr>
+<tr><td>gamepad_cursor</td><td>隐藏手柄指针</td><td>布尔值</td><td>false</td><td>该屏幕是否隐藏手柄指针。</td></tr>
+<tr><td>gamepad_cursor_deflection_mode</td><td>隐藏手柄指针偏转模式</td><td>布尔值</td><td>false</td><td>手柄指针是否启用偏转模式。</td></tr>
+<tr><td>should_be_skipped_during_automation</td><td>自动化过程中跳过</td><td>布尔值</td><td>false</td><td>屏幕是否在自动化过程中跳过。</td></tr>
+</tbody></table>
+</div></div>
+  <!--正文-->
+  <script src="../src/js/main.js"></script>
+  <script src="../src/js/hl.js"></script>
+  <link href="../src/css/font-awesome.css" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad()</script>
+</body></html>

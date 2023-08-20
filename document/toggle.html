@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>开关</title>
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI,Minecraft UI,Minecraft JSON UI,Minecraft BE JSON UI,Minecraft Bedrock Edition JSON UI">
+  <meta name="description" content="本文档适用于 MCBE UI 开发者，参考文档以制作您的 UI 资源。">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
+</head>
+
+<body>
+  <!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>开关</h1></div>
+    <div class="left_content"><p>Toggle（开关）是一种常用的UI组件，用于在两种状态（不包含悬停、锁定）之间进行切换。</p>
+<success><b>提示</b><br>本文章需要一定的 JSON UI 知识，建议了解<a href="./attr/bindings.html">绑定属性</a>。</success>
+<h2>开关属性</h2>
+<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+<tr><td>toggle_name</td><td>开关名称</td><td>字符串</td><td></td><td>用于区分不同的开关组。</td></tr>
+<tr><td>radio_toggle_group</td><td>开关组</td><td>布尔值</td><td>false</td><td>是否启用开关组。</td></tr>
+<tr><td>toggle_group_forced_index</td><td>开关组索引</td><td>数字</td><td>-1</td><td>该控件在开关组中的索引。</td></tr>
+<tr><td>toggle_group_default_selected</td><td>开关组默认索引</td><td>数字</td><td>0</td><td>开关组默认的索引。</td></tr>
+<tr><td>toggle_default_state</td><td>开关默认状态</td><td>布尔值</td><td>false</td><td>开关默认状态。</td></tr>
+<tr><td>toggle_on_button</td><td>开关开启事件</td><td>字符串：事件名</td><td></td><td>开关开启的按钮映射事件。</td></tr>
+<tr><td>toggle_off_button</td><td>开关关闭事件</td><td>字符串：事件名</td><td></td><td>开关关闭的按钮映射事件。</td></tr>
+<tr><td>enable_directional_toggling</td><td>启用方向切换</td><td>布尔值</td><td>false</td><td>开关是否启用方向切换。</td></tr>
+<tr><td>toggle_grid_collection_name</td><td>开关网格合集名称</td><td>字符串</td><td></td><td>开关组的网格合集名称。</td></tr>
+<tr><td>checked_control</td><td>开启时的子控件名称</td><td>字符串</td><td></td><td>开关在开启后（没有悬停），显示的子控件的名称。</td></tr>
+<tr><td>unchecked_control</td><td>关闭时的子控件名称</td><td>字符串</td><td></td><td>开关在关闭后（没有悬停），显示的子控件的名称。</td></tr>
+<tr><td>checked_hover_control</td><td>开启并悬停时的子控件名称</td><td>字符串</td><td></td><td>开关在开启并悬停后，显示的子控件的名称。</td></tr>
+<tr><td>unchecked_hover_control</td><td>关闭并悬停时的子控件名称</td><td>字符串</td><td></td><td>开关在关闭并悬停后，显示的子控件的名称。</td></tr>
+<tr><td>checked_locked_control</td><td>锁定状态，开启时的子控件名称</td><td>字符串</td><td></td><td>锁定状态下，开关在开启后（没有悬停），显示的子控件的名称。</td></tr>
+<tr><td>unchecked_locked_control</td><td>锁定状态，关闭时的子控件名称</td><td>字符串</td><td></td><td>锁定状态下，开关在关闭后（没有悬停），显示的子控件的名称。</td></tr>
+<tr><td>checked_locked_hover_control</td><td>锁定状态，开启并悬停时的子控件名称</td><td>字符串</td><td></td><td>锁定状态下，开关在开启并悬停后，显示的子控件的名称。</td></tr>
+<tr><td>unchecked_locked_hover_control</td><td>锁定状态，关闭并悬停时的子控件名称</td><td>字符串</td><td></td><td>锁定状态下，开关在关闭并悬停后，显示的子控件的名称。</td></tr>
+</tbody></table>
+<h2>创建开关</h2>
+<p>要创建一个开关，我们可以选择使用原版预设的开关。（以下将“原版预设的开关”简称为“预设开关”）</p>
+<c>"test_toggle@common_toggles.light_text_toggle": {
+  "size": [100,30],
+  "$toggle_state_binding_name": "#toggle_state",
+  "$toggle_view_binding_name": "toggle_name_1",
+  "$button_text": "toggle"
+}</c>
+<p>在示例中，使用<lc>$toggle_view_binding_name</lc>让绑定读取当前开关的状态。</p>
+<warn><b>提示</b><br>代码中的 "$toggle_state_binding_name": "#toggle_state" 用于防止代码报错，这是由于该变量在预设开关中没有声明。</warn>
+<p>现在，为某个控件添加绑定，让开关的状态转化为控件可见的状态。这样可以让控件在开关开启状态下显示该控件。</p>
+<c>"test": {
+  "type": "label",
+  "text": "hello world",
+  "bindings": [
+    {
+      "binding_type": "view",
+      "source_control_name": "toggle_name_1",
+      "source_property_name": "#toggle_state",
+      "target_property_name": "#visible"
+    }
+  ]
+}</c>
+<p>代码块中的<lc>source_control_name</lc>等于上方开关的<lc>$toggle_view_binding_name</lc>，这样才能把控件的可见性绑定为开关的状态。</p>
+<tip><b>提示</b><br><lc>$toggle_view_binding_name</lc>不能与其他子控件名重复，否则绑定冲突，需要让变量值是唯一的。</tip>
+<h2>更改开关外观</h2>
+<p>当你想要修改一个预设开关的外观时，你可以尝试使用下方的变量修改预设开关不同状态下的外观。</p>
+<ul><li><lc>$unchecked_control</lc>未启用</li><li><lc>$checked_control</lc>启用</li><li><lc>$unchecked_hover_control</lc>未启用 悬停</li><li><lc>$checked_hover_control</lc>启用 悬停</li><li><lc>$unchecked_locked_control</lc>未启用 锁定</li><li><lc>$checked_locked_control</lc>启用 锁定</li><li><lc>$unchecked_locked_hover_control</lc>未启用 锁定 悬停</li><li><lc>$checked_locked_hover_control</lc>启用 锁定 悬停</li></ul>
+<p>当你的开关没有禁用的需求，你可以不修改锁定状态的样式。</p>
+<p>这些变量的值为控件，格式为<lc>namespace.control_name</lc>，namespace 是当前样式控件所在文件的命名空间（此处请不要忽略命名空间），control_name 是当前样式控件的控件名。我们只需要把不同样式的控件分别引用到这些变量中即可：</p>
+<c>"test_toggle@common_toggles.light_text_toggle":{
+  "size": [30,20],
+  "$toggle_state_binding_name": "#toggle_state",
+  "$toggle_view_binding_name": "toggle_name_1",
+  "$unchecked_control": "start.toggle_uncheck",
+  "$checked_control": "start.toggle_check",
+  "$unchecked_hover_control": "start.toggle_uncheck_hover",
+  "$checked_hover_control": "start.toggle_check_hover"
+},
+"toggle_uncheck@toggle_style":{"$toggle_image":"toggle_off"},
+"toggle_check@toggle_style":{"$toggle_image":"toggle_on"},
+"toggle_uncheck_hover@toggle_style":{"$toggle_image":"toggle_off_hover"},
+"toggle_check_hover@toggle_style":{"$toggle_image":"toggle_on_hover"},
+"toggle_style":{"type":"image","texture":"('textures/ui/' + $toggle_image)"}</c>
+<h2>开关组</h2>
+<p>开关组允许用户在不同的选项之间进行切换，不同于普通开关，这些选项都是互斥的。</p>
+<p>在预设的开关中，可以使用<lc>$radio_toggle_group</lc>变量定义开关组。</p>
+<c>"toggle_group@common_toggles.light_text_toggle": {
+  "size": [100,30],
+  "$toggle_state_binding_name": "#toggle_state",
+  "$toggle_view_binding_name": "toggle_name_1",
+  "$button_text": "toggle",
+  "$radio_toggle_group": true,
+  "$toggle_name": "toggle_group_1"
+}</c>
+<p>示例中，<lc>$toggle_name</lc>可以定义预设开关所在的开关组。</p>
+<p>在不同开关组之间，选项是互不影响的。因此，当前开关组的选项不会因为另外一个开关组而影响。</p>
+<p>下方是同一个开关组，不同选项的示例：</p>
+<c>"group_common@common_toggles.light_text_toggle": {
+  "size": [100,30],
+  "$toggle_state_binding_name": "#toggle_state",
+  "$radio_toggle_group": true,
+  "$toggle_group_default_selected": 0,
+  "$toggle_name": "toggle_group_1"
+},
+"group_1@group_common":{
+  "$toggle_view_binding_name": "toggle_name_1",
+  "$button_text": "toggle_1",
+  "$toggle_group_forced_index": 0
+},
+"group_2@group_common":{
+  "$toggle_view_binding_name": "toggle_name_2",
+  "$button_text": "toggle_2",
+  "$toggle_group_forced_index": 1
+}</c>
+<p>在开关组每个选项中，<lc>$toggle_group_forced_index</lc>用于定义当前选项的索引。在 group_common 控件中，<lc>$toggle_group_default_selected</lc>变量用于定义开关组默认选中哪个索引的选项。（这些变量仅适用于预设开关，自行创建的控件可以参考上方的属性）</p>
+<p>下方是不同开关组的示例：</p>
+<c>"group_common@common_toggles.light_text_toggle": {
+  "size": [100,30],
+  "$toggle_state_binding_name": "#toggle_state",
+  "$radio_toggle_group": true,
+  "$button_text": "toggle",
+  "$toggle_group_default_selected": 0,
+  "$toggle_group_forced_index": 0
+},
+"group_1@group_common":{
+  "$toggle_view_binding_name": "toggle_name_1",
+  "$toggle_name": "toggle_group_1"
+},
+"group_2@group_common":{
+  "$toggle_view_binding_name": "toggle_name_2",
+  "$toggle_name": "toggle_group_2"
+}</c>
+<p>在这个示例中，可以得知不同的开关组之间是不会影响的。</p>
+<h2>深入探究</h2>
+<p>开关真的只能用作控制控件的可见状态吗？</p>
+<p>除了控制可见性之外，我们还可以使用绑定把开关状态的布尔值传递给某个硬编码。开关的状态等于布尔值。开关开启时为 true，关闭时为 false。接下来以下方示例深入探究：</p>
+<c>"test_toggle@common_toggles.light_text_toggle": {
+  "size": [100,30],
+  "$toggle_state_binding_name": "#toggle_state",
+  "$toggle_view_binding_name": "can_drag",
+  "$button_text": "toggle"
+},
+"drag_panel@common.button": {
+  "size": ["100%c","100%c"],
+  "sound_volume": 0,
+  "draggable": "both",
+  "layer": 100,
+  "prevent_touch_input": true,
+  "controls": [{"text":{"type":"label","text":"hello world"}}],
+  "bindings": [
+    {
+      "binding_type": "view",
+      "source_control_name": "can_drag",
+      "source_property_name": "#toggle_state",
+      "target_property_name": "#enabled"
+    }
+  ]
+}</c>
+<p>在代码中，我们演示了开关间接控制拖动面板的拖动状态。</p>
+<p>首先我们使用绑定把开关状态转化为<lc>enabled</lc>属性，再通过这个属性禁用拖动来实现效果。</p>
+<p>问题是<lc>enabled</lc>属性是传播到子控件的，这可能导致子控件无法互动。解决办法也是有的，我们可以<b>其他方法</b>来控制拖动，不过，此文章不再过多展开赘述。</p>
+<c>"test_toggle@common_toggles.light_text_toggle": {
+  "size": [100,30],
+  "$toggle_state_binding_name": "#toggle_state",
+  "$toggle_view_binding_name": "hidden",
+  "$button_text": "toggle"
+},
+"test": {
+  "type": "panel",
+  "size": ["100%c","100%c"],
+  "layer": 100,
+  "alpha": 0,
+  "controls": [{"text":{"type":"label","text":"hello world"}}],
+  "bindings": [
+    {
+      "binding_type": "view",
+      "source_control_name": "hidden",
+      "source_property_name": "#toggle_state",
+      "target_property_name": "#propagateAlpha"
+    }
+  ]
+}</c>
+<p>在代码中，我们另外演示了开关控制控件的不透明度传播，做到了视觉上的隐藏。</p>
+<h2>其他预设开关</h2>
+在前面的示例中，通常是以 common_toggles 的开关作为示例。下方还有其他的预设开关，以供参考。
+<c>"toggle_control@settings_common.option_toggle_control": {
+  "size": [30,20],
+  "$option_binding_name": "#toggle_state"
+  // 此处可以使用 $unchecked_control 等变量定义开关的样式
+},
+"toggle@settings_common.option_toggle": {
+  // 可以使用下方变量移除选项文字
+  // "$show_option_label": false,
+  "$option_label": "测试",
+  "$control_name": "start.toggle_control",
+  "anchor_from": "bottom_middle",
+  "anchor_to": "bottom_middle"
+},
+"test": {
+  "type": "label",
+  "text": "hello world",
+  "bindings": [
+    {
+      "binding_type": "view",
+      "source_control_name": "start.toggle_control",
+      "source_property_name": "#toggle_state",
+      "target_property_name": "#visible"
+    }
+  ]
+}</c>
+<p>这是 settings_common 中的预设开关。要注意的是<lc>$control_name</lc>变量的格式为<lc>namespace.control_name</lc>，namespace 是 toggle_control 控件所在文件的命名空间（不能忽略命名空间），control_name 是 toggle_control 控件的控件名。</p>
+<p>代码中的 $option_binding_name 等于上方所说到的 $toggle_state_binding_name 变量，作用一致，都是为了防止变量未声明报错。</p>
+<tip><b>提示</b><br>绑定中的 source_control_name 要与 $control_name 的值一致，这样才能绑定到开关。</tip>
+<c>"toggle@common.toggle":{
+  "size": [30,20],
+  "$toggle_state_binding_name": "#toggle_state",
+  // 此处可以使用 $unchecked_control 等变量定义开关的样式
+  // 也可以使用 controls 属性定义开关的样式
+  // 例如："controls": [{"unchecked":{}}]
+},
+"toggle_panel": { // 引用 toggle 的控件
+  "controls": [
+    {"toggle_name_1@start.toggle":{}}
+  ]
+},
+"test": {
+  "type": "label",
+  "text": "hello world",
+  "bindings": [
+    {
+      "binding_type": "view",
+      "source_control_name": "toggle_name_1",
+      "source_property_name": "#toggle_state",
+      "target_property_name": "#visible"
+    }
+  ]
+}</c>
+<p>这是 ui_common 中的预设开关。代码中的<lc>{"toggle_name_1@start.toggle":{}}</lc>子控件名用于 view 绑定，用于绑定的子控件名必须是唯一的，不可重复，否则无法绑定到指定开关上。</p>
+<p>另外，common.toggle 的预设开关默认是没有外观样式的，需要自行定义样式。</p>
+<h2>代码示例</h2>
+<c title="开关">"test_toggle@common_toggles.light_text_toggle": {
+  "size": [100,30],
+  "$toggle_state_binding_name": "#toggle_state",
+  "$toggle_view_binding_name": "toggle_name_1",
+  "$button_text": "toggle"
+},
+"test": {
+  "type": "label",
+  "text": "hello world",
+  "bindings": [
+    {
+      "binding_type": "view",
+      "source_control_name": "toggle_name_1",
+      "source_property_name": "#toggle_state",
+      "target_property_name": "#visible"
+    }
+  ]
+}</c>
+<c title="开关样式">"test_toggle@common_toggles.light_text_toggle":{
+  "size": [30,20],
+  "$toggle_state_binding_name": "#toggle_state",
+  "$toggle_view_binding_name": "toggle_name_1",
+  "$unchecked_control": "start.toggle_uncheck",
+  "$checked_control": "start.toggle_check",
+  "$unchecked_hover_control": "start.toggle_uncheck_hover",
+  "$checked_hover_control": "start.toggle_check_hover"
+},
+"toggle_uncheck@toggle_style":{"$toggle_image":"toggle_off"},
+"toggle_check@toggle_style":{"$toggle_image":"toggle_on"},
+"toggle_uncheck_hover@toggle_style":{"$toggle_image":"toggle_off_hover"},
+"toggle_check_hover@toggle_style":{"$toggle_image":"toggle_on_hover"},
+"toggle_style":{"type":"image","texture":"('textures/ui/' + $toggle_image)"}</c>
+</div></div>
+  <!--正文-->
+  <script src="../src/js/main.js"></script>
+  <script src="../src/js/hl.js"></script>
+  <link href="../src/css/font-awesome.css" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad()</script>
+</body></html>
