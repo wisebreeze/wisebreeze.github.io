@@ -23,38 +23,46 @@
 </head>
 
 <body>
-  <!--正文-->
-  <div id="content">
-    <div class="left_title"><h1>控件常用属性</h1></div>
-    <div class="left_content">
-    <table>
-    <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-    <tr><td>type</td><td>控件类型</td><td>字符串：列举</td><td></td><td>定义该控件的类型。<br>列举的值有：<br>screen、panel、stack_panel、input_panel、label、image、button、toggle、dropdown、slider、edit_box、custom、factory、scroll_view、scroll_track、scrollbar_box、selection_wheel</td></tr>
-    <tr><td>controls</td><td>子控件</td><td>数组：控件数组</td><td></td><td>添加子控件。<br>添加子控件示例：<c>"test": {
+<!--正文-->
+<div id="content">
+  <div class="left_title"><h1>控件常用属性</h1></div>
+  <div class="left_content">
+  <table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>type</td><td>控件类型</td><td>字符串：列举</td><td></td><td>定义该控件的类型。<br>列举的值有：<br>screen、panel、stack_panel、input_panel、label、image、button、toggle、dropdown、slider、edit_box、custom、factory、scroll_view、scroll_track、scrollbar_box、selection_wheel</td></tr>
+  <tr><td>controls</td><td>子控件</td><td>数组：控件数组</td><td></td><td>添加子控件。<br>添加子控件示例：<c>"test": {
   "controls": [{"hi":{"type":"label","text":"hello world"}}]
 }</c>子控件允许继承和引用，因此并不需要把子控件所有属性写在controls中。</td></tr>
-    <tr><td>visible</td><td>可见</td><td>布尔值</td><td>true</td><td>控件是否可见。</td></tr>
-    <tr><td>enabled</td><td>启用</td><td>布尔值</td><td>true</td><td>控件是否启用。<br>禁用后，控件本身以及子控件都会受到影响，并且无法进行交互。</td></tr>
-    <tr><td>ignored</td><td>忽略</td><td>布尔值</td><td>false</td><td>控件是否忽略。</td></tr>
-    <tr><td>alpha</td><td>不透明度</td><td>浮点数</td><td>1</td><td>控件的不透明度。<br>取值范围在 0~1 之间。不透明度默认不会传播到子控件，你可以通过 <lc>propagate_alpha</lc> 属性允许传播不透明度。</td></tr>
-    <tr><td>propagate_alpha</td><td>传播不透明度</td><td>布尔值</td><td>false</td><td>控件是否允许传播不透明度到所有子控件。</td></tr>
-    <tr><td>clips_children</td><td>裁剪子控件</td><td>布尔值</td><td>false</td><td>控件是否允许裁剪溢出的子控件，子控件溢出该控件的大小才会被裁剪。<br>子控件被裁剪的某个部分，交互以及图形因此都会受到影响；<br>子控件使用 <lc>"allow_clipping": false</lc> 不会被剪辑。</td></tr>
-    <tr><td>allow_clipping</td><td>允许裁剪</td><td>布尔值</td><td>true</td><td>控件是否允许裁剪。</td></tr>
-    <tr><td>clip_offset</td><td>裁剪偏移量</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>控件的裁剪开始点的偏移量。</td></tr>
-    <tr><td>clip_state_change_event</td><td>改变裁剪状态的事件</td><td>字符串</td><td></td><td>改变控件裁剪状态的事件。</td></tr>
-    <tr><td>enable_scissor_test</td><td>启用剪刀测试</td><td>布尔值</td><td>false</td><td>控件是否启用剪刀测试。<br>剪刀测试用于限制绘制区域。指定一个矩形的剪裁窗口，当启用剪裁测试后，只有在这个窗口之内的像素才能被绘制，其它像素则会被丢弃。换句话说，无论怎么绘制，剪裁窗口以外的像素将不会被修改。详见 <a href="https://www.khronos.org/opengl/wiki/Scissor_Test">剪刀测试 ></a></td></tr>
-    <tr><td>selected</td><td>选中</td><td>布尔值</td><td>false</td><td>控件是否选中。</td></tr>
-    <tr><td>anims</td><td>动画</td><td>数组</td><td></td><td>详见 <a href="./anim.html">动画 ></a></td></tr>
-    <tr><td>animation_reset_name</td><td>动画重置事件</td><td>字符串</td><td></td><td>用于重置动画状态的事件。<br>详见 <a href="./anim.html">动画 ></a></td></tr>
-    <tr><td>disable_anim_fast_forward</td><td>禁用动画快进</td><td>布尔值</td><td>false</td><td>控件是否禁用动画快进。</td></tr>
-    <tr><td>grid_position</td><td>网格位置</td><td>数组：矢量[row, col]</td><td></td><td>定义控件在网格中的位置，同时影响该控件的网格绑定。</td></tr>
-    <tr><td>collection_name</td><td>合集名</td><td>字符串</td><td></td><td>该控件的合集名称。<br><a class="c-red">该属性仅适用于 堆叠面板、合集面板、网格。</a><br>合集名称可查阅 <a href="https://jsonui.netlify.app/statistics/collection.html">绑定合集 ></a></td></tr>
-    <tr><td>collection_index</td><td>项目索引</td><td>整数</td><td></td><td>定义控件在项目中的位置。</td></tr>
-    <tr><td>variables</td><td>变量</td><td>数组 或 对象</td><td></td><td>在达成某个条件下，改变变量的值。<br>详见 <a href="https://jsonui.netlify.app/document/var.html">变量 ></a></td></tr>
-    <tr><td>modifications</td><td>修改</td><td>数组</td><td></td><td>用于修改数组中的对象。<br>仅用于修改低于当前资源包排序的资源包，一般我们只对 vanilla 进行处理。<br>（资源包排序为：世界资源包 > 全局资源 > 游戏安装包资源包 > treatment，其中他们还可以细分为许多部分，游戏安装包资源包排序又能分为 vanilla版本包 > vanilla > vanilla_base。）<br>详见 <a href="./modify.html">修改 ></a></td></tr>
-    <tr><td>property_bag</td><td>属性包</td><td>对象</td><td></td><td>属性包用于储存硬编码的数据。</td></tr></tbody>
-    </table>
-  </div></div>
+  <tr><td>visible</td><td>可见</td><td>布尔值</td><td>true</td><td>控件是否可见。</td></tr>
+  <tr><td>enabled</td><td>启用</td><td>布尔值</td><td>true</td><td>控件是否启用。<br>禁用后，控件本身以及子控件都会受到影响，并且无法进行交互。</td></tr>
+  <tr><td>ignored</td><td>忽略</td><td>布尔值</td><td>false</td><td>控件是否忽略。</td></tr>
+  <tr><td>alpha</td><td>不透明度</td><td>浮点数</td><td>1</td><td>控件的不透明度。<br>取值范围在 0~1 之间。不透明度默认不会传播到子控件，你可以通过 <lc>propagate_alpha</lc> 属性允许传播不透明度。</td></tr>
+  <tr><td>propagate_alpha</td><td>传播不透明度</td><td>布尔值</td><td>false</td><td>控件是否允许传播不透明度到所有子控件。</td></tr>
+  <tr><td>clips_children</td><td>裁剪子控件</td><td>布尔值</td><td>false</td><td>控件是否允许裁剪溢出的子控件，子控件溢出该控件的大小才会被裁剪。<br>子控件被裁剪的某个部分，交互以及图形因此都会受到影响；<br>子控件使用 <lc>"allow_clipping": false</lc> 不会被剪辑。</td></tr>
+  <tr><td>allow_clipping</td><td>允许裁剪</td><td>布尔值</td><td>true</td><td>控件是否允许裁剪。</td></tr>
+  <tr><td>clip_offset</td><td>裁剪偏移量</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>控件的裁剪开始点的偏移量。</td></tr>
+  <tr><td>clip_state_change_event</td><td>改变裁剪状态的事件</td><td>字符串</td><td></td><td>改变控件裁剪状态的事件。</td></tr>
+  <tr><td>enable_scissor_test</td><td>启用剪刀测试</td><td>布尔值</td><td>false</td><td>控件是否启用剪刀测试。<br>剪刀测试用于限制绘制区域。指定一个矩形的剪裁窗口，当启用剪裁测试后，只有在这个窗口之内的像素才能被绘制，其它像素则会被丢弃。换句话说，无论怎么绘制，剪裁窗口以外的像素将不会被修改。详见 <a href="https://www.khronos.org/opengl/wiki/Scissor_Test">剪刀测试 ></a></td></tr>
+  <tr><td>selected</td><td>选中</td><td>布尔值</td><td>false</td><td>控件是否选中。</td></tr>
+  <tr><td>anims</td><td>动画</td><td>数组</td><td></td><td>详见 <a href="./anim.html">动画 ></a></td></tr>
+  <tr><td>animation_reset_name</td><td>动画重置事件</td><td>字符串</td><td></td><td>用于重置动画状态的事件。<br>详见 <a href="./anim.html">动画 ></a></td></tr>
+  <tr><td>disable_anim_fast_forward</td><td>禁用动画快进</td><td>布尔值</td><td>false</td><td>控件是否禁用动画快进。</td></tr>
+  <tr><td>grid_position</td><td>网格位置</td><td>数组：矢量[row, col]</td><td></td><td>定义控件在网格中的位置，同时影响该控件的网格绑定。</td></tr>
+  <tr><td>factory</td><td>工厂</td><td>对象</td><td></td><td><a class="c-red">该属性仅适用于 堆叠面板、合集面板、面板。</a><br>该属性详见下方的 <a href="#pid_1">工厂 ></a></td></tr>
+  <tr><td>collection_name</td><td>合集名</td><td>字符串</td><td></td><td>该控件的合集名称。<br><a class="c-red">该属性仅适用于 堆叠面板、合集面板、网格。</a><br>合集名称可查阅 <a href="https://jsonui.netlify.app/statistics/collection.html">绑定合集 ></a></td></tr>
+  <tr><td>collection_index</td><td>项目索引</td><td>整数</td><td></td><td>定义控件在项目中的位置。</td></tr>
+  <tr><td>variables</td><td>变量</td><td>数组 或 对象</td><td></td><td>在达成某个条件下，改变变量的值。<br>详见 <a href="https://jsonui.netlify.app/document/var.html">变量 ></a></td></tr>
+  <tr><td>modifications</td><td>修改</td><td>数组</td><td></td><td>用于修改数组中的对象。<br>仅用于修改低于当前资源包排序的资源包，一般我们只对 vanilla 进行处理。<br>（资源包排序为：世界资源包 > 全局资源 > 游戏安装包资源包 > treatment，其中他们还可以细分为许多部分，游戏安装包资源包排序又能分为 vanilla版本包 > vanilla > vanilla_base。）<br>详见 <a href="./modify.html">修改 ></a></td></tr>
+  <tr><td>property_bag</td><td>属性包</td><td>对象</td><td></td><td>属性包用于储存硬编码的数据。</td></tr></tbody>
+</table>
+<h2>工厂</h2>
+该属性的对象内部可填写以下属性：
+<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
+<tr><td>name</td><td>工厂名</td><td>字符串</td><td></td></tr>
+<tr><td>control_name</td><td>控件名</td><td>字符串</td><td>工厂的子控件名。<br>属性示例：<br><lc>"control_name": "@namespace.controls_name"</lc></td></tr>
+<tr><td>control_ids</td><td>控件 ID</td><td>对象</td><td>工厂的子控件 ID 对象组。<br>属性示例：<br><lc>"control_ids": { "id": "@namespace.controls_name" }</lc></td></tr>
+</tbody></table>
+</div></div>
   <!--正文-->
   <script src="https://jsonui.netlify.app/src/js/main.js"></script>
   <script src="https://jsonui.netlify.app/src/js/hl.js"></script>
