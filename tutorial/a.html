@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>编写健壮的代码</title>
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" sizes="100x100" href="../favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-title" content="MCBE UI 文档">
+  <meta name="apple-touch-icon-precomposed" size="57x57" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="114x114" href="../web_icon.png">
+  <meta name="apple-touch-icon-precomposed" size="152x152" href="../web_icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="keywords" content="我的世界UI,基岩版UI,json ui教程,JSON UI教程,json ui,JSON UI,Minecraft UI,Minecraft JSON UI,Minecraft BE JSON UI,Minecraft Bedrock Edition JSON UI">
+  <meta name="description" content="本文档适用于 MCBE UI 开发者，参考文档以制作您的 UI 资源。">
+  <meta name="author" content="MC_spruce">
+  
+  <link href="../src/css/main.css" rel="stylesheet">
+  <script src="../src/js/jQuery.js"></script>
+</head>
+
+<body>
+<!--正文-->
+  <div id="content">
+    <div class="left_title"><h1>编写健壮的代码</h1></div> 
+<div class="left_content"><p>健壮的代码能增加代码的兼容性，并且尽可能减少对 JSON UI 的破坏。本文将为您提供一些方法，帮助您编写健壮可靠的 JSON UI 代码。</p>
+<h2>优化性能</h2>
+<p>控件较多极有可能影响性能，甚至加载游戏时还需要等待一段时间。我们需要通过下方的方法减少对性能的开销：</p>
+<h3>正确隐藏控件</h3>
+<p>不要总是以为<lc>"visible": false</lc>就可以隐藏控件，这个属性只是让这个控件处于不可见状态，绑定之类的属性仍然能读取到这个控件。如果要正确隐藏这个控件，我们可以使用<lc>"ignored": true</lc>忽略这个控件。控件忽略后不会被绑定之类的属性读取。</p>
+<h3>减少绑定的使用</h3>
+<p>减少绑定的使用有利于进一步优化性能，许多屏幕通常都需要使用绑定增加互动性，因此减少绑定的读取可减少性能开销。</p>
+<h3>减少操作运算</h3>
+<p>操作运算可以处理某一些数据，如果有多余的操作运算也有可能会影响到性能，因此减少操作运算也是一种不错的选择。</p>
+<h3>减少穷举</h3>
+<p>穷举的确可以让我们列举出在数据不同的情况显示不同的控件样式，我们需要合理的使用穷举。</p>
+<h2>减少多余部分</h2>
+<p>文件大小较大的资源包通常会因为拥有多余的代码，多余的代码使得文件拥挤，开发者难以维护代码。可以根据下方的方法优化该部分问题：</p>
+<h3>减少不必要修改的代码</h3>
+<p>但我想去除一些不必要的阴影，可以这样做：</p>
+<c>"progress_text_label": {
+  "type": "label",
+  "shadow": false,
+  "text": "#level_number",
+  "color": "$experience_text_color",
+  "anchor_from": "top_middle",
+  "anchor_to": "bottom_middle",
+  "bindings": [
+    {
+      "binding_name": "#level_number",
+      "binding_type": "global"
+    },
+    {
+      "binding_name": "#level_number_visible",
+      "binding_type": "global",
+      "binding_name_override": "#visible"
+    }
+  ]
+}</c>
+<p>代码中包含了无需修改的部分，这些部分可能会受版本更新而影响。这时，我们需要尽可能的减少不必要修改的代码：</p>
+<c>"progress_text_label": {
+  "shadow": true
+}</c>
+<p>如果有些控件包含引用，在不需要修改引用时，你可以考虑把这个控件的引用删除。</p>
+<p>由于这些代码可以与原版的 JSON UI 合并，因此不用担心这些属性会失效。</p>
+<p>这种方法不仅可以减少对UI的破坏，而且还能减少文件的大小，让杂乱无章的文件变得干净整洁。</p>
+<h3>去除多余的控件</h3>
+<p>与上方同理，我们也可以去除多余的控件。这样能防止版本更新导致的各种错误，就例如设置屏幕左边的选项卡。</p>
+<h3>合理添加控件</h3>
+<p>有时候，我们通常都需要添加控件在屏幕上。那么你是否会合理添加控件呢？</p>
+<c>"start_screen_content": {
+  "modifications": [
+    {
+      "array_name": "controls",
+      "operation": "insert_back",
+      "value": [
+        {"test1@test":{}},
+        {"test2@test":{}},
+        {"test3@test":{}}
+      ]
+    }
+  ]
+}</c>
+<p>即使添加多个控件在屏幕内容中都不会发生控件名冲突，但我们要充分的避免一些小错误。如果某个 JSON UI 资源包优先占用了这个控件名，这样就可能会发生控件名冲突。</p>
+<p>你可以像下面那样解决，尽可能的减少冲突：</p>
+<c>"start_screen_content": {
+  "modifications": [
+    {
+      "array_name": "controls",
+      "operation": "insert_back",
+      "value": [
+        {"test_panel@test_panel":{}}
+      ]
+    }
+  ]
+},
+"test_panel": {
+  "controls": [
+    {"test1@test":{}},
+    {"test2@test":{}},
+    {"test3@test":{}}
+  ]
+}</c>
+<h3>修改嵌套中的子控件</h3>
+<p>有些控件的 controls 数组对象特别多，我们需要修改某一处的子控件。你可以考虑使用<a href="https://jsonui.netlify.app/document/attr/modify.html">修改属性</a>。</p>
+<p>有时我们也需要像下方这样修改子控件的属性：</p>
+<c>"test_panel": {
+  "controls": [
+    {
+      "label": {
+        "type": "label",
+        "text": "hello"
+      }
+    }
+  ]
+}</c>
+<p>如果我们只想修改其中的文字，你可以这样写：</p>
+<c>"test_panel/label": {
+ "text": "hello"
+}</c>
+<p>可以在示例中看到，在控件名中使用“/”来区分子控件路径，这样可以绕过一些不必要修改的嵌套子控件。不过，要注意的是。当父控件(test_panel)删除后或者任意一处的子控件不存在时，资源包会报错。</p>
+<h2>避免错误</h2>
+<p>在开发过程中，我们也要避免一些错误。例如 controls 属性中使用相同名称的子控件或者变量未声明…</p>
+</div></div>
+<!--正文-->
+  <script src="../src/js/main.js"></script>
+  <script src="../src/js/hl.js"></script>
+  <link href="../src/css/font-awesome.css" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad()</script>
+</body></html>
