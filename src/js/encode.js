@@ -1,6 +1,6 @@
 // base64
-function str_to_base64(){document.getElementById("result_output").innerHTML=btoa(encodeURI(document.getElementById("original_text").value))}
-function base64_to_str(){document.getElementById("result_output").innerHTML=decodeURI(atob(document.getElementById("original_text").value))}
+function str_to_base64(){document.getElementById("result_output").innerHTML=window.btoa(unescape(encodeURIComponent(document.getElementById("original_text").value)))}
+function base64_to_str(){document.getElementById("result_output").innerHTML=decodeURIComponent(escape(window.atob(document.getElementById("original_text").value)))}
 // 摩斯电码
 function str_to_morse(){document.getElementById("result_output").innerHTML=en_morse(document.getElementById("original_text").value)}
 function morse_to_str(){document.getElementById("result_output").innerHTML=de_morse(document.getElementById("original_text").value)}
