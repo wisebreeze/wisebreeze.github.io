@@ -28,27 +28,28 @@
     <div class="left_title"><h1>TTS 属性</h1></div>
     <div class="left_content">
 <table>
-  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-  <tr><td>tts_name</td><td>文本朗读名称</td><td>字符串</td><td>需要朗读的文本。</td></tr>
-  <tr><td>tts_control_header</td><td>文本朗读控件开头</td><td>字符串</td><td></td></tr>
-  <tr><td>tts_section_header</td><td>文本朗读段落开头</td><td>字符串</td><td></td></tr>
-  <tr><td>tts_control_type_order_priority</td><td>文本朗读控件类型优先级</td><td>数字</td><td></td></tr>
-  <tr><td>tts_value_order_priority</td><td>文本朗读值优先级</td><td>数字</td><td></td></tr>
-  <tr><td>tts_index_priority</td><td>文本朗读索引优先级</td><td>数字</td><td></td></tr>
-  <tr><td>tts_index_order</td><td>文本朗读索引顺序</td><td>数字</td><td></td></tr>
-  <tr><td>tts_override_control_value</td><td>文本朗读覆盖控件值</td><td>字符串</td><td></td></tr>
-  <tr><td>tts_inherit_siblings</td><td>文本朗读是否继承兄弟</td><td>布尔值</td><td></td></tr>
-  <tr><td>tts_message_interruptible</td><td>文本朗读是否允许中断</td><td>布尔值</td><td></td></tr>
-  <tr><td>tts_ignore_subsections</td><td>文本朗读是否忽略副段落</td><td>布尔值</td><td></td></tr>
-  <tr><td>tts_ignore_count</td><td>文本朗读是否忽略数量</td><td>布尔值</td><td></td></tr>
-  <tr><td>tts_skip_message</td><td>文本朗读是否跳过信息</td><td>布尔值</td><td></td></tr>
-  <tr><td>ttsSectionContainer</td><td>是否为文本朗读段落容器</td><td>布尔值</td><td>默认 false</td></tr>
-  <tr><td>text_tts</td><td>文本朗读文字</td><td>字符串</td><td></td></tr>
-  <tr><td>tts_value_changed</td><td>文本朗读值改变</td><td>字符串</td><td></td></tr>
-  <tr><td>tts_toggle_on</td><td>开关开启时文本朗读</td><td>字符串</td><td>控件类型为开关时可用。</td></tr>
-  <tr><td>tts_toggle_off</td><td>开关关闭时文本朗读</td><td>字符串</td><td>控件类型为开关时可用。</td></tr>
-  <tr><td>use_priority</td><td>使用优先级</td><td>布尔值</td><td></td></tr>
-  <tr><td>priority</td><td>优先级</td><td>布尔值</td><td></td></tr>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>tts_name</td><td>文本朗读名称</td><td>字符串</td><td></td><td>需要朗读的文本。</td></tr>
+  <tr><td>tts_control_header</td><td>文本朗读控件类型</td><td>字符串</td><td></td><td>朗读该控件属于哪种控件类型。</td></tr>
+  <tr><td>tts_section_header</td><td>文本朗读段落</td><td>字符串</td><td></td><td>朗读该控件属于哪个段落。</td></tr>
+  <tr><td>tts_control_type_order_priority</td><td>文本朗读控件类型优先级</td><td>数字</td><td>-64</td><td></td></tr>
+  <tr><td>tts_value_order_priority</td><td>文本朗读值优先级</td><td>数字</td><td>1000</td><td>控件类型为文本时，默认为 0。</td></tr>
+  <tr><td>tts_index_priority</td><td>文本朗读索引优先级</td><td>数字</td><td>0</td><td></td></tr>
+  <tr><td>tts_index_order</td><td>文本朗读索引顺序</td><td>数字</td><td>150</td><td></td></tr>
+  <tr><td>tts_inherit_siblings</td><td>文本朗读是否继承兄弟</td><td>布尔值</td><td>false</td><td></td></tr>
+  <tr><td>tts_message_interruptible</td><td>文本朗读是否允许中断</td><td>布尔值</td><td>true</td><td></td></tr>
+  <tr><td>tts_ignore_subsections</td><td>文本朗读是否忽略副段落</td><td>布尔值</td><td>false</td><td></td></tr>
+  <tr><td>tts_ignore_count</td><td>文本朗读是否忽略数量</td><td>布尔值</td><td>false</td><td></td></tr>
+  <tr><td>tts_skip_message</td><td>文本朗读是否跳过信息</td><td>布尔值</td><td>false</td><td></td></tr>
+  <tr><td>tts_skip_children</td><td>文本朗读是否跳过子控件</td><td>布尔值</td><td>false</td><td></td></tr>
+  <tr><td>ttsSectionContainer</td><td>是否为文本朗读段落容器</td><td>布尔值</td><td>false</td><td></td></tr>
+  <tr><td>tts_override_control_value</td><td>文本朗读覆盖控件值</td><td>字符串</td><td></td><td></td></tr>
+  <tr><td>text_tts</td><td>文本朗读文字</td><td>字符串</td><td></td><td>控件类型为文本时可用。</td></tr>
+  <tr><td>tts_value_changed</td><td>文本朗读值改变</td><td>字符串</td><td></td><td>控件类型为滑块时可用。<br>该字符串在滑块值改变时朗读。</td></tr>
+  <tr><td>tts_toggle_on</td><td>开关开启时文本朗读</td><td>字符串</td><td></td><td>控件类型为开关时可用。<br>该字符串在开关开启时朗读。</td></tr>
+  <tr><td>tts_toggle_off</td><td>开关关闭时文本朗读</td><td>字符串</td><td></td><td>控件类型为开关时可用。<br>该字符串在开关关闭时朗读。</td></tr>
+  <tr><td>use_priority</td><td>使用优先级</td><td>布尔值</td><td></td><td></td></tr>
+  <tr><td>priority</td><td>优先级</td><td>布尔值</td><td></td><td></td></tr>
 </tbody></table>
   </div></div>
   <!--正文-->
