@@ -53,7 +53,6 @@
       <tr><td>nineslice_size</td><td>九宫格切片纹理</td><td>浮点数、数组：矢量[x,y]、数组：矢量[x1,y1,x2,y2]</td><td>0</td><td>详见 <a href="#pid_3">九宫格切片纹理 ></a></td></tr>
       <tr><td>uv</td><td>UV</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>图片映射的初始位置，改变基于左上角的映射位置。<br><br>uv偏移方向如下：<br><img src="../src/image/uv.png" width="75px" height="75px" style="border-radius:0;" /></td></tr>
       <tr><td>uv_size</td><td>UV大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>图片映射的大小。</td></tr>
-      <tr><td>base_size</td><td>基本大小</td><td>数组：矢量[x,y]</td><td></td><td>图片的基本大小。</td></tr>
       <tr><td>bilinear</td><td>双线性</td><td>布尔值</td><td>false</td><td>是否使图片以双线性滤波形式显示。<br><br>双线性是一种非线性滤波器，它可以达到保持边缘、降噪平滑的效果。</td></tr>
       <tr><td>grayscale</td><td>灰白滤镜</td><td>布尔值</td><td>false</td><td>图片是否使用灰白滤镜显示。</td></tr>
       <tr><td>clip_ratio</td><td>剪辑比例</td><td>浮点数</td><td>1</td><td>图片的剪辑比例。</td></tr>
@@ -200,10 +199,16 @@
 <br>打开文件，内部代码格式为
 <c title="代码">{"base_size":[8,8],"nineslice_size":[2,2]}</c>
 
-里面那些属性通常为 <lc>"base_size"</lc> <lc>"nineslice_size"</lc>。
-<br>那要如何创建一个图像文件呢？
-<br>只要在创建一个与图像重名的 .json 文件即可，
-<br>例如：<lc>test.png</lc> -> <lc>test.json</lc>
+<p>里面那些属性通常为 <lc>base_size</lc> <lc>nineslice_size</lc>，属性如下表所示。</p>
+<table>
+  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
+  <tr><td>nineslice_size</td><td>九宫格切片纹理</td><td>浮点数、数组：矢量[x,y]、数组：矢量[x1,y1,x2,y2]</td><td>0</td><td>详见 <a href="#pid_3">九宫格切片纹理 ></a></td></tr>
+  <tr><td>base_size</td><td>基本大小</td><td>数组：矢量[x,y]</td><td></td><td>图片在显示时的基本大小。</td></tr>
+</tbody></table>
+
+<p>那要如何创建一个图像文件呢？
+<br>只需创建一个与图像同名的 .json 文件，
+<br>例如：<lc>test.png</lc> -> <lc>test.json</lc></p>
 <h2>代码示例</h2>
 <c title="普通的图像控件">"image": {
   "type": "image",
