@@ -29,7 +29,7 @@
     <div class="left_content" hide_bq="true">
       <input class="input" id="color_text_input" oninput="conversion('color_text_input')" placeholder="颜色空间，例如 #fff" style="width:180px;"/>
       <input class="ns color_input" type="color" oninput="conversion('color_input')" value="#010101" id="color_input" />
-      <table style="font-size: 0.8rem;">
+      <div class="cnTable"><did class="cnTableContainer"><table style="font-size: 0.8rem;">
       <tr><td>预览</td><td><a id="view" class="ns" style="border-radius: 6px;">（输入后自动转换）</a></td><td></td></tr>
       <tr><td>hex</td><td><a id="hex"></a></td><td><button class="btn" onclick="copy_code('hex','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
       <tr><td>rgb</td><td><a id="rgb"></a></td><td><button class="btn" onclick="copy_code('rgb','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
@@ -43,7 +43,7 @@
       <tr><td>xyz</td><td><a id="xyz"></a></td><td><button class="btn" onclick="copy_code('xyz','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
       <tr><td>lab</td><td><a id="lab"></a></td><td><button class="btn" onclick="copy_code('lab','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
       <tr><td>lch</td><td><a id="lch"></a></td><td><button class="btn" onclick="copy_code('lch','复制成功','复制失败，请转换颜色再进行复制')">复制</button></td></tr>
-      </table>
+      </table></div></div>
     </div>
   </div>
   <!--正文-->
