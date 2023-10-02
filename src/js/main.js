@@ -110,14 +110,49 @@ document.addEventListener('DOMContentLoaded',function(){
       changeTheme(theme==="dark"?1:theme==="auto"?2:0)
     }else changeTheme(0);
   }else console.log("main.js: 浏览器不支持储存，或没有储存权限！");
-  //加载面包屑
+  // 加载表格
+  document.querySelectorAll(".cnTable").forEach(e=>{
+    const tableid=e.getAttribute('tableid'),ctc=document.createElement('div'),ct=document.createElement('table'),cth=document.createElement('thead'),ctb=document.createElement('tbody');ctc.classList.add('cnTableContainer');
+    ct.appendChild(cth);ct.appendChild(ctb);ctc.appendChild(ct);e.appendChild(ctc);
+    if(window.tableData&&window.tableData[tableid]){
+      const data=window.tableData[tableid];
+      data.head.forEach(row=>{
+        const tr=document.createElement('tr');
+        row.forEach(text=>{
+          const th=document.createElement('th');
+          th.innerHTML=text.replace(/\n/g, "<br>");
+          tr.appendChild(th)
+        })
+        cth.appendChild(tr)
+      })
+      data.body.forEach(row=>{
+        const tr=document.createElement('tr');
+        row.forEach(text=>{
+          const td=document.createElement('td');
+          td.innerHTML=text===0?"":text.replace(/\n/g, "<br>");
+          tr.appendChild(td)
+        })
+        ctb.appendChild(tr)
+      })
+      if(data.foot){
+        const ctf=document.createElement('div');ctf.classList.add('cnTableFooter');e.appendChild(ctf);
+        if(Array.isArray(data.foot)){
+          const ol=document.createElement('ol');ctf.appendChild(ol);
+          data.foot.forEach(text=>{const li=document.createElement('li');li.innerHTML=text;ol.appendChild(li)})
+        }else{
+          ctf.innerHTML=data.foot
+        }
+      }
+    }
+  })
+  // 加载面包屑
   $(".left_title").each(function(){
     var backLink = $(this).attr("back_link") || "https://jsonui.netlify.app/",
     backText = $(this).attr("back_text") || "首页",
     title = $(this).children()[0].innerText || "文档";
     $(this).prepend(`<ol class="breadcrumb ns"><li><a href="${backLink}">< ${backText}</a></li><li class="active"><a>${title}</a></li></ol>`);
   });
-  //加载目录
+  // 加载目录
   $("h2,h3,h4,h5,h6").each(function(){
     headingLevel = this.tagName.toLowerCase();// 获取该遍历的小写标签名
     headingName = $(this).text();// 获取段落名
