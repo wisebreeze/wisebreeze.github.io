@@ -66,13 +66,38 @@
 <h2>代码块</h2>
 <c title="test.py" language="python">print("hello world")</c>
 <h2>表格</h2>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-  <tr><td></td><td></td><td></td><td></td><td></td></tr>
-</tbody></table>
-<table><thead><tr><th>属性</th><th>属性名</th><th colspan="2">值</th><th>描述</th></tr></thead><tbody>
-  <tr><td rowspan="2"></td><td></td><td></td><td></td><td></td></tr>
-  <tr><td></td><td></td><td></td><td></td></tr>
-</tbody></table>
+<div class="cnTable">
+  <div class="cnTableContainer">
+    <table>
+      <thead>
+        <tr><th colspan="2">排序</th><th rowspan="2">测试</th><th rowspan="2">测试</th><th rowspan="2">测试</th></tr>
+        <tr><th>序号</th><th>索引</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>0</td><td>测试</td><td>测试</td><td rowspan="2">测试</td></tr>
+        <tr><td>2</td><td>1</td><td>测试</td><td>测试</td></tr>
+        <tr><td>3</td><td>2</td><td>测试</td><td colspan="2">测试</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p></p>
+<div class="cnTable">
+  <div class="cnTableTitle">文本控件</div>
+  <div class="cnTableContainer">
+    <table>
+      <thead>
+        <tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>text</td><td>文字</td><td>字符串</td><td></td><td></td></tr>
+        <tr><td>shadow</td><td>阴影</td><td>布尔值</td><td>false</td><td></td></tr>
+        <tr><td>font_scale_factor</td><td>字体缩放</td><td>浮点数</td><td>1</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cnTableFooter">请自行前往 文本控件 文档观看</div> 
+</div>
 <h2>弹窗</h2>
 <button class="btn" onclick="Tile.dialog({title:'测试',height:'180px'})">打开模态窗</button>
 <h2>按钮</h2>
