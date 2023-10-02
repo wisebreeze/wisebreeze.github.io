@@ -66,41 +66,41 @@
     <h2>绑定属性</h2>
     <p>接下来，我将数组内的键和值一一列举并解释</p>
 <tip><b>提示</b><br>属性使用 * 号标注的是必填属性。</tip>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>binding_type</td><td>绑定类型</td><td>字符串：列举</td><td>global</td><td>定义绑定的类型。<br>列举的值可以是：<br>none 无<br>global 全局<br>collection 合集<br>collection_details 合集详细<br>view 查看</td></tr>
   <tr><td>ignored</td><td>忽略</td><td>布尔值</td><td>false</td><td>是否忽略该绑定。</td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <p>当<lc>binding_type</lc>为<lc>global</lc>时，可用的属性：</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>* binding_name</td><td>绑定名</td><td>字符串</td><td></td><td>储存硬编码的绑定名。<br>绑定名可用于条件记算。</td></tr>
   <tr><td>binding_name_override</td><td>绑定名覆盖</td><td>字符串</td><td></td><td>将 binding_name 中的值覆盖到另一个绑定名。<br>通常为控件中的属性，例如：<br>#text、#visible、#enabled</td></tr>
   <tr><td>binding_condition</td><td>绑定条件</td><td>字符串：列举</td><td>none</td><td>改变绑定数据的条件。<br>列举的值可以是：<br>none 无<br>once 仅一次<br>always 总是<br>visible 可见时<br>always_when_visible 总是在可见时<br>visibility_changed 可见性改变时</td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <p>当<lc>binding_type</lc>为<lc>collection</lc>时，可用的属性：</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>* binding_name</td><td>绑定名</td><td>字符串</td><td></td><td>储存硬编码的绑定名。<br>绑定名可用于条件记算。</td></tr>
   <tr><td>binding_name_override</td><td>绑定名覆盖</td><td>字符串</td><td></td><td>将 binding_name 中的值覆盖到另一个绑定名。<br>通常为控件中的属性，例如：<br>#text、#visible、#enabled</td></tr>
   <tr><td>* binding_collection_name</td><td>绑定合集名</td><td>字符串</td><td></td><td>要操作的合集的名称。</td></tr>
   <tr><td>binding_condition</td><td>绑定条件</td><td>字符串：列举</td><td>none</td><td>改变绑定数据的条件。<br>列举的值可以是：<br>none 无<br>once 仅一次<br>always 总是<br>visible 可见时<br>always_when_visible 总是在可见时<br>visibility_changed 可见性改变时</td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <p>当<lc>binding_type</lc>为<lc>collection_details</lc>时，可用的属性：</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>* binding_collection_name</td><td>绑定合集名</td><td>字符串</td><td></td><td>要操作的合集的名称。</td></tr>
   <tr><td>binding_collection_prefix</td><td>绑定合集前缀</td><td>字符串</td><td></td><td>要操作的合集的前缀。</td></tr>
   <tr><td>binding_condition</td><td>绑定条件</td><td>字符串：列举</td><td>none</td><td>改变绑定数据的条件。<br>列举的值可以是：<br>none 无<br>once 仅一次<br>always 总是<br>visible 可见时<br>always_when_visible 总是在可见时<br>visibility_changed 可见性改变时</td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <p>当<lc>binding_type</lc>为<lc>view</lc>时，可用的属性：</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>source_control_name</td><td>源控件名</td><td>字符串：控件名</td><td></td><td>用于读取属性值的控件的控件名。</td></tr>
   <tr><td>* source_property_name</td><td>源属性名</td><td>字符串</td><td></td><td>source_control_name 中引用的控件的属性包中的属性名。<br>属性名可用于条件计算。<p>提示：如果没有指定 source_control_name，则会视为该控件的属性名。</p></td></tr>
   <tr><td>* target_property_name</td><td>目标属性名</td><td>字符串</td><td></td><td>将 source_property_name 的值覆盖到另一个属性名中。<br>会把目标属性名储存在该控件的属性包中。</td></tr>
   <tr><td>resolve_sibling_scope</td><td>解析兄弟作用域</td><td>布尔值</td><td>false</td><td>是否解析兄弟作用域。<p>如果允许解析兄弟作用域，可以直接从兄弟控件中读取绑定属性名，从而忽略 source_control_name 属性读取。</p></td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <h2>操作运算</h2>
 <p>内容详见 <a href="./operate.html">操作运算 ></a></p>
 <h2>字符串格式化</h2>

@@ -28,15 +28,15 @@
     <div class="left_title"><h1>声音属性</h1></div>
     <div class="left_content">
 <p>运用声音属性，我们可以在点击互动性控件后播放音效，甚至音乐！</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>sound_name</td><td>声音名称</td><td>字符串</td><td></td><td>音效名称。<br>指存储在<lc>RP/sounds/sound_definitions.json</lc>文件中的音效名称。<br>例如<lc>random.screenshot</lc>。<p>该属性仅适用于 按钮、开关、下拉、选轮 控件类型。</p></td></tr>
   <tr><td>sound_volume</td><td>声音音量</td><td>浮点数</td><td>1</td><td>音效音量。<br>音量为 1 时，不会改变音乐文件原有的音量。<p>该属性仅适用于 按钮、开关、下拉、选轮 控件类型。</p></td></tr>
   <tr><td>sound_pitch</td><td>声音音调</td><td>浮点数</td><td>1</td><td>音效音调。<br>可以改变音调大小已调整音效播放倍数。<p>该属性仅适用于 按钮、开关、下拉、选轮 控件类型。</p></td></tr>
   <tr><td>sounds</td><td>声音</td><td>数组</td><td></td><td>点击该控件后播放的声音数组（播放列表）。<br>详见 <a href="#pid_1">声音数组 ></a></td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <h2>声音数组</h2>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>sound_name</td><td>声音名称</td><td>字符串</td><td></td><td>音效名称。<br>指存储在<lc>RP/sounds/sound_definitions.json</lc>文件中的音效名称。<br>例如<lc>random.screenshot</lc>。</td></tr>
   <tr><td>sound_volume</td><td>声音音量</td><td>浮点数</td><td>1</td><td>音效音量。<br>音量为 1 时，不会改变音乐文件原有的音量。</td></tr>
@@ -44,7 +44,7 @@
   <tr><td>min_seconds_between_plays</td><td>最少播放间隔秒</td><td>浮点数</td><td></td><td>播放下一首音乐，之间需要间隔多少秒，单位为秒。</td></tr>
   <tr><td>event_type</td><td>事件类型</td><td>字符串</td><td>button_event</td><td>触发音效的事件。</td></tr>
   <tr><td>button_name</td><td>按钮名</td><td>字符串</td><td></td><td>触发音效的目标按钮控件。</td></tr>
-</tbody></table>
+</tbody></table></div></div>
   </div></div>
   <!--正文-->
   <script src="https://jsonui.netlify.app/src/js/main.js"></script>

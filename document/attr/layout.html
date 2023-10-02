@@ -30,7 +30,7 @@
 运用布局属性，我们可以改控件的大小、位置、动态位置。
 那么，我们开始讲布局属性吧！
 <h2>属性</h2>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
   <tbody><tr><td>size</td><td>大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>详见 <a href="#pid_2">控件大小 ><br></td></tr>
   <tr><td>offset</td><td>偏移量</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>详见 <a href="#pid_3">偏移量 ></a></td></tr>
@@ -44,7 +44,7 @@
   <tr><td>use_anchored_offset</td><td>使用锚点</td><td>布尔值</td><td>false</td><td>是否让子控件使用该控件的锚点。</td></tr>
   <tr><td>follows_cursor</td><td>跟随光标</td><td>布尔值</td><td>false</td><td>控件是否能跟随光标。</td></tr>
   <tr><td>draggable</td><td>拖动</td><td>字符串：列举</td><td>not_draggable</td><td>是否能拖动控件。<br><a class="c-red">注意：拖动属性仅适用于互动性控件</a><br><br>列举的值可以是：<br><lc>not_draggable</lc> 不允许拖动<br><lc>vertical</lc> 垂直拖动<br><lc>horizontal</lc> 水平拖动<br><lc>both</lc> 任意方向拖动</td></tr></tbody>
-</table>
+</table></div></div>
 <h2>控件大小</h2>
 接下来我们讲下 <lc>size</lc> 属性吧。<br>
 其中，矢量的坐标（X/Y轴）值可以是：<p>
@@ -58,7 +58,7 @@
 Y轴百分比<br>
 X轴百分比</p>
 
-<table id="anchor_1">
+<div class="cnTable"><div class="cnTableContainer"><table id="anchor_1">
   <thead><tr><th></th><th>值</th><th>示例</th><th>描述</th></tr></thead>
   <tbody><tr><td>像素</td><td>数字 或 字符串</td><td>[2,2]<br>["2px","2px"]</td><td>像素大小。<br>通常情况可以忽略 "px"。</td></tr>
   <tr><td>默认</td><td>字符串</td><td>["default","default"]</td><td>使用默认的控件大小。</td></tr>
@@ -69,7 +69,7 @@ X轴百分比</p>
   <tr><td>填充</td><td>字符串</td><td>["fill","fill"]</td><td>填充至父控件剩余大小。<br><br>该类型常用于父控件类型为 stack_panel 的控件。</td></tr></tbody>
   <tr><td>X轴百分比</td><td>字符串</td><td>[10,"100%x"]</td><td>相对于X轴大小的百分比。<br><br>仅 Y轴 可用！</td></tr>
   <tr><td>Y轴百分比</td><td>字符串</td><td>["100%y",10]</td><td>相对于Y轴大小的百分比。<br><br>仅 X轴 可用！</td></tr></tbody>
-</table>
+</table></div></div>
 <warn><b>警告</b><br>
 X轴百分比，Y轴百分比不能同时在同个属性中使用！<br>
 错误示例: ["100%y","100%x"]
@@ -91,7 +91,7 @@ X轴百分比，Y轴百分比不能同时在同个属性中使用！<br>
 <h2>锚点定位</h2>
 <p>锚点，能让控件对齐到某个方向点，在该点的基础上，偏移、动画会将以此作为原点。</p>
 <p>锚点有以下几种方向：</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
 <thead><tr><th>值</th><th>描述</th></tr></thead>
 <tbody><tr><td>top_left</td><td>左上角</td></tr>
 <tr><td>top_middle</td><td>正上方</td></tr>
@@ -102,13 +102,13 @@ X轴百分比，Y轴百分比不能同时在同个属性中使用！<br>
 <tr><td>bottom_left</td><td>左下角</td></tr>
 <tr><td>bottom_middle</td><td>正下方</td></tr>
 <tr><td>bottom_right</td><td>右下角</td></tr></tbody>
-</table>
+</table></div></div>
 <p>总得来说，锚点位置位置如下：</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
 <tbody><tr><td>top_left</td><td>top_middle</td><td>top_right</td></tr>
 <tr><td>left_middle</td><td>center</td><td>right_middle</td></tr>
 <tr><td>bottom_left</td><td>bottom_middle</td><td>bottom_right</td></tr></tbody>
-</table>
+</table></div></div>
 <p>对于<lc>anchor_from anchor_to</lc>，他们都是相互配合的，在锚点定位中缺一不可。例如：</p>
 <c>"control": {
   "anchor_from": "center",

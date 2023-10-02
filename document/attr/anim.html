@@ -64,7 +64,7 @@ anim_type可能的值（字符串/列举）：
   "to": [ 0, 0 ],
   "easing": "spring"
 }</c>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>duration</td><td>持续时间</td><td>数字</td><td></td><td>动画播放的持续时间，单位为秒。</td></tr>
   <tr><td>from</td><td>初始状态</td><td>数字 或 数组</td><td></td><td>动画播放时的初始状态。<br>值的类型由动画类型而异。<sup>[1]</sup></td></tr>
@@ -76,7 +76,7 @@ anim_type可能的值（字符串/列举）：
   <tr><td>resettable</td><td>可复位的 [需要验证]</td><td>布尔值</td><td>false</td><td></td></tr>
   <tr><td>scale_from_starting_alpha</td><td>从Alpha开始时保持比例 [需要验证]</td><td>布尔值</td><td>false</td><td></td></tr>
   <tr><td>activated</td><td>已激活 [需要验证]</td><td>布尔值</td><td>false</td><td></td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <ol>
 <li>动画类型为 wait 时，无需 from, to 属性。</li>
 </ol>
@@ -84,13 +84,13 @@ anim_type可能的值（字符串/列举）：
 <h2>定义动画属性 / 播放动画条件</h2>
 在没有定义播放动画的条件的情况下，只要控件显示即可播放。
 
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
   <tr><td>play_event</td><td>播放事件</td><td>字符串：事件名</td><td>触发该事件，动画进入播放状态。</td></tr>
   <tr><td>end_event</td><td>结束事件</td><td>字符串：事件名</td><td>触发该事件，动画进入结束播放状态。</td></tr>
   <tr><td>start_event</td><td>开始事件</td><td>字符串：事件名</td><td>触发该事件，动画进入开始播放状态。</td></tr>
   <tr><td>reset_event</td><td>重置事件</td><td>字符串：事件名</td><td>触发该事件，动画进入重置状态。</td></tr>
-</tbody></table>
+</tbody></table></div></div>
 
 <p>事件名称：<b>预设事件/按钮映射名称</b>
 <br><b>为按钮映射名称时：</b>可以直接填写from_button_id或to_button_id的值
@@ -105,7 +105,7 @@ anim_type可能的值（字符串/列举）：
 
 <h2>定义动画属性 / 播放动画样式</h2>
 
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>easing</td><td>动画样式</td><td>字符串：列举</td><td>linear</td><td>列举的值可以是：
   <br>linear<br>spring
@@ -120,7 +120,7 @@ anim_type可能的值（字符串/列举）：
   <br>in_quart<br>out_quart<br>in_out_quart
   <br>in_quint<br>out_quint<br>in_out_quint
   </td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <tip>
   <b>提示</b>
   <br>1. in类型表示从起点开始播放的动画样式
@@ -169,10 +169,10 @@ anim_type可能的值（字符串/列举）：
 
 <p>这时需要一个新的属性 — anims</p>
 
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
   <tr><td>anims</td><td>动画</td><td>数组</td><td>该控件播放的动画。<br>示例："anims": ["@test_anims"]<br>子元素的格式为"@namespace.anim_control"<br><b>namespace</b> 动画控件所在文件的命名空间<br><b>anim_control</b> 动画控件名</td></tr>
-</tbody></table>
+</tbody></table></div></div>
 
 <hr>
 添加的动画虽然能播放，但是只能播放一次，需要再播放一次还需重进Minecraft。
@@ -187,10 +187,10 @@ anim_type可能的值（字符串/列举）：
     "@hud.test_anim"//值 = @命名空间.控件名
   ]
 }</c>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
   <tr><td>animation_reset_name</td><td>重置动画事件</td><td>字符串：事件名</td><td>当事件触发时，重置动画状态。<br>类似于上文所提到的 reset_event。<br>如果只想离开屏幕重置动画，值为 screen_animation_name。<br></td></tr>
-</tbody></table>
+</tbody></table></div></div>
 
 <h2>动画的运用</h2>
 

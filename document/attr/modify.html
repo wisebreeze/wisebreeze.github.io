@@ -52,14 +52,14 @@
 <p>我们总是需要对其他资源包的 controls 进行增加控件或者删除控件。但是为了修改，我们就需要使用到 <lc>modifications</lc>。这样我们就不需要引用其他资源包的代码进行大面积的修改，也不会破坏其他资源包的内容。</p>
 <p>modifications 仅用于修改低于当前资源包排序的资源包，一般我们只对 vanilla 进行处理。<br>（资源包排序为：世界资源包 > 全局资源 > 游戏安装包资源包 > treatment，其中他们还可以细分为许多部分，游戏安装包资源包排序又能分为 vanilla版本包 > vanilla > vanilla_base。）</p>
 <p>每个控件中 modifications 属性可以同时执行多个修改操作，不过，当目标不存在时、未知的修改操作会报错。</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
 <thead><tr><th>数组对象属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
 <tbody><tr><td>array_name</td><td>数组键名</td><td>字符串</td><td>定义要修改的目标数组。</td></tr>
 <tr><td>operation</td><td>修改操作</td><td>字符串：列举</td><td>执行的修改操作。列举的值详见下方内容。<br>该属性是必要的！</td></tr>
 <tr><td>where</td><td>执行操作的对象</td><td>对象</td><td>执行操作的对象，可模糊（指使用目标对象中的某个属性。控件无法模糊，必须是完整控件）选中某个对象。</td></tr>
 <tr><td>value</td><td>执行操作后的值</td><td>数组 或 对象</td><td>执行操作后的值。<br>单个对象时使用对象，多个对象时使用数组。</td></tr>
 <tr><td>target</td><td>被操作的对象</td><td>对象</td><td>被操作的对象。</td></tr></tbody>
-</table>
+</table></div></div>
 <p>接下来我们将展示几种修改操作：</p>
 <h3>插入</h3>
 <b>insert_front</b>

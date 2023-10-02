@@ -29,7 +29,7 @@
     <div class="left_content">
 <p>有些时候，变量 或 硬编码（以下简称为“数据”）需要使用参与运算，特别是变量使用 variables 属性时。</p>
 <p>数据参与运算时需要带上括号，例如 <lc>"source_property_name": "(#alpha / 100)"</lc> 。数据目前能够参与的运算有：</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
 <thead><tr><th>操作名</th><th>操作符号</th><th>示例</th><th>备注</th></tr></thead><tbody>
 <tr><td>加</td><td>+</td><td><p>(#test + 1)<br>(#test + 'string')</p><p>($test + 1)<br>($test + 'string')</p></td><td>字符串参加运算时并且数据类型是字符串，就等于在数据末尾追加字符串。</td></tr>
 <tr><td>减</td><td>-</td><td><p>(#test - 1)<br>(#test - 'string')</p><p>($test - 1)<br>($test - 'string')</p></td><td>字符串参加运算时并且数据类型是字符串，就等于在数据去除字符串。</td></tr>
@@ -46,7 +46,7 @@
 <tr><td>或</td><td>or</td><td>(#test = 1 or #test = 2)<br>($test = 1 or $test = 2)</td><td>若符合返回 true，反之 false。</td></tr>
 <tr><td>和</td><td>and</td><td>(#test = 1 and #test < 2)<br>($test = 1 and $test < 2)</td><td>若符合返回 true，反之 false。</td></tr>
 <tr><td>非</td><td>not</td><td>(not #test = 1)<br>(not $test = 1)</td><td>若符合返回 true，反之 false。</td></tr></tbody>
-</table>
+</table></div></div>
   </div></div>
   <!--正文-->
   <script src="https://jsonui.netlify.app/src/js/main.js"></script>

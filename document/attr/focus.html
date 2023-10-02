@@ -28,7 +28,7 @@
     <div class="left_title"><h1>焦点属性</h1></div>
     <div class="left_content">
 <p>焦点用于选中其他控件，仅游戏手柄和键盘能使用焦点。</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>focus_enabled</td><td>焦点启用</td><td>布尔值</td><td>false</td><td>是否允许该控件启用焦点。</td></tr>
   <tr><td>focus_identifier</td><td>焦点标识符</td><td>字符串</td><td></td><td>定义该控件的焦点标识符，方便其他控件引导焦点到此控件。<p>焦点标识符是唯一的！</p></td></tr>
@@ -51,28 +51,28 @@
   <tr><td>focus_container_custom_up</td><td>向上自定义焦点容器</td><td>数组</td><td></td><td>详见 <a href="#pid_2">自定义焦点容器 ></a></td></tr>
   <tr><td>focus_container_custom_left</td><td>向左自定义焦点容器</td><td>数组</td><td></td><td>详见 <a href="#pid_2">自定义焦点容器 ></a></td></tr>
   <tr><td>focus_container_custom_right</td><td>向右自定义焦点容器</td><td>数组</td><td></td><td>详见 <a href="#pid_2">自定义焦点容器 ></a></td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <ol><li>如果不想触发引导焦点，可以填写<lc>FOCUS_OVERRIDE_STOP</lc>，阻止引导该方向的焦点。</li></ol>
 <h2>焦点映射</h2>
 <p>以下为数组对象允许的属性：</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
   <tr><td>focus_identifier</td><td>焦点标识符</td><td>字符串</td><td>定义该控件的焦点标识符，方便其他控件引导焦点到此控件。<p>焦点标识符是唯一的！</p></td></tr>
   <tr><td>focus_change_down</td><td>下方焦点覆盖</td><td>字符串</td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_down 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
   <tr><td>focus_change_up</td><td>上方焦点覆盖</td><td>字符串</td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_up 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
   <tr><td>focus_change_left</td><td>左边焦点覆盖</td><td>字符串</td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_left 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
   <tr><td>focus_change_right</td><td>右边焦点覆盖</td><td>字符串</td><td>填写可聚焦控件的焦点标识符。<br>当焦点在该控件中并触发 button.menu_right 事件，会将焦点引导到目标焦点。<sup>[1]</sup></td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <ol><li>如果不想触发引导焦点，可以填写<lc>FOCUS_OVERRIDE_STOP</lc>，阻止引导该方向的焦点。</li></ol>
 <h2>自定义焦点容器</h2>
 <tip><b>提示</b><br>需要该方向的焦点导航模式为<lc>custom</lc>，才能使用该方向的自定义焦点容器。</tip>
 <p>当焦点在该控件中并触发 button.menu_(down/up/left/right) 事件，而且该方向的交点导航模式为 custom，就会引导到新的焦点容器。</p>
 <p>以下为自定义焦点容器数组对象的属性：</p>
-<table>
+<div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
   <tr><td>other_focus_container_name</td><td>其他焦点容器控件名</td><td>字符串</td><td>接收焦点的焦点容器的控件名。</td></tr>
   <tr><td>focus_id_inside</td><td>内部交点标识符</td><td>字符串</td><td>接收焦点的焦点容器的可聚焦子控件的焦点标识符。</td></tr>
-</tbody></table>
+</tbody></table></div></div>
 <c title="属性示例">"focus_container_custom_right": [
   {
     "other_focus_container_name": "控件名",
