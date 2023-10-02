@@ -11,8 +11,6 @@
   --panel: #E8E8E8;
   --bq-b: rgb(212, 212, 212);
   --bq-bg: rgb(255, 255, 255);
-  /*行内代码*/
-  --lc: #D4D4D4;
   /*图片*/
   --image: brightness(100%);
   /*提示*/
@@ -51,10 +49,13 @@
   --progress-bg: rgb(187, 187, 187);
   --progress-box: rgb(25, 142, 252);
   /*表格*/
-  --table-thead: #0a9dff;
-  --tbody-even: rgb(230, 230, 230);
-  --tbody-hover: rgb(232, 232, 232);
-  --th-border: rgb(95, 95, 95);
+  --table-bg: #ffffff;
+  --table-text: rgba(0,0,0,0.75);
+  --table-thead: #dededeb4;
+  --table-thead-border: #dddddd;
+  --table-thead-line: #cdcdcd;
+  --table-tbody-border: #f0f0f0;
+  --table-tbody-hover: #f5f5f5;
   /*导航＆目录*/
   --guide-bg:  rgba(236, 236, 236, 0.75);
   --dropdown-bg: rgba(206, 206, 206, 0.45);
@@ -103,8 +104,6 @@
   --panel: #424242;
   --bq-b: rgb(82, 82, 82);
   --bq-bg: rgb(58, 58, 58);
-  /*行内代码*/
-  --lc: #666666;
   /*图片*/
   --image: brightness(80%);
   /*提示*/
@@ -118,7 +117,7 @@
   --link-this-hover: #2dff5b;
   /*分类*/
   --category-bg: #6060607c;
-  --category-head: rgb(32, 114, 255);
+  --category-head: #717171;
   /*信息栏*/
   --info-panel: #606060;
   --info-panel-s: #111111;
@@ -143,10 +142,13 @@
   --progress-bg: rgb(170, 170, 170);
   --progress-box: rgb(32, 114, 255);
   /*表格*/
-  --table-thead: #335EE1;
-  --tbody-even: #404040;
-  --tbody-hover: #363636;
-  --th-border: #b7b7b7;
+  --table-bg: #2c2c2c;
+  --table-text: #dcdcdc;
+  --table-thead: #3c3c3ce1;
+  --table-thead-border: #4c4c4c;
+  --table-thead-line: #555555;
+  --table-tbody-border: #3e3e3e;
+  --table-tbody-hover: #373737;
   /*导航＆目录*/
   --guide-bg: rgba(80, 80, 80, 0.75);
   --dropdown-bg: rgba(80, 80, 80, 0.45);
@@ -260,20 +262,13 @@ tip{border-left: #415dff solid 3px;background: var(--tip-bg);}
 success{border-left: #91e552 solid 3px;background: var(--success-bg);}
 error{border-left: #d00505 solid 3px;background: var(--error-bg);}
 
-ed {
-  display: block;
-}
-
-et {
-  font-size: 10px;
-}
-
 lc {
-  padding-left: 2px;
-  padding-right: 2px;
-  margin: 3px;
-  border-radius: 6px;
-  background: var(--lc);
+  margin: 0 2px;
+  font-size: 95%;
+  border-radius: 3px;
+  padding-inline: 0.6em;
+  background: rgba(155,155,155,0.3);
+  border: 1px solid rgba(155,155,155,0.8);
 }
 
 /* 分段 */
@@ -414,6 +409,9 @@ h6 {font-size: 0.8rem !important;}
   .pc {
     display: none;
   }
+  .cnTable .cnTableContainer::-webkit-scrollbar{
+    height: 2px;
+  }
 }
 
 /* 顶栏 */
@@ -551,6 +549,8 @@ a[href]:hover {
   box-shadow: 0 0.24rem 0.84rem -0.08rem var(--info-panel-s);
   padding: 5px;
   border-radius: 10px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .info-div {
@@ -650,59 +650,6 @@ a[href]:hover {
 .btn:hover {
   background: var(--btn-h-bg);
   box-shadow: 2px 2px 8px var(--btn-s);
-}
-
-/* 表格 */
-table {
-  border-collapse: collapse;
-  overflow: auto;
-  width: 100%;
-  margin: 8px 0 8px 0;
-  border: none;
-  outline: none;
-  display: block;
-}
-
-table::-webkit-scrollbar {
-  height: 3px;
-}
-
-table caption {
-  font-size: 1.4em;
-  font-weight: bold;
-  margin: 5px 0;
-}
-
-th, td {
-  text-align: center;
-  padding: 10px 0;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  text-align: left;
-}
-
-table>tbody c{
-  width: 320px;
-}
-
-th {border: 1px solid var(--th-border);}
-td {border: #b7b7b7 solid 1px;}
-
-table thead tr {
-  background: var(--table-thead);
-  color: #fff;
-}
-/*table thead tr th:first-child{border-start-start-radius: 8px;}
-table thead tr th:last-child{border-start-end-radius: 8px;}
-table tbody tr td:first-child{border-end-start-radius: 8px;}
-table tbody tr td:last-child{border-end-end-radius: 8px;}*/
-
-/*table tbody tr:nth-child(even) {
-  background: var(--tbody-even);
-}*/
-
-table tbody tr:hover {
-  background: var(--tbody-hover);
 }
 
 /* 文本框 */
@@ -1121,6 +1068,101 @@ textarea:focus, .input:focus {
   content: "/";
   margin: 0 5px;
   color: #999;
+}
+
+/*表格*/
+.cnTable{
+  width: 100%;
+  overflow: hidden;
+  margin: 8px 0;
+  color: var(--table-text);
+  box-sizing: border-box;
+}
+.cnTable:not(.cnCategoryTable){
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 8px;
+  background: var(--table-bg);
+  border: 1px solid var(--table-thead-border);
+}
+.cnTable .cnTableFooter{
+  padding: 8px 8px;
+  /*border-radius: 0 0 8px 8px;*/
+  background: var(--table-tbody-hover);
+  border-top: 1px solid var(--table-tbody-border);
+}
+.cnTable .cnTableTitle{
+  padding: 8px 8px;
+  /*border-radius: 8px 8px 0 0;*/
+}
+.cnTable .cnTableContainer{
+  width: 100%;
+  overflow: auto;
+}
+/*.cnTable:not(.cnCategoryTable) .cnTableContainer{
+  border-start-end-radius: 8px;
+  border-start-start-radius: 8px;
+}*/
+.cnTable table{
+  text-align: start;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+.cnTable:not(.cnCategoryTable) table{
+  width: 100%;
+  /*border-radius: 8px 8px 0 0;*/
+}
+.cnTable.cnCategoryTable table{
+  border-radius: 8px;
+  border: 1px solid var(--table-thead-border);
+}
+/*.cnTable .cnTableContainer table>thead>tr:first-child >*:first-child{
+  border-start-start-radius: 8px;
+}
+.cnTable .cnTableContainer table>thead>tr:first-child >*:last-child{
+  border-start-end-radius: 8px;
+}*/
+.cnTable thead>tr>th{
+  text-align: start;
+  position: relative;
+  font-weight: 700;
+  color: var(--table-text);
+  background: var(--table-thead);
+  border-bottom: 1px solid var(--table-thead-border);
+}
+.cnTable tbody>tr>td,.cnTable thead>tr>th{
+  padding: 10px 8px;
+  overflow-wrap: break-word;
+}
+.cnTable thead>tr>th:not(:last-child):not([colspan])::before,.cnTable thead>tr>td:not(:last-child):not([colspan])::before{
+  top: 50%;
+  width: 1px;
+  content: "";
+  height: 1.8em;
+  position: absolute;
+  inset-inline-end: 0;
+  transform: translateY(-50%);
+  background: var(--table-thead-line);
+}
+.cnTable.cnCategoryTable tbody>tr:not(:last-child)>td{
+  border-bottom: 1px solid var(--table-thead-line);
+}
+.cnTable:not(.cnCategoryTable) tbody>tr:not(:last-child)>td{
+  border-bottom: 1px solid var(--table-tbody-border);
+}
+.cnTable:not(.cnCategoryTable) tbody>tr:hover{
+  background: var(--table-tbody-hover);
+}
+.cnTable thead>tr>th[colspan]:not([colspan='1']){
+  text-align: center;
+}
+.cnTable tbody>tr>td[colspan]:not([colspan='1']){
+  text-align: center;
+}
+.cnTable .cnTableFooter>ol{
+  padding-inline-start: 20px;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
 }
 
 /*文字颜色*/
