@@ -29,10 +29,7 @@
     <div class="left_content">
 堆叠面板控件与普通的面板一样，也是看不见的。
 <p>该表格为堆叠面板控件特有的属性：</p>
-<table>
-  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-  <tr><td>orientation</td><td>方向</td><td>字符串：列举</td><td>vertical</td><td>子控件的堆叠方向。<br>列举的值可以是：<br>vertical 垂直<br>horizontal 水平</td></tr>
-</tbody></table>
+<div tableID="stackAttr" class="cnTable"></div>
 <p>堆叠面板能根据子控件的 "size" 属性堆叠子控件
 <br>例如：</p>
 <c>"panel": {
@@ -173,6 +170,12 @@
     </div>
   </div>
   <!--正文-->
+<script>window.tableData={
+"stackAttr": {
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [['orientation', '方向', '字符串：列举', 'vertical', '子控件的堆叠方向。\n列举的值可以是：\n<lc>vertical</lc> 垂直\n<lc>horizontal</lc> 水平']]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

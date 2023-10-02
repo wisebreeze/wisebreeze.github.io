@@ -29,55 +29,10 @@
     <div class="left_content">
     <p>提示：以下属性仅适用于 image 控件类型。</p>
     <h2>属性</h2>
-
-    <table>
-      <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-      <tr><td>texture</td><td>纹理路径</td><td>字符串：路径</td><td></td><td>图片所在的路径<sup>[1]</sup><br>例如：<lc>textures/ui/anvil_icon</lc></td></tr>
-      <tr><td>color</td><td>控件颜色</td><td>字符串：列举 或 数组：RGB数组</td><td>"white"</td><td>改变该控件颜色。颜色不会传递到子控件。
-<p><b>值作为字符串时，可能为：</b>
-<br>白色 white、淡灰色 silver、灰色 gray grey、黑色 black、红色 red、绿色 green、黄色 yellow、棕色 brown、青色 cyan、蓝色 blue、橙色 orange、紫色 purple、无色 nil</p>
-<p><b>值作为“[R,G,B,A]”数组时，可能为：</b>
-<br>R通道，浮点数，取值范围在 0~1 之间，默认为 1；
-<br>G通道，浮点数，取值范围在 0~1 之间，默认为 1；
-<br>B通道，浮点数，取值范围在 0~1 之间，默认为 1；
-<br>A通道，浮点数，取值范围在 0~1 之间，默认为 1。</p>
-<p><b>RGB转为RGB数组</b><br>可以使用本站的<a href="https://jsonui.netlify.app/tool/color.html">颜色转换工具</a>，或将RGB各值除于255并保留3位小数。</p></td></tr>
-      <tr><td>fill</td><td>填充</td><td>布尔值</td><td>false</td><td>图片是否填满至控件大小</td></tr>
-      <tr><td>tiled</td><td>平铺</td><td>布尔值 或 字符串：列举</td><td>false</td>
-        <td>图片是否平铺或者图片平铺的方向。 <sup>[2]</sup>
-        <br><br>作为布尔值并且为 true 时：<br>图片将从控件左上角向右下方平铺。<br>（超出部分会被忽略隐藏）
-        <br><br>作为布尔值并且为 false 时：<br>图片不会平铺。
-        <br><br>作为字符串时：详见 <a href="#pid_2">平铺方向 ></a><br></td>
-      </tr>
-      <tr><td>tiled_scale</td><td>平铺缩放</td><td>数组：矢量[x,y]</td><td></td><td>图片的平铺的缩放大小。<sup>[3]</sup></td></tr>
-      <tr><td>nineslice_size</td><td>九宫格切片纹理</td><td>浮点数、数组：矢量[x,y]、数组：矢量[x1,y1,x2,y2]</td><td>0</td><td>详见 <a href="#pid_3">九宫格切片纹理 ></a></td></tr>
-      <tr><td>uv</td><td>UV</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>图片映射的初始位置，改变基于左上角的映射位置。<br><br>uv偏移方向如下：<br><img src="../src/image/uv.png" width="75px" height="75px" style="border-radius:0;" /></td></tr>
-      <tr><td>uv_size</td><td>UV大小</td><td>数组：矢量[x,y]</td><td>[0,0]</td><td>图片映射的大小。</td></tr>
-      <tr><td>bilinear</td><td>双线性</td><td>布尔值</td><td>false</td><td>是否使图片以双线性滤波形式显示。<br><br>双线性是一种非线性滤波器，它可以达到保持边缘、降噪平滑的效果。</td></tr>
-      <tr><td>grayscale</td><td>灰白滤镜</td><td>布尔值</td><td>false</td><td>图片是否使用灰白滤镜显示。</td></tr>
-      <tr><td>clip_ratio</td><td>剪辑比例</td><td>浮点数</td><td>1</td><td>图片的剪辑比例。</td></tr>
-      <tr><td>clip_direction</td><td>剪辑方向</td><td>字符串：列举</td><td></td><td>图片开始剪辑的方向。<br>列举的值有：<br>center 中心<br>up 上<br>down 下<br>left 左<br>right 右</td></tr>
-      <tr><td>clip_pixelperfect</td><td>剪辑精准到像素</td><td>布尔值</td><td>true</td><td>图片剪辑是否精准到像素。</td></tr>
-      <tr><td>keep_ratio</td><td>保持比例</td><td>布尔值</td><td>true</td><td>图片是否保持比例。</td></tr>
-      <tr><td>allow_debug_missing_texture</td><td>允许调试丢失材质</td><td>布尔值</td><td>true</td><td>图片是否允许调试丢失材质。<br><br>当显示的图片不存在时，是否使用<lc>textures/misc/missing_texture.png</lc>作为显示。</td></tr>
-      <tr><td>force_texture_reload</td><td>强制重新加载纹理</td><td>布尔值</td><td>false</td><td>是否在强制加载纹理。</td></tr>
-      <tr><td>zip_folder</td><td>压缩包路径</td><td>字符串：路径</td><td></td><td>图片在压缩包中的路径。<br>例如：<lc>xxx.zip/textures/ui/anvil_icon</lc></td></tr>
-      <tr><td>texture_file_system</td><td>系统路径</td><td>字符串：路径</td><td></td><td>图片在压缩包中的路径。<br>例如：<lc>/storage/emulated/0/.../anvil_icon</lc><br><a class="c-red">实际路径会因系统而异！</a></td></tr>
-    </table>
-    <ol>
-    <li>路径不存在或无法解析图片时会显示为紫黑材质</li>
-    <li>图片使用平铺时，<lc>fill</lc>属性没有作用。</li>
-    <li><lc>"tiled_scale": [32,32]</lc>，如果图片像素大小为 16 x 16 ，那么在图片平铺的情况下，图片像素缩放到 32 x 32。</li></ol>
-    
+    <div tableID="image" class="cnTable"></div>
     <h2>平铺方向</h2>
     <p>当<lc>tiled</lc>属性作为字符串时，因使用以下所列举的字符串改变平铺方向：</p>
-    <table><thead>
-    <tr><th>字符串</th><th>描述</th></tr></thead><tbody>
-    <tr><td>x</td><td>图片将从控件正左方 向 X轴右方平铺。（如果图片在Y轴有剩余部分，会把图片高度拉伸至控件高度）</td></tr>
-    <tr><td>y</td><td>图片将从控件正上方 向 Y轴下方平铺。（如果图片在X轴有剩余部分，会把图片宽度拉伸至控件宽度）</td></tr>
-    <tr><td>xy</td><td>图片将从控件左上方 向 控件右下方平铺。</td></tr>
-    <tr><td>yx</td><td>图片将从控件左上方 向 控件右下方平铺。</td></tr></tbody>
-    </table>
+    <div tableID="tiled" class="cnTable"></div>
     <h2>九宫格切片纹理</h2>
     九宫格切片纹理即图片的九宫格切片，一种将图片分成 9 块的方法，因此称为九宫格切片纹理。
     <br>使用九宫格切片纹理调整图片大小后，图片角落将保持同等大小，内部部分将用于拉伸。
@@ -200,11 +155,7 @@
 <c title="代码">{"base_size":[8,8],"nineslice_size":[2,2]}</c>
 
 <p>里面那些属性通常为 <lc>base_size</lc> <lc>nineslice_size</lc>，属性如下表所示。</p>
-<table>
-  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-  <tr><td>nineslice_size</td><td>九宫格切片纹理</td><td>浮点数、数组：矢量[x,y]、数组：矢量[x1,y1,x2,y2]</td><td>0</td><td>详见 <a href="#pid_3">九宫格切片纹理 ></a></td></tr>
-  <tr><td>base_size</td><td>基本大小</td><td>数组：矢量[x,y]</td><td></td><td>图片在显示时的基本大小。</td></tr>
-</tbody></table>
+<div tableID="exterior" class="cnTable"></div>
 
 <p>那要如何创建一个图像文件呢？
 <br>只需创建一个与图像同名的 .json 文件，
@@ -233,6 +184,63 @@
 }</c>
   </div></div>
   <!--正文-->
+<script>window.tableData={
+"image": {
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [
+    [`texture`,`纹理路径`,`字符串：路径`,0,`图片所在的路径 <sup>[1]</sup>。\n例如：<lc>textures/ui/anvil_icon</lc>`],
+    [`color`,`颜色`,`字符串：列举 或 数组：RGB数组`,`white`,`改变该控件颜色。颜色不会传递到子控件。
+<p><b>值作为字符串时，可能为：</b>
+白色 white、淡灰色 silver、灰色 gray grey、黑色 black、红色 red、绿色 green、黄色 yellow、棕色 brown、青色 cyan、蓝色 blue、橙色 orange、紫色 purple、无色 nil</p>\
+<p><b>值作为“[R,G,B,A]”数组时，可能为：</b>
+R通道，浮点数，取值范围在 0~1 之间，默认为 1；
+G通道，浮点数，取值范围在 0~1 之间，默认为 1；
+B通道，浮点数，取值范围在 0~1 之间，默认为 1；
+A通道，浮点数，取值范围在 0~1 之间，默认为 1。</p>\
+<p><b>RGB转为RGB数组</b>\n可以使用本站的<a href="https://jsonui.netlify.app/tool/color.html">颜色转换工具</a>，或将RGB各值除于255并保留3位小数。</p>`],
+    [`fill`,`填充`,`布尔值`,`false`,`图片是否填满至控件大小。`],
+    [`tiled`,`平铺`,`布尔值 或 字符串：列举`,`false`,`图片是否平铺或者图片平铺的方向 <sup>[2]</sup>。
+\n<b>作为布尔值并且为 true 时</b>\n图片将从控件左上角向右下方平铺。\n（超出部分会被忽略隐藏）
+\n<b>作为布尔值并且为 false 时</b>\n图片不会平铺。
+\n<b>作为字符串时</b>\n详见 <a href="#pid_2">平铺方向 ></a>`],
+    [`tiled_scale`,`平铺缩放`,`数组：矢量[x,y]`,0,`图片的平铺的缩放大小 <sup>[3]</sup>。`],
+    ['nineslice_size', '九宫格切片纹理', '浮点数、数组：矢量[x,y]、数组：矢量[x1,y1,x2,y2]', '0', '详见 <a href="#pid_3">九宫格切片纹理 ></a>'],
+    ['uv', 'UV', '数组：矢量[x,y]', '[0,0]', '图片映射的初始位置，改变基于左上角的映射位置。\nuv偏移方向如下：\n<img src="../src/image/uv.png" width="75px" height="75px" style="border-radius:0;" />'],
+    ['uv_size', 'UV大小', '数组：矢量[x,y]', '[0,0]', '图片映射的大小。'],
+    ['bilinear', '双线性', '布尔值', 'false', '是否使图片以双线性滤波形式显示。\n\n双线性是一种非线性滤波器，它可以达到保持边缘、降噪平滑的效果。'],
+    ['grayscale', '灰白滤镜', '布尔值', 'false', '图片是否使用灰白滤镜显示。'],
+    ['clip_ratio', '剪辑比例', '浮点数', '1', '图片的剪辑比例。'],
+    ['clip_direction', '剪辑方向', '字符串：列举', '', '图片开始剪辑的方向。\n列举的值有：\ncenter 中心\nup 上\ndown 下\nleft 左\nright 右'],
+    ['clip_pixelperfect', '剪辑精准到像素', '布尔值', 'true', '图片剪辑是否精准到像素。'],
+    ['keep_ratio', '保持比例', '布尔值', 'true', '图片是否保持比例。'],
+    ['allow_debug_missing_texture', '允许调试丢失材质', '布尔值', 'true', '图片是否允许调试丢失材质。\n\n当显示的图片不存在时，是否使用<lc>textures/misc/missing_texture.png</lc>作为显示。'],
+    ['force_texture_reload', '强制重新重载纹理', '布尔值', 'false', '是否强制重载纹理。'],
+    ['zip_folder', '压缩包路径', '字符串：路径', '', '图片在压缩包中的路径。\n例如：<lc>xxx/textures/ui/anvil_icon</lc>'],
+    ['texture_file_system', '文件系统', '字符串：列举', `InUserPackage`, '定义该资源文件处于哪个文件系统。\n列举的值有：\n<lc>InUserPackage</lc> 用户资源包\n<lc>RawPath</lc> 原生路径\n<lc>InAppPackage</lc> 应用程序根目录\n<lc>RawPersistent</lc> 原生持久\n<lc>InSettingDir</lc> 设置目录（minecraftpe 文件夹）\n<lc>InExternalDir</lc> 外部目录\n<lc>InServerPackage</lc> 服务器目录\n<lc>InDataDir</lc> 数据目录\n<lc>InUserDir</lc> 用户目录\n<lc>InWorldDir</lc> 世界目录\n<lc>StoreCache</lc> 缓存目录']
+  ],
+  "foot": [
+    `路径不存在或无法解析图片时会显示为紫黑材质。`,
+    `图片使用平铺时，<lc>fill</lc>属性没有作用。`,
+    `<lc>"tiled_scale": [32,32]</lc>，如果图片像素大小为 16 x 16 ，那么在图片平铺的情况下，图片像素缩放到 32 x 32。`
+  ]
+},
+"tiled": {
+  "head": [["字符串","描述"]],
+  "body": [
+    ['x', '图片将从控件正左方 向 X轴右方平铺。（如果图片在Y轴有剩余部分，会把图片高度拉伸至控件高度）'],
+    ['y', '图片将从控件正上方 向 Y轴下方平铺。（如果图片在X轴有剩余部分，会把图片宽度拉伸至控件宽度）'],
+    ['xy', '图片将从控件左上方 向 控件右下方平铺。'],
+    ['yx', '图片将从控件左上方 向 控件右下方平铺。']
+  ]
+},
+"exterior": {
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [
+    ["nineslice_size", "九宫格切片纹理", `浮点数、数组：矢量[x,y]、数组：矢量[x1,y1,x2,y2]`, "0", `详见 <a href="#pid_3">九宫格切片纹理 ></a>`],
+    ["base_size", "基本大小", "数组：矢量[x,y]", 0, "图片在显示时的基本大小。"]
+  ]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

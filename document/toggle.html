@@ -29,25 +29,7 @@
     <div class="left_content"><p>Toggle（开关）是一种常用的UI组件，用于在两种状态（不包含悬停、锁定）之间进行切换。</p>
 <success><b>提示</b><br>本文章需要一定的 JSON UI 知识，建议了解<a href="./attr/bindings.html">绑定属性</a>。</success>
 <h2>开关属性</h2>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-<tr><td>toggle_name</td><td>开关名称</td><td>字符串</td><td></td><td>用于区分不同的开关组。</td></tr>
-<tr><td>radio_toggle_group</td><td>开关组</td><td>布尔值</td><td>false</td><td>是否启用开关组。</td></tr>
-<tr><td>toggle_group_forced_index</td><td>开关组索引</td><td>数字</td><td>-1</td><td>该控件在开关组中的索引。</td></tr>
-<tr><td>toggle_group_default_selected</td><td>开关组默认索引</td><td>数字</td><td>0</td><td>开关组默认的索引。</td></tr>
-<tr><td>toggle_default_state</td><td>开关默认状态</td><td>布尔值</td><td>false</td><td>开关默认状态。</td></tr>
-<tr><td>toggle_on_button</td><td>开关开启事件</td><td>字符串：事件名</td><td></td><td>开关开启的按钮映射事件。</td></tr>
-<tr><td>toggle_off_button</td><td>开关关闭事件</td><td>字符串：事件名</td><td></td><td>开关关闭的按钮映射事件。</td></tr>
-<tr><td>enable_directional_toggling</td><td>启用方向切换</td><td>布尔值</td><td>false</td><td>开关是否启用方向切换。</td></tr>
-<tr><td>toggle_grid_collection_name</td><td>开关网格合集名称</td><td>字符串</td><td></td><td>开关组的网格合集名称。</td></tr>
-<tr><td>checked_control</td><td>开启时的子控件名称</td><td>字符串</td><td></td><td>开关在开启后（没有悬停），显示的子控件的名称。</td></tr>
-<tr><td>unchecked_control</td><td>关闭时的子控件名称</td><td>字符串</td><td></td><td>开关在关闭后（没有悬停），显示的子控件的名称。</td></tr>
-<tr><td>checked_hover_control</td><td>开启并悬停时的子控件名称</td><td>字符串</td><td></td><td>开关在开启并悬停后，显示的子控件的名称。</td></tr>
-<tr><td>unchecked_hover_control</td><td>关闭并悬停时的子控件名称</td><td>字符串</td><td></td><td>开关在关闭并悬停后，显示的子控件的名称。</td></tr>
-<tr><td>checked_locked_control</td><td>锁定状态，开启时的子控件名称</td><td>字符串</td><td></td><td>锁定状态下，开关在开启后（没有悬停），显示的子控件的名称。</td></tr>
-<tr><td>unchecked_locked_control</td><td>锁定状态，关闭时的子控件名称</td><td>字符串</td><td></td><td>锁定状态下，开关在关闭后（没有悬停），显示的子控件的名称。</td></tr>
-<tr><td>checked_locked_hover_control</td><td>锁定状态，开启并悬停时的子控件名称</td><td>字符串</td><td></td><td>锁定状态下，开关在开启并悬停后，显示的子控件的名称。</td></tr>
-<tr><td>unchecked_locked_hover_control</td><td>锁定状态，关闭并悬停时的子控件名称</td><td>字符串</td><td></td><td>锁定状态下，开关在关闭并悬停后，显示的子控件的名称。</td></tr>
-</tbody></table>
+<div tableID="toggle" class="cnTable"></div>
 <h2>创建开关</h2>
 <p>要创建一个开关，我们可以选择使用原版预设的开关。（以下将“原版预设的开关”简称为“预设开关”）</p>
 <c>"test_toggle@common_toggles.light_text_toggle": {
@@ -283,6 +265,30 @@
 "toggle_style":{"type":"image","texture":"('textures/ui/' + $toggle_image)"}</c>
 </div></div>
   <!--正文-->
+<script>window.tableData={
+"toggle": {
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [
+    ['toggle_name', '开关名称', '字符串', 0, '用于区分不同的开关组。'],
+    ['radio_toggle_group', '开关组', '布尔值', 'false', '是否启用开关组。'],
+    ['toggle_group_forced_index', '开关组索引', '数字', '-1', '该控件在开关组中的索引。'],
+    ['toggle_group_default_selected', '开关组默认索引', '数字', '0', '开关组默认的索引。'],
+    ['toggle_default_state', '开关默认状态', '布尔值', 'false', '开关默认状态。'],
+    ['toggle_on_button', '开关开启事件', '字符串：事件名', 0, '开关开启的按钮映射事件。'],
+    ['toggle_off_button', '开关关闭事件', '字符串：事件名', 0, '开关关闭的按钮映射事件。'],
+    ['enable_directional_toggling', '启用方向切换', '布尔值', 'false', '开关是否启用方向切换。'],
+    ['toggle_grid_collection_name', '开关网格合集名称', '字符串', 0, '开关组的网格合集名称。'],
+    ['checked_control', '开启时的子控件名称', '字符串', 0, '开关在开启后（没有悬停），显示的子控件的名称。'],
+    ['unchecked_control', '关闭时的子控件名称', '字符串', 0, '开关在关闭后（没有悬停），显示的子控件的名称。'],
+    ['checked_hover_control', '开启并悬停时的子控件名称', '字符串', 0, '开关在开启并悬停后，显示的子控件的名称。'],
+    ['unchecked_hover_control', '关闭并悬停时的子控件名称', '字符串', 0, '开关在关闭并悬停后，显示的子控件的名称。'],
+    ['checked_locked_control', '锁定状态，开启时的子控件名称', '字符串', 0, '锁定状态下，开关在开启后（没有悬停），显示的子控件的名称。'],
+    ['unchecked_locked_control', '锁定状态，关闭时的子控件名称', '字符串', 0, '锁定状态下，开关在关闭后（没有悬停），显示的子控件的名称。'],
+    ['checked_locked_hover_control', '锁定状态，开启并悬停时的子控件名称', '字符串', 0, '锁定状态下，开关在开启并悬停后，显示的子控件的名称。'],
+    ['unchecked_locked_hover_control', '锁定状态，关闭并悬停时的子控件名称', '字符串', 0, '锁定状态下，开关在关闭并悬停后，显示的子控件的名称。']
+  ]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

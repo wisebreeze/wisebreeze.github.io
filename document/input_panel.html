@@ -30,10 +30,7 @@
 操作面板可以说是一个普通的面板控件。不像堆叠面板，无法直接改变子控件位置。
 
 <p>对于操作面板，它的属性你知道多少？<br>（操作面板主要使用的是<a href="./attr/input.html">输入类型的属性</a>，下方是输入面板特有的属性）</p>
-<table>
-  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-  <tr><td>gesture_tracking_button</td><td>手势跟踪按钮</td><td>字符串：事件</td><td>追踪手势的按钮映射ID。<br>主要用于纸娃娃旋转<lc>button.true_doll</lc></td></tr>
-</tbody></table>
+<div tableID="inputAttr" class="cnTable"></div>
 
 <p>那操作面板有什么特别之处呢？
 <br>答：操作面板能控制以及限制操作方式，使得面板控件更有互动性。</p>
@@ -111,6 +108,12 @@
     </div>
   </div>
   <!--正文-->
+<script>window.tableData={
+"inputAttr": {
+  "head": [["属性","属性名","值","描述"]],
+  "body": [['gesture_tracking_button', '手势跟踪按钮', '字符串：事件', '追踪手势的按钮映射ID。\n主要用于纸娃娃旋转<lc>button.true_doll</lc>']]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

@@ -27,16 +27,22 @@
   <div id="content">
     <div class="left_title"><h1>网格</h1></div>
     <div class="left_content"><h2>属性</h2>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-<tr><td>grid_dimensions</td><td>网格尺寸</td><td>矢量[row, col]</td><td></td><td>网格尺寸。既网格的行数和列数。</td></tr>
-<tr><td>maximum_grid_items</td><td>最大网格物品</td><td>整数</td><td></td><td>限制网格最大物品数量，默认没有限制。</td></tr>
-<tr><td>grid_dimension_binding</td><td>网格尺寸绑定</td><td>字符串</td><td></td><td>网格尺寸的绑定。</td></tr>
-<tr><td>grid_rescaling_type</td><td>网格重新缩放类型</td><td>字符串：列举</td><td>none</td><td>网格重新缩放类型。<br>列举的值可以是：<br>none 无<br>vertical 垂直<br>horizontal 水平</td></tr>
-<tr><td>grid_fill_direction</td><td>网格填充方向</td><td>字符串：列举</td><td>none</td><td>网格填充方向。<br>列举的值可以是：<br>none 无<br>vertical 垂直<br>horizontal 水平</td></tr>
-<tr><td>grid_item_template</td><td>网格物品模板</td><td>字符串</td><td></td><td>网格物品模板。<br>属性的值格式为"namespace.controls_name"</td></tr>
-</tbody></table>
+    <div tableID="grid" class="cnTable"></div>
 </div></div>
   <!--正文-->
+<script>window.tableData={
+"grid": {
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [
+    ['grid_dimensions', '网格尺寸', '矢量[row, col]', 0, '网格尺寸。既网格的行数和列数。'],
+    ['maximum_grid_items', '最大网格物品', '整数', 0, '限制网格最大物品数量，默认没有限制。'],
+    ['grid_dimension_binding', '网格尺寸绑定', '字符串', 0, '网格尺寸的绑定。'],
+    ['grid_rescaling_type', '网格重新缩放类型', '字符串：列举', 'none', '网格重新缩放类型。\n列举的值可以是：\n<lc>none</lc> 无\n<lc>vertical</lc> 垂直\n<lc>horizontal</lc> 水平'],
+    ['grid_fill_direction', '网格填充方向', '字符串：列举', 'none', '网格填充方向。\n列举的值可以是：\n<lc>none</lc> 无\n<lc>vertical</lc> 垂直\n<lc>horizontal</lc> 水平'],
+    ['grid_item_template', '网格物品模板', '字符串', 0, '网格物品模板。\n属性的值格式为<lc>namespace.controls_name</lc>']
+  ]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

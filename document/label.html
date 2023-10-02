@@ -32,37 +32,7 @@
     </p>
     <p>提示：以下属性仅适用于 label 控件类型。</p>
     <h2>属性</h2>
-    <table>
-      <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
-      <tr><td>text</td><td>文字</td><td>字符串</td><td></td><td>定义文本控件显示的文字<br>可以使用 § 符号进行改变颜色<br><lc>\n</lc> 可以使文本换行<br>同时可以使用.lang文件翻译来改变文本语言。 <sup>[1]</sup></td></tr>
-      <tr><td>color</td><td>控件颜色</td><td>字符串：列举 或 数组：RGB数组</td><td>"white"</td><td>改变该控件颜色。颜色不会传递到子控件。
-<p><b>值作为字符串时，可能为：</b>
-<br>白色 white、淡灰色 silver、灰色 gray grey、黑色 black、红色 red、绿色 green、黄色 yellow、棕色 brown、青色 cyan、蓝色 blue、橙色 orange、紫色 purple、无色 nil</p>
-<p><b>值作为“[R,G,B,A]”数组时，可能为：</b>
-<br>R通道，浮点数，取值范围在 0~1 之间，默认为 1；
-<br>G通道，浮点数，取值范围在 0~1 之间，默认为 1；
-<br>B通道，浮点数，取值范围在 0~1 之间，默认为 1；
-<br>A通道，浮点数，取值范围在 0~1 之间，默认为 1。</p>
-<p><b>RGB转为RGB数组</b><br>可以使用本站的<a href="https://jsonui.netlify.app/tool/color.html">颜色转换工具</a>，或将RGB各值除于255并保留3位小数。</p></td></tr>
-      <tbody><tr><td>locked_color</td><td>锁定时的文本颜色</td><td>数组 或 字符串</td><td></td><td>控件在禁用时，所显示的颜色。<br>与"color"的性质相同，不再详细介绍。</td></tr>
-      <tr><td>shadow</td><td>文本阴影</td><td>布尔值</td><td>false</td><td>是否显示文本阴影。</td></tr>
-      <tr><td>hide_hyphen</td><td>是否隐藏文本中的连字符</td><td>布尔值</td><td>false</td><td>是否隐藏文本中的连字符（既 “-” 字符）。</td></tr>
-      <tr><td>notify_on_ellipses</td><td>遇到省略号时通知的文本</td><td>数组</td><td></td><td>如果文本遇到省略号时，要通知的文本。<br>用于通知文本何时使用省略号。<br>例如：<br><lc>"notify_on_ellipses": ["text"]</lc></td></tr>
-      <tr><td>enable_profanity_filter</td><td>启用敏感词过滤器</td><td>布尔值</td><td>true</td><td>启用后控件中的敏感词作为“***”显示。 <sup>[2]</sup></td></tr>
-      <tr><td>font_size</td><td>字体大小</td><td>字符串：列举</td><td>normal</td><td>该控件文本的字体大小。<br>列举的值有：<br><lc>small</lc> 小<br><lc>normal</lc> 正常<br><lc>large</lc> 大<br><lc>extra_large</lc> 特大</td></tr>
-      <tr><td>font_scale_factor</td><td>字体缩放大小</td><td>浮点数</td><td>1.0</td><td>用于改变字体缩放大小。</td></tr>
-      <tr><td>localize</td><td>本地化</td><td>布尔值</td><td>false</td><td>文本控件的文本是否支持本地化。<br>（本地化：文本不会被 .lang 文件翻译）</td></tr>
-      <tr><td>line_padding</td><td>行间距</td><td>浮点数</td><td>0.0</td><td>改变文本每行之间的间距。</td></tr>
-      <tr><td>font_type</td><td>字体</td><td>字符串：列举</td><td>default</td><td>文本控件中的文本字体。 <sup>[3]</sup><br>列举的值有：<br><lc>default</lc> 默认<br><lc>rune</lc> 标准银河字母<br><lc>MinecraftTen</lc> MinecraftTen 字体<br><lc>unicode</lc> unicode 字体<br><lc>smooth</lc> 平滑字体<br><lc>OldSmoothFont</lc> 旧版平滑字体<br>以及 fonts/font_metadata.json 文件中声明的字体</td></tr>
-      <tr><td>backup_font_type</td><td>备份字体</td><td>字符串：列举</td><td>default</td><td>文本控件中的文本备份字体。既 font_type 字体无法使用时使用的备用字体。 <sup>[3]</sup><br>列举的值有：<br><lc>default</lc> 默认<br><lc>rune</lc> 标准银河字母<br><lc>MinecraftTen</lc> MinecraftTen 字体<br><lc>unicode</lc> unicode 字体<br><lc>smooth</lc> 平滑字体<br><lc>OldSmoothFont</lc> 旧版平滑字体<br>以及 fonts/font_metadata.json 文件中声明的字体</td></tr>
-      <tr><td>text_alignment</td><td>文本对齐</td><td>字符串：列举</td><td>center</td><td>文本的对齐方式，会随着锚点的改变而改变。<br>列举的值有：<br><lc>left</lc> 文本居左<br><lc>center</lc> 文本居中<br><lc>right</lc> 文本居右</td></tr>
-      <tr><td>text_tts</td><td>文本空间文本转语音</td><td>字符串</td><td></td><td>规定该控件文本转语音的文本。</td></tr>
-    </table>
-    <ol>
-    <li>如果<lc>"localize": true</lc>，那么 <lc>"text"</lc> 文字不会被 .lang 文件翻译。</li>
-    <li>目前暂不支持简体中文的敏感词。 [仅国际版]</li>
-    <li>如果 "text" 文字包含中文字符则会强制unicode。</li>
-    </ol>
+    <div tableID="label" class="cnTable"></div>
     <h2>不同语言的文字</h2>
     <p>上表提到了 .lang 文件，接下来研究一下不同语言的文字吧！</p>
     <p>我们用这个文字控件示例</p>
@@ -99,6 +69,40 @@
 }</c>
   </div></div>
   <!--正文-->
+<script>window.tableData={
+"label":{
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [
+    ["text","文字","字符串",0,`定义文本控件显示的文字\n可以使用 § 符号进行改变颜色\n<lc>\\n</lc> 可以使文本换行\n同时可以使用.lang文件翻译来改变文本语言。 <sup>[1]</sup>`],
+    ["color","颜色","字符串：列举 或 数组：RGB数组",`white`,`改变该控件颜色。颜色不会传递到子控件。
+<p><b>值作为字符串时，可能为：</b>
+白色 white、淡灰色 silver、灰色 gray grey、黑色 black、红色 red、绿色 green、黄色 yellow、棕色 brown、青色 cyan、蓝色 blue、橙色 orange、紫色 purple、无色 nil</p>\
+<p><b>值作为“[R,G,B,A]”数组时，可能为：</b>
+R通道，浮点数，取值范围在 0~1 之间，默认为 1；
+G通道，浮点数，取值范围在 0~1 之间，默认为 1；
+B通道，浮点数，取值范围在 0~1 之间，默认为 1；
+A通道，浮点数，取值范围在 0~1 之间，默认为 1。</p>\
+<p><b>RGB转为RGB数组</b><br>可以使用本站的<a href="https://jsonui.netlify.app/tool/color.html">颜色转换工具</a>，或将RGB各值除于255并保留3位小数。</p>`],
+    ["locked_color","锁定时的颜色","数组 或 字符串",0,`控件在禁用时，所显示的颜色。<br>与"color"的性质相同，不再详细介绍。`],
+    [`shadow`,`文本阴影`,`布尔值`,`false`,`是否显示文本阴影。`],
+    ["hide_hyphen", "是否隐藏文本中的连字符", "布尔值", "false", "是否隐藏文本中的连字符（既 “-” 字符）。"],
+    ["notify_on_ellipses", "遇到省略号时通知的文本", "数组", 0, `如果文本遇到省略号时，要通知的文本。\n用于通知文本何时使用省略号。\n例如：\n<lc>"notify_on_ellipses": ["text"]</lc>`],
+    ["enable_profanity_filter", "启用敏感词过滤器", "布尔值", "true", "启用后控件中的敏感词作为“***”显示。 [2]"],
+    ["font_size", "字体大小", "字符串：列举", "normal", "该控件文本的字体大小。\n列举的值有：\n<lc>small</lc> 小\n<lc>normal</lc> 正常\n<lc>large</lc> 大\n<lc>extra_large</lc> 特大"],
+    ["font_scale_factor", "字体缩放大小", "浮点数", "1.0", "用于改变字体缩放大小。"],
+    ["localize", "本地化", "布尔值", "false", "文本控件的文本是否支持本地化。\n（本地化：文本不会被 .lang 文件翻译）"],
+    ["line_padding", "行间距", "浮点数", "0.0", "改变文本每行之间的间距。"],
+    ["font_type", "字体", "字符串：列举", "default", `文本控件中的文本字体。 [3]\n列举的值有：\n<lc>default</lc> 默认\n<lc>rune</lc> 标准银河字母\n<lc>MinecraftTen</lc> MinecraftTen 字体\n<lc>unicode</lc> unicode 字体\n<lc>smooth</lc> 平滑字体\n<lc>OldSmoothFont</lc> 旧版平滑字体\n以及 fonts/font_metadata.json 文件中声明的字体`],
+    ["backup_font_type", "备份字体", "字符串：列举", "default", `文本控件中的文本备份字体。既 font_type 字体无法使用时使用的备用字体。 [3]\n列举的值有：\n<lc>default</lc> 默认\n<lc>rune</lc> 标准银河字母\n<lc>MinecraftTen</lc> MinecraftTen 字体\n<lc>unicode</lc> unicode 字体\n<lc>smooth</lc> 平滑字体\n<lc>OldSmoothFont</lc> 旧版平滑字体\n以及 fonts/font_metadata.json 文件中声明的字体`],
+    ["text_alignment", "文本对齐", "字符串：列举", "center", `文本的对齐方式，会随着锚点的改变而改变。\n列举的值有：\n<lc>left</lc> 文本居左\n<lc>center</lc> 文本居中\n<lc>right</lc> 文本居右`]
+  ],
+  "foot": [
+    `如果<lc>"localize": true</lc>，那么 <lc>"text"</lc> 文字不会被 .lang 文件翻译。`,
+    `国际版暂不支持简体中文的敏感词。 [仅国际版]`,
+    `如果 "text" 文字包含中文字符则会强制unicode。`
+  ]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

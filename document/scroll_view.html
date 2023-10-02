@@ -27,22 +27,28 @@
   <div id="content">
     <div class="left_title"><h1>滚动视图</h1></div>
     <div class="left_content"><h2>属性</h2>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-<tr><td>scrollbar_track_button</td><td>滚动条轨道按钮</td><td>字符串</td><td></td><td>滚动条轨道的按钮 ID。</td></tr>
-<tr><td>scrollbar_touch_button</td><td>滚动条触屏按钮</td><td>字符串</td><td></td><td>滚动条触屏的按钮 ID。</td></tr>
-<tr><td>touch_mode</td><td>触屏模式</td><td>布尔值</td><td></td><td>是否使用触屏模式。</td></tr>
-<tr><td>always_handle_scrolling</td><td>始终处理滚动</td><td>布尔值</td><td></td><td>是否始终处理滚动事件。</td></tr>
-<tr><td>gesture_control_enabled</td><td>启用手势控制</td><td>布尔值</td><td></td><td>是否启用手势控制。</td></tr>
-<tr><td>jump_to_bottom_on_update</td><td>更新时回到顶部</td><td>布尔值</td><td>false</td><td>是否在更新时滚动到顶部。<br>子控件大小、子控件数量发生更改时会滚动到顶部。</td></tr>
-<tr><td>scroll_speed</td><td>滚动速度</td><td>浮点数</td><td>1</td><td>滚动速度。</td></tr>
-<tr><td>scroll_content</td><td>滚动内容控件</td><td>字符串：控件名</td><td></td><td>滚动面板的内容控件。</td></tr>
-<tr><td>scroll_view_port</td><td>滚动视图控件</td><td>字符串：控件名</td><td></td><td>滚动面板的视图控件。</td></tr>
-<tr><td>scrollbar_box</td><td>滚动条控件</td><td>字符串：控件名</td><td></td><td>滚动面板的滚动条控件。</td></tr>
-<tr><td>scrollbar_track</td><td>滚动轨道控件</td><td>字符串：控件名</td><td></td><td>滚动面板的滚动轨道控件。</td></tr>
-<tr><td>scroll_box_and_track_panel</td><td>滚动条和滚动轨道控件</td><td>字符串：控件名</td><td></td><td>滚动面板的滚动条和滚动轨道控件。</td></tr>
-</tbody></table>
+    <div tableID="scrollview" class="cnTable"></div>
 </div></div>
   <!--正文-->
+<script>window.tableData={
+"scrollview": {
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [
+    ['scrollbar_track_button', '滚动条轨道按钮', '字符串', 0, '滚动条轨道的按钮 ID。'],
+    ['scrollbar_touch_button', '滚动条触屏按钮', '字符串', 0, '滚动条触屏的按钮 ID。'],
+    ['touch_mode', '触屏模式', '布尔值', 0, '是否使用触屏模式。'],
+    ['always_handle_scrolling', '始终处理滚动', '布尔值', 0, '是否始终处理滚动事件。'],
+    ['gesture_control_enabled', '启用手势控制', '布尔值', 0, '是否启用手势控制。'],
+    ['jump_to_bottom_on_update', '更新时回到顶部', '布尔值', 'false', '是否在更新时滚动到顶部。子控件大小、子控件数量发生更改时会滚动到顶部。'],
+    ['scroll_speed', '滚动速度', '浮点数', '1', '滚动速度。'],
+    ['scroll_content', '滚动内容控件', '字符串：控件名', 0, '滚动面板的内容控件。'],
+    ['scroll_view_port', '滚动视图控件', '字符串：控件名', 0, '滚动面板的视图控件。'],
+    ['scrollbar_box', '滚动条控件', '字符串：控件名', 0, '滚动面板的滚动条控件。'],
+    ['scrollbar_track', '滚动轨道控件', '字符串：控件名', 0, '滚动面板的滚动轨道控件。'],
+    ['scroll_box_and_track_panel', '滚动条和滚动轨道控件', '字符串：控件名', 0, '滚动面板的滚动条和滚动轨道控件。']
+  ]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

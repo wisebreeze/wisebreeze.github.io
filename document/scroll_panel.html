@@ -51,27 +51,11 @@
 接下来，我们先来讲下滚动面板的基本属性
 
 <h3> 基础属性</h3>
-<ed>
-
-<b>$scrolling_content</b> <et>面板内容</et>
-<p>
-
-值：字符串/控件
-<br>滚动面板的内容，例如上文的代码中的<lc>"stack_panel"</lc>
-<br>目前仅支持上下滚动内容
-</p></ed>
-<ed>
-
-<b>$show_background</b> <et>面板背景</et>
-<p>
-
-值：布尔值
-<br>默认值：true
-<br><b>建议为 false 隐藏背景。</b>
-<br>值为 ture 时，显示背景。主要用于 pocket UI 档案的可交互屏幕
-<br>如需修改背景，请另见其下。
-</p></ed>
-</p>
+<div class="cnTable"><div class="cnTableContainer"><table>
+  <thead><tr><th>变量</th><th>变量名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$scrolling_content</td><td>面板内容</td><td>字符串：控件</td><td></td><td>滚动面板的内容，例如上文的代码中的<lc>"stack_panel"</lc>。</td></tr>
+  <tr><td>$show_background</td><td>展示面板背景</td><td>布尔值</td><td>true</td><td><b>建议为 false 隐藏背景。</b><br>值为 ture 时，显示背景。主要用于 pocket UI 档案的可交互屏幕。<br>如需修改背景，请另见其下。</td></tr></tbody>
+</table></div></div>
 
 <h3> 修改滚动面板背景</h3>
 在滚动面板中，默认的背景可能会不符合你的 UI 风格
@@ -106,15 +90,10 @@
 }</c>
 像上面，使用 <lc>$scroll_background_image_control</lc> 更改背景
 
-<ed>
-
-<b>$scroll_background_image_control</b> <et>面板背景</et>
-<p>
-
-值：字符串/控件
-<br>默认值：common.scroll_indent_image
-<br>更改滚动面板的背景，背景不会随面板的滚动而滚动
-</p></ed>
+<div class="cnTable"><div class="cnTableContainer"><table>
+  <thead><tr><th>变量</th><th>变量名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$scroll_background_image_control</td><td>面板背景</td><td>字符串：控件</td><td>common.scroll_indent_image</td><td>更改滚动面板的背景，背景不会随面板的滚动而滚动。</td></tr></tbody>
+</table></div></div>
 
 <tip>
 
@@ -124,28 +103,13 @@
 <br>在引用时就是 "hud.某个控件"
 </tip>
 
-改变背景在滚动面板内大小你还需要使用此属性
+改变背景在滚动面板内大小以及偏移你还需要使用此属性
 
-<ed>
-
-<b>$background_size</b> <et>面板背景大小</et>
-<p>
-
-值：字符串/大小
-<br>默认值：[ "100%", "100%" ]
-<br>更改滚动面板的背景大小
-</p></ed>
-
-改变背景在滚动面板内偏移你还需要使用此属性
-<ed>
-
-<b>$background_offset</b> <et>面板背景偏移</et>
-<p>
-
-值：字符串/偏移
-<br>默认值：[ 0, 0 ]
-<br>更改滚动面板的背景偏移
-</p></ed>
+<div class="cnTable"><div class="cnTableContainer"><table>
+  <thead><tr><th>变量</th><th>变量名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$background_size</td><td>面板背景大小</td><td>矢量[x,y]</td><td>["100%","100%"]</td><td>更改滚动面板的背景偏移。</td></tr>
+  <tr><td>$background_offset</td><td>面板背景偏移</td><td>矢量[x,y]</td><td>[0,0]</td><td>更改滚动面板的背景大小。</td></tr></tbody>
+</table></div></div>
 
 <h3> 修改滚动条样式</h3>
 如果，你想要改变原版的滚动条。
@@ -153,15 +117,10 @@
 
 当然，不想要显示滚动条可以使用 <lc>$scroll_box_visible</lc> 。
 
-<ed>
-
-<b>$scroll_box_visible</b> <et>滚动条是否可见</et>
-<p>
-
-值：布尔值
-<br>默认值：true
-<br>值为 false 时不可见
-</p></ed>
+<div class="cnTable"><div class="cnTableContainer"><table>
+  <thead><tr><th>变量</th><th>变量名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead>
+  <tbody><tr><td>$scroll_box_visible</td><td>滚动条是否可见</td><td>布尔值</td><td>true</td><td>值为 false 时不可见。</td></tr></tbody>
+</table></div></div>
 
 例如这样更改滚动条
 <br>只要加上这两个属性并引用控件即可: <lc>$scroll_box_mouse_image_control</lc> 

@@ -27,25 +27,31 @@
   <div id="content">
     <div class="left_title"><h1>输入框</h1></div>
     <div class="left_content"><h2>属性</h2>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-<tr><td>text_box_name</td><td>输入框名称</td><td>字符串</td><td></td><td>输入框名称。</td></tr>
-<tr><td>text_edit_box_grid_collection_name</td><td>输入框合集名</td><td>字符串</td><td></td><td>输入框的合集名。</td></tr>
-<tr><td>text_type</td><td>文本类型</td><td>字符串：列举</td><td></td><td>输入框的文本类型。<br>用于限制用户输入某种类型的文本。<br>列举的值可以是：<br>ExtendedASCII ASCLL扩展<br>IdentifierChars 标识符字符<br>NumberChars 数字字符</td></tr>
-<tr><td>max_length</td><td>最大长度</td><td>整数</td><td></td><td>输入字符的最大长度。<br>当用户输入超过最大长度限制的文本时，输入框会自动截断或禁止输入超过限制的部分。</td></tr>
-<tr><td>enabled_newline</td><td>启用换行</td><td>布尔值</td><td>false</td><td>是否允许输入框换行。<br>禁用换行时，如果尝试换行会完成输入框的输入。</td></tr>
-<tr><td>constrain_to_rect</td><td>限制矩形区域</td><td>布尔值</td><td>false</td><td>输入框是否限制矩形区域。</td></tr>
-<tr><td>can_be_deselected</td><td>可以取消</td><td>布尔值</td><td>true</td><td>输入框是否可以取消输入。</td></tr>
-<tr><td>always_listening</td><td>始终监听</td><td>布尔值</td><td>false</td><td>输入框是否始终监听输入。</td></tr>
-<tr><td>text_control</td><td>文本控件</td><td>字符串</td><td></td><td>输入框中的文本控件。</td></tr>
-<tr><td>place_holder_control</td><td>占位符控件</td><td>字符串</td><td></td><td>输入框中的占位符控件。</td></tr>
-<tr><td>virtual_keyboard_buffer_control</td><td>虚拟键盘缓冲控件</td><td>字符串</td><td></td><td>输入框中的虚拟键盘缓冲控件。<br>使输入框在虚拟键盘上可见。</td></tr>
-<tr><td>default_control</td><td>默认状态控件</td><td>字符串</td><td></td><td>输入框在默认状态时，显示的子控件。</td></tr>
-<tr><td>hover_control</td><td>悬停状态控件</td><td>字符串</td><td></td><td>输入框在悬停状态时，显示的子控件。</td></tr>
-<tr><td>pressed_control</td><td>按下状态控件</td><td>字符串</td><td></td><td>输入框在按下状态时，显示的子控件。</td></tr>
-<tr><td>locked_control</td><td>锁定状态控件</td><td>字符串</td><td></td><td>输入框在锁定状态时，显示的子控件。</td></tr>
-</tbody></table>
+    <div tableID="editbox" class="cnTable"></div>
 </div></div>
   <!--正文-->
+<script>window.tableData={
+"editbox": {
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [
+    ['text_box_name', '输入框名称', '字符串', 0, '输入框名称。'],
+    ['text_edit_box_grid_collection_name', '输入框合集名', '字符串', 0, '输入框的合集名。'],
+    ['text_type', '文本类型', '字符串：列举', 0, '输入框的文本类型。\n用于限制用户输入某种类型的文本。\n\n列举的值可以是：\n<lc>ExtendedASCII</lc> ASCLL扩展\n<lc>IdentifierChars</lc> 标识符字符\n<lc>NumberChars</lc> 数字字符'],
+    ['max_length', '最大长度', '整数', 0, '输入字符的最大长度。\n当用户输入超过最大长度限制的文本时，输入框会自动截断或禁止输入超过限制的部分。'],
+    ['enabled_newline', '启用换行', '布尔值', 'false', '是否允许输入框换行。\n禁用换行时，如果尝试换行会完成输入框的输入。'],
+    ['constrain_to_rect', '限制矩形区域', '布尔值', 'false', '输入框是否限制矩形区域。'],
+    ['can_be_deselected', '可以取消', '布尔值', 'true', '输入框是否可以取消输入。'],
+    ['always_listening', '始终监听', '布尔值', 'false', '输入框是否始终监听输入。'],
+    ['text_control', '文本控件', '字符串', 0, '输入框中的文本控件。'],
+    ['place_holder_control', '占位符控件', '字符串', 0, '输入框中的占位符控件。'],
+    ['virtual_keyboard_buffer_control', '虚拟键盘缓冲控件', '字符串', 0, '输入框中的虚拟键盘缓冲控件。\n使输入框在虚拟键盘上可见。'],
+    ['default_control', '默认状态控件', '字符串', 0, '输入框在默认状态时，显示的子控件。'],
+    ['hover_control', '悬停状态控件', '字符串', 0, '输入框在悬停状态时，显示的子控件。'],
+    ['pressed_control', '按下状态控件', '字符串', 0, '输入框在按下状态时，显示的子控件。'],
+    ['locked_control', '锁定状态控件', '字符串', 0, '输入框在锁定状态时，显示的子控件。']
+  ]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

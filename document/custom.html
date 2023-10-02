@@ -27,209 +27,293 @@
   <div id="content">
     <div class="left_title"><h1>自定义</h1></div>
     <div class="left_content"><h2>属性</h2>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-<tr><td>renderer</td><td>渲染器</td><td>字符串：列举</td><td>该自定义控件的渲染器。<br>该属性为必填属性。<br>列举的值将在下方加以说明。</td></tr>
-</tbody></table>
+    <div tableID="custom" class="cnTable"></div>
 <h2>渲染器</h2>
 <tip><b>提示</b><br>- 以下表格中的 属性包 意思为该属性是否为属性包属性。<br>- 建议打开文章目录查阅某个渲染器。</tip>
 <h3>进度条</h3>
 该渲染器需要 renderer 属性为<lc>progress_bar_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>primary_color</td><td>主要颜色</td><td>字符串：列举 或 数组：RGBA数组</td><td>否</td><td>与 color 属性一致，不再描述。</td></tr>
-<tr><td>secondary_color</td><td>次要颜色</td><td>字符串：列举 或 数组：RGBA数组</td><td>否</td><td>与 color 属性一致，不再描述。</td></tr>
-<tr><td>#progress_bar_total_amount</td><td>总进度</td><td>浮点数</td><td>是</td><td>进度条的总进度。</td></tr>
-<tr><td>#progress_bar_current_amount</td><td>当前进度</td><td>浮点数</td><td>是</td><td>进度条的当前进度。</td></tr>
-<tr><td>is_durability</td><td>耐久</td><td>布尔值</td><td>是</td><td>进度条是否回耐久进度条。</td></tr>
-<tr><td>round_value</td><td>舍入值</td><td>布尔值</td><td>是</td><td>进度条的值是否四舍五入。</td></tr>
-<tr><td>drop_shadow</td><td>投影阴影</td><td>布尔值</td><td>是</td><td>进度条是否显示投影阴影。</td></tr>
-</tbody></table>
+<div tableID="progress_bar" class="cnTable"></div>
 <h3>名称标签</h3>
 该渲染器需要 renderer 属性为<lc>name_tag_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>text_color</td><td>文本颜色</td><td>字符串：列举 或 数组：RGBA数组</td><td>否</td><td>与 color 属性一致，不再描述。</td></tr>
-<tr><td>background_color</td><td>背景颜色</td><td>字符串：列举 或 数组：RGBA数组</td><td>否</td><td>与 color 属性一致，不再描述。</td></tr>
-<tr><td>#playername</td><td>玩家名</td><td>字符串</td><td>是</td><td>渲染器的玩家名。</td></tr>
-<tr><td>#x_padding</td><td>X轴填充</td><td>整数</td><td>是</td><td>渲染器的X轴填充。</td></tr>
-</tbody></table>
+<div tableID="name_tag" class="cnTable"></div>
 <h3>纸娃娃</h3>
 该渲染器需要 renderer 属性为<lc>paper_doll_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>use_player_paperdoll</td><td>使用玩家纸娃娃</td><td>布尔值</td><td>false</td><td>否</td><td>渲染器是否使用玩家纸娃娃。</td></tr>
-<tr><td>use_skin_gui_scale</td><td>使用皮肤 GUI 缩放</td><td>布尔值</td><td>false</td><td>否</td><td>皮肤是否跟随 GUI。</td></tr>
-<tr><td>use_selected_skin</td><td>使用已选择皮肤</td><td>布尔值</td><td>true</td><td>否</td><td>皮肤是否为已选择的皮肤。</td></tr>
-<tr><td>use_uuid</td><td>使用 UUID</td><td>布尔值</td><td>false</td><td>否</td><td>渲染器是否使用 UUID。</td></tr>
-<tr><td>camera_tilt_degrees</td><td>摄像机倾斜角度</td><td>整数</td><td>0</td><td>否</td><td>渲染器的摄像机倾斜角度。</td></tr>
-<tr><td>rotation</td><td>旋转</td><td>字符串：列举</td><td>none</td><td>否</td><td>渲染器的旋转。<br>列举的值可以是：<br>none 不旋转<br>gesture_x X轴手势旋转<br>custom_y Y轴自定义旋转<br>auto 自动旋转</td></tr>
-<tr><td>starting_rotation</td><td>开始旋转</td><td>数字</td><td>0</td><td>否</td><td>渲染器的开始旋转。</td></tr>
-<tr><td>modelname‌</td><td>模型名</td><td>字符串</td><td></td><td>否</td><td>渲染器的模型名称。<br>仅中国版可用。</td></tr>
-<tr><td>modelsize‌</td><td>模型大小</td><td>浮点数</td><td></td><td>否</td><td>渲染器的模型大小。<br>仅中国版可用。</td></tr>
-<tr><td>animation‌</td><td>动画名</td><td>字符串</td><td></td><td>否</td><td>渲染器的动画名称。<br>仅中国版可用。</td></tr>
-<tr><td>animation_looped‌</td><td>循环动画</td><td>布尔值</td><td></td><td>否</td><td>渲染器是否循环播放动画。<br>仅中国版可用。</td></tr>
-<tr><td>entity_type</td><td>实体类型</td><td>字符串：列举</td><td>player</td><td>是</td><td>渲染器的实体类型。<br>列举的值可以是：<br>player 玩家<br>npc NPC</td></tr>
-<tr><td>#skin_rotation</td><td>皮肤旋转</td><td>布尔值</td><td></td><td>是</td><td>渲染器是否允许皮肤旋转。</td></tr>
-<tr><td>#skin_idx</td><td>皮肤 ID</td><td>整数</td><td>0</td><td>是</td><td>渲染器的皮肤 ID。</td></tr>
-<tr><td>#custom_rot_y</td><td>自定义Y轴旋转</td><td>整数</td><td>0</td><td>是</td><td>渲染器的自定义Y轴旋转。</td></tr>
-<tr><td>#gesture_delta_source</td><td>手势细节源</td><td>字符串</td><td></td><td>是</td><td>渲染器的手势细节源。</td></tr>
-<tr><td>#gesture_mouse_delta_x</td><td>手势鼠标X轴细节</td><td>数字</td><td></td><td>是</td><td>渲染器的手势鼠标X轴细节。</td></tr>
-<tr><td>#force_skin_update</td><td>强制皮肤更新</td><td>布尔值</td><td></td><td>是</td><td>渲染器是否强制皮肤更新。</td></tr>
-<tr><td>#player_uuid</td><td>玩家 UUID</td><td>字符串</td><td></td><td>是</td><td>渲染器的玩家 UUID。</td></tr>
-</tbody></table>
+<div tableID="paper_doll" class="cnTable"></div>
 <h3>HUD 纸娃娃</h3>
 该渲染器需要 renderer 属性为<lc>hud_player_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#look_at_cursor</td><td>看着指针</td><td>布尔值</td><td>false</td><td>是</td><td>娃娃是否看着指针。</td></tr>
-</tbody></table>
+<div tableID="live_paper_doll" class="cnTable"></div>
 <h3>玩家纸娃娃</h3>
 该渲染器需要 renderer 属性为<lc>live_player_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#look_at_cursor</td><td>看着指针</td><td>布尔值</td><td>false</td><td>是</td><td>娃娃是否看着指针。</td></tr>
-</tbody></table>
+<div tableID="live_paper_doll" class="cnTable"></div>
 <h3>渐变</h3>
 该渲染器需要 renderer 属性为<lc>gradient_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>gradient_direction</td><td>渐变方向</td><td>字符串：列举</td><td>vertical</td><td>否</td><td>渲染器的渐变方向。<br>列举的值可以是：<br>vertical 垂直<br>horizontal 水平</td></tr>
-<tr><td>color1</td><td>开始渐变颜色</td><td>字符串：列举 或 数组：RGBA数组</td><td></td><td>否</td><td>渲染器的开始渐变颜色。<br>与 color 属性一致，不再描述。</td></tr>
-<tr><td>color2</td><td>结束渐变颜色</td><td>字符串：列举 或 数组：RGBA数组</td><td></td><td>否</td><td>渲染器的结束渐变颜色。<br>与 color 属性一致，不再描述。</td></tr>
-</tbody></table>
+<div tableID="gradient" class="cnTable"></div>
 <h3>全景图</h3>
 该渲染器需要 renderer 属性为<lc>panorama_renderer</lc>。
 <tip>全景图渲染器还支持图片属性，详见图片属性文章。</tip>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>gesture_tracking_button</td><td>手势跟踪按钮</td><td>字符串：事件</td><td></td><td>否</td><td>追踪手势的按钮映射ID。</td></tr>
-<tr><td>rotation</td><td>旋转</td><td>字符串：列举</td><td>none</td><td>否</td><td>渲染器的旋转。<br>列举的值可以是：<br>none 不旋转<br>gesture_x X轴手势旋转<br>auto 自动旋转</td></tr>
-</tbody></table>
+<div tableID="panorama" class="cnTable"></div>
 <h3>制作人员与终末之诗</h3>
 该渲染器需要 renderer 属性为<lc>credits_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>end_event</td><td>结束事件</td><td>字符串：事件</td><td></td><td>否</td><td>渲染器播放后执行的按钮映射事件。</td></tr>
-</tbody></table>
+<div tableID="credits" class="cnTable"></div>
 <h3>中国版纸娃娃</h3>
 该渲染器需要 renderer 属性为<lc>netease_paper_doll_renderer</lc>。
 <warn><b>提示</b><br>该渲染器仅在中国版可用。</warn>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>skeleton_model_name</td><td>模型骨骼名</td><td>字符串</td><td></td><td>否</td><td>渲染器的模型骨骼名称。</td></tr>
-<tr><td>entity_identifier</td><td>实体标识符</td><td>字符串</td><td></td><td>否</td><td>渲染器的实体标识符。</td></tr>
-<tr><td>animation‌</td><td>动画名</td><td>字符串</td><td></td><td>否</td><td>渲染器的动画名称。</td></tr>
-<tr><td>animation_looped‌</td><td>循环动画</td><td>布尔值</td><td></td><td>否</td><td>渲染器是否循环播放动画。</td></tr>
-<tr><td>rotation</td><td>旋转</td><td>字符串：列举</td><td>none</td><td>否</td><td>渲染器的旋转。<br>列举的值可以是：<br>none 不旋转<br>gesture_x X轴手势旋转<br>custom_y Y轴自定义旋转<br>auto 自动旋转</td></tr>
-<tr><td>init_rot_y</td><td>初始Y轴旋转</td><td>浮点数</td><td>0</td><td>否</td><td>渲染器的初始Y轴旋转。</td></tr>
-<tr><td>mob_head_rot_y</td><td>生物头部Y轴旋转</td><td>浮点数</td><td>0</td><td>否</td><td>渲染器的生物头部Y轴旋转。</td></tr>
-<tr><td>mob_body_rot_y</td><td>生物身体Y轴旋转</td><td>浮点数</td><td>0</td><td>否</td><td>渲染器的生物身体Y轴旋转。</td></tr>
-<tr><td>screen_scale</td><td>屏幕缩放</td><td>浮点数</td><td></td><td>否</td><td>渲染器的屏幕缩放。</td></tr>
-<tr><td>screen_offset</td><td>屏幕偏移</td><td>矢量[x,y]</td><td>[0,0]</td><td>否</td><td>渲染器的屏幕偏移。</td></tr>
-</tbody></table>
+<div tableID="netease_paper_doll" class="cnTable"></div>
 <h3>中国版小地图</h3>
 该渲染器需要 renderer 属性为<lc>netease_mini_map_renderer</lc>。
 <warn><b>提示</b><br>该渲染器仅在中国版可用。</warn>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>enable_live_update</td><td>启用实时刷新</td><td>布尔值</td><td>false</td><td>否</td><td>渲染器是否启用实时刷新。</td></tr>
-<tr><td>live_update_interval</td><td>实时刷新间隔</td><td>浮点数</td><td>60</td><td>否</td><td>渲染器的实时刷新间隔。<br>单位为秒。</td></tr>
-<tr><td>use_default_face_icon</td><td>使用默认脸部图标</td><td>布尔值</td><td>true</td><td>否</td><td>渲染器是否使用默认脸部图标。</td></tr>
-<tr><td>face_icon_size</td><td>脸部图标大小</td><td>矢量[x,y]</td><td>[4,4]</td><td>否</td><td>渲染器的脸部图标大小。<br>与 size 属性一致，不再描述</td></tr>
-<tr><td>face_icon_bg_color</td><td>脸部图标背景颜色</td><td>字符串：列举 或 数组：RGBA数组</td><td></td><td>否</td><td>渲染器的脸部图标背景颜色。<br>与 color 属性一致，不再描述</td></tr>
-<tr><td>highest_y</td><td>最大Y轴高度</td><td>整数</td><td>0</td><td>否</td><td>渲染器的最大Y轴高度。</td></tr>
-</tbody></table>
+<div tableID="map" class="cnTable"></div>
 <h3>悬停文字</h3>
 该渲染器需要 renderer 属性为<lc>hover_text_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>hover_text_max_width</td><td>悬停文字最大宽度</td><td>整数</td><td></td><td>否</td><td></td></tr>
-<tr><td>#hover_text</td><td>悬停文字</td><td>字符串</td><td></td><td>是</td><td></td></tr>
-</tbody></table>
+<div tableID="hover" class="cnTable"></div>
 <h3>物品栏物品</h3>
 该渲染器需要 renderer 属性为<lc>inventory_item_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#item_id_aux</td><td>物品 AUX ID</td><td>整数</td><td>-1</td><td>是</td><td></td></tr>
-<tr><td>#item_pickup_time</td><td>物品拾取时间</td><td>整数</td><td></td><td>是</td><td></td></tr>
-<tr><td>#banner_patterns</td><td>旗帜样式</td><td>整数</td><td></td><td>是</td><td></td></tr>
-<tr><td>#banner_colors</td><td>旗帜颜色</td><td>整数</td><td></td><td>是</td><td></td></tr>
-<tr><td>#item_custom_color</td><td>物品自定义颜色</td><td>整数</td><td></td><td>是</td><td></td></tr>
-<tr><td>#disabled_filter_visible</td><td>禁用过滤器显示</td><td>布尔值</td><td></td><td>是</td><td></td></tr>
-<tr><td>#filtered_light_multiplier</td><td>禁用过滤器光亮倍度</td><td>浮点数</td><td>1</td><td>是</td><td></td></tr>
-</tbody></table>
+<div tableID="item" class="cnTable"></div>
 <h3>旗帜</h3>
 该渲染器需要 renderer 属性为<lc>banner_pattern_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#banner_patterns</td><td>旗帜样式</td><td>整数</td><td></td><td>是</td><td></td></tr>
-<tr><td>#banner_colors</td><td>旗帜颜色</td><td>整数</td><td></td><td>是</td><td></td></tr>
-</tbody></table>
+<div tableID="banner" class="cnTable"></div>
 <h3>飞行物品</h3>
 该渲染器需要 renderer 属性为<lc>flying_item_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#flying_item_renderer</td><td>飞行物品渲染</td><td>布尔值</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_count</td><td>物品数量</td><td>整数</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_id_aux</td><td>物品 AUX ID</td><td>整数</td><td>-1</td><td>是</td><td></td></tr>
-<tr><td>flying_item_banner_patterns</td><td>旗帜样式</td><td>整数</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_banner_colors</td><td>旗帜颜色</td><td>整数</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_custom_color</td><td>物品自定义颜色</td><td>整数</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_origin_position_x</td><td>物品X轴原始位置</td><td>浮点数</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_origin_position_y</td><td>物品Y轴原始位置</td><td>浮点数</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_origin_scale</td><td>物品原始缩放</td><td>浮点数</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_destination_position_x</td><td>物品X轴目的地位置</td><td>浮点数</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_destination_position_y</td><td>物品Y轴目的地位置</td><td>浮点数</td><td></td><td>是</td><td></td></tr>
-<tr><td>flying_item_destination_scale</td><td>物品目的地缩放</td><td>浮点数</td><td></td><td>是</td><td></td></tr>
-</tbody></table>
+<div tableID="fly" class="cnTable"></div>
 <h3>附魔书</h3>
 该渲染器需要 renderer 属性为<lc>enchanting_book_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#open</td><td>打开</td><td>布尔值</td><td>false</td><td>是</td><td>是否打开附魔书。</td></tr>
-</tbody></table>
+<div tableID="enchanting" class="cnTable"></div>
 <h3>马</h3>
 该渲染器需要 renderer 属性为<lc>live_horse_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#entity_id</td><td>实体 ID</td><td>字符串 或 整数</td><td></td><td>是</td><td></td></tr>
-</tbody></table>
+<div tableID="horse" class="cnTable"></div>
 <h3>盔甲</h3>
 该渲染器需要 renderer 属性为<lc>armor_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#use_heart_offset</td><td>使用血量偏移</td><td>布尔值</td><td>false</td><td>是</td><td></td></tr>
-</tbody></table>
+<div tableID="armor" class="cnTable"></div>
 <h3>描写</h3>
 该渲染器需要 renderer 属性为<lc>vignette_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>opacity_override</td><td>不透明度覆盖</td><td>浮点数</td><td></td><td>是</td><td></td></tr>
-</tbody></table>
+<div tableID="vignette" class="cnTable"></div>
 <h3>结构</h2>
 该渲染器需要 renderer 属性为<lc>3d_structure_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#include_players</td><td>包括玩家</td><td>布尔值</td><td></td><td>是</td><td></td></tr>
-<tr><td>#include_entities</td><td>包括实体</td><td>布尔值</td><td></td><td>是</td><td></td></tr>
-<tr><td>#remove_blocks</td><td>移除方块</td><td>布尔值</td><td></td><td>是</td><td></td></tr>
-<tr><td>#has_focus</td><td>有焦点</td><td>布尔值</td><td>false</td><td>是</td><td></td></tr>
-<tr><td>#block_position</td><td>方块位置</td><td>矢量[x,y,z]</td><td></td><td>是</td><td></td></tr>
-<tr><td>#bottom_left_block</td><td>左下角方块</td><td>矢量[x,y,z]</td><td></td><td>是</td><td></td></tr>
-<tr><td>#top_right_block</td><td>右上角方块</td><td>矢量[x,y,z]</td><td></td><td>是</td><td></td></tr>
-</tbody></table>
+<div tableID="3d" class="cnTable"></div>
 <h3>webview</h2>
 该渲染器需要 renderer 属性为<lc>web_view_renderer</lc>。
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>属性包</th><th>描述</th></tr></thead><tbody>
-<tr><td>#webview_update</td><td>webview 刷新</td><td>布尔值</td><td></td><td>是</td><td></td></tr>
-</tbody></table>
+<div tableID="webview" class="cnTable"></div>
 <h3>其他</h3>
-<table><thead><tr><th>渲染器</th><th>渲染器中文名</th></tr></thead><tbody>
-<tr><td>heart_renderer</td><td>血量</td></tr>
-<tr><td>hunger_renderer</td><td>饥饿值</td></tr>
-<tr><td>bubbles_renderer</td><td>呼吸值</td></tr>
-<tr><td>horse_heart_renderer</td><td>坐骑血量</td></tr>
-<tr><td>horse_jump_renderer</td><td>坐骑跳跃进度条</td></tr>
-<tr><td>dash_renderer</td><td>坐骑冲撞进度条</td></tr>
-<tr><td>camera_renderer</td><td>摄像机</td></tr>
-<tr><td>mob_effects_renderer</td><td>药水效果</td></tr>
-<tr><td>hotbar_renderer</td><td>快捷栏</td></tr>
-<tr><td>hotbar_cooldown_renderer</td><td>快捷栏冷却</td></tr>
-<tr><td>splash_text_renderer</td><td>闪烁文字</td></tr>
-<tr><td>debug_screen_renderer</td><td>调试</td></tr>
-<tr><td>cursor_renderer</td><td>指针</td></tr>
-<tr><td>ui_holo_cursor</td><td>全息光标</td></tr>
-<tr><td>progress_indicator_renderer</td><td>进度提示</td></tr>
-<tr><td>trial_time_renderer</td><td>试用时间</td></tr>
-<tr><td>editor_gizmo_renderer</td><td>编辑</td></tr>
-<tr><td>actor_portrait_renderer</td><td>演员肖像</td></tr>
-<tr><td>bundle_renderer</td><td>bundle</td></tr>
-<tr><td>bohr_model_renderer</td><td>bohr 模型</td></tr>
-<tr><td>holographic_postrenderer</td><td>全息图</td></tr>
-</tbody></table>
+<div tableID="other" class="cnTable"></div>
 </div></div>
   <!--正文-->
+<script>window.tableData={
+"custom": {
+  "head": [["属性","属性名","值","描述"]],
+  "body": [
+    ["renderer", "渲染器", "字符串：列举", "该自定义控件的渲染器。\n该属性为必填属性。\n列举的值将在下方加以说明。"]
+  ]
+},
+"progress_bar": {
+  "head": [["属性","属性名","值","属性包","描述"]],
+  "body": [
+    ["primary_color", "主要颜色", "字符串：列举 或 数组：RGBA数组", "否", "与 color 属性一致，不再描述。"],
+    ["secondary_color", "次要颜色", "字符串：列举 或 数组：RGBA数组", "否", "与 color 属性一致，不再描述。"],
+    ["#progress_bar_total_amount", "总进度", "浮点数", "是", "进度条的总进度。"],
+    ["#progress_bar_current_amount", "当前进度", "浮点数", "是", "进度条的当前进度。"],
+    ["is_durability", "耐久", "布尔值", "是", "进度条是否回耐久进度条。"],
+    ["round_value", "舍入值", "布尔值", "是", "进度条的值是否四舍五入。"],
+    ["drop_shadow", "投影阴影", "布尔值", "是", "进度条是否显示投影阴影。" ]
+  ]
+},
+"name_tag": {
+  "head": [["属性","属性名","值","属性包","描述"]],
+  "body": [
+    ["text_color", "文本颜色", "字符串：列举 或 数组：RGBA数组", "否", "与 color 属性一致，不再描述。"],
+    ["background_color", "背景颜色", "字符串：列举 或 数组：RGBA数组", "否", "与 color 属性一致，不再描述。"],
+    ["#playername", "玩家名", "字符串", "是", "渲染器的玩家名。"],
+    ["#x_padding", "X轴填充", "整数", "是", "渲染器的X轴填充。"]
+  ]
+},
+"paper_doll": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['use_player_paperdoll', '使用玩家纸娃娃', '布尔值', 'false', '否', '渲染器是否使用玩家纸娃娃。'],
+    ['use_skin_gui_scale', '使用皮肤 GUI 缩放', '布尔值', 'false', '否', '皮肤是否跟随 GUI。'],
+    ['use_selected_skin', '使用已选择皮肤', '布尔值', 'true', '否', '皮肤是否为已选择的皮肤。'],
+    ['use_uuid', '使用 UUID', '布尔值', 'false', '否', '渲染器是否使用 UUID。'],
+    ['camera_tilt_degrees', '摄像机倾斜角度', '整数', '0', '否', '渲染器的摄像机倾斜角度。'],
+    ['rotation', '旋转', '字符串：列举', 'none', '否', '渲染器的旋转。\n列举的值可以是：\n<lc>none</lc> 不旋转\n<lc>gesture_x</lc> X轴手势旋转\n<lc>custom_y</lc> Y轴自定义旋转\n<lc>auto</lc> 自动旋转'],
+    ['starting_rotation', '开始旋转', '数字', '0', '否', '渲染器的开始旋转。'],
+    ['modelname‌', '模型名', '字符串', 0, '否', '渲染器的模型名称。\n仅中国版可用。'],
+    ['modelsize‌', '模型大小', '浮点数', 0, '否', '渲染器的模型大小。\n仅中国版可用。'],
+    ['animation‌', '动画名', '字符串', 0, '否', '渲染器的动画名称。\n仅中国版可用。'],
+    ['animation_looped‌', '循环动画', '布尔值', 0, '否', '渲染器是否循环播放动画。\n仅中国版可用。'],
+    ['entity_type', '实体类型', '字符串：列举', 'player', '是', '渲染器的实体类型。\n列举的值可以是：\n<lc>player</lc> 玩家\n<lc>npc</lc> NPC'],
+    ['#skin_rotation', '皮肤旋转', '布尔值', 0, '是', '渲染器是否允许皮肤旋转。'],
+    ['#skin_idx', '皮肤 ID', '整数', '0', '是', '渲染器的皮肤 ID。'],
+    ['#custom_rot_y', '自定义Y轴旋转', '整数', '0', '是', '渲染器的自定义Y轴旋转。'],
+    ['#gesture_delta_source', '手势细节源', '字符串', 0, '是', '渲染器的手势细节源。'],
+    ['#gesture_mouse_delta_x', '手势鼠标X轴细节', '数字', 0, '是', '渲染器的手势鼠标X轴细节。'],
+    ['#force_skin_update', '强制皮肤更新', '布尔值', 0, '是', '渲染器是否强制皮肤更新。'],
+    ['#player_uuid', '玩家 UUID', '字符串', 0, '是', '渲染器的玩家 UUID。']
+  ]
+},
+"live_paper_doll": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['#look_at_cursor', '看着指针', '布尔值', 'false', '是', '娃娃是否看着指针。']
+  ]
+},
+"gradient": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['gradient_direction', '渐变方向', '字符串：列举', 'vertical', '否', '渲染器的渐变方向。\n列举的值可以是：\n<lc>vertical</lc> 垂直\n<lc>horizontal</lc> 水平'],
+    ['color1', '开始渐变颜色', '字符串：列举 或 数组：RGBA数组', '\n', '否', '渲染器的开始渐变颜色。\n与 color 属性一致，不再描述。'],
+    ['color2', '结束渐变颜色', '字符串：列举 或 数组：RGBA数组', '\n', '否', '渲染器的结束渐变颜色。\n与 color 属性一致，不再描述。']
+  ]
+},
+"panorama": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['gesture_tracking_button', '手势跟踪按钮', '字符串：事件', '\n', '否', '追踪手势的按钮映射ID。'],
+    ['rotation', '旋转', '字符串：列举', 'none', '否', '渲染器的旋转。\n列举的值可以是：\n<lc>none</lc> 不旋转\n<lc>gesture_x</lc> X轴手势旋转\n<lc>auto</lc> 自动旋转']
+  ]
+},
+"credits": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['end_event', '结束事件', '字符串：事件', '\n', '否', '渲染器播放后执行的按钮映射事件。']
+  ]
+},
+"netease_paper_doll": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['skeleton_model_name', '模型骨骼名', '字符串', '\n', '否', '渲染器的模型骨骼名称。'],
+    ['entity_identifier', '实体标识符', '字符串', '\n', '否', '渲染器的实体标识符。'],
+    ['animation', '动画名', '字符串', '\n', '否', '渲染器的动画名称。'],
+    ['animation_looped', '循环动画', '布尔值', '\n', '否', '渲染器是否循环播放动画。'],
+    ['rotation', '旋转', '字符串：列举', 'none', '否', '渲染器的旋转。\n列举的值可以是：\n<lc>none</lc> 不旋转\n<lc>gesture_x</lc> X轴手势旋转\n<lc>custom_y</lc> Y轴自定义旋转\n<lc>auto</lc> 自动旋转'],
+    ['init_rot_y', '初始Y轴旋转', '浮点数', '0', '否', '渲染器的初始Y轴旋转。'],
+    ['mob_head_rot_y', '生物头部Y轴旋转', '浮点数', '0', '否', '渲染器的生物头部Y轴旋转。'],
+    ['mob_body_rot_y', '生物身体Y轴旋转', '浮点数', '0', '否', '渲染器的生物身体Y轴旋转。'],
+    ['screen_scale', '屏幕缩放', '浮点数', '\n', '否', '渲染器的屏幕缩放。'],
+    ['screen_offset', '屏幕偏移', '矢量[x,y]', '[0,0]', '否', '渲染器的屏幕偏移。']
+  ]
+},
+"map": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['enable_live_update', '启用实时刷新', '布尔值', 'false', '否', '渲染器是否启用实时刷新。'],
+    ['live_update_interval', '实时刷新间隔', '浮点数', '60', '否', '渲染器的实时刷新间隔。\n单位为秒。'],
+    ['use_default_face_icon', '使用默认脸部图标', '布尔值', 'true', '否', '渲染器是否使用默认脸部图标。'],
+    ['face_icon_size', '脸部图标大小', '矢量[x,y]', '[4,4]', '否', '渲染器的脸部图标大小。\n与 size 属性一致，不再描述'],
+    ['face_icon_bg_color', '脸部图标背景颜色', '字符串：列举 或 数组：RGBA数组', 0, '否', '渲染器的脸部图标背景颜色。\n与 color 属性一致，不再描述'],
+    ['highest_y', '最大Y轴高度', '整数', '0', '否', '渲染器的最大Y轴高度。']
+  ]
+},
+"hover": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['hover_text_max_width', '悬停文字最大宽度', '整数', 0, '否', 0],
+    ['#hover_text', '悬停文字', '字符串', 0, '是', 0]
+  ]
+},
+"item": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['#item_id_aux', '物品 AUX ID', '整数', '-1', '是', 0],
+    ['#item_pickup_time', '物品拾取时间', '整数', 0, '是', 0],
+    ['#banner_patterns', '旗帜样式', '整数', 0, '是', 0],
+    ['#banner_colors', '旗帜颜色', '整数', 0, '是', 0],
+    ['#item_custom_color', '物品自定义颜色', '整数', 0, '是', 0],
+    ['#disabled_filter_visible', '禁用过滤器显示', '布尔值', 0, '是', 0],
+    ['#filtered_light_multiplier', '禁用过滤器光亮倍度', '浮点数', '1', '是', 0]
+  ]
+},
+"banner": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['#banner_patterns', '旗帜样式', '整数', 0, '是', 0],
+    ['#banner_colors', '旗帜颜色', '整数', 0, '是', 0]
+  ]
+},
+"fly": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['#flying_item_renderer', '飞行物品渲染', '布尔值', 0, '是', 0],
+    ['flying_item_count', '物品数量', '整数', 0, '是', 0],
+    ['flying_item_id_aux', '物品 AUX ID', '整数', '-1', '是', 0],
+    ['flying_item_banner_patterns', '旗帜样式', '整数', 0, '是', 0],
+    ['flying_item_banner_colors', '旗帜颜色', '整数', 0, '是', 0],
+    ['flying_item_custom_color', '物品自定义颜色', '整数', 0, '是', 0],
+    ['flying_item_origin_position_x', '物品X轴原始位置', '浮点数', 0, '是', 0],
+    ['flying_item_origin_position_y', '物品Y轴原始位置', '浮点数', 0, '是', 0],
+    ['flying_item_origin_scale', '物品原始缩放', '浮点数', 0, '是', 0],
+    ['flying_item_destination_position_x', '物品X轴目的地位置', '浮点数', 0, '是', 0],
+    ['flying_item_destination_position_y', '物品Y轴目的地位置', '浮点数', 0, '是', 0],
+    ['flying_item_destination_scale', '物品目的地缩放', '浮点数', 0, '是', 0]
+  ]
+},
+"enchanting": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['#open', '打开', '布尔值', 'false', '是', '是否打开附魔书。']
+  ]
+},
+"horse": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['#entity_id', '实体 ID', '字符串 或 整数', 0, '是', 0]
+  ]
+},
+"armor": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['#use_heart_offset', '使用血量偏移', '布尔值', 'false', '是', 0]
+  ]
+},
+"vignette": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['opacity_override', '不透明度覆盖', '浮点数', 0, '是', 0]
+  ]
+},
+"3d": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['#include_players', '包括玩家', '布尔值', 0, '是', 0],
+    ['#include_entities', '包括实体', '布尔值', 0, '是', 0],
+    ['#remove_blocks', '移除方块', '布尔值', 0, '是', 0],
+    ['#has_focus', '有焦点', '布尔值', 'false', '是', 0],
+    ['#block_position', '方块位置', '矢量[x,y,z]', 0, '是', 0],
+    ['#bottom_left_block', '左下角方块', '矢量[x,y,z]', 0, '是', 0],
+    ['#top_right_block', '右上角方块', '矢量[x,y,z]', 0, '是', 0]
+  ]
+},
+"webview": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['#webview_update', 'webview 刷新', '布尔值', 0, '是', 0]
+  ]
+},
+"other": {
+  "head": [["渲染器","渲染器中文名"]],
+  "body": [
+    ["heart_renderer", "血量"],
+    ["hunger_renderer", "饥饿值"],
+    ["bubbles_renderer", "呼吸值"],
+    ["horse_heart_renderer", "坐骑血量"],
+    ["horse_jump_renderer", "坐骑跳跃进度条"],
+    ["dash_renderer", "坐骑冲撞进度条"],
+    ["camera_renderer", "摄像机"],
+    ["mob_effects_renderer", "药水效果"],
+    ["hotbar_renderer", "快捷栏"],
+    ["hotbar_cooldown_renderer", "快捷栏冷却"],
+    ["splash_text_renderer", "闪烁文字"],
+    ["debug_screen_renderer", "调试"],
+    ["cursor_renderer", "指针"],
+    ["ui_holo_cursor", "全息光标"],
+    ["progress_indicator_renderer", "进度提示"],
+    ["trial_time_renderer", "试用时间"],
+    ["editor_gizmo_renderer", "编辑"],
+    ["actor_portrait_renderer", "演员肖像"],
+    ["bundle_renderer", "bundle"],
+    ["bohr_model_renderer", "bohr 模型"],
+    ["holographic_postrenderer", "全息图"]
+  ]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

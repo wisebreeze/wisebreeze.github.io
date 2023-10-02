@@ -27,30 +27,36 @@
   <div id="content">
     <div class="left_title"><h1>滑块</h1></div>
     <div class="left_content"><h2>属性</h2>
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-<tr><td>slider_name</td><td>滑块名称</td><td>字符串</td><td></td><td>滑块的名称。</td></tr>
-<tr><td>slider_collection_name</td><td>滑块合集名</td><td>字符串</td><td></td><td>滑块的合集名。</td></tr>
-<tr><td>slider_track_button</td><td>滑块跟踪按钮</td><td>字符串</td><td></td><td>滑块跟踪的按钮映射 ID。</td></tr>
-<tr><td>slider_small_increase_button</td><td>滑块稍微增加按钮</td><td>字符串</td><td></td><td>滑块稍微增加的按钮映射 ID。</td></tr>
-<tr><td>slider_small_decrease_button</td><td>滑块稍微减少按钮</td><td>字符串</td><td></td><td>滑块稍微减少的按钮映射 ID。</td></tr>
-<tr><td>slider_selected_button</td><td>滑块选中按钮</td><td>字符串</td><td></td><td>滑块选中的按钮映射 ID。</td></tr>
-<tr><td>slider_deselected_button</td><td>滑块未选中按钮</td><td>字符串</td><td></td><td>滑块未选中的按钮映射 ID。</td></tr>
-<tr><td>slider_direction</td><td>滑块方向</td><td>字符串：列举</td><td>horizontal</td><td>滑块的方向。<br>列举的值可以是：<br>horizontal 水平<br>vertical 垂直</td></tr>
-<tr><td>slider_steps</td><td>滑块步数</td><td>整数</td><td>1</td><td>滑块的步数。</td></tr>
-<tr><td>slider_speed</td><td>滑块速度</td><td>浮点数</td><td>1</td><td>滑块的速度。<br>单位为秒。</td></tr>
-<tr><td>slider_timeout</td><td>滑块超时</td><td>浮点数</td><td>0.25</td><td>滑块的超时时间。<br>单位为秒。</td></tr>
-<tr><td>slider_inverted</td><td>滑块逆转</td><td>布尔值</td><td>false</td><td>滑块是否逆转。</td></tr>
-<tr><td>slider_select_on_hover</td><td>滑块悬停时选中</td><td>布尔值</td><td>false</td><td>滑块是否在悬停时选中。</td></tr>
-<tr><td>default_control</td><td>默认状态控件</td><td>字符串</td><td></td><td>在默认状态下显示的控件。</td></tr>
-<tr><td>hover_control</td><td>悬停状态控件</td><td>字符串</td><td></td><td>在悬停状态下显示的控件。</td></tr>
-<tr><td>slider_box_control</td><td>滑块框控件</td><td>字符串</td><td></td><td>滑块框控件。</td></tr>
-<tr><td>progress_control</td><td>滑块默认状态进度控件</td><td>字符串</td><td></td><td>滑块在默认状态下，滑块进度控件。</td></tr>
-<tr><td>progress_hover_control</td><td>滑块悬停状态进度控件</td><td>字符串</td><td></td><td>滑块在悬停状态下，滑块进度控件。</td></tr>
-<tr><td>background_control</td><td>滑块默认状态背景控件</td><td>字符串</td><td></td><td>滑块在默认状态下，滑块背景控件。</td></tr>
-<tr><td>background_hover_control</td><td>滑块悬停状态背景控件</td><td>字符串</td><td></td><td>滑块在悬停状态下，滑块背景控件。</td></tr>
-</tbody></table>
+    <div tableID="slider" class="cnTable"></div>
 </div></div>
   <!--正文-->
+<script>window.tableData={
+"slider": {
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [
+    ['slider_name', '滑块名称', '字符串', 0, '滑块的名称。'],
+    ['slider_collection_name', '滑块合集名', '字符串', 0, '滑块的合集名。'],
+    ['slider_track_button', '滑块跟踪按钮', '字符串', 0, '滑块跟踪的按钮映射 ID。'],
+    ['slider_small_increase_button', '滑块稍微增加按钮', '字符串', 0, '滑块稍微增加的按钮映射 ID。'],
+    ['slider_small_decrease_button', '滑块稍微减少按钮', '字符串', 0, '滑块稍微减少的按钮映射 ID。'],
+    ['slider_selected_button', '滑块选中按钮', '字符串', 0, '滑块选中的按钮映射 ID。'],
+    ['slider_deselected_button', '滑块未选中按钮', '字符串', 0, '滑块未选中的按钮映射 ID。'],
+    ['slider_direction', '滑块方向', '字符串：列举', 'horizontal', '滑块的方向。\n列举的值可以是：\nhorizontal 水平\nvertical 垂直'],
+    ['slider_steps', '滑块步数', '整数', '1', '滑块的步数。'],
+    ['slider_speed', '滑块速度', '浮点数', '1', '滑块的速度。\n单位为秒。'],
+    ['slider_timeout', '滑块超时', '浮点数', '0.25', '滑块的超时时间。\n单位为秒。'],
+    ['slider_inverted', '滑块逆转', '布尔值', 'false', '滑块是否逆转。'],
+    ['slider_select_on_hover', '滑块悬停时选中', '布尔值', 'false', '滑块是否在悬停时选中。'],
+    ['default_control', '默认状态控件', '字符串', 0, '在默认状态下显示的控件。'],
+    ['hover_control', '悬停状态控件', '字符串', 0, '在悬停状态下显示的控件。'],
+    ['slider_box_control', '滑块框控件', '字符串', 0, '滑块框控件。'],
+    ['progress_control', '滑块默认状态进度控件', '字符串', 0, '滑块在默认状态下，滑块进度控件。'],
+    ['progress_hover_control', '滑块悬停状态进度控件', '字符串', 0, '滑块在悬停状态下，滑块进度控件。'],
+    ['background_control', '滑块默认状态背景控件', '字符串', 0, '滑块在默认状态下，滑块背景控件。'],
+    ['background_hover_control', '滑块悬停状态背景控件', '字符串', 0, '滑块在悬停状态下，滑块背景控件。']
+  ]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">

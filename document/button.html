@@ -34,13 +34,7 @@
 <p>建议你在控件引用<lc>@common.button</lc>定义按钮，因为这样做能更方便一些。</p>
 <h2>按钮属性</h2>
 <tip><b>提示</b><br>默认、悬停、按下属性可以不用写，因为<lc>@commom.button</lc>时就已经默认了</tip>
-<table>
-  <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-  <tr><td>default_control</td><td>默认状态控件</td><td>字符串</td><td>默认状态下子控件的控件名，该子控件仅在默认状态显示。<br><br>引用<lc>@common.button</lc>时默认为<lc>default</lc>。</td></tr>
-  <tr><td>hover_control</td><td>悬停状态控件</td><td>字符串</td><td>悬停状态下子控件的控件名，该子控件仅在悬停状态显示。<br><br>引用<lc>@common.button</lc>时默认为<lc>hover</lc>。</td></tr>
-  <tr><td>pressed_control</td><td>按下状态控件</td><td>字符串</td><td>按下状态下子控件的控件名，该子控件仅在按下状态显示。<br><br>引用<lc>@common.button</lc>时默认为<lc>pressed</lc>。</td></tr>
-  <tr><td>locked_control</td><td>锁定状态控件</td><td>字符串</td><td>锁定状态下子控件的控件名，该子控件仅在锁定状态显示。</td></tr>
-</tbody></table>
+<div tableID="btn" class="cnTable"></div>
     <h2>按钮映射</h2>
     <p>直接添加按钮只会改变自身材质，如果需要按钮有实际作用，
     <br>需要使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a href="./attr/anim.html">动画控件</a>)</p>
@@ -56,8 +50,7 @@
   }
 }</c>
 
-<table><thead><tr><th>属性</th><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-<tr><td>#hyperlink</td><td>链接</td><td>字符串</td><td>该属性为属性包属性。<br>用于定义按下按钮后打卡的网页。</td></tr></tbody></table>
+<div tableID="link" class="cnTable"></div>
 <p>这样就可以按下按钮后打开网站了。
 不过，只能打开一些网站（可用的链接在主页 > 统计 > 链接中查找，其他网站会没效果）</p>
     
@@ -77,17 +70,7 @@
   "$pressed_button_name": "$play_button_target",
   "$button_text": "menu.play"
 }</c>
-<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-</tbody><tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
-<tr><td>$button_text</td><td>字符串</td><td>按钮显示的文字（能被.lang文件翻译）</td></tr>
-<tr><td>$border_visible</td><td>布尔值</td><td>显示按钮边框</td></tr>
-<tr><td>$button_image</td><td>字符串：控件</td><td>按钮外观</td></tr>
-<tr><td>$button_image_visible</td><td>布尔值</td><td>显示按钮外观</td></tr>
-<tr><td>$button_image_size</td><td>数组/大小</td><td>按钮外观大小</td></tr>
-<tr><td>$image_offset</td><td>数组：偏移</td><td>按钮外观偏移</td></tr>
-<tr><td>$button_image_fill</td><td>布尔值</td><td>按钮外观填充</td></tr>
-<tr><td>$image_anchor</td><td>字符串：列举</td><td>按钮外观偏移点</td></tr>
-</tbody></table>
+<div tableID="text" class="cnTable"></div>
 <tip><b>提示</b><br>@common_button.light_text_button改为@common_button.dark_text_button以黑暗外观呈现（没改$button_image情况下）</tip>
 <h3>图片按钮</h3>
 <img width="320" height="auto" src="../src/image/button/2.png"></img>
@@ -104,17 +87,7 @@
   "$button_content": "start.icon",
   "$pressed_button_name": "button.menu_achievements"
 }</c>
-<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-<tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
-<tr><td>$button_content</td><td>字符串：控件</td><td>按钮主要内容</td></tr>
-<tr><td>$border_visible</td><td>布尔值</td><td>显示按钮边框</td></tr>
-<tr><td>$button_image</td><td>字符串：控件</td><td>按钮外观</td></tr>
-<tr><td>$button_image_visible</td><td>布尔值</td><td>显示按钮外观</td></tr>
-<tr><td>$button_image_size</td><td>数组：大小</td><td>按钮外观大小</td></tr>
-<tr><td>$image_offset</td><td>数组：偏移</td><td>按钮外观偏移</td></tr>
-<tr><td>$button_image_fill</td><td>布尔值</td><td>按钮外观填充</td></tr>
-<tr><td>$image_anchor</td><td>字符串：列举</td><td>按钮外观偏移点</td></tr>
-</tbody></table>
+<div tableID="image" class="cnTable"></div>
 <tip><b>提示</b>
   <br>1. <b>$button_content</b>的值为命名空间.控件名，用于引用控件在按钮内部显示
   <br>2. @common_button.light_content_button改为@common_button.dark_content_button以黑暗外观呈现（没改$button_image情况下）
@@ -133,10 +106,7 @@
   "$button_content": "start.icon",
   "$pressed_button_name": "button.menu_achievements"
 }</c>
-<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-<tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
-<tr><td>$button_content</td><td>字符串：控件</td><td>按钮主要内容</td></tr>
-</tbody></table>
+<div tableID="nobg" class="cnTable"></div>
 <h3>自定义外观按钮</h3>
 <p>这种按钮通常用于定义新的外观<br>首先举个例子：</p>    
   <c>"icon": {
@@ -171,9 +141,7 @@
     }
   ]
 }</c>
-<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-<tr><td>$pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
-</tbody></table>
+<div tableID="custom" class="cnTable"></div>
 <tip><b>提示</b>
   <br>1. <a class="c-red">controls</a>的子控件名取决于
   <br>  default_control,hover_control,pressed_control,
@@ -186,9 +154,7 @@
   "size": ["100%","100%"],
   "$close_button_to_button_id": "button.menu_exit"
 }</c>
-<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-<tr><td>$close_button_to_button_id</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
-</tbody></table>
+<div tableID="close" class="cnTable"></div>
 <p>修改外观与个性化按钮类似，这里不多一一介绍</p>
 <h3>返回按钮</h3>
 <p>这种按钮通常用于返回上个屏幕</p>
@@ -196,9 +162,7 @@
   "size": ["100%","100%"],
   "$back_button_pressed_button_name": "button.menu_exit"
 }</c>
-<table><thead><tr><th>属性名</th><th>值</th><th>描述</th></tr></thead><tbody>
-<tr><td>$back_button_pressed_button_name</td><td>字符串</td><td>值等于上面的to_button_id（按下就可以触发这个按钮事件）</td></tr>
-</tbody></table>
+<div tableID="back" class="cnTable"></div>
 <p>修改外观与个性化按钮类似，这里不多一一介绍</p>
 <h2>代码示例</h2>
 <p>是不是觉得上面的文档太乱？
@@ -237,6 +201,74 @@
     <br>如果不懂建议反复观看哦！</p>
     </div></div>
   <!--正文-->
+<script>window.tableData={
+"btn": {
+  "head": [["属性","属性名","值","描述"]],
+  "body": [
+    ['default_control', '默认状态控件', '字符串', '默认状态下子控件的控件名，该子控件仅在默认状态显示。\n\n引用<lc>@common.button</lc>时默认为<lc>default</lc>。'],
+    ['hover_control', '悬停状态控件', '字符串', '悬停状态下子控件的控件名，该子控件仅在悬停状态显示。\n\n引用<lc>@common.button</lc>时默认为<lc>hover</lc>。'],
+    ['pressed_control', '按下状态控件', '字符串', '按下状态下子控件的控件名，该子控件仅在按下状态显示。\n\n引用<lc>@common.button</lc>时默认为<lc>pressed</lc>。'],
+    ['locked_control', '锁定状态控件', '字符串', '锁定状态下子控件的控件名，该子控件仅在锁定状态显示。']
+  ]
+},
+"link": {
+  "head": [["属性","属性名","值","描述"]],
+  "body": [['hyperlink', '链接', '字符串', '该属性为属性包属性。\n用于定义按下按钮后打卡的网页。']]
+},
+"text": {
+  "head": [["属性","值","描述"]],
+  "body": [
+    ['$pressed_button_name', '字符串', '值等于上面的to_button_id（按下就可以触发这个按钮事件）'],
+    ['$button_text', '字符串', '按钮显示的文字（能被.lang文件翻译）'],
+    ['$border_visible', '布尔值', '显示按钮边框'],
+    ['$button_image', '字符串：控件', '按钮外观'],
+    ['$button_image_visible', '布尔值', '显示按钮外观'],
+    ['$button_image_size', '数组/大小', '按钮外观大小'],
+    ['$image_offset', '数组：偏移', '按钮外观偏移'],
+    ['$button_image_fill', '布尔值', '按钮外观填充'],
+    ['$image_anchor', '字符串：列举', '按钮外观偏移点']
+  ]
+},
+"image": {
+  "head": [["属性","值","描述"]],
+  "body": [
+    ['$pressed_button_name', '字符串', '值等于上面的to_button_id（按下就可以触发这个按钮事件）'],
+    ['$button_content', '字符串：控件', '按钮主要内容'],
+    ['$border_visible', '布尔值', '显示按钮边框'],
+    ['$button_image', '字符串：控件', '按钮外观'],
+    ['$button_image_visible', '布尔值', '显示按钮外观'],
+    ['$button_image_size', '数组/大小', '按钮外观大小'],
+    ['$image_offset', '数组：偏移', '按钮外观偏移'],
+    ['$button_image_fill', '布尔值', '按钮外观填充'],
+    ['$image_anchor', '字符串：列举', '按钮外观偏移点']
+  ]
+},
+"nobg": {
+  "head": [["属性","值","描述"]],
+  "body": [
+    ['$pressed_button_name', '字符串', '值等于上面的to_button_id（按下就可以触发这个按钮事件）'],
+    ['$button_content', '字符串：控件', '按钮主要内容']
+  ]
+},
+"custom": {
+  "head": [["属性","值","描述"]],
+  "body": [
+    ['$pressed_button_name', '字符串', '值等于上面的to_button_id（按下就可以触发这个按钮事件）']
+  ]
+},
+"close": {
+  "head": [["属性","值","描述"]],
+  "body": [
+    ['$close_button_to_button_id', '字符串', '值等于上面的to_button_id（按下就可以触发这个按钮事件）']
+  ]
+},
+"back": {
+  "head": [["属性","值","描述"]],
+  "body": [
+    ['$back_button_pressed_button_name', '字符串', '值等于上面的to_button_id（按下就可以触发这个按钮事件）']
+  ]
+}
+}</script>
   <script src="../src/js/main.js"></script>
   <script src="../src/js/hl.js"></script>
   <link href="../src/css/font-awesome.css" rel="stylesheet">
