@@ -35,7 +35,7 @@
 <p>首先展示下滚动面板的代码</p>
 <c>"scrolling_panel@common.scrolling_panel": {
   "$show_background": false,// 显示背景
-  "$scrolling_content": "stack_panel",// 滚动面板内容
+  "$scrolling_content": "start.stack_panel",// 滚动面板内容
   "size": [ "100%", "100%" ]// 滚动面板大小
 },
 
@@ -69,9 +69,9 @@
 
 <c>"scrolling_panel@common.scrolling_panel": {
   "$show_background": false,// 显示背景
-  "$scrolling_content": "stack_panel",// 滚动面板内容
+  "$scrolling_content": "start.stack_panel",// 滚动面板内容
   "size": [ "100%", "100%" ],// 滚动面板大小
-  "$scroll_background_image_control": "hud.scroll_bg"
+  "$scroll_background_image_control": "start.scroll_bg"
 },
 
 "scroll_bg": {
@@ -123,14 +123,14 @@
 </table></div></div>
 
 例如这样更改滚动条
-<br>只要加上这两个属性并引用控件即可: <lc>$scroll_box_mouse_image_control</lc> 
-<lc>$scroll_box_touch_image_control</lc>
+<br>只要加上这两个属性并引用控件即可: <br><lc>$scroll_box_mouse_image_control</lc> 鼠标/手柄滚动条图像
+<br><lc>$scroll_box_touch_image_control</lc> 触屏滚动条图像
 
 <c>"scrolling_panel@common.scrolling_panel": {
   "$show_background": false,// 显示背景
-  "$scrolling_content": "stack_panel",// 滚动面板内容
+  "$scrolling_content": "start.stack_panel",// 滚动面板内容
   "size": [ "100%", "100%" ],// 滚动面板大小
-  "$scroll_box_mouse_image_control": "hud.scroll_box_image"
+  "$scroll_box_mouse_image_control": "start.scroll_box_image"
 },
 
 "scroll_box_image": {
@@ -157,14 +157,14 @@
 <br>在引用时就是 "hud.某个控件"。
 </tip>
 
-在代码中的 <lc>"alpha": "@common.anim_scrollbar_box_fadeout"</lc> ，就是让滚动条在<b>滚动面板静止不动的状态下</b>隐藏，建议加上去。
+在代码中的 <lc>"alpha": "@common.anim_scrollbar_box_fadeout"</lc> ，就是让滚动条在<b>滚动面板静止不动的状态下</b>隐藏。<a class="c-red">（不加这个动画也可以自动淡出，仅限触屏模式）</a>
 
 滚动面板就讲到这里了！还有很多属性没讲，其中这里只挑了重要的来讲。
 
 <h2> 代码示例</h2>
 <c>"scrolling_panel@common.scrolling_panel": {
   "$show_background": false,// 显示背景
-  "$scrolling_content": "stack_panel",// 滚动面板内容
+  "$scrolling_content": "start.stack_panel",// 滚动面板内容
   "size": [ "100%", "100%" ]// 滚动面板大小
 },
 
