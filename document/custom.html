@@ -93,6 +93,9 @@
 <h3>webview</h2>
 该渲染器需要 renderer 属性为<lc>web_view_renderer</lc>。
 <div tableID="webview" class="cnTable"></div>
+<h3>装备预览</h2>
+该渲染器需要 renderer 属性为<lc>equipment_preview_renderer</lc>。
+<div tableID="equipment_preview_renderer" class="cnTable"></div>
 <h3>其他</h3>
 <div tableID="other" class="cnTable"></div>
 </div></div>
@@ -218,7 +221,15 @@
     ['#banner_colors', '旗帜颜色', '整数', 0, '是', 0],
     ['#item_custom_color', '物品自定义颜色', '整数', 0, '是', 0],
     ['#disabled_filter_visible', '禁用过滤器显示', '布尔值', 0, '是', 0],
-    ['#filtered_light_multiplier', '禁用过滤器光亮倍度', '浮点数', '1', '是', 0]
+    ['#filtered_light_multiplier', '禁用过滤器光亮倍度', '浮点数', '1', '是', 0],
+    ['#armor_trim_pattern', '盔甲修剪图案', 0, 0, '是', 0],
+    ['#armor_trim_material', '盔甲修剪材料', 0, 0, '是', 0],
+    ['#item_lodestone_tracking_handle', '磁石跟踪', 0, 0, '是', 0],
+    ['#shield_is_active', '盾牌激活', 0, 0, '是', 0],
+    ['#shield_base_color', '盾牌底色', 0, 0, '是', 0],
+    ['#shield_base_color_hovered', '盾牌底色悬停', 0, 0, '是', 0],
+    ['#decorated_pot_sherds', '装饰的陶罐碎片', 0, 0, '是', 0],
+    ['#group_item_group_name', '物品组名称', 0, 0, '是', 0]
   ]
 },
 "banner": {
@@ -287,6 +298,17 @@
     ['#webview_update', 'webview 刷新', '布尔值', 0, '是', 0]
   ]
 },
+"equipment_preview_renderer": {
+  "head": [["属性","属性名","值","默认值","属性包","描述"]],
+  "body": [
+    ['rotation_x', 'X轴旋转', '整数', 0, '否', 0],
+    ['rotation_y', 'Y轴旋转', '整数', 0, '否', 0],
+    ['#item_id_aux', '物品 AUX ID', '整数', '-1', '是', 0],
+    ['#item_custom_color', '物品自定义颜色', '整数', 0, '是', 0],
+    ['#armor_trim_pattern', '盔甲修剪图案', 0, 0, '是', 0],
+    ['#armor_trim_material', '盔甲修剪材料', 0, 0, '是', 0]
+  ]
+},
 "other": {
   "head": [["渲染器","渲染器中文名"]],
   "body": [
@@ -310,7 +332,9 @@
     ["actor_portrait_renderer", "演员肖像"],
     ["bundle_renderer", "bundle"],
     ["bohr_model_renderer", "bohr 模型"],
-    ["holographic_postrenderer", "全息图"]
+    ["holographic_postrenderer", "全息图"],
+    ["gfx_multithreaded_renderer", "GFX 多线程"],
+    ["background_renderer", "背景"]
   ]
 }
 }</script>
