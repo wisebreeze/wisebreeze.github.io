@@ -32,16 +32,16 @@
   <tr><td>button_mappings</td><td>按钮映射</td><td>数组</td><td></td><td>按钮映射事件的处理。<br>详见 <a href="#pid_1">按钮映射 ></a></td></tr>
   <tr><td>modal</td><td>模态</td><td>布尔值</td><td>false</td><td>控件是否启用模态。<br>启用后，控件会覆盖其他控件（除该控件及其子控件）的操作，阻止焦点和互动。</td></tr>
   <tr><td>inline_modal</td><td>内联模态</td><td>布尔值</td><td>false</td><td>控件是否启用内联模态。<br>启用后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的所有类型操作，阻止焦点和互动。</td></tr>
-  <tr><td>always_listen_to_input</td><td>总是监听输入</td><td>布尔值</td><td>false</td><td>控件是否总是监听输入。<br>禁用后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的所有类型操作，阻止焦点和互动。</td></tr>
-  <tr><td>always_handle_pointer</td><td>总是处理指针</td><td>布尔值</td><td>true</td><td>控件是否总是处理指针输入。<br>禁用后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的指针操作，阻止焦点和互动。</td></tr>
-  <tr><td><a style="font-size: 0.8em;">always_handle_controller_direction</a></td><td>总是处理控制器方向</td><td>布尔值</td><td>true</td><td>控件是否总是处理控制器方向输入。<br>禁用后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的控制器方向操作，阻止焦点和互动。</td></tr>
-  <tr><td>prevent_touch_input</td><td>阻止触屏输入</td><td>布尔值</td><td>false</td><td>控件是否阻止触屏输入。<br>阻止后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的触屏操作，阻止焦点和互动。</td></tr>
-  <tr><td>consume_event</td><td>消耗事件</td><td>布尔值</td><td>false</td><td>控件是否消耗事件。<br>阻止后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的事件操作。</td></tr>
+  <tr><td>always_listen_to_input</td><td>总是监听输入</td><td>布尔值</td><td>false</td><td>控件是否始终监听输入。<br>启用后，控件位于其他控件后方，始终会监听输入。</td></tr>
+  <tr><td>always_handle_pointer</td><td>总是处理指针</td><td>布尔值</td><td>false</td><td>控件是否始终处理指针输入。<br>启用后，控件位于其他控件后方，始终会处理指针操作。</td></tr>
+  <tr><td><a style="font-size: 0.8em;">always_handle_controller_direction</a></td><td>总是始终控制器方向</td><td>布尔值</td><td>false</td><td>控件是否总是处理控制器方向输入。<br>启用后，控件位于其他控件后方，始终会处理控制器方向。</td></tr>
+  <tr><td>prevent_touch_input</td><td>阻止触屏输入</td><td>布尔值</td><td>false</td><td>控件是否阻止触屏输入。<br>阻止后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的触屏操作，阻止互动。</td></tr>
+  <tr><td>consume_event</td><td>消耗事件</td><td>布尔值</td><td>true</td><td>控件是否消耗事件。<br>值为 true 时，映射事件不会被消耗，并且将映射事件传递当前控件后方的控件。</td></tr>
   <tr><td>hover_enabled</td><td>启用悬停</td><td>布尔值</td><td>true</td><td>控件是否启用悬停。</td></tr>
-  <tr><td>consume_hover_events</td><td>消耗悬停事件</td><td>布尔值</td><td>true</td><td>控件是否消耗悬停事件。<br>阻止后，控件会覆盖该控件所在范围的其他控件（除该控件及其子控件）的悬停事件操作。</td></tr>
+  <tr><td>consume_hover_events</td><td>消耗悬停事件</td><td>布尔值</td><td>true</td><td>控件是否消耗悬停事件。<br>值为 true 时，悬停事件不会被消耗，并且将映射事件传递当前控件后方的控件。</td></tr>
 </tbody></table></div></div>
 <h2>按钮映射</h2>
-<p>可以使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转换为游戏内的操作(如button.menu_settings)或用于改变动画状态(详见<a href="./anim.html">动画控件</a>)</p>
+<p>可以使用 button_mappings 把键盘/手柄/其他操作方式的输入操作(如button.menu_select、button.menu_cancel)映射转输出为游戏内的操作(如button.menu_settings)或者用于改变动画状态(详见<a href="./anim.html">动画控件</a>)</p>
 下面我们来认识一下如何添加按钮映射吧！
 <c title="示例">"button_mappings": [
   {
