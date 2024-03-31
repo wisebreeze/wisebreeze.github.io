@@ -26,13 +26,13 @@
   <!--正文-->
   <div id="content">
     <div class="left_title"><h1>物品 AUX ID</h1></div>
-    <div class="left_content">我们使用自定义控件的渲染器时，有时我们需要填写 #item_id_aux 属性包属性。
+    <div class="left_content">我们使用自定义控件的渲染器时，我们需要使用 #item_id_aux 属性包属性。
 <p>在本篇文档，你将会了解到如何获取某个物品的 AUX ID。</p>
 <p>现在，我们只需要把物品的 ID * 65536 即可</p>
 <p>如果想通过物品的 AUX ID 得到物品的 ID，只需要把 AUX ID / 65536 即可。</p>
 <p>你可以通过<a href="https://learn.microsoft.com/zh-cn/minecraft/creator/reference/content/addonsreference/examples/addonitems">微软官方的 Addon 文档</a>查看物品 ID。</p>
 <p>某些物品存在不同的特殊值，可以对 AUX ID 进行适当的加减来获取不同特殊值的物品。例如数据值为 64 的铁镐 AUX ID = ((299 * 65536) + 64)。</p>
-<error><b>警告</b><br>如果 AUX ID 不存在，会导致游戏卡退。</error>
+<error><b>警告</b><br>如果 AUX ID 对应的物品不存在，会导致游戏错误退出。</error>
 </div></div>
   <!--正文-->
   <script src="../src/js/main.js"></script>
