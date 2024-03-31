@@ -1,18 +1,19 @@
 // 全局变量
-var wh = window.innerHeight;
-var pid = 1;
-var copy_id = 1;
-var copyPrefix = 'copy_id_';
-var menuHeight = 21;
-var guide_link = {
+var hostName=window.location.protocol==="file:"?"https://mcspruce.github.io":window.location.protocol+"//"+window.location.hostname;
+wh=window.innerHeight,
+pid=1,
+copy_id=1,
+copyPrefix='copy_id_',
+menuHeight=21,
+guide_link={
   "link": [
-    {"link":"https://jsonui.netlify.app","title":"首页"},
+    {"link":hostName,"title":"首页"},
     {"link":"https://space.bilibili.com/494279926","title":"B站主页"},
-    {"link":"https://jsonui.netlify.app/group.html","title":"交流群"},
-    {"link":"https://jsonui.netlify.app/privacy.html","title":"隐私政策"}
+    {"link":hostName+"/group.html","title":"交流群"},
+    {"link":hostName+"/privacy.html","title":"隐私政策"}
   ]
-}
-var titleSuffix = " | 我的世界基岩版 UI 文档";
+},
+titleSuffix=" | 我的世界基岩版 UI 文档";
 
 // 标题
 if ($("title").attr("home") == null && $("title")) $("title").text($("title").text() + titleSuffix);
@@ -98,8 +99,8 @@ document.addEventListener('click',function(e){
 document.addEventListener('DOMContentLoaded',function(){
   if (document.getElementById("number_progress")) document.getElementById("number_progress").innerText = "0%";
   //插入内容
-  if($("title").attr("cube")=='true')$("body").prepend(`<headbar><div class="headbar_left"><a href="https://jsonui.netlify.app/cube/">Cube UI 文档</a></div><button type="button" class="theme-btn" onclick="themeSet()">主题设置</button></headbar>`);
-  else $("body").prepend(`<headbar><div class="headbar_left"><a class="fa fa-bars" id="open-btn" onclick="openNav()"></a><a href="https://jsonui.netlify.app">我的世界基岩版 UI 文档</a></div><button type="button" class="theme-btn" onclick="themeSet()">主题设置</button></headbar>`);
+  if($("title").attr("cube")=='true')$("body").prepend(`<headbar><div class="headbar_left"><a href="${hostName}/cube/">Cube UI 文档</a></div><button type="button" class="theme-btn" onclick="themeSet()">主题设置</button></headbar>`);
+  else $("body").prepend(`<headbar><div class="headbar_left"><a class="fa fa-bars" id="open-btn" onclick="openNav()"></a><a href="${hostName}">我的世界基岩版 UI 文档</a></div><button type="button" class="theme-btn" onclick="themeSet()">主题设置</button></headbar>`);
   if($("div.left_content").attr("hide_bq")==null) $("div.left_content").append(`<fieldset class="ns"><fieldsetTitle>版权声明</fieldsetTitle>- 除非另有说明，否则文档内容均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可协议<br>- 此网站与 Mojang Studios 以及微软无任何从属关系<br>- 转载需要作者同意，并且标明内容来自于本网站</fieldset>`);
   for(var linkTarget in guide_link.link)$("#guide > .guide_content").append(`<a class="link-button" href="${guide_link.link[linkTarget].link}">${guide_link.link[linkTarget].title}</a>`);
   $("#guide > .guide_content").append(`<a id="fullScreenBtn" class="link-button" onclick="fullScreen()">全屏</a>`);
@@ -147,7 +148,7 @@ document.addEventListener('DOMContentLoaded',function(){
   })
   // 加载面包屑
   $(".left_title").each(function(){
-    var backLink = $(this).attr("back_link") || "https://jsonui.netlify.app/",
+    var backLink = $(this).attr("back_link") || hostName+"/",
     backText = $(this).attr("back_text") || "首页",
     title = $(this).children()[0].innerText || "文档";
     $(this).prepend(`<ol class="breadcrumb ns"><li><a href="${backLink}">< ${backText}</a></li><li class="active"><a>${title}</a></li></ol>`);
