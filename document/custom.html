@@ -68,7 +68,9 @@
 <div tableID="hover" class="cnTable"></div>
 <h3>物品栏物品</h3>
 该渲染器需要 renderer 属性为<lc>inventory_item_renderer</lc>。
+<error><b>警告</b><br>如果 AUX ID 对应的物品不存在，会导致游戏错误退出。</error>
 <div tableID="item" class="cnTable"></div>
+<p>1. 物品 AUX ID = <a href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%88%E6%95%B0%E6%8D%AE%E5%80%BC">物品 ID</a> * 65536 + <a href="https://zh.minecraft.wiki/w/%E5%9F%BA%E5%B2%A9%E7%89%88%E6%95%B0%E6%8D%AE%E5%80%BC">物品的数据值（某些物品）</a></p>
 <h3>旗帜</h3>
 该渲染器需要 renderer 属性为<lc>banner_pattern_renderer</lc>。
 <div tableID="banner" class="cnTable"></div>
@@ -215,7 +217,7 @@
 "item": {
   "head": [["属性","属性名","值","默认值","属性包","描述"]],
   "body": [
-    ['#item_id_aux', '物品 AUX ID', '整数', '-1', '是', 0],
+    ['#item_id_aux', '物品 AUX ID <sup>[1]</sup>', '整数', '-1', '是', 0],
     ['#item_pickup_time', '物品拾取时间', '整数', 0, '是', 0],
     ['#banner_patterns', '旗帜样式', '整数', 0, '是', 0],
     ['#banner_colors', '旗帜颜色', '整数', 0, '是', 0],
