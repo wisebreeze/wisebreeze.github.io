@@ -203,7 +203,7 @@ function copy_code(text,tip,error='复制失败',isVal=false,allowTip=true) {
   aux.innerHTML = document.getElementById(text)[isVal?'value':'innerText'];
   // 在 body 写入 aux 的 textarea
   document.querySelector('#content').appendChild(aux);
-  if(aux.innerHTML.trim()===''&&allowTip)alert(error);
+  if(aux.innerHTML.trim()===''&&allowTip)sdui.toast({text:error,anchor:'bottom',type:'error'});
   else if(aux.innerHTML.trim()!==''){
     // 选中 aux
     aux.select();
@@ -211,7 +211,7 @@ function copy_code(text,tip,error='复制失败',isVal=false,allowTip=true) {
     document.execCommand("copy");
     // 提示
     const tip_text = tip || '复制代码成功';
-    if(allowTip)alert(tip_text);
+    if(allowTip)sdui.toast({text:tip_text,anchor:'bottom',type:'success'});
   }
   // 删除 textarea （不保留痕迹+取消选中）
   document.querySelector('#content').removeChild(aux)
