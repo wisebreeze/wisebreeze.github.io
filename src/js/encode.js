@@ -39,3 +39,6 @@ function de_unicode(str){var strArray=str.split("\\u"),rs="";/*防止\u开头或
 // 哈希函数
 function str_to_hash(){const str=document.querySelector("#original_text").value;hashString(str).then(txt=>{document.querySelector("#result_output").innerHTML=txt})}
 function hashString(str){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(str)).then(digestBuffer=>Array.from(new Uint8Array(digestBuffer)).map(byte=>byte.toString(16).padStart(2,'0')).join(''))}
+// url编码
+function str_to_url(){document.getElementById("result_output").innerHTML=encodeURIComponent(document.getElementById("original_text").value)}
+function url_to_str(){document.getElementById("result_output").innerHTML=decodeURIComponent(document.getElementById("original_text").value)}
