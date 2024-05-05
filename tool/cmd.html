@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>编码 / 解析</title>
+  <title>命令转换</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -20,47 +20,48 @@
 
   <script src="../src/js/jQuery.js"></script>
   <link href="../src/css/main.css" rel="stylesheet">
+  <link href="../src/css/tileUI.css" rel="stylesheet">
 </head>
 <body>
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>编码 / 解析</h1></div>
+    <div class="left_title"><h1>命令转换</h1></div>
     <div class="left_content" hide_bq="true">
-      <div class="category_div" icon="none" title="原文">
-        <div class="category_content">
-        <textarea id="original_text" rows="6"></textarea>
-      </div></div>
-      <div class="category_div" icon="none" title="输出">
-        <div class="category_content">
-        <textarea readonly id="result_output" rows="6"></textarea>
-      </div></div>
-      <button class="btn" onclick="copy_code('result_output','复制结果成功',undefined,true)" style="margin: 6px 0 4px 0;">复制结果</button>
-      <div class="btn_div"><div class="left">
-      <button class="btn" onclick="str_to_base64()">转为 base64</button>
-      <button class="btn" onclick="str_to_morse()">转为 摩斯电码</button>
-      <button class="btn" onclick="str_to_unicode()">转为 unicode</button>
-      <button class="btn" onclick="str_to_url()">转为 url 编码</button>
-      <button class="btn" onclick="str_to_ascii()">转为 Ascii</button>
-      <button class="btn" onclick="str_to_utf8()">转为 UTF-8 数组</button>
-      <button class="btn" onclick="str_to_hash()">转为 MD5</button></div><div class="right">
-      <button class="btn" onclick="base64_to_str()">解析 base64</button>
-      <button class="btn" onclick="morse_to_str()">解析 摩斯电码</button>
-      <button class="btn" onclick="unicode_to_str()">解析 unicode</button>
-      <button class="btn" onclick="url_to_str()">解析 url 编码</button>
-      <button class="btn" onclick="ascii_to_str()">解析 Ascii</button>
-      <button class="btn" onclick="utf8_to_str()">解析 UTF-8 数组</button></div></div>
-    </div>
-<style>
+<div class="category_div" icon="none" title="命令">
+  <div class="category_content">
+  <code class="category_code" id="cmd" contenteditable="true"></code>
+</div></div>
+<div class="category_div" icon="none" title="输出">
+  <div class="category_content">
+  <code style="height:120px;" class="category_code" id="output" contenteditable="true"></code>
+</div></div>
+<div class="btn_div"><div class="left">
+<button class="btn" onclick="undo()">撤销</button>
+<button class="btn" onclick="copy()">复制</button></div><div class="right">
+<button class="btn" onclick="redo()">重做</button>
+<button class="btn" onclick="download()">下载</button></div></div>
+<select style="margin-left: 2px;" class="input" id="targetapi">
+  <option value="1910">old -> 1.19.10 (实验性玩法)</option>
+  <option value="1950">old -> 1.19.50.23</option>
+  <option value="1970" selected>old -> 1.19.70.21</option>
+</select>
+</div><style>
 .category_content {
   overflow-x: hidden;
   overflow-y: auto;
 }
-.category_content > textarea {
+.category_content > .category_code {
   background: none;
   outline: none;
   border: none;
-  overflow-x: hidden;
+  display: block;
+  height: 220px;
+  white-space: pre;
+  overflow-x: auto;
   overflow-y: auto;
+  line-height: 1.1em;
+  font-size: 0.92rem;
+  font: 16px/20px -apple-system,Arial,Helvetica,sans-serif;
 }
 .btn_div {
   display: flex;
@@ -73,8 +74,8 @@
   </div>
   <!--正文-->
   <link href="../src/css/font-awesome.css" rel="stylesheet">
-  <script src="../src/js/tileUI.js"></script>
   <script src="../src/js/sdui.js"></script>
+  <script src="../src/js/tileUI.js"></script>
   <script src="../src/js/main.js"></script>
-  <script src="../src/js/encode.js"></script>
+  <script src="../src/js/cmd.js"></script>
 </body></html>
