@@ -353,7 +353,7 @@ h6 {font-size: 0.8rem !important;}
 /* 响应式布局 */
 #content {
   padding-top: 60px;
-  margin-left: 0.5rem;
+  padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
