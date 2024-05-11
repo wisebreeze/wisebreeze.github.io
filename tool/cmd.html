@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>命令转换</title>
+  <title>命令迁移</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -25,7 +25,7 @@
 <body>
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>命令转换</h1></div>
+    <div class="left_title"><h1>命令迁移</h1></div>
     <div class="left_content" hide_bq="true">
 <div class="category_div" icon="none" title="命令">
   <div class="category_content">
@@ -41,11 +41,15 @@
 <button class="btn" onclick="redo()">重做</button>
 <button class="btn" onclick="download()">下载</button></div></div>
 <select style="margin-left: 2px;" class="input" id="targetapi">
-  <option value="1910">old -> 1.19.10 (实验性玩法)</option>
-  <option value="1950">old -> 1.19.50.23</option>
-  <option value="1970" selected>old -> 1.19.70.21</option>
+  <option value="11901000">old -> 1.19.10 (实验性)</option><option value="11905023">old -> 1.19.50.23</option><option value="11907002">old -> 1.19.70.02 (移除数据值)</option><option value="11908002">old -> 1.19.80.02</option><option value="12000001">old -> 1.20.0.01</option><option value="12001001" selected>old -> 1.20.10.01</option><option value="12003002">old -> 1.20.30.02</option><option value="12005003">old -> 1.20.50.03</option><option value="12006004">old -> 1.20.60.04</option><option value="12007101">old -> 1.20.71.01</option><option value="12008005">old -> 1.20.80.05</option><option value="12100000">old -> 1.21.0</option>
 </select>
+<div style="margin-bottom:15px;display:none;">手动更改方块数据值 <input style="vertical-align: middle;" type="checkbox" id="blockData"></div>
+<div style="width:100%;font-size:14px;margin: 5px 0;text-align:center;">版本变更和<a href="https://zh.minecraft.wiki/w/%E6%96%B9%E5%9D%97%E7%8A%B6%E6%80%81">方块状态</a>参考于 <a href="https://zh.minecraft.wiki">中文 Minecraft Wiki</a></div>
 </div><style>
+:root{--highlight-error-bg:#e63232;--highlight-error-text:rgba(255,255,255,0.8);}
+:root[data-theme="dark"]{--highlight-error-bg:#640000;--highlight-error-text:#c8c8c8;}
+.highlight-error {background:var(--highlight-error-bg);color:var(--highlight-error-text);border-radius:5px;padding:1px;}
+.highlight-warn {background:#fab93a;color:#000;border-radius:5px;padding:1px;}
 .category_content {
   overflow-x: hidden;
   overflow-y: auto;
