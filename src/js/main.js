@@ -1,5 +1,5 @@
 // 全局变量
-var hostName=window.location.protocol==="file:"?"https://mcspruce.github.io":window.location.protocol+"//"+window.location.hostname;
+var hostName=window.location.protocol==="file:"?"https://wisebreeze.github.io/":window.location.protocol+"//"+window.location.hostname;
 wh=window.innerHeight,
 pid=1,
 copy_id=1,
