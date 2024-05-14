@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded',function(){
   })
   // 加载面包屑
   $(".left_title").each(function(){
-    var backLink = $(this).attr("back_link") || hostName+"/",
+    var backLink = $(this).attr("back_link") || hostName,
     backText = $(this).attr("back_text") || "首页",
     title = $(this).children()[0].innerText || "文档";
     $(this).prepend(`<ol class="breadcrumb ns"><li><a href="${backLink}">< ${backText}</a></li><li class="active"><a>${title}</a></li></ol>`);
