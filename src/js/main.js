@@ -17,7 +17,7 @@ titleSuffix=" | 我的世界基岩版 UI 文档";
 
 // 跳转
 if (window.location.href.startsWith("http://jsonui.netlify.app") || window.location.href.startsWith("https://jsonui.netlify.app")) {
-  window.location.href = window.location.href.replace("http://jsonui.netlify.app", "http://jsonui.netlify.app").replace("https://jsonui.netlify.app", "https://jsonui.netlify.app");
+  window.location.href = window.location.href.replace("http://jsonui.netlify.app", "http://mcbeui.netlify.app").replace("https://jsonui.netlify.app", "https://mcbeui.netlify.app");
 }
 
 // 标题
