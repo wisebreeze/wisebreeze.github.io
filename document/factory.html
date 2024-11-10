@@ -26,15 +26,63 @@
   <!--正文-->
   <div id="content">
     <div class="left_title"><h1>工厂</h1></div>
-    <div class="left_content"><h2>属性</h2>
-    <div tableID="factory" class="cnTable"></div>
+    <div class="left_content"><p>工厂可用于生产控件，减少穷举。</p>
+<h2>使用</h2>
+在使用工厂属性之前，首先写好控件模板，以下使用该模板进行示例：
+<c>"template": {
+  "type": "panel",
+  "size": ["100%","100%"]
+}</c>
+之后在需要工厂属性的控件中加入 <lc>factory</lc> 属性：
+<c>"test_factory": {
+  "type": "collection_panel",
+  "factory": {
+    "name": "factory_name",// 可自由更改
+    "control_name": "start.template"// 引用用于生成的子控件
+  }
+}</c>
+<p>这里使用 <lc>collection_panel</lc> 作该控件的类型，因为普通的 <lc>factory</lc> 类型的控件不可以使用绑定。</p>
+<p>工厂的子控件生产的数量由属性包的 <lc>#collection_length</lc> 控制，但不能直接使用属性包属性直接给 <lc>#collection_length</lc> 设置默认值，我们需要通过使用绑定给工厂设置集合长度。</p>
+<p>这里以 toggle 的 #toggle_state 作为简单的布尔值条件，以下是设置集合长度的示例：</p>
+<c>"test_factory": {
+  "type": "collection_panel",
+  "factory": {
+    "name": "factory_name",// 可自由更改
+    "control_name": "start.template"// 引用用于生成的子控件
+  },
+  "bindings": [
+    {
+      "binding_type": "view",
+      "source_control_name": "test_toggle",// toggle 控件名
+      "source_property_name": "#toggle_state",
+      "target_property_name": "#length"
+    },
+    {
+      "binding_type": "view",
+      "source_property_name": "(#length * 1)",
+      "target_property_name": "#collection_length"
+    }
+  ]
+}</c>
+<tip><b>提示</b><br>#collection_length 属性仅支持整数。</tip>
+这样，简单的一个带工厂属性的控件就完成啦～
+<p>这里还有一些注意事项：</p>
+<ol>
+  <li>可以在 factory 属性中加入 <lc>max_children_size</lc>，来限制工厂最大生成长度。</li>
+  <li>在 factory 属性加入 <lc>name</lc> 主要防止日志报错。</li>
+  <li>如果子控件模板不存在或者其他情况下，工厂控件可能会导致闪退等问题。</li>
+  <li>若工厂控件不可见，则不会生产控件，因此避免父控件以及工厂控件使用 <lc>visible</lc> 来控制控件使用可见。</li>
+</ol>
+<h2>属性</h2>
+该控件属性仅支持 factory 控件类型。
+<div tableID="factory" class="cnTable"></div>
 </div></div>
   <!--正文-->
 <script>window.tableData={
 "factory": {
   "head": [["属性","属性名","值","描述"]],
   "body": [
-    ['control_name', '控件名', '字符串', '工厂的子控件名。\n属性示例：\n<lc>"control_name": "@namespace.controls_name"</lc>'],
+    ['control_name', '控件名', '字符串', '工厂的子控件名。\n属性示例：\n<lc>"control_name": "namespace.controls_name"</lc>'],
     ['control_ids', '控件 ID', '对象', '工厂的子控件 ID 对象组。\n属性示例：\n<lc>"control_ids": { "id": "@namespace.controls_name" }</lc>']
   ]
 }

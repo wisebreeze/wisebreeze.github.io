@@ -68,7 +68,7 @@
 <tip><b>提示</b><br>属性使用 * 号标注的是必填属性。</tip>
 <div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-  <tr><td>binding_type</td><td>绑定类型</td><td>字符串：列举</td><td>global</td><td>定义绑定的类型。<br>列举的值可以是：<br>none 无<br>global 全局<br>collection 合集<br>collection_details 合集详细<br>view 查看</td></tr>
+  <tr><td>binding_type</td><td>绑定类型</td><td>字符串：列举</td><td>global</td><td>定义绑定的类型。<br>列举的值可以是：<br>none 无<br>global 全局<br>collection 集合<br>collection_details 集合详细<br>view 查看</td></tr>
   <tr><td>ignored</td><td>忽略</td><td>布尔值</td><td>false</td><td>是否忽略该绑定。</td></tr>
 </tbody></table></div></div>
 <p>当<lc>binding_type</lc>为<lc>global</lc>时，可用的属性：</p>
@@ -83,14 +83,14 @@
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
   <tr><td>* binding_name</td><td>绑定名</td><td>字符串</td><td></td><td>储存硬编码的绑定名。<br>绑定名可用于条件记算。</td></tr>
   <tr><td>binding_name_override</td><td>绑定名覆盖</td><td>字符串</td><td></td><td>将 binding_name 中的值覆盖到另一个绑定名。<br>通常为控件中的属性，例如：<br>#text、#visible、#enabled</td></tr>
-  <tr><td>* binding_collection_name</td><td>绑定合集名</td><td>字符串</td><td></td><td>要操作的合集的名称。</td></tr>
+  <tr><td>* binding_collection_name</td><td>绑定集合名</td><td>字符串</td><td></td><td>要操作的集合的名称。</td></tr>
   <tr><td>binding_condition</td><td>绑定条件</td><td>字符串：列举</td><td>none</td><td>改变绑定数据的条件。<br>列举的值可以是：<br>none 无<br>once 仅一次<br>always 总是<br>visible 可见时<br>always_when_visible 总是在可见时<br>visibility_changed 可见性改变时</td></tr>
 </tbody></table></div></div>
 <p>当<lc>binding_type</lc>为<lc>collection_details</lc>时，可用的属性：</p>
 <div class="cnTable"><div class="cnTableContainer"><table>
   <thead><tr><th>属性</th><th>属性名</th><th>值</th><th>默认值</th><th>描述</th></tr></thead><tbody>
-  <tr><td>* binding_collection_name</td><td>绑定合集名</td><td>字符串</td><td></td><td>要操作的合集的名称。</td></tr>
-  <tr><td>binding_collection_prefix</td><td>绑定合集前缀</td><td>字符串</td><td></td><td>要操作的合集的前缀。</td></tr>
+  <tr><td>* binding_collection_name</td><td>绑定集合名</td><td>字符串</td><td></td><td>要操作的集合的名称。</td></tr>
+  <tr><td>binding_collection_prefix</td><td>绑定集合前缀</td><td>字符串</td><td></td><td>要操作的集合的前缀。</td></tr>
   <tr><td>binding_condition</td><td>绑定条件</td><td>字符串：列举</td><td>none</td><td>改变绑定数据的条件。<br>列举的值可以是：<br>none 无<br>once 仅一次<br>always 总是<br>visible 可见时<br>always_when_visible 总是在可见时<br>visibility_changed 可见性改变时</td></tr>
 </tbody></table></div></div>
 <p>当<lc>binding_type</lc>为<lc>view</lc>时，可用的属性：</p>

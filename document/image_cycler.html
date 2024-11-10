@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>选轮</title>
+  <title>图片切换</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -25,26 +25,30 @@
 <body>
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>选轮</h1></div>
-    <div class="left_content"><h2>属性</h2>
-    <div tableID="selectionwheel" class="cnTable"></div>
+    <div class="left_title"><h1>图片切换</h1></div>
+    <div class="left_content">
+    <p>用于通过事件切换一组图片。</p>
+    <h2>属性</h2>
+    <div tableID="image_cycler" class="cnTable"></div>
+    <h2>图片对象</h2>
+    图片以对象的形式组成每一页的图片，对象内使用的属性有：
+    <div tableID="images" class="cnTable"></div>
 </div></div>
   <!--正文-->
 <script>window.tableData={
-"selectionwheel": {
-  "head": [["属性","属性名","值","描述"]],
+"image_cycler": {
+  "head": [["属性","属性名","值","默认值","描述"]],
   "body": [
-    ['button_name', '按钮 ID', '字符串', '按钮映射 ID。'],
-    ['select_button_name', '选择按钮 ID', '字符串：事件名', '选择的按钮映射 ID。'],
-    ['hover_button_name', '悬停按钮 ID', '字符串：事件名', '悬停的按钮映射 ID。'],
-    ['analog_button_name', '模拟按钮 ID', '字符串：事件名', '模拟的按钮映射 ID。'],
-    ['iterate_left_button_name', '向左迭代按钮 ID', '字符串：事件名', '向左迭代的按钮映射 ID。'],
-    ['iterate_right_button_name', '向右迭代按钮 ID', '字符串：事件名', '向右迭代的按钮映射 ID。'],
-    ['slice_count', '按钮切片数量', '整数', '按钮切片数量。'],
-    ['initial_button_slice', '初始按钮数量', '整数', '初始按钮数量。'],
-    ['inner_radius', '内部半径', '浮点数', '内部半径。'],
-    ['outer_radius', '外部半径', '浮点数', '外部半径。'],
-    ['state_controls', '状态控件', '数组', '状态控件数组。属性示例：\n<lc>"state_controls":[{"control_name":"default_state"}]</lc>']
+    ['images', '图片组', '数组[对象：图片]', '[]', '用于存储要切换的图片。<br>详见 <a href="#pid_2">图片对象 ></a>'],
+    ['prev_sub_page_button_name', '上一页按钮事件', '字符串：事件名', 0, '用于切换上一页图片的按钮映射事件。'],
+    ['next_sub_page_button_name', '下一页按钮事件', '字符串：事件名', 0, '用于切换下一页图片的按钮映射事件。'],
+    ['target_cycler_to_compare', '比较目标切换', '字符串：控件名', 0, '用于与目标切换控件同步。']
+  ]
+},
+"images": {
+  "head": [["属性","属性名","值","默认值","描述"]],
+  "body": [
+    ['texture_path', '图片路径', '字符串：路径', 0, '本页的图片路径。']
   ]
 }
 }</script>

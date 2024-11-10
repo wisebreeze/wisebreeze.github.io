@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>选轮</title>
+  <title>网格页指示</title>
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="icon" sizes="100x100" href="../favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -25,26 +25,19 @@
 <body>
   <!--正文-->
   <div id="content">
-    <div class="left_title"><h1>选轮</h1></div>
+    <div class="left_title"><h1>网格页指示</h1></div>
     <div class="left_content"><h2>属性</h2>
-    <div tableID="selectionwheel" class="cnTable"></div>
+    <div tableID="grid_page_indicator" class="cnTable"></div>
 </div></div>
   <!--正文-->
 <script>window.tableData={
-"selectionwheel": {
-  "head": [["属性","属性名","值","描述"]],
+"grid_page_indicator": {
+  "head": [["属性","属性名","值","默认值","描述"]],
   "body": [
-    ['button_name', '按钮 ID', '字符串', '按钮映射 ID。'],
-    ['select_button_name', '选择按钮 ID', '字符串：事件名', '选择的按钮映射 ID。'],
-    ['hover_button_name', '悬停按钮 ID', '字符串：事件名', '悬停的按钮映射 ID。'],
-    ['analog_button_name', '模拟按钮 ID', '字符串：事件名', '模拟的按钮映射 ID。'],
-    ['iterate_left_button_name', '向左迭代按钮 ID', '字符串：事件名', '向左迭代的按钮映射 ID。'],
-    ['iterate_right_button_name', '向右迭代按钮 ID', '字符串：事件名', '向右迭代的按钮映射 ID。'],
-    ['slice_count', '按钮切片数量', '整数', '按钮切片数量。'],
-    ['initial_button_slice', '初始按钮数量', '整数', '初始按钮数量。'],
-    ['inner_radius', '内部半径', '浮点数', '内部半径。'],
-    ['outer_radius', '外部半径', '浮点数', '外部半径。'],
-    ['state_controls', '状态控件', '数组', '状态控件数组。属性示例：\n<lc>"state_controls":[{"control_name":"default_state"}]</lc>']
+    ['grid_item_template', '网格物品模板', '字符串', 0, '网格物品模板。\n属性的值格式为<lc>namespace.controls_name</lc>'],
+    ['cycler_manager_size_control_target', '切换管理目标大小控制', '字符串：控件名', 0, 0],
+    ['panel_when_current_page', '网格项目何时在当前页', '字符串', 0, '可能的值为：\n<lc>panel_when_current_page</lc> 面板在当前页时\n<lc>panel_when_not_current_page</lc> 面板不在当前页时'],
+    ['grid_item_when_not_current', '网格项目何时不在当前页', '字符串', 0, '可能的值为：\n<lc>panel_when_current_page</lc> 面板在当前页时\n<lc>panel_when_not_current_page</lc> 面板不在当前页时']
   ]
 }
 }</script>
