@@ -48,11 +48,11 @@
   "body": [
     ['$desktop_screen', '是否为经典UI档案'],
     ['$pocket_screen', '是否为携带版UI档案'],
-    ['$mouse', '是否使用鼠标＆键盘操作'],
-    ['$touch', '是否使用触屏操作'],
-    ['$game_pad', '是否使用游戏手柄操作'],
-    ['$is_pregame', '是否处于准备游戏状态（未进入世界时）'],
-    ['$is_on_3p_server', '是否处于第三方服务器']
+    ['$mouse', '是否为鼠标＆键盘操作'],
+    ['$touch', '是否为触屏操作'],
+    ['$game_pad', '是否为游戏手柄操作'],
+    ['$is_pregame', '是否处于准备游戏状态 (未进入世界时)'],
+    ['$is_on_3p_server', '是否处于第三方服务器世界']
   ]
 },
 "system": {
@@ -80,15 +80,17 @@
   "head": [["变量","描述"]],
   "body": [
     ['$is_publish', '是否为已发布的版本（除开发版以外的版本）'],
-    ['$is_netease', '是否为我的世界中国版 [仅我的世界中国版可用]'],
+    ['$is_netease', '是否为我的世界中国版 (仅我的世界中国版可用)'],
     ['$trial', '是否为试用版'],
     ['$education_edition', '是否为教育版'],
-    ['$education_edition_china', '是否为中国教育版'],
+    ['$education_edition_china', '是否为教育中国版'],
     ['$is_desktop', '是否为桌面版'],
     ['$pocket_edition', '是否为携带版'],
-    ['$build_platform_UWP', '是否为 UWP 版本'],
+    ['$build_platform_UWP', '是否为通用 Windows 平台版本'],
     ['$osx_edition', '是否为 osx 版本'],
-    ['$console_edition', '是否为控制台版本'],
+    ['$is_holographic', '是否为 VR 版本'],
+    ['$is_reality_mode', '是否为虚拟现实版本'],
+    ['$console_edition', '是否为主机端版本'],
     ['$pre_release', '是否为预发布版本']
   ]
 },
@@ -114,16 +116,16 @@
     ['$ignore_add_servers', '添加服务器是否忽略'],
     ['$supports_add_friend', '是否支持添加好友'],
     ['$can_splitscreen', '是否支持分屏'],
-    ['$test_infrastructure_disabled', '测试基础设施是否禁用']
+    ['$test_infrastructure_disabled', '测试基础结构是否禁用']
   ]
 },
 "safezone": {
   "head": [["变量","描述"]],
   "body": [
-    ['$top_vertical_safezone_size', '顶部安全角大小'],
-    ['$bottom_vertical_safezone_size', '底部安全角大小'],
-    ['$left_horizontal_safezone_size', '左侧安全角大小'],
-    ['$right_horizontal_safezone_size', '右侧安全角大小']
+    ['$top_vertical_safezone_size', '顶部垂直安全角大小'],
+    ['$bottom_vertical_safezone_size', '底部垂直安全角大小'],
+    ['$left_horizontal_safezone_size', '左侧水平安全角大小'],
+    ['$right_horizontal_safezone_size', '右侧水平安全角大小']
   ]
 },
 "other": {
@@ -131,9 +133,7 @@
   "body": [
     ['$requires_xbl_signin_to_play', '是否需要 Xbox live 登录去玩'],
     ['$is_low_memory_device', '是否为低内存设备'],
-    ['$is_holographic', '是否为全息的'],
     ['$is_living_room_mode', '是否为客厅模式'],
-    ['$is_reality_mode', '是否为现实模式'],
     ['$is_secondary_client', '是否为辅助客户端'],
     ['$is_settopbox', '是否为机顶盒'],
     ['$is_console', '是否为控制台'],
